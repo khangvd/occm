@@ -1,0 +1,1556 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
+  <head>
+  <title>Planning your ONTAP Cloud configuration | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content=" license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, tiering, performance tier, capacity tier, s3, premium storage, standard storage, thin provisioning, deduplication, compression">
+
+  <!-- Icons -->
+  <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
+  <!-- <link rel="icon" href="http://media.netapp.com/designimages/favicon.ico" type="image/x-icon"> -->
+
+  <!-- CSS - 403 Forbidden
+  <link rel="stylesheet" href="//cloud.typography.com/6091132/651206/css/fonts.css"> -->
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/bower_components/eightshapes-blocks/dist/esb.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/netapp-library/css/netapp-library.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc-components.css">
+
+  <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/occm/en/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/occm/en/css/customstyles.css">
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/occm/en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/occm/en/css/netapp.css' type='text/css'>
+
+  <!-- Controls the Sidebar layout -->
+  <link rel="stylesheet" href="/occm/en/css/na-sidebar.css">
+
+  <!-- Controls the custom layout of the site -->
+  <link rel='stylesheet' href='/occm/en/css/clouddocs.css' type='text/css'>
+  <script src='/occm/en/js/clouddocs.js'></script>
+
+  <!-- <script src="/occm/en/common/js/jquery.min.js"></script>
+  <script src="/occm/en/js/jquery.cookie.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="/occm/en/js/jquery.navgoco.min.js"></script>
+  <!-- <script src="/occm/en/js/bootstrap.min.js"></script>
+  <script src="/occm/en/js/anchor.min.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+  <script src="/occm/en/js/toc.js"></script>
+  <script src="/occm/en/js/customscripts.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var supportedLangs = [];
+    
+      supportedLangs.push("zz");
+    
+      supportedLangs.push("en");
+    
+
+    var langs = navigator.languages;
+    var loc = window.location.href;
+    var breakFlag = false;
+
+    for (var a = 0; a < supportedLangs.length; a++) {
+      if(loc.includes("/"+supportedLangs[a]+"/")) {
+        breakFlag = true;
+        break;
+      }
+    }
+
+    if (breakFlag === false) {
+      for (var s = 0; s < langs.length; s++) {
+
+        if (supportedLangs.indexOf(langs[s]) == -1) {
+          continue;
+        }
+
+        window.location = langs[s]+'/';
+
+        breakFlag = true;
+        break;
+      }
+
+      if (breakFlag === false) {
+        window.location = 'en/';
+      }
+    }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="http://clouddocs.netapp.com" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/occm/en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="http://localhost/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      <!-- NetApp Search Bar -->
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <input type="text" id="search-input" class="n-search-form__input" placeholder="Search Documentation">
+        <ul id="results-container"></ul>
+        <script src="/occm/en/js/jekyll-search.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/occm/en/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/occm/en/common/svg/sprite.svg#globe"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- End NetApp Search Bar -->
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/en" class="n-menu__header-text">English</a href="/occm/en">
+                </li>
+                
+                  <li class="n-menu__list-item n-menu__list-item--level-1">
+                    <a target="_blank" href="http://docs.netapp.com/occm/topic/com.netapp.nav.occm-330/home.html?lang=ja" class="n-menu__header-text">日本語</a>
+                  </li>
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: en
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+          <div class="n-row">
+            <div class="n-doc n-doc__component-list">
+              <!-- Sidebar Column -->
+              
+              <div class="col-md-3" >
+                  
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Getting started in AWS</a></li>
+  
+
+  
+    <li><a href="task_getting_started_azure.html">Getting started in Azure</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Detailed networking requirements</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_networking_aws.html">AWS networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Azure networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_storage.html">Storage</a></li>
+  
+
+  
+    <li><a href="concept_ha.html">High-availability pairs</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploying ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Logging in to Cloud Manager</a></li>
+  
+
+  
+    <li class="active"><a href="task_planning_your_config.html">Planning your configuration</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="task_provisioning_storage.html">Provisioning storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_managing_storage.html">Managing storage</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing data across a hybrid cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discovering and managing ONTAP clusters</a></li>
+  
+
+  
+    <li><a href="task_replicating_data.html">Replicating data to and from the cloud</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provisioning NFS volumes</a>
+      <ul>
+        
+
+  
+    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
+  
+
+  
+    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
+  
+
+  
+    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administering Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+  
+
+  
+    <li><a href="task_editing_users.html">Editing user accounts</a></li>
+  
+
+  
+    <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renewing the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstalling Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
+  
+
+  
+    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="reference_apis.html">REST APIs</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+              </div>
+              
+
+              <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+
+              <!-- Begin of page container -->
+              <div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Planning your ONTAP Cloud configuration
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_planning_your_config.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+      
+    </span>
+  </h1>
+</div>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>When you deploy ONTAP Cloud systems, you can choose a preconfigured system that matches your workload requirements, or you can create your own configuration. If you choose your own configuration, you should understand the options available to you.</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#choosing-a-license-type">Choosing a license type</a></li>
+<li><a href="#choosing-an-aws-disk-type">Choosing an AWS disk type</a></li>
+<li><a href="#choosing-an-azure-disk-type">Choosing an Azure disk type</a></li>
+<li><a href="#choosing-a-disk-size">Choosing a disk size</a></li>
+<li><a href="#choosing-a-write-speed">Choosing a write speed</a></li>
+<li><a href="#choosing-a-volume-usage-profile">Choosing a volume usage profile</a></li>
+<li><a href="#aws-network-information-worksheet">AWS network information worksheet</a></li>
+<li><a href="#azure-network-information-worksheet">Azure network information worksheet</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="choosing-a-license-type">Choosing a license type</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP Cloud is available in AWS and Azure in two pricing options: pay-as-you-go and Bring Your Own License (BYOL). For pay-as-you-go, you can choose from three configurations: Explore, Standard, or Premium.</p>
+</div>
+<div class="sect2">
+<h3 id="ontap-cloud-for-aws">ONTAP Cloud for AWS</h3>
+<div class="paragraph">
+<p>In AWS, you can deploy ONTAP Cloud as a single system or an HA pair.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Explore</th>
+<th class="tableblock halign-left valign-top">Standard</th>
+<th class="tableblock halign-left valign-top">Premium</th>
+<th class="tableblock halign-left valign-top">BYOL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance types for single node systems</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>m3.xlarge</p>
+</li>
+<li>
+<p>m4.xlarge</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>c4.2xlarge</p>
+</li>
+<li>
+<p>m3.2xlarge</p>
+</li>
+<li>
+<p>m4.2xlarge</p>
+</li>
+<li>
+<p>r3.xlarge</p>
+</li>
+<li>
+<p>r4.xlarge</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>c4.4xlarge</p>
+</li>
+<li>
+<p>c4.8xlarge</p>
+</li>
+<li>
+<p>m4.4xlarge</p>
+</li>
+<li>
+<p>r3.2xlarge</p>
+</li>
+<li>
+<p>r4.2xlarge</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>c4.2xlarge</p>
+</li>
+<li>
+<p>c4.4xlarge</p>
+</li>
+<li>
+<p>c4.8xlarge</p>
+</li>
+<li>
+<p>m3.xlarge</p>
+</li>
+<li>
+<p>m3.2xlarge</p>
+</li>
+<li>
+<p>m4.xlarge</p>
+</li>
+<li>
+<p>m4.2xlarge</p>
+</li>
+<li>
+<p>m4.4xlarge</p>
+</li>
+<li>
+<p>r3.xlarge</p>
+</li>
+<li>
+<p>r3.2xlarge</p>
+</li>
+<li>
+<p>r4.xlarge</p>
+</li>
+<li>
+<p>r4.2xlarge</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance types for HA pairs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>c4.2xlarge</p>
+</li>
+<li>
+<p>m4.2xlarge</p>
+</li>
+<li>
+<p>r3.xlarge</p>
+</li>
+<li>
+<p>r4.xlarge</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>c4.4xlarge</p>
+</li>
+<li>
+<p>c4.8xlarge</p>
+</li>
+<li>
+<p>m4.4xlarge</p>
+</li>
+<li>
+<p>r3.2xlarge</p>
+</li>
+<li>
+<p>r4.2xlarge</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>c4.2xlarge</p>
+</li>
+<li>
+<p>c4.4xlarge</p>
+</li>
+<li>
+<p>c4.8xlarge</p>
+</li>
+<li>
+<p>m4.xlarge</p>
+</li>
+<li>
+<p>m4.2xlarge</p>
+</li>
+<li>
+<p>m4.4xlarge</p>
+</li>
+<li>
+<p>r3.xlarge</p>
+</li>
+<li>
+<p>r3.2xlarge</p>
+</li>
+<li>
+<p>r4.xlarge</p>
+</li>
+<li>
+<p>r4.2xlarge</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EBS raw capacity limit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 TB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 TB</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="ulist">
+<ul>
+<li>
+<p>368 TB for single node systems</p>
+</li>
+<li>
+<p>360 TB per node in an HA pair</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Term</p></td>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Hourly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 or 12 months</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pay-as-you-go configurations are not supported in GovCloud (US).</p>
+</li>
+<li>
+<p>ONTAP Cloud encryption is not supported with M3 instances.</p>
+</li>
+<li>
+<p>When you choose an EC2 instance type, you can specify whether it is a shared instance or a dedicated instance.</p>
+</li>
+<li>
+<p>Enhanced write performance is supported when using EBS SSDs with ONTAP Cloud Standard, Premium, and BYOL, except when using M3 and R3 instance types with Standard and Premium.</p>
+</li>
+<li>
+<p>Tiered storage configurations are supported with ONTAP Cloud Standard, Premium, and BYOL, except when using M3 and R3 instance types when using Standard and Premium.</p>
+</li>
+<li>
+<p>For AWS region support, see the <a href="http://mysupport.netapp.com/matrix" target="_blank" rel="noopener">NetApp Interoperability Matrix Tool</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ontap-cloud-for-azure">ONTAP Cloud for Azure</h3>
+<div class="paragraph">
+<p>In Azure, you can deploy ONTAP Cloud as a single node system.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Explore</th>
+<th class="tableblock halign-left valign-top">Standard</th>
+<th class="tableblock halign-left valign-top">Premium</th>
+<th class="tableblock halign-left valign-top">BYOL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual machine types</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DS3_v2</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>DS4_v2</p>
+</li>
+<li>
+<p>DS13_v2</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>DS5_v2</p>
+</li>
+<li>
+<p>DS14_v2</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>DS3_v2</p>
+</li>
+<li>
+<p>DS4_v2</p>
+</li>
+<li>
+<p>DS5_v2</p>
+</li>
+<li>
+<p>DS13_v2</p>
+</li>
+<li>
+<p>DS14_v2</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Raw capacity limit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 TB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 TB</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">248 TB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Term</p></td>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Hourly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 months</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The actual maximum capacity may be less because of virtual machine limits: 56 TB for DS3, 120 TB for DS4 and DS13, and 248 TB for DS5 and DS14.</p>
+</li>
+<li>
+<p>For Azure region support, see the <a href="http://mysupport.netapp.com/matrix" target="_blank" rel="noopener">NetApp Interoperability Matrix Tool</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="choosing-an-aws-disk-type">Choosing an AWS disk type</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you create volumes for ONTAP Cloud systems, you need to choose the underlying EBS volume type (which ONTAP Cloud sees as a <em>disk</em>). You should choose the configuration that meets your requirements for performance and cost.</p>
+</div>
+<div class="paragraph">
+<p>The underlying AWS disk type for ONTAP Cloud can be a single EBS disk type or tiered storage.</p>
+</div>
+<div class="sect2">
+<h3 id="supported-ebs-disk-types">Supported EBS disk types</h3>
+<div class="paragraph">
+<p>At a high level, the differences between EBS disk types are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>General Purpose SSD disks balance cost and performance for a broad range of workloads. Performance is defined in terms of IOPS.</p>
+</li>
+<li>
+<p>Provisioned IOPS SSD disks are for critical applications that require the highest performance at a higher cost.</p>
+</li>
+<li>
+<p>Throughput Optimized HDD disks are for frequently accessed workloads that require fast and consistent throughput at a lower price.</p>
+</li>
+<li>
+<p>Cold HDD disks are meant for backups, or infrequently accessed data, because the performance is very low. Like Throughput Optimized HDD disks, performance is defined in terms of throughput.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cold HDD disks are not supported with ONTAP Cloud HA configurations.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For additional details about use cases, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: EBS Volume Types</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="storage-tiering-overview">Storage tiering overview</h3>
+<div class="paragraph">
+<p>You can reduce your storage costs by using EBS as a performance tier and AWS S3 as a capacity tier:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_storage_tiering.png" alt="This is a conceptual image that shows hot data going to EBS storage and cold data going to S3 storage."></span></p>
+</div>
+<div class="paragraph">
+<p>A tiered storage configuration is a good choice if your data changes frequently or if you use ONTAP Cloud for disaster recovery or long-term retention:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>After an aggregate has reached 50% capacity, ONTAP Cloud tiers Snapshot copies of read-write volumes to cost-effective S3 storage, freeing up the EBS performance tier for "hot" data.</p>
+</li>
+<li>
+<p>When you replicate a volume to a tiered storage configuration for disaster recovery or long-term retention, data for the destination volume resides in the S3 capacity tier.</p>
+<div class="paragraph">
+<p>If you activate the destination volume, the data gradually moves to the EBS performance tier as it is read.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note the following about the EBS and S3 tiers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An ONTAP Cloud system&#8217;s capacity limit is spread across EBS and S3 storage.</p>
+</li>
+<li>
+<p>The EBS tier can be General Purpose SSDs or Throughput Optimized HDDs.</p>
+</li>
+<li>
+<p>An ONTAP Cloud working environment uses a single S3 bucket for tiered storage. This includes an HA working environment.</p>
+</li>
+<li>
+<p>Cloud Manager creates the S3 bucket and names it fabric-pool-cluster unique identifier.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You do not need to install a feature license to enable storage tiering.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="connection-requirement-for-storage-tiering">Connection requirement for storage tiering</h3>
+<div class="paragraph">
+<p>Before you choose a tiered storage configuration, you must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service.</p>
+</div>
+<div class="paragraph">
+<p>When you create the VPC Endpoint, be sure to select the region, VPC, and VPC route table that corresponds to the ONTAP Cloud instance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configurations-supported-with-storage-tiering">Configurations supported with storage tiering</h3>
+<div class="paragraph">
+<p>Storage tiering is supported with specific configurations and features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Storage tiering is supported with ONTAP Cloud Standard, Premium, and BYOL.</p>
+<div class="paragraph">
+<p>It is not supported with ONTAP Cloud Explore or with M3 and R3 instance types when using Standard and Premium.</p>
+</div>
+</li>
+<li>
+<p>Storage tiering is supported with AWS-managed encryption.</p>
+<div class="paragraph">
+<p>It is not supported with ONTAP Cloud-managed encryption.</p>
+</div>
+</li>
+<li>
+<p>Thin provisioning must be enabled on volumes that use a tiered storage configuration.</p>
+</li>
+<li>
+<p>ONTAP performance enhancements introduced in ONTAP Cloud 9.2 are not supported with tiered storage configurations.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="choosing-an-azure-disk-type">Choosing an Azure disk type</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you create volumes for ONTAP Cloud systems, you need to choose the underlying Azure disk type. Each disk type is designed for different workloads. You should choose the disk that meets your requirements for both performance and cost.</p>
+</div>
+<div class="paragraph">
+<p>The underlying disk type for Azure can be Premium Storage or Standard Storage:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Premium Storage disks store data on solid state drives (SSDs). The SSD disks provide high performance for I/O-intensive workloads at a higher cost.</p>
+</li>
+<li>
+<p>If you do not need high IOPS, you can limit your costs by using Standard Storage disks which are backed by hard disk drives (HDD).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For additional details about the use cases for these disks, see <a href="https://azure.microsoft.com/documentation/articles/storage-introduction/" target="_blank" rel="noopener">Microsoft Azure Documentation: Introduction to Microsoft Azure Storage</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="choosing-a-disk-size">Choosing a disk size</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can choose from several disk sizes when you launch ONTAP Cloud systems and when you use the advanced allocation option. You should consider the disk size carefully because it impacts cost, performance, and total volume and system capacity.</p>
+</div>
+<div class="paragraph">
+<p>When you launch ONTAP Cloud instances, you must choose the default disk size for aggregates. Cloud Manager uses this disk size for the initial aggregate, and for any additional aggregates that it creates when you use the simple provisioning option. You can create aggregates that use a disk size different from the default by using the advanced allocation option.</p>
+</div>
+<div class="paragraph">
+<p>When choosing disk size, you should take several factors into consideration. The disk size impacts how much you pay for storage, the size of volumes that you can create in an aggregate, the total capacity available to an ONTAP Cloud system, and storage performance.</p>
+</div>
+<div class="paragraph">
+<p>Different disk sizes are available for each disk type. Note that all disks in an aggregate must be the same size.</p>
+</div>
+<div class="sect2">
+<h3 id="how-disk-size-relates-to-performance-in-aws">How disk size relates to performance in AWS</h3>
+<div class="paragraph">
+<p>The performance of EBS disks is tied to disk size. The size determines the baseline IOPS and maximum burst duration for SSD disks and the baseline and burst throughput for HDD disks.</p>
+</div>
+<div class="paragraph">
+<p>Larger disks have a higher baseline and burst performance, so you should always consider performance along with cost. Ultimately, you should choose the disk size that gives you the sustained performance that you need.</p>
+</div>
+<div class="paragraph">
+<p>For example, when using General Purpose SSD disks, you might choose the following disk sizes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>100 GB because you want to start out with something small or because you have low performance requirements</p>
+</li>
+<li>
+<p>500 GB because you want to get the best price to performance ratio</p>
+</li>
+<li>
+<p>4 TB because you need very high sustained IOPS performance</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Even if you do choose larger disks (for example, six 4 TB disks), you might not get all of the IOPS because the EC2 instance (for example, r3.2xlarge) can reach its bandwidth limit.</p>
+</div>
+<div class="paragraph">
+<p>For more details about the relationship between size and performance, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: EBS Volume Types</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="how-disk-size-relates-to-performance-in-azure">How disk size relates to performance in Azure</h3>
+<div class="paragraph">
+<p>The performance of Azure Premium Storage is tied to the disk size. Larger disks provide higher IOPS and throughput. For example, choosing 1 TB disks can provide better performance than 500 GB disks, at a higher cost. When sizing for performance, you should also be aware of performance limits tied to Azure virtual machine types.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://azure.microsoft.com/documentation/articles/storage-premium-storage/" target="_blank" rel="noopener">Microsoft Azure Documentation: Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/" target="_blank" rel="noopener">Microsoft Azure Documentation: Sizes for virtual machines in Azure</a></p>
+</div>
+<div class="paragraph">
+<p>There are no performance differences between disk sizes for Standard Storage. You should choose disk size based on the capacity that you need.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="choosing-a-write-speed">Choosing a write speed</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager enables you to choose a write speed setting for single node ONTAP Cloud systems. Before you choose a write speed, you should understand the differences between the normal and high settings and risks and recommendations when using high write speed.</p>
+</div>
+<div class="sect2">
+<h3 id="difference-between-normal-write-speed-and-high-write-speed">Difference between normal write speed and high write speed</h3>
+<div class="paragraph">
+<p>When you choose normal write speed, data is written directly to disk, thereby reducing the likelihood of data loss in the event of an unplanned system outage.</p>
+</div>
+<div class="paragraph">
+<p>When you choose high write speed, data is buffered in memory before it is written to disk, which provides faster write performance. Due to this caching, there is the potential for data loss if an unplanned system outage occurs.</p>
+</div>
+<div class="paragraph">
+<p>The amount of data that can be lost in the event of an unplanned system outage is the span of the last two consistency points. A consistency point is the act of writing buffered data to disk. A consistency point occurs when the write log is full or after 10 seconds (whichever comes first). However, AWS EBS volume performance can affect consistency point processing time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="when-to-use-high-write-speed">When to use high write speed</h3>
+<div class="paragraph">
+<p>High write speed is a good choice if fast write performance is required for your workload and you can withstand the risk of data loss in the event of an unplanned system outage.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="recommendations-when-using-high-write-speed">Recommendations when using high write speed</h3>
+<div class="paragraph">
+<p>If you enable high write speed, you should ensure write protection at the application layer.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="choosing-a-volume-usage-profile">Choosing a volume usage profile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP includes several storage efficiency features that can reduce the total amount of storage that you need. When you create a volume in Cloud Manager, you can choose a profile that enables these features or a profile that disables them. You should learn more about these features to help you decide which profile to use.</p>
+</div>
+<div class="paragraph">
+<p>NetApp storage efficiency features provide the following benefits:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Thin provisioning</dt>
+<dd>
+<p>Presents more logical storage to hosts or users than you actually have in your physical storage pool. Instead of preallocating storage space, storage space is allocated dynamically to each volume as data is written.</p>
+</dd>
+<dt class="hdlist1">Deduplication</dt>
+<dd>
+<p>Improves efficiency by locating identical blocks of data and replacing them with references to a single shared block. This technique reduces storage capacity requirements by eliminating redundant blocks of data that reside in the same volume.</p>
+</dd>
+<dt class="hdlist1">Compression</dt>
+<dd>
+<p>Reduces the physical capacity required to store data by compressing data within a volume on primary, secondary, and archive storage.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="aws-network-information-worksheet">AWS network information worksheet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you launch ONTAP Cloud in AWS, you need to specify details about your VPC network. You can use a worksheet to collect the information from your administrator.</p>
+</div>
+<div class="sect2">
+<h3 id="network-information-for-ontap-cloud">Network information for ONTAP Cloud</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">AWS information</th>
+<th class="tableblock halign-left valign-top">Your value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security group (if using your own)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="network-information-for-an-ontap-cloud-ha-pair-in-multiple-azs">Network information for an ONTAP Cloud HA pair in multiple AZs</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">AWS information</th>
+<th class="tableblock halign-left valign-top">Your value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security group (if using your own)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node 1 availability zone</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node 1 subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node 2 availability zone</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node 2 subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mediator availability zone</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mediator subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key pair for the mediator</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for cluster management port</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for data on node 1</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for data on node 2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Route tables for floating IP addresses</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="azure-network-information-worksheet">Azure network information worksheet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you deploy ONTAP Cloud in Azure, you need to specify details about your virtual network. You can use a worksheet to collect the information from your administrator.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">AWS information</th>
+<th class="tableblock halign-left valign-top">Your value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual network (VNet)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Network security group (if using your own)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+              <!-- Page Container -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <!-- <div class="n-footer__top" style="padding-top: 29px;">
+          <div class="n-container">
+            <ul class="n-footer__corp-link-list">
+              <li class="n-footer__corp-link-list-header">Resources</li>
+              <li class="n-footer__corp-link-list-item"><a href="http://www.netapp.com//us/legal/netapptmlist.aspx" class="n-footer__corp-link">Trademarks</a></li>
+              <li class="n-footer__corp-link-list-item"><a href="/occm/en/sitemap.xml" class="n-footer__corp-link">Site Map</a></li>
+            </ul>
+          </div>
+        </div> -->
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 1994-2018 NetApp, Inc. All rights reserved.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/netapptmlist.aspx" class="n-footer__copyright-link">Trademarks</a>
+              </div>
+              <div class="n-footer__social-links">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+                <p class="n-footer__fine-print">
+                    Have feedback for our website?
+                    <a target="_self" href="javascript:netapp_mailto()">Let us know</a>
+                </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/occm/en/common/js/components.js"></script>
+    <script src="/occm/en/common/js/doc-components.js"></script>
+
+    <!-- i18n script -->
+    <script src="/occm/js/responsive.js " type="text/javascript"></script>
+  </body>
+</html>

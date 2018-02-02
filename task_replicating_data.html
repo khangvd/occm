@@ -1,0 +1,1201 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
+  <head>
+  <title>Replicating data to and from the cloud | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content=" ontap, cluster, discover, manage, cloud manager, hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, schedule, relationship, break, resync">
+
+  <!-- Icons -->
+  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
+  <!-- <link rel="icon" href="http://media.netapp.com/designimages/favicon.ico" type="image/x-icon"> -->
+
+  <!-- CSS - 403 Forbidden
+  <link rel="stylesheet" href="//cloud.typography.com/6091132/651206/css/fonts.css"> -->
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/bower_components/eightshapes-blocks/dist/esb.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/netapp-library/css/netapp-library.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc-components.css">
+
+  <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/occm/css/customstyles.css">
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
+
+  <!-- Controls the Sidebar layout -->
+  <link rel="stylesheet" href="/occm/css/na-sidebar.css">
+
+  <!-- Controls the custom layout of the site -->
+  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
+  <script src='/occm/js/clouddocs.js'></script>
+
+  <!-- <script src="/occm/common/js/jquery.min.js"></script>
+  <script src="/occm/js/jquery.cookie.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="/occm/js/jquery.navgoco.min.js"></script>
+  <!-- <script src="/occm/js/bootstrap.min.js"></script>
+  <script src="/occm/js/anchor.min.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+  <script src="/occm/js/toc.js"></script>
+  <script src="/occm/js/customscripts.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var supportedLangs = [];
+    
+      supportedLangs.push("zz");
+    
+      supportedLangs.push("en");
+    
+
+    var langs = navigator.languages;
+    var loc = window.location.href;
+    var breakFlag = false;
+
+    for (var a = 0; a < supportedLangs.length; a++) {
+      if(loc.includes("/"+supportedLangs[a]+"/")) {
+        breakFlag = true;
+        break;
+      }
+    }
+
+    if (breakFlag === false) {
+      for (var s = 0; s < langs.length; s++) {
+
+        if (supportedLangs.indexOf(langs[s]) == -1) {
+          continue;
+        }
+
+        window.location = langs[s]+'/';
+
+        breakFlag = true;
+        break;
+      }
+
+      if (breakFlag === false) {
+        window.location = 'en/';
+      }
+    }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="http://clouddocs.netapp.com" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="http://localhost/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      <!-- NetApp Search Bar -->
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <input type="text" id="search-input" class="n-search-form__input" placeholder="Search Documentation">
+        <ul id="results-container"></ul>
+        <script src="/occm/js/jekyll-search.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/occm/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- End NetApp Search Bar -->
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/en" class="n-menu__header-text">English</a href="/occm/en">
+                </li>
+                
+                  <li class="n-menu__list-item n-menu__list-item--level-1">
+                    <a target="_blank" href="http://docs.netapp.com/occm/topic/com.netapp.nav.occm-330/home.html?lang=ja" class="n-menu__header-text">日本語</a>
+                  </li>
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: zz
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+          <div class="n-row">
+            <div class="n-doc n-doc__component-list">
+              <!-- Sidebar Column -->
+              
+              <div class="col-md-3" >
+                  
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Getting started in AWS</a></li>
+  
+
+  
+    <li><a href="task_getting_started_azure.html">Getting started in Azure</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Detailed networking requirements</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_networking_aws.html">AWS networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Azure networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_storage.html">Storage</a></li>
+  
+
+  
+    <li><a href="concept_ha.html">High-availability pairs</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploying ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Logging in to Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_planning_your_config.html">Planning your configuration</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="task_provisioning_storage.html">Provisioning storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_managing_storage.html">Managing storage</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing data across a hybrid cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discovering and managing ONTAP clusters</a></li>
+  
+
+  
+    <li class="active"><a href="task_replicating_data.html">Replicating data to and from the cloud</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provisioning NFS volumes</a>
+      <ul>
+        
+
+  
+    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
+  
+
+  
+    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
+  
+
+  
+    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administering Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+  
+
+  
+    <li><a href="task_editing_users.html">Editing user accounts</a></li>
+  
+
+  
+    <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renewing the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstalling Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
+  
+
+  
+    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="reference_apis.html">REST APIs</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+              </div>
+              
+
+              <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+
+              <!-- Begin of page container -->
+              <div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Replicating data to and from the cloud
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_replicating_data.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+      
+    </span>
+  </h1>
+</div>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>You can replicate data between working environments. You can choose a one-time data replication to move data to and from the cloud, or a recurring schedule for disaster recovery or long-term retention.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager simplifies data replication between volumes on separate systems. You simply need to identify the source volume and the destination volume, and then choose a replication policy and schedule. Cloud Manager purchases the required disks, configures relationships, applies the replication policy, and then initiates the baseline transfer between volumes.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The baseline transfer includes a full copy of the source data. Subsequent transfers contain differential copies of the source data.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_replication_summary.gif" alt="Shows a source system and volume and the destination system and volume to which the data will be replicated."></span></p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#choosing-a-replication-policy">Choosing a replication policy</a></li>
+<li><a href="#data-replication-requirements">Data replication requirements</a></li>
+<li><a href="#replicating-data-between-systems">Replicating data between systems</a></li>
+<li><a href="#managing-data-replication-schedules-and-relationships">Managing data replication schedules and relationships</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="choosing-a-replication-policy">Choosing a replication policy</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A replication policy defines how the storage system replicates data from a source volume to a destination volume. You must choose a replication policy when you set up data replication in Cloud Manager.</p>
+</div>
+<div class="sect2">
+<h3 id="what-replication-policies-do">What replication policies do</h3>
+<div class="paragraph">
+<p>The ONTAP operating system automatically creates backups called Snapshot copies. A Snapshot copy is a read-only image of a volume that captures the state of the file system at a point in time.</p>
+</div>
+<div class="paragraph">
+<p>When you replicate data between systems, you replicate Snapshot copies from a source volume to a destination volume. A replication policy specifies which Snapshot copies to replicate from the source volume to the destination volume.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Replication policies are also referred to as protection policies because they are part of SnapMirror and SnapVault technologies that provide disaster recovery protection and disk-to-disk backup and recovery.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following image shows the relationship between Snapshot copies and replication policies:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_replication_policies.png" alt="This illustration shows Snapshot copies on a source volume and a replication policy that specifies replication of all or specific Snapshot copies from the source volume to the destination volume."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="types-of-replication-policies">Types of replication policies</h3>
+<div class="paragraph">
+<p>There are three types of replication policies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <em>SnapMirror policy</em> replicates newly created Snapshot copies to a destination volume.</p>
+<div class="paragraph">
+<p>You can use these Snapshot copies to protect the source volume in preparation for disaster recovery or for one-time data replication. You can activate the destination volume for data access at any time.</p>
+</div>
+</li>
+<li>
+<p>A <em>SnapVault policy</em> replicates specific Snapshot copies to a destination volume and typically retains them for a longer period of time than you would on the source volume.</p>
+<div class="paragraph">
+<p>You can restore data from these Snapshot copies when data is corrupted or lost, and retain them for standards compliance and other governance-related purposes.</p>
+</div>
+</li>
+<li>
+<p>A <em>SnapMirror and SnapVault policy</em> provides both disaster recovery and long-term retention.</p>
+<div class="paragraph">
+<p>Each system includes default SnapMirror and SnapVault policies, which work well for many situations. If you find that you need custom policies, you can create your own using System Manager.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following images show the difference between SnapMirror and SnapVault. A SnapMirror policy mirrors the Snapshot copies available on the source volume.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_replication_snapmirror.png" alt="This illustration shows Snapshot copies on a source volume and a SnapMirror destination volume that mirrors the source volume.^"></span></p>
+</div>
+<div class="paragraph">
+<p>A SnapVault policy typically retains Snapshot copies longer than they are retained on the source volume:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_replication_snapvault.png" alt="This illustration shows Snapshot copies on a source volume and a SnapVault destination volume that includes more Snapshot copies because SnapVault retains Snapshot copies for long-term retention.^"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="how-snapvault-policies-work">How SnapVault policies work</h3>
+<div class="paragraph">
+<p>Unlike SnapMirror, SnapVault replicates specific Snapshot copies to a destination volume, as defined by a SnapVault policy. It is important to understand how SnapVault policies work if you want to use your own policies instead of the default policies.</p>
+</div>
+<div class="sect3">
+<h4 id="understanding-the-relationship-between-snapshot-copy-labels-and-snapvault-policies">Understanding the relationship between Snapshot copy labels and SnapVault policies</h4>
+<div class="paragraph">
+<p>A Snapshot policy defines how the system creates Snapshot copies of volumes. The policy specifies when to create the Snapshot copies, how many copies to retain, and how to label them. For example, a system might create one Snapshot copy every day at 12:10 a.m., retain the two most recent copies, and label them "daily".</p>
+</div>
+<div class="paragraph">
+<p>A SnapVault policy includes rules that specify which labeled Snapshot copies to replicate to a destination volume and how many copies to retain. The labels defined in a SnapVault policy must match one or more labels defined in a Snapshot policy. Otherwise, the system cannot replicate any Snapshot copies.</p>
+</div>
+<div class="paragraph">
+<p>For example, a SnapVault policy that includes the labels "daily" and "weekly" results in replication of Snapshot copies that include only those labels. No other Snapshot copies are replicated, as shown in the following image:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_replication_snapvault_policy.png" alt="This illustration shows a Snapshot policy" width="a source volume" height="the Snapshot copies created from the Snapshot policy"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="default-policies-and-custom-policies">Default policies and custom policies</h4>
+<div class="paragraph">
+<p>The default Snapshot policy creates hourly, daily, and weekly Snapshot copies, retaining six hourly, two daily, and two weekly Snapshot copies.</p>
+</div>
+<div class="paragraph">
+<p>You can easily use a default SnapVault policy with the default Snapshot policy. The default SnapVault policies replicate daily and weekly Snapshot copies, retaining seven daily and 52 weekly Snapshot copies.</p>
+</div>
+<div class="paragraph">
+<p>If you create custom policies, the labels defined by those policies must match. You can create custom policies using System Manager.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="data-replication-requirements">Data replication requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before you can replicate data, you should confirm that specific requirements are met for both ONTAP Cloud systems and ONTAP clusters.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Version requirements</dt>
+<dd>
+<p>You should verify that the source and destination volumes are running compatible ONTAP versions before replicating data. For details, see the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html" target="_blank" rel="noopener">Data Protection Power Guide</a>.</p>
+</dd>
+<dt class="hdlist1">Requirements specific to ONTAP Cloud</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>The instance&#8217;s security group must include the required inbound and outbound rules: specifically, rules for ICMP and ports 10000, 11104, and 11105.</p>
+<div class="paragraph">
+<p>These rules are included in the predefined security group.</p>
+</div>
+</li>
+<li>
+<p>To replicate data between two ONTAP Cloud systems in different subnets, the subnets must be routed together (this is the default setting).</p>
+</li>
+<li>
+<p>To replicate data between an ONTAP Cloud system in AWS and a system in Azure, you must have a VPN connection between the AWS VPC and the Azure VNet.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Requirements specific to ONTAP clusters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>An active SnapMirror license must be installed.</p>
+</li>
+<li>
+<p>If the cluster is on your premises, you should have a connection from your corporate network to AWS or Azure, which is typically a VPN connection.</p>
+</li>
+<li>
+<p>ONTAP clusters must meet additional subnet, port, firewall, and cluster requirements.</p>
+<div class="paragraph">
+<p>For details, see the Cluster and SVM Peering Express Guide for your version of ONTAP.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="replicating-data-between-systems">Replicating data between systems</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can replicate data between ONTAP Cloud systems and ONTAP clusters by choosing a one-time data replication, which can help you move data to and from the cloud, or a recurring schedule, which can help with disaster recovery or long-term retention.</p>
+</div>
+<div class="paragraph">
+<div class="title">About this task</div>
+<p>Cloud Manager supports simple, fanout, and cascade data protection configurations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In a simple configuration, replication occurs from volume A to volume B.</p>
+</li>
+<li>
+<p>In a fanout configuration, replication occurs from volume A to multiple destinations, which can be SnapMirror or SnapVault destinations.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only one SnapVault relationship is allowed in a fanout configuration.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>In a cascade configuration, replication occurs from volume A to volume B and from volume B to volume C.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can configure fanout and cascade configurations in Cloud Manager by setting up multiple data replications between systems. For example, by replicating a volume from system A to system B and then by replicating the same volume from system B to system C.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>On the Working Environments page, select the working environment that contains the source volume, and then drag it to the working environment to which you want to replicate the volume:</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_drag_and_drop.gif" alt="Screen shot: Shows a working environment being placed on top of another working environment to start the data replication process."></span></p>
+</div>
+</li>
+<li>
+<p>If the Source and Destination Peering Setup pages appear, select all of the intercluster LIFs for the cluster peer relationship.</p>
+<div class="paragraph">
+<p>The intercluster network should be configured so that cluster peers have <em>pair-wise full-mesh connectivity</em>, which means that each pair of clusters in a cluster peer relationship has connectivity among all of their intercluster LIFs.</p>
+</div>
+<div class="paragraph">
+<p>These pages appear if an ONTAP cluster that has multiple LIFs is the source or destination.</p>
+</div>
+</li>
+<li>
+<p>On the Source Volume Selection page, select the volume that you want to replicate.</p>
+</li>
+<li>
+<p>On the Destination Volume Name and Tiering page, specify the destination volume name, choose an underlying disk type, change any of the advanced options, and then click <strong>Continue</strong>.</p>
+<div class="paragraph">
+<p>If the destination is an ONTAP cluster, you must also specify the destination SVM and aggregate.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_planning_your_config.html#choosing-an-aws-disk-type">Choosing an AWS disk type</a></p>
+</div>
+<div class="paragraph">
+<p><a href="task_planning_your_config.html#choosing-an-azure-disk-type">Choosing an Azure disk type</a></p>
+</div>
+</li>
+<li>
+<p>On the Max Transfer Rate page, specify the maximum rate (in megabytes per second) at which data can be transferred.</p>
+</li>
+<li>
+<p>On the Replication Policy page, choose one of the default policies or click <strong>Additional Policies</strong>, and then select one of the advanced policies.</p>
+<div class="paragraph">
+<p><a href="task_replicating_data.html#choosing-a-replication-policy">Choosing a replication policy</a></p>
+</div>
+<div class="paragraph">
+<p>If you choose a custom SnapVault policy, the labels associated with the policy must match the labels of the Snapshot copies on the source volume.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_replicating_data.html#how-snapvault-policies-work">How SnapVault policies work</a></p>
+</div>
+</li>
+<li>
+<p>On the Schedule page, choose a one-time copy or a recurring schedule.</p>
+<div class="paragraph">
+<p>Several default schedules are available. If you want a different schedule, you must create a new schedule on the <em>destination</em> cluster using System Manager.</p>
+</div>
+</li>
+<li>
+<p>On the Review page, review your selections, and then click <strong>Go</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>Cloud Manager starts the data replication process. You can view details about the replication in the Replication Status page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="managing-data-replication-schedules-and-relationships">Managing data replication schedules and relationships</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After you set up data replication between two systems, you can manage the data replication schedule and relationship from Cloud Manager.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>On the Working Environments page, view the replication status for all assigned working environments in the tenant or for a specific working environment:</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Option</th>
+<th class="tableblock halign-left valign-top">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All assigned working environments in the tenant</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Click Replication Status from the navigation bar.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_replication_nav.gif" alt="Screen shot: Shows the Replication Status tab."></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A specific working environment</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Select the working environment, and then click Replication Status.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_replication_status.gif" alt="Screen shot: Shows the Replication Status icon available from the working environments page."></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Review the status of the data replication relationships to verify that they are healthy.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the Status of a relationship is idle and the Mirror State is uninitialized, you must initialize the relationship from the destination system for the data replication to occur according to the defined schedule. You can initialize the relationship by using System Manager or the command-line interface (CLI). These states can appear when the destination system fails and then comes back online.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select the menu icon next to the source volume, and then choose one of the available actions.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_replication_managing.gif" alt="Screen shot: Shows the list of actions available from the Replication Status page."></span></p>
+</div>
+<div class="paragraph">
+<p>The following table describes the available actions:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Break</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Breaks the SnapMirror relationship between the source and destination volumes, and activates the destination volume for data access.<br>
+<br>
+This option is typically used when the source volume cannot serve data due to events such as data corruption, accidental deletion, or an offline state.<br>
+<br>
+For information about configuring a destination volume for data access and reactivating a source volume, see the ONTAP 9 Volume Disaster Recovery Express Guide.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resync</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Reestablishes a broken SnapMirror relationship between volumes and resumes data replication according to the defined schedule.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When you resynchronize the volumes, the contents on the destination volume are overwritten by the contents on the source volume.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To perform a reverse resync, which resynchronizes the data from the destination volume to the source volume, see the ONTAP 9 Volume Disaster Recovery Express Guide</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reverse Resync</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reverses the roles of the source and destination volumes. Contents from the original source volume are overwritten by contents of the destination volume. This is helpful when you want to reactivate a source volume that went offline.<br>
+<br>
+Any data written to the original source volume between the last data replication and the time that the source volume was disabled is not preserved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables you to choose a different schedule for data replication.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy Info</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shows you the protection policy assigned to the data replication relationship.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Max Transfer Rate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables you to edit the maximum rate (in kilobytes per second) at which data can be transferred.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the data protection relationship between the source and destination volumes, which means that data replication no longer occurs between the volumes. This action does not activate the destination volume for data access. This action also deletes the cluster peer relationship and the storage virtual machine (SVM) peer relationship, if there are no other data protection relationships between the systems.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>After you select an action, Cloud Manager updates the relationship or schedule.</p>
+</div>
+</div>
+</div>
+
+              <!-- Page Container -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <!-- <div class="n-footer__top" style="padding-top: 29px;">
+          <div class="n-container">
+            <ul class="n-footer__corp-link-list">
+              <li class="n-footer__corp-link-list-header">Resources</li>
+              <li class="n-footer__corp-link-list-item"><a href="http://www.netapp.com//us/legal/netapptmlist.aspx" class="n-footer__corp-link">Trademarks</a></li>
+              <li class="n-footer__corp-link-list-item"><a href="/occm/sitemap.xml" class="n-footer__corp-link">Site Map</a></li>
+            </ul>
+          </div>
+        </div> -->
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 1994-2018 NetApp, Inc. All rights reserved.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/netapptmlist.aspx" class="n-footer__copyright-link">Trademarks</a>
+              </div>
+              <div class="n-footer__social-links">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+                <p class="n-footer__fine-print">
+                    Have feedback for our website?
+                    <a target="_self" href="javascript:netapp_mailto()">Let us know</a>
+                </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/occm/common/js/components.js"></script>
+    <script src="/occm/common/js/doc-components.js"></script>
+
+    <!-- i18n script -->
+    <script src="/occm/js/responsive.js " type="text/javascript"></script>
+  </body>
+</html>

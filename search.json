@@ -1,0 +1,713 @@
+[
+
+
+{
+"title": "High-availability pairs",
+"tags": "",
+"keywords": "high availability, HA, mediator, concepts, understanding, overview, availability zones, AZs, takeover, giveback, rpo, rto, floating ip",
+"url": "concept_ha.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Licensing",
+"tags": "",
+"keywords": "licenses, licensing, byol, license, subscription, renewal, expire",
+"url": "concept_licensing.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Cloud Manager and ONTAP Cloud overview",
+"tags": "",
+"keywords": "overview, concepts, features, use case",
+"url": "concept_overview.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Performance",
+"tags": "",
+"keywords": "performance, technical report, TR, workload",
+"url": "concept_performance.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Security",
+"tags": "",
+"keywords": "security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan",
+"url": "concept_security.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Storage",
+"tags": "",
+"keywords": "storage, tenants, provisioning, capacity, volumes, aggregates, volume view, working environments, capacity management, provisioning, netapp support site, manual, automatic, advanced allocation, raw capacity, usable capacity",
+"url": "concept_storage.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Cloud Manager and ONTAP Cloud documentation",
+"tags": "",
+"keywords": "",
+"url": "index.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Pagination",
+"tags": "",
+"keywords": "",
+"url": "pagination",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Where to get help and find more information",
+"tags": "",
+"keywords": "community, forums, help, support, videos, policies, json, api, ontap, release notes, bugs, limitations, known issues",
+"url": "reference_additional_info.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Cloud Manager REST APIs",
+"tags": "",
+"keywords": "api, rest, apis, automation, automate",
+"url": "reference_apis.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Before you create ONTAP Cloud systems",
+"tags": "",
+"keywords": "prerequisites, requirements, before",
+"url": "reference_before.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Cloud Manager host requirements",
+"tags": "",
+"keywords": "configurations, ec2, vm, port, ports, ram, operating system, os, host, requirement, requirements, hypervisor, disk, space, mysql",
+"url": "reference_cloud_mgr_reqs.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Default configurations",
+"tags": "",
+"keywords": "linux, user name, operating system, installation files, folder, log, logs, service, mysql, packages, linux,  svm, LIF, LIFs, backups, attributes, autosize, security style, space guarantee, unix permissions, NTFS, UNIX, boot, root, disks, aggr0, aggr1, svm, svms, storage virtual machine",
+"url": "reference_default_configs.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Deployment overview",
+"tags": "",
+"keywords": "installation, installing, install, setting up, set up, setup, deploy, deployment",
+"url": "reference_deployment_overview.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Earlier versions of Cloud Manager documentation",
+"tags": "",
+"keywords": "documentation, 3.2, 3.3",
+"url": "reference_earlier_versions.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "AWS networking requirements",
+"tags": "",
+"keywords": "networking, network, requirements, connection, connections, vpc, security group, security groups, subnet, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private",
+"url": "reference_networking_aws.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Azure networking requirements",
+"tags": "",
+"keywords": "networking, network, requirements, connection, connections, vnet, security group, security groups, subnet, vpn, internet, proxy, HTTP, private",
+"url": "reference_networking_azure.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "IBM Cloud networking requirements",
+"tags": "",
+"keywords": "networking, network, requirements, connection, connections, IBM Cloud",
+"url": "reference_networking_ibm.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "What&amp;#8217;s new in Cloud Manager",
+"tags": "",
+"keywords": "what's new, features, new, release notes, bugs, limitations, known issues",
+"url": "reference_new_occm.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "What&amp;#8217;s new in ONTAP Cloud",
+"tags": "",
+"keywords": "what's new, features, new, release notes, bugs, limitations, known issues",
+"url": "reference_new_otc.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "AWS and Azure permissions for Cloud Manager",
+"tags": "",
+"keywords": "permissions, actions, API, aws, azure, json",
+"url": "reference_permissions.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Security group rules",
+"tags": "",
+"keywords": "security group, security groups, rules, ports",
+"url": "reference_security_groups.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "User roles",
+"tags": "",
+"keywords": "user, role, task, permission, permissions, tasks, roles, admin",
+"url": "reference_user_roles.html",
+"summary": ""
+}
+,
+
+
+
+
+
+{
+"title": "Adding existing ONTAP Cloud systems to Cloud Manager",
+"tags": "",
+"keywords": "discover, discovering, add, adding, existing",
+"url": "task_adding_ontap_cloud.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Backing up and restoring Cloud Manager",
+"tags": "",
+"keywords": "backing up, back up, backup, restore, restoring",
+"url": "task_backing_up_restoring.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Changing to the Volume View",
+"tags": "",
+"keywords": "volume view, changing, selecting",
+"url": "task_changing_volume_view.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Connecting to ONTAP Cloud systems",
+"tags": "",
+"keywords": "system manager, connecting, cli, command, command line, connect, shell, interface",
+"url": "task_connecting_to_otc.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Deleting an ONTAP Cloud working environment",
+"tags": "",
+"keywords": "terminate, delete, working environment",
+"url": "task_deleting_working_env.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Launching ONTAP Cloud in AWS",
+"tags": "",
+"keywords": "ontap cloud, deploying, launching, creating, deploy, launch, create, azure",
+"url": "task_deploying_otc_aws.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Launching ONTAP Cloud in Azure",
+"tags": "",
+"keywords": "ontap cloud, deploying, launching, creating, deploy, launch, create, aws, HA, high availability",
+"url": "task_deploying_otc_azure.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Discovering and managing ONTAP clusters",
+"tags": "",
+"keywords": "ontap, cluster, discover, manage, provision, provisioning, volumes, add, adding, discovering, fas, aff",
+"url": "task_discovering_ontap.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Editing user accounts",
+"tags": "",
+"keywords": "editing, users, user accounts, permissions, modify, modifying, permissions, report, notification, S3, cost bucket, billing report, password",
+"url": "task_editing_users.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Getting started with ONTAP Cloud in AWS",
+"tags": "",
+"keywords": "amazon web services, aws, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, disk, vpc, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central",
+"url": "task_getting_started_aws.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Getting started with ONTAP Cloud in Azure",
+"tags": "",
+"keywords": "microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central",
+"url": "task_getting_started_azure.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Granting permissions when Cloud Manager is not launched from Cloud Central",
+"tags": "",
+"keywords": "permissions, aws, policy, iam, instance, iam role, role",
+"url": "task_granting_aws_permissions.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Installing Cloud Manager in the Azure Germany region",
+"tags": "",
+"keywords": "install, installation, installing, linux, installer, software, germany, azure, region",
+"url": "task_installing_azure_germany.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Installing Cloud Manager in an Azure US Gov region",
+"tags": "",
+"keywords": "install, installation, installing, software, azure, us gov",
+"url": "task_installing_azure_gov.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Installing Cloud Manager on an existing Linux host",
+"tags": "",
+"keywords": "install, installation, installing, linux, installer, software",
+"url": "task_installing_linux.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Launching Cloud Manager from the AWS Marketplace",
+"tags": "",
+"keywords": "install, installation, installing, marketplace, aws, launch, launching",
+"url": "task_launching_aws_mktp.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Logging in to Cloud Manager",
+"tags": "",
+"keywords": "logging in, log in, sign in, signing in, cloud data services",
+"url": "task_logging_in.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Managing encryption settings for ONTAP Cloud",
+"tags": "",
+"keywords": "encryption, managing, settings, certificate, CA, expire, renew, intermediate, CSR, key managers",
+"url": "task_managing_encryption.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Managing ONTAP Cloud systems",
+"tags": "",
+"keywords": "managing, ontap cloud",
+"url": "task_managing_ontap_cloud.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Managing existing storage",
+"tags": "",
+"keywords": "volumes, aggregates, managing, cloning, editing, CIFS server, edit, flexclone, snapshot copy, restore, mount, tier, delete, advanced allocation, disks, cifs setup, DNS, active directory, AD, domain, NetBIOS, identify, move, capacity, action required",
+"url": "task_managing_storage.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Managing NFS volumes",
+"tags": "",
+"keywords": "NFS volumes, volume view, managing, cloning, clone, delete, deleting, access, disk",
+"url": "task_managing_volume_view.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Migrating to NetApp Cloud Central",
+"tags": "",
+"keywords": "migrating, cloud central, portal",
+"url": "task_migrating_to_portal.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Modifying ONTAP Cloud systems",
+"tags": "",
+"keywords": "license, licensing, install, instance type, virtual machine type, VM type, change, modify, configuration, subscription, paygo, pay-as-you-go, pay as you go, byol, password, MTU, jumbo frames, c4.xlarge, c4.8xlarge, route table, HA pair",
+"url": "task_modifying_ontap_cloud.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Monitoring AWS storage and compute costs",
+"tags": "",
+"keywords": "cost, costs, storage, compute, savings, aws, aws costs",
+"url": "task_monitoring_costs.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Planning your ONTAP Cloud configuration",
+"tags": "",
+"keywords": "license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, tiering, performance tier, capacity tier, s3, premium storage, standard storage, thin provisioning, deduplication, compression",
+"url": "task_planning_your_config.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Provisioning storage",
+"tags": "",
+"keywords": "storage, provisioning, iscsi, nfs, cifs, volumes, aggregates, aggregate, volume, provision, create, quotas, nas, san, LUNs",
+"url": "task_provisioning_storage.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Creating and mounting NFS volumes",
+"tags": "",
+"keywords": "NFS volumes, volume view, creating, mounting, provisioning",
+"url": "task_provisioning_volume_view.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Registering pay-as-you-go systems",
+"tags": "",
+"keywords": "ontap cloud, register, registering, paygo, pay-as-you-go",
+"url": "task_registering.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Removing ONTAP Cloud working environments",
+"tags": "",
+"keywords": "working environments, removing",
+"url": "task_removing.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Renewing the Cloud Manager HTTPS certificate",
+"tags": "",
+"keywords": "https, certificate, renewing",
+"url": "task_renewing_cert.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Replicating data to and from the cloud",
+"tags": "",
+"keywords": "ontap, cluster, discover, manage, cloud manager, hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, schedule, relationship, break, resync",
+"url": "task_replicating_data.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Setting up Cloud Manager",
+"tags": "",
+"keywords": "https, certificate, security, users, adding, creating, tenants, linking, netapp support site account, nss, encryption, key managers, CA, key manager, requirements, safenet, vormetric, kms, key management service, cmk, amazon encryption, encryption, billing, s3 bucket, cost",
+"url": "task_setting_up_cloud_manager.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Setting up ONTAP Cloud",
+"tags": "",
+"keywords": "set up, setting up, ntp, time, synch, autosupport, asup, ems, lif, svm, backup, configuration files, config",
+"url": "task_setting_up_ontap_cloud.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Syncing data to AWS S3",
+"tags": "",
+"keywords": "sync, data, s3, cloud sync, bucket, service",
+"url": "task_syncing_s3.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Uninstalling Cloud Manager",
+"tags": "",
+"keywords": "uninstalling, uninstall",
+"url": "task_uninstalling.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Updating Cloud Manager",
+"tags": "",
+"keywords": "updating, upgrading, patch, automatic, updates, upgrade, update",
+"url": "task_updating_cloud_manager.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Updating ONTAP Cloud software",
+"tags": "",
+"keywords": "update, updating, upgrading, upgrade, software, downgrade, downgrading, FTP, HTTP",
+"url": "task_updating_ontap_cloud.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "assetscssstyle.css",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "feed.xml",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "sitemap.xml",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "robots.txt",
+"summary": ""
+}
+
+
+
+
+
+
+]
+

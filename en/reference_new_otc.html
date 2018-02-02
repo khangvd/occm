@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
+  <head>
+  <title>What&#8217;s new in ONTAP Cloud | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content=" what's new, features, new, release notes, bugs, limitations, known issues">
+
+  <!-- Icons -->
+  <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
+  <!-- <link rel="icon" href="http://media.netapp.com/designimages/favicon.ico" type="image/x-icon"> -->
+
+  <!-- CSS - 403 Forbidden
+  <link rel="stylesheet" href="//cloud.typography.com/6091132/651206/css/fonts.css"> -->
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/bower_components/eightshapes-blocks/dist/esb.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/netapp-library/css/netapp-library.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc-components.css">
+
+  <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/occm/en/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/occm/en/css/customstyles.css">
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/occm/en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/occm/en/css/netapp.css' type='text/css'>
+
+  <!-- Controls the Sidebar layout -->
+  <link rel="stylesheet" href="/occm/en/css/na-sidebar.css">
+
+  <!-- Controls the custom layout of the site -->
+  <link rel='stylesheet' href='/occm/en/css/clouddocs.css' type='text/css'>
+  <script src='/occm/en/js/clouddocs.js'></script>
+
+  <!-- <script src="/occm/en/common/js/jquery.min.js"></script>
+  <script src="/occm/en/js/jquery.cookie.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="/occm/en/js/jquery.navgoco.min.js"></script>
+  <!-- <script src="/occm/en/js/bootstrap.min.js"></script>
+  <script src="/occm/en/js/anchor.min.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+  <script src="/occm/en/js/toc.js"></script>
+  <script src="/occm/en/js/customscripts.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var supportedLangs = [];
+    
+      supportedLangs.push("zz");
+    
+      supportedLangs.push("en");
+    
+
+    var langs = navigator.languages;
+    var loc = window.location.href;
+    var breakFlag = false;
+
+    for (var a = 0; a < supportedLangs.length; a++) {
+      if(loc.includes("/"+supportedLangs[a]+"/")) {
+        breakFlag = true;
+        break;
+      }
+    }
+
+    if (breakFlag === false) {
+      for (var s = 0; s < langs.length; s++) {
+
+        if (supportedLangs.indexOf(langs[s]) == -1) {
+          continue;
+        }
+
+        window.location = langs[s]+'/';
+
+        breakFlag = true;
+        break;
+      }
+
+      if (breakFlag === false) {
+        window.location = 'en/';
+      }
+    }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="http://clouddocs.netapp.com" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/occm/en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="http://localhost/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      <!-- NetApp Search Bar -->
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <input type="text" id="search-input" class="n-search-form__input" placeholder="Search Documentation">
+        <ul id="results-container"></ul>
+        <script src="/occm/en/js/jekyll-search.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/occm/en/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/occm/en/common/svg/sprite.svg#globe"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- End NetApp Search Bar -->
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/en" class="n-menu__header-text">English</a href="/occm/en">
+                </li>
+                
+                  <li class="n-menu__list-item n-menu__list-item--level-1">
+                    <a target="_blank" href="http://docs.netapp.com/occm/topic/com.netapp.nav.occm-330/home.html?lang=ja" class="n-menu__header-text">日本語</a>
+                  </li>
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: en
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+          <div class="n-row">
+            <div class="n-doc n-doc__component-list">
+              <!-- Sidebar Column -->
+              
+              <div class="col-md-3" >
+                  
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Getting started in AWS</a></li>
+  
+
+  
+    <li><a href="task_getting_started_azure.html">Getting started in Azure</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Detailed networking requirements</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_networking_aws.html">AWS networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Azure networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_storage.html">Storage</a></li>
+  
+
+  
+    <li><a href="concept_ha.html">High-availability pairs</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploying ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Logging in to Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_planning_your_config.html">Planning your configuration</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="task_provisioning_storage.html">Provisioning storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_managing_storage.html">Managing storage</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing data across a hybrid cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discovering and managing ONTAP clusters</a></li>
+  
+
+  
+    <li><a href="task_replicating_data.html">Replicating data to and from the cloud</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provisioning NFS volumes</a>
+      <ul>
+        
+
+  
+    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
+  
+
+  
+    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
+  
+
+  
+    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administering Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+  
+
+  
+    <li><a href="task_editing_users.html">Editing user accounts</a></li>
+  
+
+  
+    <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renewing the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstalling Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
+  
+
+  
+    <li class="active"><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="reference_apis.html">REST APIs</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+              </div>
+              
+
+              <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+
+              <!-- Begin of page container -->
+              <div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">What&#8217;s new in ONTAP Cloud
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_new_otc.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+      
+    </span>
+  </h1>
+</div>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>New releases of ONTAP Cloud introduce new features, enhancements, and bug fixes.</p>
+</div>
+<div class="paragraph">
+<p>You can find information about known issues and limitations in the <a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839309" target="_blank" rel="noopener">ONTAP Cloud 9.3 for AWS Release Notes</a> and <a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839308" target="_blank" rel="noopener">ONTAP Cloud 9.3 for Azure Release Notes</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ontap-cloud-9-3">ONTAP Cloud 9.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP Cloud 9.3 includes several new features and enhancements.</p>
+</div>
+<div class="sect2">
+<h3 id="ontap-cloud-ha-enhancements-in-aws">ONTAP Cloud HA enhancements in AWS</h3>
+<div class="paragraph">
+<p>The 9.3 release addresses the resiliency of ONTAP Cloud HA pairs to tolerate network glitches or transient higher latencies within the AWS ecosystem, and to ensure the availability of customer data during such events.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-the-eu-paris-region-in-aws">Support for the EU (Paris) region in AWS</h3>
+<div class="paragraph">
+<p>ONTAP Cloud is now supported in the EU (Paris) region in AWS. Based on the supported instance types in this region, the following ONTAP Cloud configurations are available in the EU (Paris) region:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ONTAP Cloud Standard (r4.xlarge)</p>
+</li>
+<li>
+<p>ONTAP Cloud Premium (r4.2xlarge)</p>
+</li>
+<li>
+<p>ONTAP Cloud BYOL (r4.xlarge and r4.2xlarge)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhanced-write-performance-with-azure-premium-disks">Enhanced write performance with Azure Premium disks</h3>
+<div class="paragraph">
+<p>Write performance for ONTAP Cloud has been improved in Azure when using Premium Storage disks. The enhancement is supported with ONTAP Cloud Standard, Premium, and BYOL.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Write performance enhancements are not supported when using the DS3_v2 virtual machine type.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="increased-capacity-limit-for-ontap-cloud-premium-and-byol-in-azure">Increased capacity limit for ONTAP Cloud Premium and BYOL in Azure</h3>
+<div class="paragraph">
+<p>The capacity limit for ONTAP Cloud Premium and ONTAP Cloud BYOL has doubled to 248 TB when using the DS5_v2 or DS14_v2 virtual machine types.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This change is possible due to an increase in the number of disks available per Azure virtual machine. It does not change the maximum capacity per aggregate.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-azure-us-gov-regions">Support for Azure US Gov regions</h3>
+<div class="paragraph">
+<p>You can now deploy Cloud Manager and ONTAP Cloud BYOL in the following Azure regions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>US Gov Arizona</p>
+</li>
+<li>
+<p>US Gov Texas</p>
+</li>
+<li>
+<p>US Gov Virginia</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To deploy Cloud Manager in these regions, you must create a CentOS 7.3 virtual machine from the Azure Marketplace, download the Cloud Manager installer from the NetApp Support Site, and then install the software. After Cloud Manager is running, you can deploy ONTAP Cloud BYOL systems in the these regions just like any other region.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-svm-disaster-recovery">Support for SVM disaster recovery</h3>
+<div class="paragraph">
+<p>ONTAP Cloud supports one data-serving Storage Virtual Machine (SVM) and one or more SVMs used for disaster recovery.</p>
+</div>
+<div class="paragraph">
+<p>SVM disaster recovery is the asynchronous mirroring of SVM data and configuration from a source SVM to a destination SVM. You can quickly activate a destination SVM for data access if the source SVM is no longer available.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager does not provide any setup or orchestration support for SVM disaster recovery.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839856" target="_blank" rel="noopener">ONTAP Cloud 9.3 SVM Disaster Recovery Preparation Express Guide</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839857" target="_blank" rel="noopener">ONTAP Cloud 9.3 SVM Disaster Recovery Express Guide</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="upgrade-notes">Upgrade notes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>You can upgrade to ONTAP Cloud 9.3 from ONTAP Cloud 9.1 or ONTAP Cloud 9.2. You can perform the upgrade directly from Cloud Manager.</p>
+</li>
+<li>
+<p>When you use Cloud Manager to upgrade a single ONTAP Cloud system, the upgrade process takes the ONTAP Cloud system offline for up to 25 minutes, during which I/O is interrupted.</p>
+</li>
+<li>
+<p>Upgrades of ONTAP Cloud HA pairs in AWS are nondisruptive. A nondisruptive upgrade upgrades both nodes in an HA pair concurrently while maintaining service to clients.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+              <!-- Page Container -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <!-- <div class="n-footer__top" style="padding-top: 29px;">
+          <div class="n-container">
+            <ul class="n-footer__corp-link-list">
+              <li class="n-footer__corp-link-list-header">Resources</li>
+              <li class="n-footer__corp-link-list-item"><a href="http://www.netapp.com//us/legal/netapptmlist.aspx" class="n-footer__corp-link">Trademarks</a></li>
+              <li class="n-footer__corp-link-list-item"><a href="/occm/en/sitemap.xml" class="n-footer__corp-link">Site Map</a></li>
+            </ul>
+          </div>
+        </div> -->
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 1994-2018 NetApp, Inc. All rights reserved.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/netapptmlist.aspx" class="n-footer__copyright-link">Trademarks</a>
+              </div>
+              <div class="n-footer__social-links">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+                <p class="n-footer__fine-print">
+                    Have feedback for our website?
+                    <a target="_self" href="javascript:netapp_mailto()">Let us know</a>
+                </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/occm/en/common/js/components.js"></script>
+    <script src="/occm/en/common/js/doc-components.js"></script>
+
+    <!-- i18n script -->
+    <script src="/occm/js/responsive.js " type="text/javascript"></script>
+  </body>
+</html>

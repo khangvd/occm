@@ -1,0 +1,78 @@
+/* Override */
+.githubEditButton {
+  color: #333;
+  background-color: #fff;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  -moz-user-select: none;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-color: #ccc;
+}
+
+.image:after {
+  display: none !important;
+}
+
+.n-property-bar__property-link:after {
+    content: none !important;
+}
+
+
+.n-doc__component-list {
+  /* content: ""
+  display: table; */
+  float: left;
+  clear: both;
+}
+
+.col-md-3 {
+  width: 310px; /* 321px */
+  min-width: 310px;
+  float: left;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 75vh;
+  position: sticky;
+  top: 140px;
+  padding-left: 30px;
+  margin-top: 25px;
+}
+
+.n-doc__component-detail-content {
+  float: left;
+  margin: 0 auto;
+  margin-left: 0px;
+}
+
+/* media queries */
+@media screen and (min-width: 400px) {
+  .n-doc__component-detail-content {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .n-doc__component-detail-content {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .n-doc__component-detail-content {
+    width: 75%;
+  }
+}
+
+.n-search-form__input {
+  border-radius: 6px;
+}
