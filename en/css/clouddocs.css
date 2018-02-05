@@ -45,6 +45,13 @@
   max-height: 480px;
 }
 
+.image img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  width: initial;
+}
+
 .n-doc__component-list {
   /* content: ""
   display: table; */
@@ -79,6 +86,10 @@
     top: auto;
     right: auto;
   }
+
+  .image img {
+    width: auto;
+  }
 }
 
 /* media queries */
@@ -98,6 +109,10 @@
     top: auto;
     right: auto;
   }
+
+  .image img {
+    width: auto;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -115,6 +130,10 @@
   #ie-i18n-menu {
     top: auto;
     right: auto;
+  }
+
+  .image img {
+    width: auto;
   }
 }
 
