@@ -27,6 +27,23 @@
     content: none !important;
 }
 
+.videoblock .content {
+  max-width: inherit;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+
+.videoblock iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 848px;
+  max-height: 480px;
+}
 
 .n-doc__component-list {
   /* content: ""
