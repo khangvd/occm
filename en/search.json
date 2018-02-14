@@ -2,6 +2,17 @@
 
 
 {
+"title": "NetApp Cloud Central",
+"tags": "",
+"keywords": "netapp cloud central, cloud central, cloud data services, data services, user authentication, authentication",
+"url": "concept_cloud_central.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "High-availability pairs",
 "tags": "",
 "keywords": "high availability, HA, mediator, concepts, understanding, overview, availability zones, AZs, takeover, giveback, rpo, rto, floating ip",
@@ -448,17 +459,6 @@
 "tags": "",
 "keywords": "encryption, managing, settings, certificate, CA, expire, renew, intermediate, CSR, key managers",
 "url": "task_managing_encryption.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "Managing ONTAP Cloud systems",
-"tags": "",
-"keywords": "managing, ontap cloud",
-"url": "task_managing_ontap_cloud.html",
 "summary": ""
 }
 ,
