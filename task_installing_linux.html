@@ -147,10 +147,12 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-2"></script>
   <script>
+  if (document.location.hostname.search("netapp.com") !== -1) {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'UA-81697994-2');
+  }
   </script>
 </head>
 
