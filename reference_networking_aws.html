@@ -11,7 +11,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="encoding" content="utf-8">
   <meta name="description" content="">
-  <meta name="keywords" content=" networking, network, requirements, connection, connections, vpc, security group, security groups, subnet, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private">
+  <meta name="keywords" content=" networking, network, requirements, connection, connections, vpc, security group, security groups, subnet, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -770,14 +770,14 @@
 </ul>
 </div>
 </dd>
-<dt class="hdlist1">Connection from ONTAP Cloud to AWS S3</dt>
+<dt class="hdlist1">Connection from ONTAP Cloud to AWS S3 for storage tiering</dt>
 <dd>
-<p>If you want to use EBS as a performance tier and AWS S3 as a capacity tier, you must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service.</p>
+<p>If you want to use EBS as a performance tier and AWS S3 as a capacity tier, you must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
 <div class="paragraph">
-<p>When you create the VPC Endpoint, be sure to select the region, VPC, and VPC route table that corresponds to the ONTAP Cloud instance.</p>
+<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the ONTAP Cloud instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, ONTAP Cloud cannot connect to the S3 service.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html" target="_blank" rel="noopener">AWS Documentation: VPC Endpoints</a></p>
+<p>If you experience any issues, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/" target="_blank" rel="noopener">AWS Support Knowledge Center: Why can’t I connect to an S3 bucket using a gateway VPC endpoint?</a>.</p>
 </div>
 </dd>
 <dt class="hdlist1">Connections to ONTAP systems in other networks</dt>
