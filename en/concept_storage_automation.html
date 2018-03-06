@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Before you create ONTAP Cloud systems | NetApp Cloud Docs</title>
+  <title>Cloud Storage Automation | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="encoding" content="utf-8">
   <meta name="description" content="">
-  <meta name="keywords" content=" prerequisites, requirements, before">
+  <meta name="keywords" content=" cloud storage automation, report, scan, savings, protection, operations, automation">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
@@ -435,7 +435,7 @@
   
 
   
-    <li><a href="concept_storage_automation.html">Cloud Storage Automation</a></li>
+    <li class="active"><a href="concept_storage_automation.html">Cloud Storage Automation</a></li>
   
 
 
@@ -451,7 +451,7 @@
         
 
   
-    <li class="active"><a href="reference_before.html">Before you begin</a></li>
+    <li><a href="reference_before.html">Before you begin</a></li>
   
 
   
@@ -680,45 +680,60 @@
 
               <!-- Begin of page container -->
               <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Before you create ONTAP Cloud systems
+  <h1 class="n-doc__component-detail-heading">Cloud Storage Automation
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_before.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_storage_automation.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
       
     </span>
   </h1>
 </div>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>Before you use Cloud Manager to create and manage ONTAP Cloud systems, your Cloud Manager administrator should have prepared networking and installed and set up Cloud Manager.</p>
+<p>The Cloud Storage Automation Report analyzes your cloud storage to show you savings opportunities, data protection enhancements, and operations that can optimize the storage associated with your AWS account.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sample-report">Sample report</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following image shows a sample report:</p>
 </div>
 <div class="paragraph">
-<p>The following conditions should exist before you get started:</p>
+<p><span class="image"><img src="./media/screenshot_csa.jpg" alt="Screenshot that shows the Cloud Storage Automation Report."></span></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>AWS and Azure networking requirements were met for Cloud Manager and ONTAP Cloud.</p>
-</li>
-<li>
-<p>Cloud Manager has permissions to perform operations in AWS and Azure on your behalf.</p>
-</li>
-<li>
-<p>Each ONTAP Cloud product that users will deploy was subscribed to from the AWS Marketplace and programmatic deployment was enabled from the Azure Marketplace.</p>
-</li>
-<li>
-<p>Cloud Manager was installed.</p>
-</li>
-<li>
-<p>(Optional) Additional tenants were defined.</p>
-</li>
-<li>
-<p>(Optional) Additional user accounts were created, which can include Tenant Admins and Working Environment Admins.</p>
-</li>
-<li>
-<p>(Optional) If users want to enable ONTAP Cloud encryption in AWS, a key management infrastructure was set up and Cloud Manager encryption settings were defined.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>In some cases, the report enables you to take immediate action. For example, when you view the list of unattached EBS volumes or unassociated EBS snapshots, you can delete them right from Cloud Manager:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_csa_delete.png" alt="Screen shot: Shows a table of 44 EBS volumes that you can delete."></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-happens-when-you-enable-the-report">What happens when you enable the report</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager collects information about the EC2 instances, EBS volumes, and EBS snapshots associated with your AWS account, in the region where Cloud Manager resides. AWS resources used for ONTAP Cloud systems are excluded. There is no performance impact on AWS resources.</p>
+</div>
+<div class="paragraph">
+<p>When Cloud Manager collects the information, it identifies improvement opportunities by using EBS snapshots to calculate used capacity and daily usage growth predictions.</p>
+</div>
+<div class="paragraph">
+<p>The report runs once a week, but you can initiate an immediate data collection at any time.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="required-permissions">Required permissions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The AWS permissions required for Cloud Storage Automation are included in the Cloud Manager IAM policy. If you set up permissions correctly, then there is nothing further to do. See <a href="task_getting_started_aws.html#granting-aws-permissions">Granting AWS permissions</a> for details.</p>
+</div>
+</div>
 </div>
 
               <!-- Page Container -->
