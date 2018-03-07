@@ -26,11 +26,15 @@
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/concept_storage.html</loc>
-<lastmod>2018-01-25T23:26:27+00:00</lastmod>
+<lastmod>2018-03-07T23:07:27+00:00</lastmod>
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/concept_storage_automation.html</loc>
-<lastmod>2018-03-06T13:59:17+00:00</lastmod>
+<lastmod>2018-03-07T23:07:27+00:00</lastmod>
+</url>
+<url>
+<loc>http://clouddocs.netapp.com/occm/concept_storage_management.html</loc>
+<lastmod>2018-03-07T23:07:27+00:00</lastmod>
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/</loc>
@@ -38,7 +42,7 @@
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/pagination/</loc>
-<lastmod>2018-03-06T15:00:49+00:00</lastmod>
+<lastmod>2018-03-07T23:15:31+00:00</lastmod>
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/reference_additional_info.html</loc>
@@ -110,7 +114,7 @@
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_changing_volume_view.html</loc>
-<lastmod>2018-01-25T23:26:27+00:00</lastmod>
+<lastmod>2018-03-07T23:07:27+00:00</lastmod>
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_connecting_to_otc.html</loc>
@@ -122,11 +126,11 @@
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_deploying_otc_aws.html</loc>
-<lastmod>2018-02-02T18:17:21+00:00</lastmod>
+<lastmod>2018-03-07T23:07:27+00:00</lastmod>
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_deploying_otc_azure.html</loc>
-<lastmod>2018-01-30T15:53:39+00:00</lastmod>
+<lastmod>2018-03-07T23:07:27+00:00</lastmod>
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_discovering_ontap.html</loc>
@@ -138,7 +142,7 @@
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_getting_started_aws.html</loc>
-<lastmod>2018-01-30T15:53:39+00:00</lastmod>
+<lastmod>2018-03-07T23:07:27+00:00</lastmod>
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_getting_started_azure.html</loc>
@@ -194,7 +198,7 @@
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_planning_your_config.html</loc>
-<lastmod>2018-03-06T14:53:40+00:00</lastmod>
+<lastmod>2018-03-07T23:07:27+00:00</lastmod>
 </url>
 <url>
 <loc>http://clouddocs.netapp.com/occm/task_provisioning_storage.html</loc>

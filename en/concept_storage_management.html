@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Default configurations | NetApp Cloud Docs</title>
+  <title>Storage management | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,10 +11,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="encoding" content="utf-8">
   <meta name="description" content="">
-  <meta name="keywords" content=" linux, user name, operating system, installation files, folder, log, logs, service, mysql, packages, linux,  svm, LIF, LIFs, backups, attributes, autosize, security style, space guarantee, unix permissions, NTFS, UNIX, boot, root, disks, aggr0, aggr1, svm, svms, storage virtual machine">
+  <meta name="keywords" content=" tenants, provisioning, volume view, working environments, capacity management, provisioning, netapp support site, manual, automatic, advanced allocation,">
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
   <!-- <link rel="icon" href="http://media.netapp.com/designimages/favicon.ico" type="image/x-icon"> -->
 
   <!-- CSS - 403 Forbidden
@@ -28,34 +28,34 @@
 
   <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/occm/css/customstyles.css">
+  <link rel="stylesheet" type="text/css" href="/occm/en/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/occm/en/css/customstyles.css">
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/en/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/en/css/netapp.css' type='text/css'>
 
   <!-- Controls the Sidebar layout -->
-  <link rel="stylesheet" href="/occm/css/na-sidebar.css">
+  <link rel="stylesheet" href="/occm/en/css/na-sidebar.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Controls the custom layout of the site -->
-  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
-  <script src='/occm/js/clouddocs.js'></script>
-  <script src='/occm/js/s_code_impl.js'></script>
+  <link rel='stylesheet' href='/occm/en/css/clouddocs.css' type='text/css'>
+  <script src='/occm/en/js/clouddocs.js'></script>
+  <script src='/occm/en/js/s_code_impl.js'></script>
 
-  <!-- <script src="/occm/common/js/jquery.min.js"></script>
-  <script src="/occm/js/jquery.cookie.min.js"></script> -->
-  <script src="/occm/js/jquery.navgoco.min.js"></script>
-  <!-- <script src="/occm/js/bootstrap.min.js"></script>
-  <script src="/occm/js/anchor.min.js"></script> -->
+  <!-- <script src="/occm/en/common/js/jquery.min.js"></script>
+  <script src="/occm/en/js/jquery.cookie.min.js"></script> -->
+  <script src="/occm/en/js/jquery.navgoco.min.js"></script>
+  <!-- <script src="/occm/en/js/bootstrap.min.js"></script>
+  <script src="/occm/en/js/anchor.min.js"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
-  <script src="/occm/js/toc.js"></script>
-  <script src="/occm/js/customscripts.js"></script>
+  <script src="/occm/en/js/toc.js"></script>
+  <script src="/occm/en/js/customscripts.js"></script>
 
   <script>
       $(document).ready(function() {
@@ -206,7 +206,7 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/en/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
@@ -214,11 +214,11 @@
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -230,13 +230,13 @@
       <div id="search-demo-container" class="n-property-bar__search">
         <input type="text" id="search-input" class="n-search-form__input" placeholder="Search Documentation">
         <ul id="results-container"></ul>
-        <script src="/occm/js/jekyll-search.js" type="text/javascript"></script>
+        <script src="/occm/en/js/jekyll-search.js" type="text/javascript"></script>
 
       <script type="text/javascript">
       window.simpleJekyllSearch = new SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
-        json: '/occm/search.json',
+        json: '/occm/en/search.json',
         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
         noResultsText: 'No results found',
         limit: 10,
@@ -254,7 +254,7 @@
             <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
               <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
+                <use xlink:href="/occm/en/common/svg/sprite.svg#globe"></use>
               </svg>
             </a>
           </li>
@@ -284,7 +284,7 @@
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: zz
+            <p>Current Language: en
             </p>
           </div>
         </div>
@@ -419,7 +419,7 @@
   
 
   
-    <li><a href="concept_storage_management.html">Storage management</a></li>
+    <li class="active"><a href="concept_storage_management.html">Storage management</a></li>
   
 
   
@@ -643,7 +643,7 @@
   
 
   
-    <li class="active"><a href="reference_default_configs.html">Default configurations</a></li>
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
   
 
   
@@ -684,10 +684,10 @@
 
               <!-- Begin of page container -->
               <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Default configurations
+  <h1 class="n-doc__component-detail-heading">Storage management
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_default_configs.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_storage_management.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
       
     </span>
   </h1>
@@ -696,124 +696,260 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Details about how Cloud Manager and ONTAP Cloud are configured by default can help you administer the systems.</p>
+<p>Cloud Manager makes storage provisioning easy by purchasing the AWS and Azure storage that you need to provision volumes for ONTAP Cloud.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#default-configuration-for-cloud-manager-on-linux">Default configuration for Cloud Manager on Linux</a></li>
-<li><a href="#default-configuration-for-ontap-cloud">Default configuration for ONTAP Cloud</a></li>
-<li><a href="#boot-and-root-data-for-ontap-cloud">Boot and root data for ONTAP cloud</a></li>
+<li><a href="#storage-provisioning">Storage provisioning</a></li>
+<li><a href="#capacity-management">Capacity management</a></li>
+<li><a href="#storage-isolation-using-tenants">Storage isolation using tenants</a></li>
+<li><a href="#simplified-storage-management-using-the-volume-view">Simplified storage management using the Volume View</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="default-configuration-for-cloud-manager-on-linux">Default configuration for Cloud Manager on Linux</h2>
+<h2 id="storage-provisioning">Storage provisioning</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you need to troubleshoot Cloud Manager or your Linux host, it might help to understand how Cloud Manager is configured.</p>
+<p>Cloud Manager makes storage provisioning for ONTAP Cloud easy by purchasing disks and managing aggregates for you. You simply need to create volumes. You can use an advanced allocation option to provision aggregates yourself, if desired.</p>
+</div>
+<div class="sect2">
+<h3 id="simplified-provisioning">Simplified provisioning</h3>
+<div class="paragraph">
+<p>Aggregates provide cloud storage to ONTAP Cloud volumes. Cloud Manager creates aggregates for you when you launch an instance, and when you provision additional volumes.</p>
+</div>
+<div class="paragraph">
+<p>When you create a volume, Cloud Manager does one of three things:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>If you deployed Cloud Manager from NetApp Cloud Central (or directly from the AWS Marketplace or Azure Marketplace), note the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>In AWS, the user name for the EC2 Linux instance is ec2-user.</p>
+<p>It places the volume on an existing aggregate that has sufficient free space.</p>
 </li>
 <li>
-<p>For both AWS and Azure, the operating system for the Cloud Manager image is Red Hat Enterprise Linux 7.3 (HVM).</p>
-<div class="paragraph">
-<p>The operating system does not include a GUI. You must use a terminal to access the system.</p>
-</div>
+<p>It places the volume on an existing aggregate by purchasing more disks for that aggregate.</p>
+</li>
+<li>
+<p>It purchases disks for a new aggregate and places the volume on that aggregate.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>The Cloud Manager installation folder resides in the following location:</p>
 <div class="paragraph">
-<p>/opt/application/netapp/cloudmanager</p>
+<p>Cloud Manager determines where to place a new volume by looking at several factors: an aggregate&#8217;s maximum size, whether thin provisioning is enabled, and free space thresholds for aggregates.</p>
 </div>
-</li>
-<li>
-<p>Log files are contained in the following folder:</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The Cloud Manager Admin can modify free space thresholds from the <strong>Settings</strong> page.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="advanced-allocation">Advanced allocation</h3>
 <div class="paragraph">
-<p>/opt/application/netapp/cloudmanager/log</p>
+<p>Rather than let Cloud Manager manage aggregates for you, you can do it yourself. From the <strong>Advanced allocation</strong> page, you can create new aggregates that include a specific number of disks, add disks to an existing aggregate, and create volumes in specific aggregates.</p>
 </div>
-</li>
-<li>
-<p>The Cloud Manager service is named occm.</p>
-</li>
-<li>
-<p>The occm service is dependent on the MySQL service.</p>
-<div class="paragraph">
-<p>If the MySQL service is down, then the occm service is down too.</p>
-</div>
-</li>
-<li>
-<p>Cloud Manager installs the following packages on the Linux host, if they are not already installed:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>7Zip</p>
-</li>
-<li>
-<p>AWSCLI</p>
-</li>
-<li>
-<p>Java</p>
-</li>
-<li>
-<p>MySQL</p>
-</li>
-<li>
-<p>Wget</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="default-configuration-for-ontap-cloud">Default configuration for ONTAP Cloud</h2>
+<h2 id="capacity-management">Capacity management</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Understanding how ONTAP Cloud is configured by default can help you set up and administer your systems, especially if you are familiar with ONTAP because the default setup for ONTAP Cloud is different than ONTAP.</p>
+<p>The Cloud Manager Admin can choose whether Cloud Manager notifies you of storage capacity decisions or whether Cloud Manager automatically manages capacity requirements for you. It might help for you to understand how these modes work.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>ONTAP Cloud is available as a single system in AWS and Microsoft Azure, and as an HA pair in AWS.</p>
-</li>
-<li>
-<p>Each ONTAP Cloud system supports one data-serving storage virtual machine (SVM) and one or more SVMs used for disaster recovery.</p>
+<div class="sect2">
+<h3 id="automatic-capacity-management">Automatic capacity management</h3>
 <div class="paragraph">
-<p>Cloud Manager creates the data-serving SVM when it deploys an ONTAP Cloud system. While you can create another data-serving SVM from System Manager or the CLI, using multiple data-serving SVMs is not supported.</p>
+<p>If the Cloud Manager Admin set the Capacity Management Mode to automatic, Cloud Manager automatically purchases new disks for ONTAP Cloud instances when more capacity is needed, deletes unused collections of disks (aggregates), and moves volumes between aggregates, as needed.</p>
 </div>
-</li>
-<li>
-<p>Several network interfaces are created by default:</p>
+<div class="paragraph">
+<p>The following examples illustrate how this mode works:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>A cluster management LIF</p>
+<p>If an aggregate with 5 or fewer EBS disks reaches the capacity threshold, Cloud Manager automatically purchases new disks for that aggregate so volumes can continue to grow.</p>
 </li>
 <li>
-<p>An intercluster LIF</p>
+<p>If an aggregate with 12 Azure disks reaches the capacity threshold, Cloud Manager automatically moves a volume from that aggregate to an aggregate with available capacity or to a new aggregate.</p>
+<div class="paragraph">
+<p>Note that free space is now available on the original aggregate. Existing volumes or new volumes can use that space. The space cannot be returned to AWS or Azure in this scenario.</p>
+</div>
 </li>
 <li>
-<p>A node management LIF</p>
+<p>If an aggregate contains no volumes for more than 12 hours, Cloud Manager deletes it.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="manual-capacity-management">Manual capacity management</h3>
+<div class="paragraph">
+<p>If the Cloud Manager Admin set the Capacity Management Mode to manual, Cloud Manager displays Action Required messages when capacity decisions must be made. The same examples described in the automatic mode apply to the manual mode, but it is up to you to accept the actions.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager provides a separate management view called the <em>Volume View</em>, which further simplifies storage management in AWS.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="storage-isolation-using-tenants">Storage isolation using tenants</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager enables you to provision and manage storage in isolated groups called tenants. You need to decide how to organize Cloud Manager users and their working environments across tenants.</p>
+</div>
+<div class="sect2">
+<h3 id="working-environments">Working environments</h3>
+<div class="paragraph">
+<p>Cloud Manager represents storage systems as <em>working environments</em>. A working environment is any of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A single ONTAP Cloud system or an HA pair</p>
 </li>
 <li>
-<p>An iSCSI data LIF</p>
+<p>An on-premises ONTAP cluster in your network</p>
 </li>
 <li>
-<p>A CIFS and NFS data LIF</p>
+<p>An ONTAP cluster in a NetApp Private Storage configuration</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following image shows an ONTAP Cloud working environment:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_working_env.gif" alt="Screen shot: an ONTAP Cloud working environment" width="which shows ONTAP Cloud storage."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tenants">Tenants</h3>
+<div class="paragraph">
+<p>A <em>tenant</em> isolates working environments in groups. You create one or more working environments within a tenant. The following image shows three tenants defined in Cloud Manager:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_tenants.gif" alt="Screen shot: the Tenants page" width="which shows three defined tenants."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-management-of-tenants-and-working-environments">User management of tenants and working environments</h3>
+<div class="paragraph">
+<p>The tenants and working environments that Cloud Manager users can manage depend on user role and assignments. The three distinct user roles are as follows:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Cloud Manager Admin</dt>
+<dd>
+<p>Administers the product and can access all tenants and working environments.</p>
+</dd>
+<dt class="hdlist1">Tenant Admin</dt>
+<dd>
+<p>Administers a single tenant. Can create and manage all working environments and users in the tenant.</p>
+</dd>
+<dt class="hdlist1">Working Environment Admin</dt>
+<dd>
+<p>Can create and manage one or more working environments in a tenant.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="example-of-how-you-can-create-tenants-and-users">Example of how you can create tenants and users</h3>
+<div class="paragraph">
+<p>If your organization has departments that operate independently, it is best to have a tenant for each department.</p>
+</div>
+<div class="paragraph">
+<p>For example, you might create three tenants for three separate departments. You would then create a Tenant Admin for each tenant. Within each tenant would be one or more Working Environment Admins who manage working environments. The following image depicts this scenario:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_users_and_tenants.png" alt="This illustration shows a Cloud Manager Admin" width="three Tenant Admins" height="and three tenants that include several working environments and the working environment admins who manage them."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="why-you-should-link-a-tenant-to-your-netapp-support-site-account">Why you should link a tenant to your NetApp Support Site account</h3>
+<div class="paragraph">
+<p>Cloud Manager prompts you to enter NetApp Support Site credentials for a tenant because it uses the credentials to manage licenses for ONTAP Cloud BYOL systems, to register pay-as-you-go instances for support, and to upgrade ONTAP Cloud software.</p>
+</div>
+<div class="sect3">
+<h4 id="license-management-for-byol-systems">License management for BYOL systems</h4>
+<div class="paragraph">
+<p>Linking a tenant to your NetApp Support Site account is required if you plan to launch BYOL instances in a tenant. Cloud Manager uses your account to obtain license files from NetApp and installs them on ONTAP Cloud BYOL systems. The NetApp Support Site account must be authorized to access the serial numbers of the ONTAP Cloud BYOL systems in the tenant.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="support-registration-for-pay-as-you-go-instances">Support registration for pay-as-you-go instances</h4>
+<div class="paragraph">
+<p>While entering an account is not required to launch pay-as-you-go instances, it is highly recommended because Cloud Manager automatically registers new pay-as-you-go instances for support.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="software-upgrades">Software upgrades</h4>
+<div class="paragraph">
+<p>Entering a NetApp Support Site account also enables ONTAP Cloud software upgrades directly from Cloud Manager for both pay-as-you-go and BYOL instances.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="netapp-support-site-account-requirements">NetApp Support Site account requirements</h4>
+<div class="paragraph">
+<p>Each NetApp Support Site account that you link to a tenant must be a NetApp customer-level account (not a guest or temp account). For the AWS GovCloud (US) region, the NetApp Support Site account must be a secure account. If you do not have an account, you can create one from the <a href="http://mysupport.netapp.com/" target="_blank" rel="noopener">NetApp Support Site</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="simplified-storage-management-using-the-volume-view">Simplified storage management using the Volume View</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Volume View enables you to simply specify the NFS volumes that you need in AWS and then Cloud Manager handles the rest: it deploys ONTAP Cloud systems as needed and it makes capacity allocation decisions as volumes grow. This view gives you the benefits of enterprise-class storage in the cloud with very little storage management.</p>
+</div>
+<div class="paragraph">
+<p>The following image shows how you interact with Cloud Manager in the Volume View:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_volume_view_overview.png" alt="This is a conceptual image of how the Volume View works. There are four callouts. The number 1 points to volumes. The number 2 points to ONTAP Cloud storage systems and the underlying EBS storage. Number 3 points to volumes available to hosts. Number 4 points to ONTAP Cloud systems and the underlying storage."></span></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You create NFS volumes.</p>
+</li>
+<li>
+<p>Cloud Manager launches ONTAP Cloud instances in AWS for new volumes or it creates volumes on existing instances. It also purchases physical EBS storage for the volumes.</p>
+</li>
+<li>
+<p>You make the volumes available to your hosts and applications.</p>
+</li>
+<li>
+<p>Cloud Manager makes capacity allocation decisions as your volumes grow.</p>
+<div class="paragraph">
+<p>This means that you simply need to interact with volumes (the image on the left), while Cloud Manager interacts with the storage system and its underlying storage (the image on the right).</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="allocation-of-cloud-resources-for-the-initial-volume">Allocation of cloud resources for the initial volume</h3>
+<div class="paragraph">
+<p>When you create your first volume, Cloud Manager launches an ONTAP Cloud instance or an ONTAP Cloud HA pair in AWS and purchases Amazon EBS storage for the volume:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_volume_view_resources.png" alt="This conceptual image shows the AWS resources that Cloud Manager creates for the initial volume: a ONTAP Cloud instance that has an instance type of m4.xlarge or m4.2xlarge and one to four one terabyte EBS encrypted disks."></span></p>
+</div>
+<div class="paragraph">
+<p>The size of the initial volume determines the EC2 instance type and the number of EBS disks.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -821,46 +957,10 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-LIF failover is disabled by default for ONTAP Cloud due to EC2 requirements. Migrating a LIF to a different port breaks the external mapping between IP addresses and network interfaces on the instance, making the LIF inaccessible.
+Cloud Manager launches an ONTAP Cloud Explore or Standard instance, depending on the initial volume size. As the volumes grow, Cloud Manager might prompt you to make an AWS instance change which means it needs to upgrade the instance&#8217;s license to Standard or Premium. Upgrading increases the EBS raw capacity limit, which allows your volumes to grow.
 </td>
 </tr>
 </table>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>ONTAP Cloud sends configuration backups to Cloud Manager using HTTPS.</p>
-</li>
-<li>
-<p>When logged in to Cloud Manager, the backups are accessible from <a href="https://ipaddress/occm/offboxconfig/" class="bare">https://ipaddress/occm/offboxconfig/</a></p>
-</li>
-<li>
-<p>Cloud Manager sets a few volume attributes differently than other management tools (System Manager or the CLI, for example).</p>
-<div class="paragraph">
-<p>The following table lists the volume attributes that Cloud Manager sets differently from the defaults:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 15%;">
-<col style="width: 85%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute</th>
-<th class="tableblock halign-left valign-top">Value set by Cloud Manager</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Autosize mode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">grow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum autosize</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1,000 percent</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -869,97 +969,67 @@ LIF failover is disabled by default for ONTAP Cloud due to EC2 requirements. Mig
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The Cloud Manager Admin can modify this value from the Settings page.
+Cloud Manager does not launch ONTAP Cloud BYOL instances in the Volume View. You should use Cloud Manager in the Storage System View if you purchased an ONTAP Cloud license.
 </td>
 </tr>
 </table>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Security style</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NTFS for CIFS volumes<br>
-UNIX for NFS volumes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Space guarantee style</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UNIX permissions (NFS only)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">777</p></td>
-</tr>
-</tbody>
-</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="allocation-of-cloud-resources-for-additional-volumes">Allocation of cloud resources for additional volumes</h3>
 <div class="paragraph">
-<p>See the <em>volume create</em> man page for information about these attributes.</p>
+<p>When you create additional volumes, Cloud Manager creates the volumes on existing ONTAP Cloud instances or on new ONTAP Cloud instances. Cloud Manager can create a volume on an existing instance if the instance&#8217;s AWS location and disk type match the requested volume, and if there is enough space.</p>
+</div>
+<div class="paragraph">
+<p>If Cloud Manager creates a volume on an existing instance, it purchases the required EBS storage, which can be 1 TB or larger disks, depending on the requested volume size.</p>
+</div>
+<div class="paragraph">
+<p>If Cloud Manager creates a volume on a new instance, it purchases one to six 1 TB EBS disks, just like it did for the initial volume.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="netapp-storage-efficiency-features-and-storage-costs">NetApp storage efficiency features and storage costs</h3>
+<div class="paragraph">
+<p>Cloud Manager automatically enables NetApp storage efficiency features on all volumes. These efficiencies can reduce the total amount of storage that you need.</p>
+</div>
+<div class="paragraph">
+<p>With these features enabled, you might see a difference between your allocated capacity and the purchased AWS capacity, which can result in storage cost savings.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacity-allocation-decisions-that-cloud-manager-automatically-handles">Capacity allocation decisions that Cloud Manager automatically handles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager purchases additional EBS disks as capacity thresholds are exceeded.</p>
+<div class="paragraph">
+<p>This happens as your volumes grow.</p>
+</div>
+</li>
+<li>
+<p>Cloud Manager deletes unused sets of EBS disks if the disks contain no volumes for 12 hours.</p>
+</li>
+<li>
+<p>Cloud Manager moves volumes between sets of disks to avoid capacity issues.</p>
+<div class="paragraph">
+<p>In some cases, this requires purchasing additional EBS disks. It also frees space on the original set of disks for new and existing volumes.</p>
 </div>
 </li>
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="boot-and-root-data-for-ontap-cloud">Boot and root data for ONTAP cloud</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In addition to the storage for user data, Cloud Manager also purchases cloud storage for boot and root data on each ONTAP Cloud system.</p>
-</div>
 <div class="sect2">
-<h3 id="aws">AWS</h3>
+<h3 id="actions-that-require-your-approval">Actions that require your approval</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>One Provisioned IOPS SSD disk for ONTAP Cloud boot data, which is approximately 45 GB and 1,250 PIOPS</p>
-</li>
-<li>
-<p>One General Purpose SSD disk for ONTAP Cloud root data, which is approximately 140 GB</p>
-</li>
-<li>
-<p>One EBS snapshot for each boot disk and root disk</p>
-</li>
-</ul>
-</div>
+<p>Cloud Manager prompts you for approval if it needs to upgrade to an ONTAP Cloud license that supports a higher EBS raw capacity limit.</p>
 <div class="paragraph">
-<p>In an HA pair, both ONTAP Cloud nodes replicate its root disk to the partner node.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="azure">Azure</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>One Premium Storage SSD disk for ONTAP Cloud boot data, which is approximately 73 GB</p>
-</li>
-<li>
-<p>One Premium Storage SSD disk for ONTAP Cloud root data, which is approximately 140 GB</p>
-</li>
-<li>
-<p>One Azure snapshot for each boot disk and root disk</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="where-the-disks-reside">Where the disks reside</h3>
-<div class="paragraph">
-<p>Cloud Manager lays out the storage from AWS and Azure as follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Boot data resides on a disk attached to the EC2 instance or Azure virtual machine.</p>
-<div class="paragraph">
-<p>This disk, which contains the boot image, is not available to ONTAP Cloud.</p>
+<p>You are prompted because it requires a reboot, during which I/O is interrupted.</p>
 </div>
 </li>
 <li>
-<p>Root data, which contains the system configuration and logs, resides in aggr0.</p>
-</li>
-<li>
-<p>The storage virtual machine (SVM) root volume resides in aggr1.</p>
-</li>
-<li>
-<p>Data volumes also reside in aggr1.</p>
+<p>Cloud Manager prompts you to delete ONTAP Cloud instances that contain no volumes.</p>
 </li>
 </ul>
 </div>
@@ -982,7 +1052,7 @@ UNIX for NFS volumes</p></td>
             <ul class="n-footer__corp-link-list">
               <li class="n-footer__corp-link-list-header">Resources</li>
               <li class="n-footer__corp-link-list-item"><a href="http://www.netapp.com//us/legal/netapptmlist.aspx" class="n-footer__corp-link">Trademarks</a></li>
-              <li class="n-footer__corp-link-list-item"><a href="/occm/sitemap.xml" class="n-footer__corp-link">Site Map</a></li>
+              <li class="n-footer__corp-link-list-item"><a href="/occm/en/sitemap.xml" class="n-footer__corp-link">Site Map</a></li>
             </ul>
           </div>
         </div> -->
@@ -1002,7 +1072,7 @@ UNIX for NFS volumes</p></td>
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -1011,7 +1081,7 @@ UNIX for NFS volumes</p></td>
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -1021,7 +1091,7 @@ UNIX for NFS volumes</p></td>
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -1030,7 +1100,7 @@ UNIX for NFS volumes</p></td>
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -1049,8 +1119,8 @@ UNIX for NFS volumes</p></td>
 
     </div>
 
-    <script src="/occm/common/js/components.js"></script>
-    <script src="/occm/common/js/doc-components.js"></script>
+    <script src="/occm/en/common/js/components.js"></script>
+    <script src="/occm/en/common/js/doc-components.js"></script>
 
     <!-- i18n script -->
     <script src="/occm/js/responsive.js " type="text/javascript"></script>

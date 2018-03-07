@@ -11,7 +11,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="encoding" content="utf-8">
   <meta name="description" content="">
-  <meta name="keywords" content=" license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, tiering, performance tier, capacity tier, s3, premium storage, standard storage, thin provisioning, deduplication, compression, tier, s3 endpoint, storage tier, storage tiering">
+  <meta name="keywords" content=" license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, premium storage, standard storage, thin provisioning, deduplication, compression">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -416,6 +416,10 @@
 
   
     <li><a href="concept_storage.html">Storage</a></li>
+  
+
+  
+    <li><a href="concept_storage_management.html">Storage management</a></li>
   
 
   
@@ -1052,7 +1056,7 @@
 <p>When you create volumes for ONTAP Cloud systems, you need to choose the underlying EBS volume type (which ONTAP Cloud sees as a <em>disk</em>). You should choose the configuration that meets your requirements for performance and cost.</p>
 </div>
 <div class="paragraph">
-<p>The underlying AWS disk type for ONTAP Cloud can be a single EBS disk type or tiered storage.</p>
+<p>The underlying AWS disk type for ONTAP Cloud can be a single EBS disk type or a tiered storage configuration that uses EBS as a performance tier and S3 as a capacity tier. For an overview of storage tiering, see <a href="concept_storage.html">Storage</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="supported-ebs-disk-types">Supported EBS disk types</h3>
@@ -1089,99 +1093,6 @@ Cold HDD disks are not supported with ONTAP Cloud HA configurations.
 </div>
 <div class="paragraph">
 <p>For additional details about use cases, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: EBS Volume Types</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="storage-tiering-overview">Storage tiering overview</h3>
-<div class="paragraph">
-<p>You can reduce your storage costs by using EBS as a performance tier and AWS S3 as a capacity tier:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/diagram_storage_tiering.png" alt="This is a conceptual image that shows hot data going to EBS storage and cold data going to S3 storage."></span></p>
-</div>
-<div class="paragraph">
-<p>A tiered storage configuration is a good choice if your data changes frequently or if you use ONTAP Cloud for disaster recovery or long-term retention:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>After an aggregate has reached 50% capacity, ONTAP Cloud tiers Snapshot copies of read-write volumes to cost-effective S3 storage, freeing up the EBS performance tier for "hot" data.</p>
-</li>
-<li>
-<p>When you replicate a volume to a tiered storage configuration for disaster recovery or long-term retention, data for the destination volume resides in the S3 capacity tier.</p>
-<div class="paragraph">
-<p>If you activate the destination volume, the data gradually moves to the EBS performance tier as it is read.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Note the following about the EBS and S3 tiers:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>An ONTAP Cloud system&#8217;s capacity limit is spread across EBS and S3 storage.</p>
-</li>
-<li>
-<p>The EBS tier can be General Purpose SSDs or Throughput Optimized HDDs.</p>
-</li>
-<li>
-<p>An ONTAP Cloud working environment uses a single S3 bucket for tiered storage. This includes an HA working environment.</p>
-</li>
-<li>
-<p>Cloud Manager creates the S3 bucket and names it fabric-pool-cluster unique identifier.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You do not need to install a feature license to enable storage tiering.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="connection-requirement-for-storage-tiering">Connection requirement for storage tiering</h3>
-<div class="paragraph">
-<p>Before you choose a tiered storage configuration, you must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service.</p>
-</div>
-<div class="paragraph">
-<p>For details, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="configurations-supported-with-storage-tiering">Configurations supported with storage tiering</h3>
-<div class="paragraph">
-<p>Storage tiering is supported with specific configurations and features:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Storage tiering is supported with ONTAP Cloud Standard, Premium, and BYOL.</p>
-<div class="paragraph">
-<p>It is not supported with ONTAP Cloud Explore or with M3 and R3 instance types when using Standard and Premium.</p>
-</div>
-</li>
-<li>
-<p>Storage tiering is supported with AWS-managed encryption.</p>
-<div class="paragraph">
-<p>It is not supported with ONTAP Cloud-managed encryption.</p>
-</div>
-</li>
-<li>
-<p>Thin provisioning must be enabled on volumes that use a tiered storage configuration.</p>
-</li>
-<li>
-<p>ONTAP performance enhancements introduced in ONTAP Cloud 9.2 are not supported with tiered storage configurations.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>

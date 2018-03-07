@@ -70,7 +70,7 @@
 {
 "title": "Storage",
 "tags": "",
-"keywords": "storage, tenants, provisioning, capacity, volumes, aggregates, volume view, working environments, capacity management, provisioning, netapp support site, manual, automatic, advanced allocation, raw capacity, usable capacity",
+"keywords": "storage, capacity, volumes, aggregates, raw capacity, usable capacity, storage tiering, tier, tiering, s3, capacity, performance, fabricpool, fabric pool, s3 endpoint, fabric pool, fabricpool",
 "url": "concept_storage.html",
 "summary": ""
 }
@@ -83,6 +83,17 @@
 "tags": "",
 "keywords": "cloud storage automation, report, scan, savings, protection, operations, automation",
 "url": "concept_storage_automation.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Storage management",
+"tags": "",
+"keywords": "tenants, provisioning, volume view, working environments, capacity management, provisioning, netapp support site, manual, automatic, advanced allocation,",
+"url": "concept_storage_management.html",
 "summary": ""
 }
 ,
@@ -534,7 +545,7 @@
 {
 "title": "Planning your ONTAP Cloud configuration",
 "tags": "",
-"keywords": "license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, tiering, performance tier, capacity tier, s3, premium storage, standard storage, thin provisioning, deduplication, compression, tier, s3 endpoint, storage tier, storage tiering",
+"keywords": "license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, premium storage, standard storage, thin provisioning, deduplication, compression",
 "url": "task_planning_your_config.html",
 "summary": ""
 }
