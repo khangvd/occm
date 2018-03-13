@@ -266,10 +266,21 @@
 
 
 {
-"title": "Security group rules",
+"title": "Security group rules for AWS",
 "tags": "",
-"keywords": "security group, security groups, rules, ports",
+"keywords": "security group, security groups, rules, ports, aws",
 "url": "reference_security_groups.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Security group rules for Azure",
+"tags": "",
+"keywords": "security group, security groups, rules, ports, azure",
+"url": "reference_security_groups_azure.html",
 "summary": ""
 }
 ,

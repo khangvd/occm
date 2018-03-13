@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Security group rules for AWS | NetApp Cloud Docs</title>
+  <title>Security group rules for Azure | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
   <meta http-equiv="nss-type" content="Product Documentation">
   <meta http-equiv="nss-subtype" content="User Guide">
   <meta name="description" content="">
-  <meta name="keywords" content=" security group, security groups, rules, ports, aws">
+  <meta name="keywords" content=" security group, security groups, rules, ports, azure">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
@@ -653,11 +653,11 @@
   
 
   
-    <li class="active"><a href="reference_security_groups.html">Security group rules for AWS</a></li>
+    <li><a href="reference_security_groups.html">Security group rules for AWS</a></li>
   
 
   
-    <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
+    <li class="active"><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
   
 
   
@@ -690,10 +690,10 @@
 
               <!-- Begin of page container -->
               <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Security group rules for AWS
+  <h1 class="n-doc__component-detail-heading">Security group rules for Azure
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_security_groups.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_security_groups_azure.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
       
     </span>
   </h1>
@@ -709,8 +709,6 @@
 <ul class="sectlevel1">
 <li><a href="#security-group-rules-for-cloud-manager">Security group rules for Cloud Manager</a></li>
 <li><a href="#security-group-rules-for-ontap-cloud">Security group rules for ONTAP Cloud</a></li>
-<li><a href="#external-security-group-rules-for-the-ha-mediator">External security group rules for the HA mediator</a></li>
-<li><a href="#internal-security-group-rules-for-the-ha-mediator">Internal security group rules for the HA mediator</a></li>
 </ul>
 </div>
 </div>
@@ -942,128 +940,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">All UDP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All outbound traffic</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="external-security-group-rules-for-the-ha-mediator">External security group rules for the HA mediator</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Inbound rules</strong></p>
-</div>
-<div class="paragraph">
-<p>The source for inbound rules is 0.0.0.0/0.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH connections to the HA mediator</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RESTful API access from Cloud Manager</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><strong>Outbound rules</strong></p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound traffic</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound traffic</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="internal-security-group-rules-for-the-ha-mediator">Internal security group rules for the HA mediator</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager always creates this security group. You do not have the option to use your own security group.</p>
-</div>
-<div class="paragraph">
-<p><strong>Inbound rules</strong></p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All traffic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Communication between the HA mediator and ONTAP Cloud HA nodes only</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><strong>Outbound rules</strong></p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All traffic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Communication between the HA mediator and ONTAP Cloud HA nodes only</p></td>
 </tr>
 </tbody>
 </table>
