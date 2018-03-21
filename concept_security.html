@@ -742,18 +742,6 @@
 <div class="paragraph">
 <p>The AWS Key Management Service (KMS) is a managed service that gives you control of encryption keys without having to administer a key management infrastructure. If you choose AWS-managed encryption, Cloud Manager requests data keys using a customer master key (CMK).</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-If you choose AWS-managed encryption, a single ONTAP Cloud system can have no more than 30 EBS volumes and an HA pair can have no more than 60 EBS volumes. AWS limits you to 30 encrypted EBS volumes per EC2 instance for each CMK. You should contact AWS if you need a larger number of encrypted volumes.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>If you want to use this encryption option, then you must ensure that the AWS KMS is set up appropriately. For details, see <a href="task_setting_up_cloud_manager.html#setting-up-the-aws-kms">Setting up the AWS KMS</a>.</p>
 </div>
