@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Connecting to ONTAP Cloud systems | NetApp Cloud Docs</title>
+  <title>Configuring Cloud Manager to use a proxy server | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@
   
 
   <meta name="description" content="">
-  <meta name="keywords" content=" system manager, connecting, cli, command, command line, connect, shell, interface">
+  <meta name="keywords" content=" proxy, proxy server, proxy, internet">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
@@ -518,7 +518,7 @@
   
 
   
-    <li class="active"><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
   
 
   
@@ -618,7 +618,7 @@
   
 
   
-    <li><a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a></li>
+    <li class="active"><a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a></li>
   
 
   
@@ -703,39 +703,33 @@
 
               <!-- Begin of page container -->
               <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Connecting to ONTAP Cloud systems
+  <h1 class="n-doc__component-detail-heading">Configuring Cloud Manager to use a proxy server
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_connecting_to_otc.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_configuring_proxy.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
       
     </span>
   </h1>
 </div>
 
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you need to perform advanced management of ONTAP Cloud systems, you can do so using OnCommand System Manager or the command line interface.</p>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle" class="title">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#connecting-to-oncommand-system-manager">Connecting to OnCommand System Manager</a></li>
-<li><a href="#connecting-to-the-ontap-cloud-cli">Connecting to the ONTAP Cloud CLI</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="connecting-to-oncommand-system-manager">Connecting to OnCommand System Manager</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You might need to perform some ONTAP Cloud tasks from OnCommand System Manager, which is a browser-based management tool that runs on the ONTAP Cloud system. For example, you need to use System Manager if you want to create LUNs.</p>
+<div class="paragraph lead">
+<p>When you first deploy Cloud Manager, it prompts you to enter a proxy server if the system does not have internet access. You can also manually enter and modify the proxy from Cloud Manager&#8217;s settings.</p>
 </div>
 <div class="paragraph">
-<div class="title">Before you begin</div>
-<p>The computer from which you are accessing Cloud Manager must have a network connection to ONTAP Cloud. For example, you might need to log in to Cloud Manager from a jump host in AWS or Azure.</p>
+<div class="title">About this task</div>
+<p>If your corporate policies dictate that you use a proxy server for all HTTP communication to the internet, then you must configure Cloud Manager to use that proxy server. The proxy server can be in the cloud or in your network.</p>
 </div>
+<div class="paragraph">
+<p>When you configure Cloud Manager to use a proxy server, Cloud Manager, ONTAP Cloud, and the HA mediator all use the proxy server.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>In the upper-right corner of the Cloud Manager console, click the task drop-down list, and then select <strong>Settings</strong>.</p>
+</li>
+<li>
+<p>Under HTTP Proxy, enter the server using the syntax http://<em>address:port</em>, specify a user name and password if basic authentication is required for the server, and then click <strong>Save</strong>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -743,108 +737,17 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When deployed in multiple AWS Availability Zones, ONTAP Cloud HA configurations use a floating IP address for the cluster management interface, which means external routing is not available. You must connect from a host that is part of the same routing domain.
+Cloud Manager does not support passwords that include the @ character.
 </td>
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>From the Working Environments page, double-click the ONTAP Cloud system that you want to manage with System Manager.</p>
-</li>
-<li>
-<p>Click the menu icon, and then click <strong>Advanced &gt; System Manager</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Launch</strong>.</p>
-<div class="paragraph">
-<p>System Manager loads in a new browser tab.</p>
-</div>
-</li>
-<li>
-<p>At the login screen, enter <strong>admin</strong> in the User Name field, enter the password that you specified when you created the working environment, and then click <strong>Sign In</strong>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>The System Manager console loads. You can now use it to manage ONTAP Cloud.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="connecting-to-the-ontap-cloud-cli">Connecting to the ONTAP Cloud CLI</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The ONTAP Cloud CLI enables you to execute all administrative commands and is a good choice for advanced tasks or if you are more comfortable using the CLI. You can connect to the CLI using Secure Shell (SSH).</p>
-</div>
-<div class="paragraph">
-<div class="title">Before you begin</div>
-<p>The host from which you use SSH to connect to ONTAP Cloud must have a network connection to ONTAP Cloud. For example, you might need to use SSH from a jump host in AWS or Azure.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-When deployed in multiple AZs, ONTAP Cloud HA configurations use a floating IP address for the cluster management interface, which means external routing is not available. You must connect from a host that is part of the same routing domain.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In Cloud Manager, identify the IP address of the cluster management interface:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>On the Working Environments page, double-click the name of the instance.</p>
-</li>
-<li>
-<p>Click the menu icon and then click <strong>Information</strong>.</p>
-</li>
-<li>
-<p>Copy the cluster management IP address:</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_mgmt_ip.gif" alt="Screen shot: Shows the Information page" width="which provides the cluster management IP address for a ONTAP Cloud system."></span></p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Use SSH to connect to the cluster management interface IP address using the admin account.</p>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="paragraph">
-<p>The following image shows an example using PuTTY:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_cli2.gif" alt="Screen shot: Shows the destination admin@192.168.11.5 on port 22."></span></p>
-</div>
-</li>
-<li>
-<p>At the login prompt, enter the password for the admin account.</p>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Password: ********
-COT2::&gt;</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
+<p>After you specify the proxy server, new ONTAP Cloud systems are automatically configured to use the proxy server when sending AutoSupport messages. If you do not specify the proxy server before users create ONTAP Cloud systems, then they must use System Manager to manually set the proxy server in the AutoSupport options for each system.</p>
 </div>
 
               <!-- Page Container -->

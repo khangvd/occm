@@ -202,7 +202,7 @@
 {
 "title": "AWS networking requirements",
 "tags": "",
-"keywords": "networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, jump host, autosupport",
+"keywords": "networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, jump host, autosupport, URL, URLs, endpoints, endpoint",
 "url": "reference_networking_aws.html",
 "summary": ""
 }
@@ -213,7 +213,7 @@
 {
 "title": "Azure networking requirements",
 "tags": "",
-"keywords": "networking, network, requirements, connection, connections, vnet, security group, security groups, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host",
+"keywords": "networking, network, requirements, connection, connections, vnet, security group, security groups, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, URL, URLs, endpoints, endpoint",
 "url": "reference_networking_azure.html",
 "summary": ""
 }
@@ -327,6 +327,17 @@
 "tags": "",
 "keywords": "volume view, changing, selecting, switching, views",
 "url": "task_changing_volume_view.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Configuring Cloud Manager to use a proxy server",
+"tags": "",
+"keywords": "proxy, proxy server, proxy, internet",
+"url": "task_configuring_proxy.html",
 "summary": ""
 }
 ,

@@ -618,6 +618,10 @@
   
 
   
+    <li><a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a></li>
+  
+
+  
     <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
   
 
@@ -734,7 +738,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>The target VPC must have one or more subnets that have outbound internet access.</p>
+<p>The target VPC must have one or more subnets that have outbound internet access so Cloud Manager and ONTAP Cloud can contact several endpoints.</p>
+<div class="paragraph">
+<p>To see the list of endpoints, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
+</div>
 </li>
 <li>
 <p>To deploy ONTAP Cloud systems in subnets or networks separate from Cloud Manager, connections between those networks must be in place.</p>

@@ -18,7 +18,7 @@
   
 
   <meta name="description" content="">
-  <meta name="keywords" content=" networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, jump host, autosupport">
+  <meta name="keywords" content=" networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, jump host, autosupport, URL, URLs, endpoints, endpoint">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -618,6 +618,10 @@
   
 
   
+    <li><a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a></li>
+  
+
+  
     <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
   
 
@@ -731,27 +735,98 @@
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Outbound internet access</dt>
+<dt class="hdlist1">Outbound internet access for Cloud Manager</dt>
 <dd>
-<p>You can choose whether the subnets in your VPC are public or private, but they must allow outbound internet access. Outbound internet access is required to enable communication between Cloud Manager and AWS services, to access software images in Amazon S3, to enable technical support from NetApp, and for communication with NetApp AutoSupport.</p>
-<div class="paragraph">
-<p>If the subnets are private, you can route outbound internet access through a NAT device, proxy server, or VPN connection. If you have a proxy, you must configure Cloud Manager to use it. You can do so when using the Cloud Manager Setup wizard.</p>
-</div>
-<div class="paragraph">
-<p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat.html" target="_blank" rel="noopener">AWS Documentation: NAT</a></p>
-</div>
-<div class="paragraph">
-<p>Note the following about providing internet access for NetApp AutoSupport, which is a troubleshooting tool that proactively monitors the health of your storage:</p>
+<p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing ONTAP Cloud in AWS:</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoint</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>AWS services (amazonaws.com):</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>For a NAT instance, you must define an inbound security group rule that allows HTTPS traffic from the private subnet to the internet.</p>
+<p>CloudFormation</p>
 </li>
 <li>
-<p>For VPN configurations, routing and firewall policies must allow AWS HTTP/HTTPS traffic to support.netapp.com.</p>
+<p>Elastic Compute Cloud (EC2)</p>
+</li>
+<li>
+<p>Key Management Service (KMS)</p>
+</li>
+<li>
+<p>Security Token Service (STS)</p>
+</li>
+<li>
+<p>Simple Storage Service (S3)</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The exact endpoint depends on the region in which you deploy ONTAP Cloud. <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html" target="_blank" rel="noopener">Refer to AWS documentation for details.</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage ONTAP Cloud systems in AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides access to software images in Amazon S3 for upgrades.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cognito-idp.us-east-1.amazonaws.com<br>
+cognito-identity.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to access and download manifests, templates, and ONTAP Cloud upgrade images.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kinesis.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables NetApp to stream data from audit records.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp Cloud Central for centralized user authentication.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://mysupport.netapp.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp AutoSupport.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.netapp.com/svcgw<br>
+https://support.netapp.com/ServiceGW/entitlement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp for licensing and support registration.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If your network uses a proxy server for all communication to the internet, Cloud Manager prompts you to specify the proxy during setup. You can also specify the proxy server from the Settings page. Refer to <a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a>.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Outbound internet access for ONTAP Cloud</dt>
+<dd>
+<p>ONTAP Cloud requires outbound internet access to send messages to NetApp AutoSupport, which proactively monitors the health of your storage.</p>
+<div class="paragraph">
+<p>Routing and firewall policies must allow AWS HTTP/HTTPS traffic to mysupport.netapp.com.</p>
+</div>
+<div class="paragraph">
+<p>If you have a NAT instance, you must define an inbound security group rule that allows HTTPS traffic from the private subnet to the internet.</p>
 </div>
 </dd>
 <dt class="hdlist1">Outbound internet access for the HA mediator</dt>
