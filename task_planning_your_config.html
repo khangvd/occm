@@ -18,7 +18,7 @@
   
 
   <meta name="description" content="">
-  <meta name="keywords" content=" license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, byol, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, premium storage, standard storage, use profile, thin provisioning, deduplication, compression, ontap cloud explore, ontap cloud standard, ontap cloud premium, ontap cloud byol, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet">
+  <meta name="keywords" content=" license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, byol, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, premium storage, standard storage, use profile, thin provisioning, deduplication, compression, ontap cloud explore, ontap cloud standard, ontap cloud premium, ontap cloud byol, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet, limit, limits, storage limits, volume limit, aggregate limit, maximum volume size, maximum aggregate size">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -654,15 +654,7 @@
   
 
   
-    <li><a href="reference_apis.html">REST APIs</a></li>
-  
-
-  
-    <li><a href="reference_default_configs.html">Default configurations</a></li>
-  
-
-  
-    <li><a href="reference_permissions.html">Permissions</a></li>
+    <li><a href="reference_regions.html">Supported regions</a></li>
   
 
   
@@ -671,6 +663,18 @@
 
   
     <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
+  
+
+  
+    <li><a href="reference_apis.html">REST APIs</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
   
 
   
@@ -721,6 +725,7 @@
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#choosing-a-license-type">Choosing a license type</a></li>
+<li><a href="#understanding-storage-limits">Understanding storage limits</a></li>
 <li><a href="#choosing-an-aws-disk-type">Choosing an AWS disk type</a></li>
 <li><a href="#choosing-an-azure-disk-type">Choosing an Azure disk type</a></li>
 <li><a href="#choosing-a-disk-size">Choosing a disk size</a></li>
@@ -1065,6 +1070,21 @@
 </li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="understanding-storage-limits">Understanding storage limits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The raw capacity limit for an ONTAP Cloud system is tied to the license. Additional limits impact the size of aggregates and volumes. You should be aware of these limits as you plan your configuration.</p>
+</div>
+<div class="paragraph">
+<p>You can find storage limits in the ONTAP Cloud Release Notes.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839309" target="_blank" rel="noopener">ONTAP Cloud 9.3 for AWS Release Notes</a><br>
+<a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839308" target="_blank" rel="noopener">ONTAP Cloud 9.3 for Azure Release Notes</a></p>
 </div>
 </div>
 </div>

@@ -246,7 +246,7 @@
 {
 "title": "What&amp;#8217;s new in ONTAP Cloud",
 "tags": "",
-"keywords": "what's new, features, new, release notes, bugs, limitations, known issues, enhancements",
+"keywords": "what's new, features, new, release notes, bugs, limitations, known issues, enhancements, SVM DR, disaster recovery, storage virtual machine DR, storage virtual machine disaster recovery, SVM, SVM disaster recovery",
 "url": "reference_new_otc.html",
 "summary": ""
 }
@@ -259,6 +259,17 @@
 "tags": "",
 "keywords": "permissions, actions, API, aws, azure, json",
 "url": "reference_permissions.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Supported regions",
+"tags": "",
+"keywords": "region, regions, mumbai, seoul, singapore, sydney, tokyo, frankfurt, paris, london, ireland, canada, govcloud, us east, us west, sao paulo, australia, japan, korea, southeast asia, east asia, germany, north europe, uk south, uk west, west europe, canada, central us, east us, north central, south central, west us, west central",
+"url": "reference_regions.html",
 "summary": ""
 }
 ,
@@ -578,7 +589,7 @@
 {
 "title": "Planning your ONTAP Cloud configuration",
 "tags": "",
-"keywords": "license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, byol, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, premium storage, standard storage, use profile, thin provisioning, deduplication, compression, ontap cloud explore, ontap cloud standard, ontap cloud premium, ontap cloud byol, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet",
+"keywords": "license, disk, ebs, storage, size, write speed, volume usage, explore, standard, premium, byol, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, sc1, premium storage, standard storage, use profile, thin provisioning, deduplication, compression, ontap cloud explore, ontap cloud standard, ontap cloud premium, ontap cloud byol, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet, limit, limits, storage limits, volume limit, aggregate limit, maximum volume size, maximum aggregate size",
 "url": "task_planning_your_config.html",
 "summary": ""
 }
@@ -644,7 +655,7 @@
 {
 "title": "Replicating data to and from the cloud",
 "tags": "",
-"keywords": "ontap, cluster, discover, manage, cloud manager, hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, schedule, relationship, break, resync, max transfer, maximum transfer rate, rate, transfer rate, reverse resync, status, replication status, intercluster lif, replication requirement, requirements",
+"keywords": "ontap, cluster, discover, manage, cloud manager, hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, schedule, relationship, break, resync, max transfer, maximum transfer rate, rate, transfer rate, reverse resync, status, replication status, intercluster lif, replication requirement, requirements, disaster recovery, DR, archive, archiving, retention",
 "url": "task_replicating_data.html",
 "summary": ""
 }
