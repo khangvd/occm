@@ -506,6 +506,10 @@
         
 
   
+    <li><a href="task_tiering.html">Tiering data in AWS</a></li>
+  
+
+  
     <li><a href="task_managing_storage.html">Managing storage</a></li>
   
 
@@ -973,7 +977,7 @@
 <p>Tiered storage configurations are supported with ONTAP Cloud Standard, Premium, and BYOL, except when using M3 and R3 instance types when using Standard and Premium.</p>
 </li>
 <li>
-<p>For AWS region support, see the <a href="http://mysupport.netapp.com/matrix" target="_blank" rel="noopener">NetApp Interoperability Matrix Tool</a>.</p>
+<p>For AWS region support, see <a href="reference_regions.html#supported-aws-regions">Supported AWS regions</a>.</p>
 </li>
 </ol>
 </div>
@@ -1066,7 +1070,7 @@
 <p>The actual maximum capacity may be less because of virtual machine limits: 60 TB for DS3, 124 TB for DS4 and DS13, and 252 TB for DS5 and DS14.</p>
 </li>
 <li>
-<p>For Azure region support, see the <a href="http://mysupport.netapp.com/matrix" target="_blank" rel="noopener">NetApp Interoperability Matrix Tool</a>.</p>
+<p>For Azure region support, see <a href="reference_regions.html#supported-azure-regions">Supported Azure regions</a>.</p>
 </li>
 </ol>
 </div>
@@ -1095,7 +1099,7 @@
 <p>When you create volumes for ONTAP Cloud systems, you need to choose the underlying EBS volume type (which ONTAP Cloud sees as a <em>disk</em>). You should choose the configuration that meets your requirements for performance and cost.</p>
 </div>
 <div class="paragraph">
-<p>The underlying AWS disk type for ONTAP Cloud can be a single EBS disk type or a tiered storage configuration that uses EBS as a performance tier and S3 as a capacity tier. For an overview of storage tiering, see <a href="concept_storage.html">Storage</a>.</p>
+<p>The underlying AWS disk type for ONTAP Cloud can be a single EBS disk type or a tiered storage configuration that uses EBS as a performance tier and S3 as a capacity tier. For an overview of data tiering, see <a href="concept_storage.html">Storage</a>. For requirements, see <a href="task_tiering.html">Tiering data in AWS</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="supported-ebs-disk-types">Supported EBS disk types</h3>

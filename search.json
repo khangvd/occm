@@ -70,7 +70,7 @@
 {
 "title": "Storage",
 "tags": "",
-"keywords": "storage, capacity, volumes, aggregates, raw capacity, usable capacity, storage tiering, tier, tiering, data tier, s3, capacity, performance, fabricpool, fabric pool, s3 endpoint, fabric pool, fabricpool, disks, Snapshot copies, s3 bucket, requirement, vpc endpoint, connect, connection, support",
+"keywords": "storage, capacity, volumes, aggregates, raw capacity, usable capacity, storage tiering, tier, tiering, data tiering, s3, s3 tiering, capacity, performance, fabricpool, fabric pool, s3 endpoint, fabric pool, fabricpool, disks, Snapshot copies, s3 bucket, requirement, vpc endpoint, connect, connection, support",
 "url": "concept_storage.html",
 "summary": ""
 }
@@ -690,6 +690,17 @@
 "tags": "",
 "keywords": "sync, data, s3, cloud sync, bucket, service, sync to s3, volume sync",
 "url": "task_syncing_s3.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Tiering data in AWS",
+"tags": "",
+"keywords": "tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store",
+"url": "task_tiering.html",
 "summary": ""
 }
 ,

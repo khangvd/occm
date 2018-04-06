@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Monitoring AWS storage and compute costs | NetApp Cloud Docs</title>
+  <title>Tiering data in AWS | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@
   
 
   <meta name="description" content="">
-  <meta name="keywords" content=" cost, costs, storage, compute, savings, aws, aws costs, billing">
+  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
@@ -530,7 +530,7 @@
   
 
   
-    <li class="active"><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
+    <li><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
   
 
   
@@ -711,54 +711,173 @@
 
               <!-- Begin of page container -->
               <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Monitoring AWS storage and compute costs
+  <h1 class="n-doc__component-detail-heading">Tiering data in AWS
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_monitoring_costs.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_tiering.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
       
     </span>
   </h1>
 </div>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>You can view the cost associated with running ONTAP Cloud in AWS. The monthly cost consists of the compute purchased from AWS to run ONTAP Cloud and the disks purchased from AWS for ONTAP Cloud use.</p>
+<p>You can reduce storage costs in AWS by combining an EBS performance tier for "hot" data with an S3 capacity tier for "cold" data. For an overview of data tiering, see <a href="concept_storage.html#data-tiering-in-aws">Data tiering in AWS</a>.</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel2">
+<li><a href="#configurations-supported-with-data-tiering">Configurations supported with data tiering</a></li>
+<li><a href="#requirements-for-data-tiering">Requirements for data tiering</a></li>
+<li><a href="#tiering-data-on-read-write-volumes">Tiering data on read-write volumes</a></li>
+<li><a href="#tiering-data-on-data-protection-volumes">Tiering data on data protection volumes</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configurations-supported-with-data-tiering">Configurations supported with data tiering</h3>
+<div class="paragraph">
+<p>Data tiering is supported with specific configurations and features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data tiering is supported with ONTAP Cloud Standard, Premium, and BYOL.</p>
+<div class="paragraph">
+<p>It is not supported with ONTAP Cloud Explore or with M3 and R3 instance types when using Standard and Premium.</p>
+</div>
+</li>
+<li>
+<p>Data tiering is supported with AWS-managed encryption.</p>
+<div class="paragraph">
+<p>It is not supported with ONTAP Cloud-managed encryption.</p>
+</div>
+</li>
+<li>
+<p>Thin provisioning must be enabled on volumes.</p>
+</li>
+<li>
+<p>ONTAP performance enhancements introduced in ONTAP Cloud 9.2 are not supported with data tiering.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="requirements-for-data-tiering">Requirements for data tiering</h3>
+<div class="paragraph">
+<p>You must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
 </div>
 <div class="paragraph">
-<div class="title">Before you begin</div>
-<p>The AWS payer account must meet specific billing and cost requirements and your Cloud Manager account must be associated with the AWS cost S3 bucket.</p>
+<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the ONTAP Cloud instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, ONTAP Cloud cannot connect to the S3 service.</p>
 </div>
 <div class="paragraph">
-<p><a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">Setting up AWS billing and cost management for Cloud Manager</a></p>
+<p>If you experience any issues, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/" target="_blank" rel="noopener">AWS Support Knowledge Center: Why can’t I connect to an S3 bucket using a gateway VPC endpoint?</a>.</p>
 </div>
-<div class="paragraph">
-<div class="title">About this task</div>
-<p>Cloud Manager updates the storage and compute costs every 12 hours.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">What&#8217;s not required for data tiering</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You do not need to install a feature license to enable data tiering.</p>
+</li>
+<li>
+<p>You do not need to create the S3 bucket. Cloud Manager creates it for you.</p>
+</li>
+</ul>
 </div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tiering-data-on-read-write-volumes">Tiering data on read-write volumes</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>You should refer to AWS for final cost details.</p>
+<p>ONTAP Cloud can tier Snapshot copies of read-write volumes to cost-effective S3 storage, freeing up the EBS performance tier for "hot" data.</p>
 </div>
 <div class="olist arabic">
-<div class="title">Step</div>
+<div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>On the Working Environments page, select an ONTAP Cloud working environment and then click <strong>Cost</strong>.</p>
+<p>In the working environment, create a new volume or change the tier of an existing volume:</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Task</th>
+<th class="tableblock halign-left valign-top">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Click <strong>Add New Volume</strong>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modify an existing volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select the volume and click <strong>Change Tier</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Enable S3 Tiering:</p>
 <div class="paragraph">
-<p>The Cost page displays costs for the current and previous months and shows your storage costs savings, if you enabled NetApp&#8217;s efficiency features on volumes. If the cost information is not available, verify that the Cloud Manager Admin met the prerequisites listed earlier.</p>
+<p><span class="image"><img src="./media/screenshot_tiered_storage.gif" alt="Screenshot that shows the icon to enable tiering to S3."></span></p>
 </div>
 <div class="paragraph">
-<p>The following image shows an example of the AWS costs per month:</p>
+<p>Cloud Manager creates a new aggregate if a data tiering-enabled aggregate does not already exist.</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_cost.gif" alt="Screen shot: Shows the costs per month for a ONTAP Cloud instance."></span></p>
-</div>
-<div class="paragraph">
-<p>The following image shows an example of storage cost savings:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_cost_savings.gif" alt="Screen shot: Shows the storage cost savings for a ONTAP Cloud instance."></span></p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you prefer to create aggregates yourself, you can enable data tiering when creating aggregates.
+</td>
+</tr>
+</table>
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tiering-data-on-data-protection-volumes">Tiering data on data protection volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP Cloud can tier data from a data protection volume to an S3 capacity tier. If you activate the destination volume, the data gradually moves to the EBS performance tier as it is read.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>On the Working Environments page, select the working environment that contains the source volume, and then drag it to the working environment to which you want to replicate the volume.</p>
+</li>
+<li>
+<p>Follow the prompts until you reach the tiering page and enable <strong>S3 Tiering</strong>.</p>
+<div class="paragraph">
+<p>For help with replicating data, see <a href="task_replicating_data.html">Replicating data to and from the cloud</a>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 
               <!-- Page Container -->

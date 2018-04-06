@@ -18,7 +18,7 @@
   
 
   <meta name="description" content="">
-  <meta name="keywords" content=" storage, capacity, volumes, aggregates, raw capacity, usable capacity, storage tiering, tier, tiering, data tier, s3, capacity, performance, fabricpool, fabric pool, s3 endpoint, fabric pool, fabricpool, disks, Snapshot copies, s3 bucket, requirement, vpc endpoint, connect, connection, support">
+  <meta name="keywords" content=" storage, capacity, volumes, aggregates, raw capacity, usable capacity, storage tiering, tier, tiering, data tiering, s3, s3 tiering, capacity, performance, fabricpool, fabric pool, s3 endpoint, fabric pool, fabricpool, disks, Snapshot copies, s3 bucket, requirement, vpc endpoint, connect, connection, support">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -506,6 +506,10 @@
         
 
   
+    <li><a href="task_tiering.html">Tiering data in AWS</a></li>
+  
+
+  
     <li><a href="task_managing_storage.html">Managing storage</a></li>
   
 
@@ -724,14 +728,14 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#overview">Overview</a></li>
-<li><a href="#storage-tiering-overview">Storage tiering overview</a></li>
+<li><a href="#how-ontap-cloud-uses-cloud-storage">How ONTAP Cloud uses cloud storage</a></li>
+<li><a href="#data-tiering-in-aws">Data tiering in AWS</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview">Overview</h2>
+<h2 id="how-ontap-cloud-uses-cloud-storage">How ONTAP Cloud uses cloud storage</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>ONTAP Cloud uses AWS and Azure volumes as back-end storage. It sees these volumes as disks and groups them into one or more aggregates. Aggregates provide storage to one or more ONTAP Cloud volumes.</p>
@@ -776,16 +780,16 @@ The total amount of storage purchased from AWS or Azure is the <em>raw capacity<
 </div>
 </div>
 <div class="sect1">
-<h2 id="storage-tiering-overview">Storage tiering overview</h2>
+<h2 id="data-tiering-in-aws">Data tiering in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>With ONTAP Cloud for AWS, you can reduce your storage costs by using EBS as a performance tier and AWS S3 as a capacity tier.</p>
+<p>With ONTAP Cloud for AWS, you can reduce storage costs by using EBS as a performance tier for "hot" data and AWS S3 as a capacity tier for "cold" data.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_storage_tiering.png" alt="This is a conceptual image that shows hot data going to EBS storage and cold data going to S3 storage."></span></p>
 </div>
 <div class="paragraph">
-<p>A tiered storage configuration is a good choice if your data changes frequently or if you use ONTAP Cloud for disaster recovery or long-term retention:</p>
+<p>Tiering data is a good choice if your data changes frequently or if you use ONTAP Cloud for disaster recovery or long-term retention:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -793,10 +797,7 @@ The total amount of storage purchased from AWS or Azure is the <em>raw capacity<
 <p>After an aggregate has reached 50% capacity, ONTAP Cloud tiers Snapshot copies of read-write volumes to cost-effective S3 storage, freeing up the EBS performance tier for "hot" data.</p>
 </li>
 <li>
-<p>When you replicate a volume to a tiered storage configuration for disaster recovery or long-term retention, data for the destination volume resides in the S3 capacity tier.</p>
-<div class="paragraph">
-<p>If you activate the destination volume, the data gradually moves to the EBS performance tier as it is read.</p>
-</div>
+<p>When you replicate a volume for disaster recovery or long-term retention, data for the destination volume resides in the S3 capacity tier. If you activate the destination volume, the data gradually moves to the EBS performance tier as it is read.</p>
 </li>
 </ul>
 </div>
@@ -812,7 +813,7 @@ The total amount of storage purchased from AWS or Azure is the <em>raw capacity<
 <p>The EBS tier can be General Purpose SSDs or Throughput Optimized HDDs.</p>
 </li>
 <li>
-<p>An ONTAP Cloud working environment uses a single S3 bucket for tiered storage. This includes an HA working environment.</p>
+<p>An ONTAP Cloud working environment uses a single S3 bucket for tiered data. This includes an HA working environment.</p>
 </li>
 <li>
 <p>Cloud Manager creates the S3 bucket and names it fabric-pool-<em>cluster unique identifier</em>.</p>
@@ -826,61 +827,18 @@ The total amount of storage purchased from AWS or Azure is the <em>raw capacity<
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You do not need to install a feature license to enable storage tiering.
+You do not need to install a feature license to enable data tiering.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="connection-requirement-for-storage-tiering">Connection requirement for storage tiering</h3>
-<div class="paragraph">
-<p>Before you choose a tiered storage configuration, you must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a></p>
-</div>
-<div class="paragraph">
-<p>For additional information, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
-</div>
-</div>
-<div class="sect2">
 <h3 id="setting-up-a-tiered-storage-configuration">Setting up a tiered storage configuration</h3>
 <div class="paragraph">
-<p>After you create a VPC Endpoint to S3, you can choose a tiered storage configuration when you create an ONTAP Cloud volume and when you replicate data. The following image shows the S3 Tiering option when creating a new volume:</p>
+<p>You simply need to create a VPC Endpoint to S3 and then enable S3 tiering when creating a volume. For details, see <a href="task_tiering.html">Tiering data in AWS</a>.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_tiered_storage.gif" alt="Screenshot that shows the icon to enable tiering to S3."></span></p>
-</div>
-<div class="paragraph">
-<p>Cloud Manager creates the S3 bucket for you.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="configurations-supported-with-storage-tiering">Configurations supported with storage tiering</h3>
-<div class="paragraph">
-<p>Storage tiering is supported with specific configurations and features:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Storage tiering is supported with ONTAP Cloud Standard, Premium, and BYOL.</p>
-<div class="paragraph">
-<p>It is not supported with ONTAP Cloud Explore or with M3 and R3 instance types when using Standard and Premium.</p>
-</div>
-</li>
-<li>
-<p>Storage tiering is supported with AWS-managed encryption.</p>
-<div class="paragraph">
-<p>It is not supported with ONTAP Cloud-managed encryption.</p>
-</div>
-</li>
-<li>
-<p>Thin provisioning must be enabled on volumes that use a tiered storage configuration.</p>
-</li>
-<li>
-<p>ONTAP performance enhancements introduced in ONTAP Cloud 9.2 are not supported with tiered storage configurations.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
