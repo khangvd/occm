@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="">
+  <meta name="description" content="You can reduce storage costs in AWS by combining an EBS performance tier for "hot" data with an S3 capacity tier for "cold" data.">
   <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store">
 
   <!-- Icons -->
@@ -506,7 +506,7 @@
         
 
   
-    <li><a href="task_tiering.html">Tiering data in AWS</a></li>
+    <li class="active"><a href="task_tiering.html">Tiering data in AWS</a></li>
   
 
   
@@ -727,7 +727,7 @@
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
-<ul class="sectlevel2">
+<ul class="sectlevel1">
 <li><a href="#configurations-supported-with-data-tiering">Configurations supported with data tiering</a></li>
 <li><a href="#requirements-for-data-tiering">Requirements for data tiering</a></li>
 <li><a href="#tiering-data-on-read-write-volumes">Tiering data on read-write volumes</a></li>
@@ -736,8 +736,9 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="configurations-supported-with-data-tiering">Configurations supported with data tiering</h3>
+<div class="sect1">
+<h2 id="configurations-supported-with-data-tiering">Configurations supported with data tiering</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Data tiering is supported with specific configurations and features:</p>
 </div>
@@ -764,8 +765,10 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="requirements-for-data-tiering">Requirements for data tiering</h3>
+</div>
+<div class="sect1">
+<h2 id="requirements-for-data-tiering">Requirements for data tiering</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>You must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
 </div>
@@ -796,6 +799,7 @@
 </td>
 </tr>
 </table>
+</div>
 </div>
 </div>
 <div class="sect1">
