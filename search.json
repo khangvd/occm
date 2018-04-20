@@ -48,9 +48,9 @@
 {
 "title": "Performance",
 "tags": "",
-"keywords": "",
-"url": "concept_performance",
-"summary": ""
+"keywords": "performance, technical report, TR, workload",
+"url": "concept_performance.html",
+"summary": "You can review performance results to help you decide which workloads are appropriate for ONTAP Cloud."
 }
 ,
 
