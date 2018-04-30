@@ -731,12 +731,187 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#cloud-manager-3-4-5">Cloud Manager 3.4.5</a></li>
 <li><a href="#cloud-manager-3-4-4">Cloud Manager 3.4.4</a></li>
 <li><a href="#cloud-manager-3-4-3">Cloud Manager 3.4.3</a></li>
 <li><a href="#cloud-manager-3-4-2">Cloud Manager 3.4.2</a></li>
 <li><a href="#cloud-manager-3-4-1">Cloud Manager 3.4.1</a></li>
 <li><a href="#cloud-manager-3-4">Cloud Manager 3.4</a></li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-4-5">Cloud Manager 3.4.5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.4.5 includes new support and enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#support-for-rhel-7-4-and-centos-7-4">Support for RHEL 7.4 and CentOS 7.4</a></p>
+</li>
+<li>
+<p><a href="#cloud-manager-can-now-enable-programmatic-deployments">Cloud Manager can now enable programmatic deployments</a></p>
+</li>
+<li>
+<p><a href="#data-disk-limit-for-ontap-cloud-for-aws">Data disk limit for ONTAP Cloud for AWS</a></p>
+</li>
+<li>
+<p><a href="#changes-coming-soon">Changes coming soon</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="support-for-rhel-7-4-and-centos-7-4">Support for RHEL 7.4 and CentOS 7.4</h3>
+<div class="paragraph">
+<p>Cloud Manager is now supported on Red Hat Enterprise Linux 7.4 and CentOS 7.4.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-manager-can-now-enable-programmatic-deployments">Cloud Manager can now enable programmatic deployments</h3>
+<div class="paragraph">
+<p>In previous releases, you had to manually enable programmatic deployments of ONTAP Cloud from the Azure Marketplace for each Azure subscription. Cloud Manager can now do this for you.</p>
+</div>
+<div class="paragraph">
+<p>To enable programmatic deployments for an Azure subscription, Cloud Manager requires the following permissions:</p>
+</div>
+<div class="paragraph">
+<p>"Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read"<br>
+"Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write"</p>
+</div>
+<div class="paragraph">
+<p>You should update the role definition for the Cloud Manager Operator role to include these permissions.</p>
+</div>
+<div class="paragraph">
+<p>You can find the entire list of required permissions in <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">the policies provided by NetApp</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-disk-limit-for-ontap-cloud-for-aws">Data disk limit for ONTAP Cloud for AWS</h3>
+<div class="paragraph">
+<p>Due to AWS infrastructure changes, the number of data disks supported in AWS has been reduced. Cloud Manager enforces the following data disk limits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A single-node ONTAP Cloud system can have up to 35 data disks.</p>
+</li>
+<li>
+<p>An ONTAP Cloud HA node can have up to 32 data disks.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The data disk limit does not include the boot disk and root disk.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To ensure that you can utilize the system&#8217;s maximum capacity before it reaches the maximum number of data disks, Cloud Manager chooses larger disks as ONTAP Cloud systems grow in AWS. For additional details, see <a href="concept_storage_management.html#disk-size-selection-for-aggregates-in-aws">Disk size selection for aggregates in AWS</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes-coming-soon">Changes coming soon</h3>
+<div class="paragraph">
+<p>NetApp occasionally announces changes that will be made in upcoming releases of Cloud Manager and ONTAP Cloud so that you are provided advance notice.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#deprecation-of-ec2-instance-types">Deprecation of EC2 instance types</a></p>
+</li>
+<li>
+<p><a href="#new-permissions-required-for-ontap-cloud-9-4">New permissions required for ONTAP Cloud 9.4</a></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="deprecation-of-ec2-instance-types">Deprecation of EC2 instance types</h4>
+<div class="paragraph">
+<p>In June 2018, ONTAP Cloud 9.3 and the upcoming release of ONTAP Cloud 9.4 will no longer support several EC2 instance types when creating new systems. Existing ONTAP Cloud systems running these instance types will continue to operate normally; however, NetApp strongly recommends changing to a different instance type.</p>
+</div>
+<div class="paragraph">
+<p>To review pricing differences between instance types and NetApp licenses, go to the AWS Marketplace for <a href="http://aws.amazon.com/marketplace/pp/B011KEZ734" target="_blank" rel="noopener">single-node ONTAP Cloud systems</a> and for <a href="http://aws.amazon.com/marketplace/pp/B01H4LVJ84" target="_blank" rel="noopener">ONTAP Cloud HA pairs</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Instance type no longer supported</th>
+<th class="tableblock halign-left valign-top">Recommended instance type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c3.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c4.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.2xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m3.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m3.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.2xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r3.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r3.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.2xlarge</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+M3 and R3 instance types are not supported with ONTAP Cloud data tiering and enhanced performance, so moving to the M4 and R4 instance types allows you to take advantage of those features.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-permissions-required-for-ontap-cloud-9-4">New permissions required for ONTAP Cloud 9.4</h4>
+<div class="paragraph">
+<p>Cloud Manager will require new permissions for key features in the upcoming ONTAP Cloud 9.4 release. To ensure that your Cloud Manager systems are ready to deploy and manage ONTAP Cloud 9.4 systems, we recommend that you update your Cloud Manager policy now by adding the following permissions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For AWS: "ec2:DescribeInstanceAttribute",</p>
+</li>
+<li>
+<p>For Azure: "Microsoft.Network/virtualNetworks/subnets/write",</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can find the entire list of required permissions in <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">the latest policies provided by NetApp</a>.</p>
+</div>
+</div>
 </div>
 </div>
 </div>

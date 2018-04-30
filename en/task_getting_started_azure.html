@@ -18,7 +18,7 @@
   
 
   <meta name="description" content="Getting started with ONTAP Cloud includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and the...">
-  <meta name="keywords" content=" microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, vpn, multi-cloud, deploy programtically, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role, free trial, security group">
+  <meta name="keywords" content=" microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, vpn, multi-cloud, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role, free trial, security group">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
@@ -729,7 +729,6 @@
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#verifying-your-networking">Verifying your networking</a></li>
-<li><a href="#enabling-programmatic-deployments-of-ontap-cloud">Enabling programmatic deployments of ONTAP Cloud</a></li>
 <li><a href="#granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</a></li>
 <li><a href="#installing-and-setting-up-cloud-manager-in-azure">Installing and setting up Cloud Manager in Azure</a></li>
 <li><a href="#deploying-ontap-cloud-in-azure">Deploying ONTAP Cloud in Azure</a></li>
@@ -764,46 +763,6 @@
 </div>
 <div class="paragraph">
 <p>For additional information, see <a href="reference_networking_azure.html">Azure networking requirements</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="enabling-programmatic-deployments-of-ontap-cloud">Enabling programmatic deployments of ONTAP Cloud</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager deploys ONTAP Cloud using API calls, so you must enable programmatic deployments of ONTAP Cloud from the Azure Marketplace.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Using an Azure user account that has at least the Contributor role, go to the <a href="https://azure.microsoft.com/en-us/marketplace/partners/netapp/netapp-ontap-cloud/" target="_blank" rel="noopener">Azure Marketplace page for ONTAP Cloud</a>.</p>
-</li>
-<li>
-<p>Click <strong>Get it now</strong>, select the PAYGo or BYOL offering, and click <strong>Continue</strong>.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_marketplace.gif" alt="Shows the drop-down list that you can use to select either ONTAP Cloud PayGo or ONTAP Cloud BYOL in the Azure Marketplace."></span></p>
-</div>
-</li>
-<li>
-<p>From the Azure portal, click <strong>Want to deploy programmatically?</strong></p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_programmatic.gif" alt="Shows the Want to deploy programmatically option in Microsoft Azure."></span></p>
-</div>
-</li>
-<li>
-<p>Click <strong>Enable</strong> for each Azure subscription from which you want to deploy ONTAP Cloud.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_programmatic_enable.gif" alt="Shows how to enable programmatic deployment for a subscription in Microsoft Azure."></span></p>
-</div>
-</li>
-<li>
-<p>Click <strong>Save</strong>.</p>
-</li>
-<li>
-<p>If you want to deploy both ONTAP Cloud BYOL and PAYGo, repeat the steps for the other offering.</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -878,7 +837,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
 </div>
 <div class="paragraph">
-<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3.3.4.json</strong></p>
+<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3_4_5.json</strong></p>
 </div>
 </li>
 </ol>
