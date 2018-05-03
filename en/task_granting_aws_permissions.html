@@ -754,7 +754,7 @@
 </li>
 <li>
 <p>Grant permissions to the Cloud Manager instance or to IAM users:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -768,15 +768,20 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Grant permissions to the Cloud Manager instance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create an IAM role with the role type Amazon EC2 and attach the policy that you created in the previous step to the role.<br>
-<br>
-Attach the IAM role to Cloud Manager when you launch it from the AWS Marketplace (choose Custom Launch) or by modifying an existing instance from the EC2 console.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Create an IAM role with the role type Amazon EC2 and attach the policy that you created in the previous step to the role.</p>
+</li>
+<li>
+<p>Attach the IAM role to Cloud Manager when you launch it from the AWS Marketplace (choose <strong>Custom Launch</strong>) or by modifying an existing instance from the EC2 console.</p>
+</li>
+</ol>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Grant permissions to IAM users</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attach the policy to IAM users or groups.<br>
-<br>
-<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html" target="_blank" rel="noopener">AWS Documentation: Managing IAM Policies</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attach the policy to IAM users or groups. For instructions, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html" target="_blank" rel="noopener">AWS Documentation: Managing IAM Policies</a>.</p></td>
 </tr>
 </tbody>
 </table>

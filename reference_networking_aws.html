@@ -746,7 +746,7 @@
 <dt class="hdlist1">Outbound internet access for Cloud Manager</dt>
 <dd>
 <p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing ONTAP Cloud in AWS:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -759,7 +759,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>AWS services (amazonaws.com):</p>
 </div>
 <div class="ulist">
@@ -841,10 +841,7 @@ If your network uses a proxy server for all communication to the internet, Cloud
 <dd>
 <p>The HA mediator instance must have an outbound connection to the AWS EC2 service so it can assist with storage failover. To provide the connection, you can add a public IP address, specify a proxy server, or use a manual option.</p>
 <div class="paragraph">
-<p>The manual option can be a NAT gateway or an interface VPC endpoint from the target subnet to the AWS EC2 service.</p>
-</div>
-<div class="paragraph">
-<p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html" target="_blank" rel="noopener">AWS Documentation: Interface VPC Endpoints (AWS PrivateLink)</a></p>
+<p>The manual option can be a NAT gateway or an interface VPC endpoint from the target subnet to the AWS EC2 service. For details about VPC endpoints, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html" target="_blank" rel="noopener">AWS Documentation: Interface VPC Endpoints (AWS PrivateLink)</a>.</p>
 </div>
 </dd>
 <dt class="hdlist1">Security groups</dt>
@@ -884,17 +881,11 @@ If your network uses a proxy server for all communication to the internet, Cloud
 </dd>
 <dt class="hdlist1">Connections to ONTAP systems in other networks</dt>
 <dd>
-<p>To replicate data between an ONTAP Cloud system in AWS and ONTAP systems in other networks, you must have a VPN connection between the AWS VPC and the other network—for example, an Azure VNet or your corporate network.</p>
-<div class="paragraph">
-<p><a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html" target="_blank" rel="noopener">AWS Documentation: Setting Up an AWS VPN Connection</a></p>
-</div>
+<p>To replicate data between an ONTAP Cloud system in AWS and ONTAP systems in other networks, you must have a VPN connection between the AWS VPC and the other network—for example, an Azure VNet or your corporate network. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html" target="_blank" rel="noopener">AWS Documentation: Setting Up an AWS VPN Connection</a>.</p>
 </dd>
 <dt class="hdlist1">Connection to key managers</dt>
 <dd>
-<p>If you want to use the ONTAP Cloud data encryption feature, ONTAP Cloud instances must have a connection to one or more key managers that are either in AWS or in your network.</p>
-<div class="paragraph">
-<p><a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up ONTAP Cloud encryption</a></p>
-</div>
+<p>If you want to use the ONTAP Cloud data encryption feature, ONTAP Cloud instances must have a connection to one or more key managers that are either in AWS or in your network. For instructions, see <a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up ONTAP Cloud encryption</a>.</p>
 </dd>
 <dt class="hdlist1">DNS and Active Directory for CIFS</dt>
 <dd>
@@ -903,7 +894,7 @@ If your network uses a proxy server for all communication to the internet, Cloud
 <p>The DNS server must provide name resolution services for the Active Directory environment. You can configure DHCP option sets to use the default EC2 DNS server, which must not be the DNS server used by the Active Directory environment.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://s3.amazonaws.com/quickstart-reference/microsoft/activedirectory/latest/doc/Microsoft_Active_Directory_Quick_Start.pdf" target="_blank" rel="noopener">AWS Documentation: Active Directory Domain Services on the AWS Cloud Quick Start Reference Deployment</a></p>
+<p>For instructions, refer to <a href="https://s3.amazonaws.com/quickstart-reference/microsoft/activedirectory/latest/doc/Microsoft_Active_Directory_Quick_Start.pdf" target="_blank" rel="noopener">AWS Documentation: Active Directory Domain Services on the AWS Cloud Quick Start Reference Deployment</a>.</p>
 </div>
 </dd>
 </dl>
@@ -924,11 +915,8 @@ If your network uses a proxy server for all communication to the internet, Cloud
 <dt class="hdlist1">Availability Zones</dt>
 <dd>
 <p>This HA deployment model uses multiple AZs to ensure high availability of your data. You should use a dedicated AZ for each ONTAP Cloud instance and the mediator instance, which provides a communication channel between the HA pair.</p>
-<div class="paragraph">
-<p>If your region does not have three Availability Zones, try to request more from AWS.</p>
-</div>
 </dd>
-<dt class="hdlist1">Floating IP addresses for data access</dt>
+<dt class="hdlist1">Floating IP addresses for NAS data access</dt>
 <dd>
 <p>ONTAP Cloud HA configurations in multiple AZs use floating IP addresses for NAS client access from within the VPC. These IP addresses can migrate between nodes when failures occur.</p>
 <div class="paragraph">
@@ -976,13 +964,13 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 <dd>
 <p>After you specify the floating IP addresses in Cloud Manager, you must select the route tables that should include routes to the floating IP addresses. This enables client access to the ONTAP Cloud HA pair.</p>
 <div class="paragraph">
-<p>If you have just one route table for the subnets in your VPC (the main route table), then Cloud Manager automatically adds the floating IP addresses to that route table. If you have more than one route table, it is very important to select the correct route tables. Otherwise, some clients might not have access to the ONTAP Cloud HA pair.</p>
+<p>If you have just one route table for the subnets in your VPC (the main route table), then Cloud Manager automatically adds the floating IP addresses to that route table. If you have more than one route table, it is very important to select the correct route tables when launching the HA pair. Otherwise, some clients might not have access to ONTAP Cloud.</p>
 </div>
 <div class="paragraph">
 <p>For example, you might have two subnets that are associated with different route tables. If you select route table A, but not route table B, then clients in the subnet associated with route table A can access the HA pair, but clients in the subnet associated with route table B cannot access the HA pair.</p>
 </div>
 <div class="paragraph">
-<p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a></p>
+<p>For more information about route tables, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a>.</p>
 </div>
 </dd>
 <dt class="hdlist1">Connection to NetApp management tools</dt>
@@ -1021,7 +1009,7 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 <div class="sect2">
 <h3 id="a-vpc-with-public-and-private-subnets-and-a-nat-device">A VPC with public and private subnets and a NAT device</h3>
 <div class="paragraph">
-<p>This VPC configuration includes public and private subnets, an Internet gateway that connects the VPC to the Internet, and a NAT gateway or NAT instance in the public subnet that enables outbound Internet traffic from the private subnet. In this configuration, you can run Cloud Manager in a public subnet or private subnet, but the public subnet is recommended because it allows access from hosts outside the VPC. You can then launch ONTAP Cloud instances in the private subnet.</p>
+<p>This VPC configuration includes public and private subnets, an internet gateway that connects the VPC to the internet, and a NAT gateway or NAT instance in the public subnet that enables outbound internet traffic from the private subnet. In this configuration, you can run Cloud Manager in a public subnet or private subnet, but the public subnet is recommended because it allows access from hosts outside the VPC. You can then launch ONTAP Cloud instances in the private subnet.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1030,13 +1018,13 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Instead of a NAT device, you can use an HTTP proxy to provide Internet connectivity.
+Instead of a NAT device, you can use an HTTP proxy to provide internet connectivity.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html" target="_blank" rel="noopener">AWS Documentation: Scenario 2: VPC with Public and Private Subnets (NAT)</a></p>
+<p>For more details about this scenario, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html" target="_blank" rel="noopener">AWS Documentation: Scenario 2: VPC with Public and Private Subnets (NAT)</a>.</p>
 </div>
 <div class="paragraph">
 <p>The following graphic shows Cloud Manager running in a public subnet and single node ONTAP Cloud instances running in a private subnet:</p>
@@ -1048,7 +1036,7 @@ Instead of a NAT device, you can use an HTTP proxy to provide Internet connectiv
 <div class="sect2">
 <h3 id="a-vpc-with-a-private-subnet-and-a-vpn-connection-to-your-network">A VPC with a private subnet and a VPN connection to your network</h3>
 <div class="paragraph">
-<p>This VPC configuration is a hybrid cloud configuration in which ONTAP Cloud instances become an extension of your private environment. The configuration includes a private subnet and a virtual private gateway with a VPN connection to your network. Routing across the VPN tunnel allows EC2 instances to access the Internet through your network and firewalls. You can run Cloud Manager in the private subnet or in your data center. You would then launch ONTAP Cloud instances in the private subnet.</p>
+<p>This VPC configuration is a hybrid cloud configuration in which ONTAP Cloud instances become an extension of your private environment. The configuration includes a private subnet and a virtual private gateway with a VPN connection to your network. Routing across the VPN tunnel allows EC2 instances to access the internet through your network and firewalls. You can run Cloud Manager in the private subnet or in your data center. You would then launch ONTAP Cloud instances in the private subnet.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1057,7 +1045,7 @@ Instead of a NAT device, you can use an HTTP proxy to provide Internet connectiv
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can also use a proxy server in this configuration to allow Internet access. The proxy server can be in your data center or in AWS.
+You can also use a proxy server in this configuration to allow internet access. The proxy server can be in your data center or in AWS.
 </td>
 </tr>
 </table>
@@ -1066,7 +1054,7 @@ You can also use a proxy server in this configuration to allow Internet access. 
 <p>If you want to replicate data between FAS systems in your data center and ONTAP Cloud systems in AWS, you should use a VPN connection so that the link is secure.</p>
 </div>
 <div class="paragraph">
-<p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html" target="_blank" rel="noopener">AWS Documentation: Scenario 4: VPC with a Private Subnet Only and AWS Managed VPN Access</a></p>
+<p>For more details about this scenario, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html" target="_blank" rel="noopener">AWS Documentation: Scenario 4: VPC with a Private Subnet Only and AWS Managed VPN Access</a>.</p>
 </div>
 <div class="paragraph">
 <p>The following graphic shows Cloud Manager running in your data center and single node ONTAP Cloud instances running in a private subnet:</p>

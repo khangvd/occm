@@ -723,7 +723,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can launch ONTAP Cloud instances in a single-system configuration or as an HA pair in AWS.</p>
+<p>You can launch ONTAP Cloud in a single-system configuration or as an HA pair in AWS.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
@@ -744,19 +744,13 @@
 <div class="title">Before you begin</div>
 <ul>
 <li>
-<p>You should have prepared by choosing a configuration and by obtaining AWS networking information from your administrator.</p>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html">Planning your ONTAP Cloud configuration</a></p>
-</div>
+<p>You should have prepared by choosing a configuration and by obtaining AWS networking information from your administrator. For details, see <a href="task_planning_your_config.html">Planning your ONTAP Cloud configuration</a>.</p>
 </li>
 <li>
 <p>If you want to launch an ONTAP Cloud BYOL instance, you must have the 20-digit serial number (license key) and you must have credentials for a NetApp Support Site account, if the tenant is not already linked with an account.</p>
 </li>
 <li>
-<p>If you want to use CIFS, you must have set up DNS and Active Directory.</p>
-<div class="paragraph">
-<p><a href="reference_networking_aws.html">AWS networking requirements</a></p>
-</div>
+<p>If you want to use CIFS, you must have set up DNS and Active Directory. For details, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
 </li>
 </ul>
 </div>
@@ -778,7 +772,7 @@
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -800,9 +794,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the ONTAP Cloud instance and each AWS resource associated with the instance.<br>
-<br>
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the ONTAP Cloud instance and each AWS resource associated with the instance. For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -820,7 +812,7 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 </div>
 </li>
 <li>
-<p>On the Location page, enter the network information that you recorded in the AWS worksheet and then click Continue.</p>
+<p>On the Location page, enter the network information that you recorded in the AWS worksheet and then click <strong>Continue</strong>.</p>
 <div class="paragraph">
 <p>The following image shows the Location page filled out:</p>
 </div>
@@ -831,7 +823,7 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 <li>
 <p>On the Data Encryption page, choose no data encryption, ONTAP Cloud-managed encryption, or AWS-managed encryption.</p>
 <div class="paragraph">
-<p><a href="concept_security.html#data-encryption-in-aws">Data encryption in AWS</a></p>
+<p>To better understand these options, see <a href="concept_security.html#data-encryption-in-aws">Data encryption in AWS</a>.</p>
 </div>
 <div class="paragraph">
 <p>For AWS-managed encryption, you can choose a different master key if more than one key is available in your account.</p>
@@ -878,6 +870,9 @@ The key manager CA certificate is for all selected key managers, which means the
 </li>
 <li>
 <p>On the IAM Role page, you should keep the default option to let Cloud Manager create the role for you.</p>
+<div class="paragraph">
+<p>If you prefer to use your own policy, it must meet <a href="http://mysupport.netapp.com/cloudontap/support/iampolicies" target="_blank" rel="noopener">policy requirements for ONTAP Cloud nodes</a>.</p>
+</div>
 </li>
 <li>
 <p>On the Licensing page, change the ONTAP Cloud version as needed, select a license, an instance type, the instance tenancy, and then click <strong>Continue</strong>.</p>
@@ -891,7 +886,7 @@ The key manager CA certificate is for all selected key managers, which means the
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select ONTAP Cloud 9.2 RC1 and ONTAP Cloud 9.2 GA is available. The update does not occur from one release to another—for example, from 9.2 to 9.3.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select ONTAP Cloud 9.3 RC1 and ONTAP Cloud 9.3 GA is available. The update does not occur from one release to another—for example, from 9.2 to 9.3.
 </td>
 </tr>
 </table>
@@ -900,34 +895,25 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <li>
 <p>If the NetApp Support Site credentials page is displayed, enter your NetApp Support Site credentials.</p>
 <div class="paragraph">
-<p>Credentials are required for BYOL instances.</p>
-</div>
-<div class="paragraph">
-<p><a href="concept_storage_management.html#why-you-should-link-a-tenant-to-your-netapp-support-site-account">Why you should link a tenant to your NetApp Support Site account</a></p>
+<p>Credentials are required for BYOL instances. For details, see <a href="concept_storage_management.html#why-you-should-link-a-tenant-to-your-netapp-support-site-account">Why you should link a tenant to your NetApp Support Site account</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Underlying storage resources page, choose a single storage type or a tiered storage configuration.</p>
+<p>On the Underlying storage resources page, choose a single storage type or data tiering.</p>
 <div class="paragraph">
-<p>The underlying AWS disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-an-aws-disk-type">Choosing an AWS disk type</a></p>
+<p>The underlying AWS disk type is for the initial volume. You can choose a different disk type for subsequent volumes. For help choosing a disk type, see <a href="task_planning_your_config.html#choosing-an-aws-disk-type">Choosing an AWS disk type</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Disk Size page, select the default disk size for all disks in the initial aggregate and for any additional aggregates that Cloud Manager creates when you use the simple provisioning option.</p>
+<p>On the Disk Size page, select the default disk size for all disks in the initial aggregate.</p>
 <div class="paragraph">
-<p>You can create aggregates that use a different disk size by using the advanced allocation option.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-a-disk-size">Choosing disk size</a></p>
+<p>For help choosing a size, see <a href="task_planning_your_config.html#choosing-a-disk-size">Choosing disk size</a>.</p>
 </div>
 </li>
 <li>
 <p>On the Write Speed page, choose <strong>Normal</strong> or <strong>High</strong>.</p>
 <div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-a-write-speed">Choosing a write speed</a></p>
+<p>For help choosing between the options, see <a href="task_planning_your_config.html#choosing-a-write-speed">Choosing a write speed</a>.</p>
 </div>
 </li>
 <li>
@@ -938,7 +924,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -982,7 +968,7 @@ For more information, see Understanding volume usage profiles.</p></td>
 </li>
 <li>
 <p>If you chose the CIFS protocol, set up a CIFS server on the ONTAP Cloud CIFS Setup page:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1057,12 +1043,9 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <div class="title">After you finish</div>
 <ul>
 <li>
-<p>If you launched an ONTAP Cloud pay-as-you-go instance and the tenant is not linked to a NetApp Support Site account, manually register the instance with NetApp to enable support.</p>
+<p>If you launched an ONTAP Cloud pay-as-you-go instance and the tenant is not linked to a NetApp Support Site account, manually register the instance with NetApp to enable support. For instructions, see <a href="task_registering.html">Registering ONTAP Cloud instances</a>.</p>
 <div class="paragraph">
 <p>Support from NetApp is included with your ONTAP Cloud instance. To activate support, you must first register the instance with NetApp.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_registering.html">Registering ONTAP Cloud instances</a></p>
 </div>
 </li>
 <li>
@@ -1075,10 +1058,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </div>
 </li>
 <li>
-<p>If this is the first ONTAP Cloud instance launched in AWS, remind your administrator to finish setting up AWS billing and cost requirements by enabling the WorkingEnvironmentId tag. This tag is not available in AWS until after you create your first ONTAP Cloud working environment under the AWS payer account.</p>
-<div class="paragraph">
-<p><a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">Setting up AWS billing and cost management for Cloud Manager</a></p>
-</div>
+<p>If this is the first ONTAP Cloud instance launched in AWS, remind your administrator to finish <a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">setting up AWS billing and cost management for Cloud Manager</a> by enabling the WorkingEnvironmentId tag. This tag is not available in AWS until after you create your first ONTAP Cloud working environment under the AWS payer account.</p>
 </li>
 </ul>
 </div>
@@ -1094,19 +1074,13 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <div class="title">Before you begin</div>
 <ul>
 <li>
-<p>You should have prepared by choosing a configuration and by obtaining AWS networking information from your administrator.</p>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html">Planning your ONTAP Cloud configuration</a></p>
-</div>
+<p>You should have prepared by choosing a configuration and by obtaining AWS networking information from your administrator. For details, see <a href="task_planning_your_config.html">Planning your ONTAP Cloud configuration</a>.</p>
 </li>
 <li>
 <p>If you purchased ONTAP Cloud BYOL licenses, you must have a 20-digit serial number (license key) for each node, and you must have credentials for a NetApp Support Site account if the tenant is not already associated with an account.</p>
 </li>
 <li>
-<p>If you want to use CIFS, you must have set up DNS and Active Directory.</p>
-<div class="paragraph">
-<p><a href="reference_networking_aws.html">AWS networking requirements</a></p>
-</div>
+<p>If you want to use CIFS, you must have set up DNS and Active Directory. For details, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
 </li>
 </ul>
 </div>
@@ -1128,7 +1102,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1150,9 +1124,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the ONTAP Cloud instances and each AWS resource associated with the instances.<br>
-<br>
-<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the ONTAP Cloud instances and each AWS resource associated with the instances. For information about tags, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1172,7 +1144,7 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 <li>
 <p>On the HA Deployment Models page, choose an HA configuration.</p>
 <div class="paragraph">
-<p><a href="concept_ha.html">ONTAP Cloud HA for AWS</a></p>
+<p>For an overview of the deployment models, see <a href="concept_ha.html">ONTAP Cloud HA for AWS</a>.</p>
 </div>
 </li>
 <li>
@@ -1190,25 +1162,19 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 <li>
 <p>If you chose multiple AZs, specify the floating IP addresses for the cluster management interface port and the two NFS/CIFS data ports and then click <strong>Continue</strong>.</p>
 <div class="paragraph">
-<p>The IP addresses must be outside of the CIDR block for all VPCs in the region.</p>
-</div>
-<div class="paragraph">
-<p><a href="reference_networking_aws.html#networking-requirements-for-ontap-cloud-ha-in-multiple-azs">AWS networking requirements for ONTAP Cloud HA in multiple AZs</a></p>
+<p>The IP addresses must be outside of the CIDR block for all VPCs in the region. For additional details, see <a href="reference_networking_aws.html#networking-requirements-for-ontap-cloud-ha-in-multiple-azs">AWS networking requirements for ONTAP Cloud HA in multiple AZs</a>.</p>
 </div>
 </li>
 <li>
 <p>If you chose multiple AZs, select the route tables that should include routes to the floating IP addresses and then click <strong>Continue</strong>.</p>
 <div class="paragraph">
-<p>If you have more than one route table, it is very important to select the correct route tables. Otherwise, some clients might not have access to the ONTAP Cloud HA pair.</p>
-</div>
-<div class="paragraph">
-<p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a></p>
+<p>If you have more than one route table, it is very important to select the correct route tables. Otherwise, some clients might not have access to the ONTAP Cloud HA pair. For more information about route tables, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a>.</p>
 </div>
 </li>
 <li>
 <p>On the Data Encryption page, choose no data encryption, ONTAP Cloud-managed encryption, or AWS-managed encryption.</p>
 <div class="paragraph">
-<p><a href="concept_security.html#data-encryption-in-aws">Data encryption in AWS</a></p>
+<p>To better understand these options, see <a href="concept_security.html#data-encryption-in-aws">Data encryption in AWS</a>.</p>
 </div>
 <div class="paragraph">
 <p>For AWS-managed encryption, you can choose a different master key if more than one key is available in your account.</p>
@@ -1255,11 +1221,14 @@ The key manager CA certificate is for all selected key managers, which means the
 </li>
 <li>
 <p>On the IAM Role page, you should keep the default option to let Cloud Manager create the roles for you.</p>
+<div class="paragraph">
+<p>If you prefer to use your own policy, it must meet <a href="http://mysupport.netapp.com/cloudontap/support/iampolicies" target="_blank" rel="noopener">policy requirements for ONTAP Cloud nodes</a>.</p>
+</div>
 </li>
 <li>
 <p>On the Licensing page, change the ONTAP Cloud version as needed, select a license, an instance type, the instance tenancy, and then click <strong>Continue</strong>.</p>
 <div class="paragraph">
-<p>If your needs change after you launch the instances, you can modify the license or instance type later. See Changing the configuration of ONTAP Cloud instances.</p>
+<p>If your needs change after you launch the instances, you can modify the license or instance type later.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1268,7 +1237,7 @@ The key manager CA certificate is for all selected key managers, which means the
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select ONTAP Cloud 9.2 RC1 and ONTAP Cloud 9.2 GA is available. The update does not occur from one release to another—for example, from 9.2 to 9.3.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select ONTAP Cloud 9.3 RC1 and ONTAP Cloud 9.3 GA is available. The update does not occur from one release to another—for example, from 9.2 to 9.3.
 </td>
 </tr>
 </table>
@@ -1277,34 +1246,25 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <li>
 <p>If the NetApp Support Site credentials page is displayed, enter your NetApp Support Site credentials.</p>
 <div class="paragraph">
-<p>Credentials are required for BYOL instances.</p>
-</div>
-<div class="paragraph">
-<p><a href="concept_storage_management.html#why-you-should-link-a-tenant-to-your-netapp-support-site-account">Why you should link a tenant to your NetApp Support Site account</a></p>
+<p>Credentials are required for BYOL instances. For details, see <a href="concept_storage_management.html#why-you-should-link-a-tenant-to-your-netapp-support-site-account">Why you should link a tenant to your NetApp Support Site account</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Underlying storage resources page, choose a single storage type or a tiered storage configuration.</p>
+<p>On the Underlying storage resources page, choose a single storage type or data tiering.</p>
 <div class="paragraph">
-<p>The underlying AWS disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-an-aws-disk-type">Choosing an AWS disk type</a></p>
+<p>The underlying AWS disk type is for the initial volume. You can choose a different disk type for subsequent volumes. For help choosing a disk type, see <a href="task_planning_your_config.html#choosing-an-aws-disk-type">Choosing an AWS disk type</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Disk Size page, select the default disk size for all disks in the initial aggregate and for any additional aggregates that Cloud Manager creates when you use the simple provisioning option.</p>
+<p>On the Disk Size page, select the default disk size for all disks in the initial aggregate.</p>
 <div class="paragraph">
-<p>You can create aggregates that use a different disk size by using the advanced allocation option.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-a-disk-size">Choosing disk size</a></p>
+<p>For help choosing a size, see <a href="task_planning_your_config.html#choosing-a-disk-size">Choosing disk size</a>.</p>
 </div>
 </li>
 <li>
 <p>On the Write Speed page, choose <strong>Normal</strong> or <strong>High</strong>.</p>
 <div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-a-write-speed">Choosing a write speed</a></p>
+<p>For help choosing between the options, see <a href="task_planning_your_config.html#choosing-a-write-speed">Choosing a write speed</a>.</p>
 </div>
 </li>
 <li>
@@ -1315,7 +1275,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1359,7 +1319,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </li>
 <li>
 <p>If you selected the CIFS protocol, set up a CIFS server on the ONTAP Cloud CIFS Setup page:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1428,18 +1388,15 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <p>If you experience any issues launching the HA pair, review the failure message. You can also select the working environment and click Re-create environment.</p>
 </div>
 <div class="paragraph">
-<p>For additional help, go to NetApp ONTAP Cloud Support.</p>
+<p>For additional help, go to <a href="https://mysupport.netapp.com/cloudontap" target="_blank" rel="noopener">NetApp ONTAP Cloud Support</a>.</p>
 </div>
 <div class="ulist">
 <div class="title">After you finish</div>
 <ul>
 <li>
-<p>If you launched ONTAP Cloud pay-as-you-go instances and the tenant is not linked to a NetApp Support Site account, manually register the instances with NetApp to enable support.</p>
+<p>If you launched an ONTAP Cloud pay-as-you-go instance and the tenant is not linked to a NetApp Support Site account, manually register the instance with NetApp to enable support. For instructions, see <a href="task_registering.html">Registering ONTAP Cloud instances</a>.</p>
 <div class="paragraph">
-<p>Support from NetApp is included with your ONTAP Cloud instances. To activate support, you must first register the instances with NetApp.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_registering.html">Registering ONTAP Cloud instances</a></p>
+<p>Support from NetApp is included with your ONTAP Cloud instance. To activate support, you must first register the instance with NetApp.</p>
 </div>
 </li>
 <li>
@@ -1452,10 +1409,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </div>
 </li>
 <li>
-<p>If this is the first ONTAP Cloud instance launched in AWS, remind your administrator to finish setting up AWS billing and cost requirements by enabling the WorkingEnvironmentId tag. This tag is not available in AWS until you create your first ONTAP Cloud working environment under the AWS payer account.</p>
-<div class="paragraph">
-<p><a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">Setting up AWS billing and cost management for Cloud Manager</a></p>
-</div>
+<p>If this is the first ONTAP Cloud instance launched in AWS, remind your administrator to finish <a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">setting up AWS billing and cost management for Cloud Manager</a> by enabling the WorkingEnvironmentId tag. This tag is not available in AWS until after you create your first ONTAP Cloud working environment under the AWS payer account.</p>
 </li>
 </ul>
 </div>

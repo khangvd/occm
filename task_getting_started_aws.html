@@ -746,30 +746,34 @@
 <div class="ulist">
 <ul>
 <li>
-<p>The target VPC must have one or more subnets that have outbound internet access so Cloud Manager and ONTAP Cloud can contact several endpoints.</p>
+<p>Outbound internet access</p>
 <div class="paragraph">
-<p>To see the list of endpoints, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
+<p>The target VPC must have one or more subnets that have outbound internet access so Cloud Manager and ONTAP Cloud can contact several endpoints. To review the list of endpoints, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
 </div>
 </li>
+<li>
+<p>Connections between networks</p>
+<div class="ulist">
+<ul>
 <li>
 <p>To deploy ONTAP Cloud systems in subnets or networks separate from Cloud Manager, connections between those networks must be in place.</p>
 </li>
 <li>
-<p>To replicate data across a hybrid cloud or multi-cloud environment, VPN connections between networks must be in place.</p>
-<div class="paragraph">
-<p><a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html" target="_blank" rel="noopener">AWS Documentation: Setting Up an AWS VPN Connection</a></p>
+<p>To replicate data across a hybrid cloud or multi-cloud environment, VPN connections between networks must be in place. For details, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html" target="_blank" rel="noopener">AWS Documentation: Setting Up an AWS VPN Connection</a>.</p>
+</li>
+</ul>
 </div>
 </li>
 <li>
-<p>To reduce storage costs by using EBS as a performance tier and AWS S3 as a capacity tier, the VPC in which you launch ONTAP Cloud must have an endpoint to the S3 service.</p>
+<p>Endpoint to S3</p>
 <div class="paragraph">
-<p><a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a></p>
+<p>To reduce storage costs by using EBS as a performance tier and AWS S3 as a capacity tier, the VPC in which you launch ONTAP Cloud must have an endpoint to the S3 service. For details, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
 </div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For additional information, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
+<p>For additional networking information, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
 </div>
 <div class="paragraph">
 <p>The following sample VPC configuration shows public and private subnets and a NAT device that enables outbound internet access for the private subnet:<br>
@@ -847,10 +851,7 @@ Subscribing is not required to launch ONTAP Cloud in the AWS GovCloud (US) regio
 <p>Providing the credentials is secure and private—NetApp does not save the credentials. It uses them only to launch the instance.</p>
 </div>
 <div class="paragraph">
-<p>When you launch Cloud Manager, NetApp Cloud Central creates an IAM policy and an IAM role for the instance. This gives Cloud Manager permissions to deploy and manage ONTAP Cloud in AWS.</p>
-</div>
-<div class="paragraph">
-<p><a href="reference_permissions.html">AWS and Azure permissions for Cloud Manager</a></p>
+<p>When you launch Cloud Manager, NetApp Cloud Central creates an IAM policy and an IAM role for the instance. This gives Cloud Manager permissions to deploy and manage ONTAP Cloud in AWS. To review the list of permissions, see <a href="reference_permissions.html">AWS and Azure permissions for Cloud Manager</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -949,19 +950,13 @@ Your browser does not support the video tag.
 <div class="ulist">
 <ul>
 <li>
-<p>The predefined security group includes the rules that ONTAP Cloud needs to operate successfully.</p>
-<div class="paragraph">
-<p>If you need to use your own, refer to <a href="reference_security_groups.html">Security group rules</a>.</p>
-</div>
+<p>The predefined security group includes the rules that ONTAP Cloud needs to operate successfully. If you need to use your own, refer to <a href="reference_security_groups.html">Security group rules</a>.</p>
 </li>
 <li>
 <p>The underlying AWS disk type is for the initial ONTAP Cloud volume. You can choose a different disk type for subsequent volumes.</p>
 </li>
 <li>
-<p>The performance of AWS disks is tied to disk size. You should choose the disk size that gives you the sustained performance that you need.</p>
-<div class="paragraph">
-<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: Amazon EBS Volume Types</a></p>
-</div>
+<p>The performance of AWS disks is tied to disk size. You should choose the disk size that gives you the sustained performance that you need. For details, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: Amazon EBS Volume Types</a>.</p>
 </li>
 <li>
 <p>The disk size is the default size for all disks on the system.</p>

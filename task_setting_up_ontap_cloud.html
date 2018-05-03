@@ -723,7 +723,7 @@
 <div class="paragraph lead">
 <p>After you deploy ONTAP Cloud, you can set it up by synchronizing the system time using NTP and by performing a few optional tasks from either System Manager or the CLI.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 30%;">
 <col style="width: 70%;">
@@ -743,11 +743,11 @@ You can configure the NTP server using System Manager or the CLI. For instructio
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional: Configure AutoSupport</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AutoSupport proactively monitors the health of your system and automatically sends messages to NetApp technical support by default. If you want messages sent to your internal support organization, you must set the correct options and have a valid mail host.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AutoSupport proactively monitors the health of your system and automatically sends messages to NetApp technical support by default.<br>
 <br>
 If the Cloud Manager Admin added a proxy server to Cloud Manager before you launched your instance, ONTAP Cloud is configured to use that proxy server for AutoSupport messages.<br>
 <br>
-You can configure AutoSupport using System Manager or the CLI. For instructions, see the System Manager Help or the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html" target="_blank" rel="noopener">ONTAP 9 System Administration Reference</a>.</p></td>
+You should test AutoSupport to ensure that it can send messages. For instructions, see the System Manager Help or the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html" target="_blank" rel="noopener">ONTAP 9 System Administration Reference</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional: Configure EMS</p></td>
@@ -757,7 +757,7 @@ You can configure EMS using the CLI. For instructions, see the <a href="http://d
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional: Create an SVM management network interface (LIF)</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>If you want to use SnapDrive for Windows or SnapCenter with an ONTAP Cloud HA pair, you must create the storage virtual machine (SVM) management network interface (LIF) that SnapDrive and SnapCenter require. The SVM management LIF must use a floating IP address. You can create the LIF from System Manager or the CLI.</p>
 </div>
 <div class="paragraph">

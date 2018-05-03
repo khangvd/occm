@@ -857,7 +857,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 </li>
 <li>
 <p>In the HTTPS Setup page, install a certificate by generating a certificate signing request (CSR) or by installing your own CA-signed certificate:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -871,7 +871,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Generate a CSR</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Enter the host name or DNS of the Cloud Manager host (its Common Name), and then click <strong>Generate CSR</strong>.</p>
@@ -886,14 +886,14 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 </div>
 </li>
 <li>
-<p>Copy the content of the signed certificate, paste it in the Certificate field, and then click <strong>Install</strong>.</p>
+<p>Copy the contents of the signed certificate, paste it in the Certificate field, and then click <strong>Install</strong>.</p>
 </li>
 </ol>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Install your own CA-signed certificate</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select <strong>Install CA-signed certificate</strong>.</p>
@@ -993,10 +993,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 </div>
 <div class="paragraph">
 <div class="title">Before you begin</div>
-<p>You must have granted AWS permissions to Cloud Manager so it can access an S3 bucket.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_getting_started_aws.html#granting-aws-permissions">Granting AWS permissions to Cloud Manager</a></p>
+<p>You must have granted AWS permissions to Cloud Manager so it can access an S3 bucket. For details, see <a href="task_getting_started_aws.html#granting-aws-permissions">Granting AWS permissions to Cloud Manager</a>.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
@@ -1143,7 +1140,7 @@ The Encryption Setup page in Cloud Manager pertains to SafeNet key managers only
 <div class="paragraph">
 <p>A description of the key manager requirements follows:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1184,7 +1181,7 @@ The root CA that signed the Cloud Manager certificate must also be known and tru
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">KMIP Cryptographic Usage Mask must be set to no</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>If you use SafeNet OS v8.6, you must do the following:</p>
 </div>
 <div class="olist arabic">
@@ -1296,7 +1293,7 @@ The root CA that signed the Cloud Manager certificate must also be known and tru
 <div class="paragraph">
 <p>In the Add Key Manager dialog box, enter details about the key manager, and then click <strong>Add</strong>:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1318,7 +1315,7 @@ The root CA that signed the Cloud Manager certificate must also be known and tru
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User Name for Client Certificate Authentication</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>If the key manager is enabled for client certificate authentication by having the key manager verify a user name from client certificates, specify the field and user name:</p>
 </div>
 <div class="ulist">

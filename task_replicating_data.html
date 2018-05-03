@@ -980,12 +980,6 @@ Only one SnapVault relationship is allowed in a fanout configuration.
 <div class="paragraph">
 <p>If the destination is an ONTAP cluster, you must also specify the destination SVM and aggregate.</p>
 </div>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-an-aws-disk-type">Choosing an AWS disk type</a></p>
-</div>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-an-azure-disk-type">Choosing an Azure disk type</a></p>
-</div>
 </li>
 <li>
 <p>On the Max Transfer Rate page, specify the maximum rate (in megabytes per second) at which data can be transferred.</p>
@@ -993,13 +987,10 @@ Only one SnapVault relationship is allowed in a fanout configuration.
 <li>
 <p>On the Replication Policy page, choose one of the default policies or click <strong>Additional Policies</strong>, and then select one of the advanced policies.</p>
 <div class="paragraph">
-<p><a href="task_replicating_data.html#choosing-a-replication-policy">Choosing a replication policy</a></p>
+<p>For help, see <a href="task_replicating_data.html#choosing-a-replication-policy">Choosing a replication policy</a>.</p>
 </div>
 <div class="paragraph">
-<p>If you choose a custom SnapVault policy, the labels associated with the policy must match the labels of the Snapshot copies on the source volume.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_replicating_data.html#how-snapvault-policies-work">How SnapVault policies work</a></p>
+<p>If you choose a custom SnapVault policy, the labels associated with the policy must match the labels of the Snapshot copies on the source volume. For more information, see <a href="task_replicating_data.html#how-snapvault-policies-work">How SnapVault policies work</a>.</p>
 </div>
 </li>
 <li>
@@ -1030,7 +1021,7 @@ Only one SnapVault relationship is allowed in a fanout configuration.
 <ol class="arabic">
 <li>
 <p>On the Working Environments page, view the replication status for all assigned working environments in the tenant or for a specific working environment:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 15%;">
 <col style="width: 85%;">
@@ -1044,7 +1035,7 @@ Only one SnapVault relationship is allowed in a fanout configuration.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All assigned working environments in the tenant</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Click Replication Status from the navigation bar.</p>
 </div>
 <div class="paragraph">
@@ -1053,7 +1044,7 @@ Only one SnapVault relationship is allowed in a fanout configuration.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A specific working environment</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Select the working environment, and then click Replication Status.</p>
 </div>
 <div class="paragraph">
@@ -1086,7 +1077,7 @@ If the Status of a relationship is idle and the Mirror State is uninitialized, y
 <div class="paragraph">
 <p>The following table describes the available actions:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 15%;">
 <col style="width: 85%;">
@@ -1108,7 +1099,7 @@ For information about configuring a destination volume for data access and react
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Resync</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Reestablishes a broken SnapMirror relationship between volumes and resumes data replication according to the defined schedule.</p>
 </div>
 <div class="admonitionblock important">
@@ -1124,7 +1115,7 @@ When you resynchronize the volumes, the contents on the destination volume are o
 </table>
 </div>
 <div class="paragraph">
-<p>To perform a reverse resync, which resynchronizes the data from the destination volume to the source volume, see the ONTAP 9 Volume Disaster Recovery Express Guide</p>
+<p>To perform a reverse resync, which resynchronizes the data from the destination volume to the source volume, see the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-fr/home.html" target="_blank" rel="noopener">ONTAP 9 Volume Disaster Recovery Express Guide</a>.</p>
 </div></div></td>
 </tr>
 <tr>

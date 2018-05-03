@@ -727,10 +727,7 @@
 <div class="title">Before you begin</div>
 <ul>
 <li>
-<p>You should have prepared by choosing a configuration and by obtaining Azure networking information from your administrator.</p>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html">Planning your ONTAP Cloud configuration</a></p>
-</div>
+<p>You should have prepared by choosing a configuration and by obtaining Azure networking information from your administrator. For details, see <a href="task_planning_your_config.html">Planning your ONTAP Cloud configuration</a>.</p>
 </li>
 <li>
 <p>If you want to launch an ONTAP Cloud BYOL instance, you must have the 20-digit serial number (license key) and you must have credentials for a NetApp Support Site account, if the tenant is not already linked with an account.</p>
@@ -755,7 +752,7 @@
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -777,8 +774,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tags are metadata for your Azure resources. Cloud Manager adds the tags to the ONTAP Cloud system and each Azure resource associated with the system.<br>
-<a href="https://azure.microsoft.com/documentation/articles/resource-group-using-tags/" target="_blank" rel="noopener">Microsoft Azure Documentation: Using tags to organize your Azure resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags are metadata for your Azure resources. Cloud Manager adds the tags to the ONTAP Cloud system and each Azure resource associated with the system. For information about tags, refer to <a href="https://azure.microsoft.com/documentation/articles/resource-group-using-tags/" target="_blank" rel="noopener">Microsoft Azure Documentation: Using tags to organize your Azure resources</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -801,7 +797,7 @@ If Azure credentials were not specified for your Cloud Manager account, you are 
 <li>
 <p>On the ONTAP Cloud BYOL License page, specify whether you want to enter a license for this ONTAP Cloud system.</p>
 <div class="paragraph">
-<p><a href="concept_licensing.html">How licensing works for ONTAP Cloud BYOL</a></p>
+<p>To understand how licenses work, see <a href="concept_licensing.html">Licensing</a>.</p>
 </div>
 </li>
 <li>
@@ -822,7 +818,7 @@ If Azure credentials were not specified for your Cloud Manager account, you are 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select ONTAP Cloud 9.2 RC1 and ONTAP Cloud 9.2 GA is available. The update does not occur from one release to another—for example, from 9.2 to 9.3.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select ONTAP Cloud 9.3 RC1 and ONTAP Cloud 9.3 GA is available. The update does not occur from one release to another—for example, from 9.2 to 9.3.
 </td>
 </tr>
 </table>
@@ -834,19 +830,13 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <li>
 <p>If the NetApp Support Site credentials page is displayed, enter your NetApp Support Site credentials.</p>
 <div class="paragraph">
-<p>Credentials are required for BYOL instances.</p>
-</div>
-<div class="paragraph">
-<p><a href="concept_storage_management.html#why-you-should-link-a-tenant-to-your-netapp-support-site-account">Why you should link a tenant to your NetApp Support Site account</a></p>
+<p>Credentials are required for BYOL instances. For details, see <a href="concept_storage_management.html#why-you-should-link-a-tenant-to-your-netapp-support-site-account">Why you should link a tenant to your NetApp Support Site account</a>.</p>
 </div>
 </li>
 <li>
 <p>On the Underlying storage resources page, choose either <strong>Premium Storage</strong> or <strong>Standard Storage</strong>.</p>
 <div class="paragraph">
-<p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-an-azure-disk-type">Choosing an Azure disk type</a></p>
+<p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes. For help choosing a disk type, see <a href="task_planning_your_config.html#choosing-an-azure-disk-type">Choosing an Azure disk type</a>.</p>
 </div>
 </li>
 <li>
@@ -855,13 +845,13 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <p>You can create aggregates that use a different disk size by using the advanced allocation option.</p>
 </div>
 <div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-a-disk-size">Choosing disk size</a></p>
+<p>For help choosing a size, see <a href="task_planning_your_config.html#choosing-a-disk-size">Choosing disk size</a>.</p>
 </div>
 </li>
 <li>
 <p>On the Write Speed page, choose <strong>Normal</strong> or <strong>High</strong>.</p>
 <div class="paragraph">
-<p><a href="task_planning_your_config.html#choosing-a-write-speed">Choosing a write speed</a></p>
+<p>For help choosing between the options, see <a href="task_planning_your_config.html#choosing-a-write-speed">Choosing a write speed</a>.</p>
 </div>
 </li>
 <li>
@@ -872,7 +862,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -916,7 +906,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </li>
 <li>
 <p>If you chose the CIFS protocol, set up a CIFS server on the ONTAP Cloud CIFS Setup page:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -991,12 +981,9 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <div class="title">After you finish</div>
 <ul>
 <li>
-<p>If you deployed an ONTAP Cloud pay-as-you-go system and the tenant is not linked to a NetApp Support Site account, manually register the system with NetApp to enable support.</p>
+<p>If you deployed an ONTAP Cloud pay-as-you-go system and the tenant is not linked to a NetApp Support Site account, manually register the system with NetApp to enable support. For instructions, see <a href="task_registering.html">Registering ONTAP Cloud instances</a>.</p>
 <div class="paragraph">
 <p>Support from NetApp is included with your ONTAP Cloud system. To activate support, you must first register the system with NetApp.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_registering.html">Registering ONTAP Cloud instances</a></p>
 </div>
 </li>
 <li>

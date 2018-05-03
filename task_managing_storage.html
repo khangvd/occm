@@ -750,7 +750,7 @@
 </li>
 <li>
 <p>Manage your volumes:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 30%;">
 <col style="width: 70%;">
@@ -768,7 +768,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edit a volume (read-write volumes only)</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select a volume, and then click <strong>Edit</strong>.</p>
@@ -781,7 +781,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clone a volume</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select a volume, and then click <strong>Clone</strong>.</p>
@@ -792,12 +792,15 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>This process creates a FlexClone volume. To learn about FlexClone volumes, see the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html" target="_blank" rel="noopener">ONTAP 9 Logical Storage Management Guide</a>.</p>
+<p>This process creates a FlexClone volume. A FlexClone volume is a writable, point-in-time copy that is space-efficient because it uses a small amount of space for metadata, and then only consumes additional space as data is changed or added.</p>
+</div>
+<div class="paragraph">
+<p>To learn more about FlexClone volumes, see the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html" target="_blank" rel="noopener">ONTAP 9 Logical Storage Management Guide</a>.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Restore data from a Snapshot copy to a new volume</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select a volume, and then click <strong>Restore from Snapshot copy</strong>.</p>
@@ -810,7 +813,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create a Snapshot copy on demand</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select a volume, and then click <strong>Create a Snapshot copy</strong>.</p>
@@ -823,7 +826,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Get the NFS mount command</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select a volume, and then click <strong>Mount Command</strong>.</p>
@@ -836,7 +839,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Change the underlying disk type</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select a volume, and then click <strong>Change Tier</strong>.</p>
@@ -861,7 +864,7 @@ Cloud Manager moves the volume to an existing aggregate that uses the selected d
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enable or disable sync to S3 for a volume</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Select a volume and then click <strong>Sync to S3</strong> or <strong>Delete Sync Relationship</strong>.</p>
 </div>
 <div class="admonitionblock note">
@@ -871,7 +874,7 @@ Cloud Manager moves the volume to an existing aggregate that uses the selected d
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The sync to S3 feature must be enabled before you can use these options.
+The sync to S3 feature must be enabled before you can use these options. For instructions, see <a href="task_syncing_s3.html">Syncing data to AWS S3</a>
 </td>
 </tr>
 </table>
@@ -879,7 +882,7 @@ The sync to S3 feature must be enabled before you can use these options.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete a volume</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select a volume, and then click <strong>Delete</strong>.</p>
@@ -911,9 +914,6 @@ The sync to S3 feature must be enabled before you can use these options.
 <div class="title">About this task</div>
 <p>If an aggregate is running out of space, you can move volumes to another aggregate by using OnCommand System Manager.</p>
 </div>
-<div class="paragraph">
-<p><a href="task_connecting_to_otc.html">Connecting to OnCommand System Manager</a></p>
-</div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
@@ -925,7 +925,7 @@ The sync to S3 feature must be enabled before you can use these options.
 </li>
 <li>
 <p>Manage your aggregates:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 30%;">
 <col style="width: 70%;">
@@ -947,7 +947,7 @@ The sync to S3 feature must be enabled before you can use these options.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add disks to an aggregate</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select an aggregate and click <strong>Add AWS disks</strong> or <strong>Add Azure disks</strong>.</p>
@@ -960,7 +960,7 @@ The sync to S3 feature must be enabled before you can use these options.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete an aggregate</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Select an aggregate that does not contain any volumes and click <strong>Delete</strong>.</p>
@@ -992,7 +992,7 @@ The sync to S3 feature must be enabled before you can use these options.
 </li>
 <li>
 <p>Specify settings for the CIFS server:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 30%;">
 <col style="width: 70%;">
@@ -1113,7 +1113,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <li>
 <p>If the system has not reached the disk limit, you should move the volumes to an existing aggregate or a new aggregate on the same system.</p>
 <div class="paragraph">
-<p><a href="task_managing_storage.html#moving-volumes-to-another-aggregate-to-avoid-capacity-issues">Moving volumes to another aggregate to avoid capacity issues</a></p>
+<p>For details, see <a href="task_managing_storage.html#moving-volumes-to-another-aggregate-to-avoid-capacity-issues">Moving volumes to another aggregate to avoid capacity issues</a>.</p>
 </div>
 </li>
 <li>
@@ -1126,13 +1126,13 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <li>
 <p>Rearrange volumes to free space on an aggregate.</p>
 <div class="paragraph">
-<p><a href="task_managing_storage.html#moving-volumes-to-another-aggregate-to-avoid-capacity-issues">Moving volumes to another aggregate to avoid capacity issues</a></p>
+<p>For details, see <a href="task_managing_storage.html#moving-volumes-to-another-aggregate-to-avoid-capacity-issues">Moving volumes to another aggregate to avoid capacity issues</a>.</p>
 </div>
 </li>
 <li>
 <p>Move two or more volumes to another system that has space.</p>
 <div class="paragraph">
-<p><a href="task_managing_storage.html#moving-volumes-to-another-system-to-avoid-capacity-issues">Moving volumes to another system to avoid capacity issues</a></p>
+<p>For details, see <a href="task_managing_storage.html#moving-volumes-to-another-system-to-avoid-capacity-issues">Moving volumes to another system to avoid capacity issues</a>.</p>
 </div>
 </li>
 </ol>
@@ -1162,25 +1162,25 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <li>
 <p>Drag and drop the source working environment on the target working environment to perform a one-time data replication of the volume.</p>
 <div class="paragraph">
-<p><a href="task_replicating_data.html#replicating-data-between-systems">Replicating data between systems</a></p>
+<p>For details, see <a href="task_replicating_data.html#replicating-data-between-systems">Replicating data between systems</a>.</p>
 </div>
 </li>
 <li>
 <p>Go to the Replication Status page, and then break the SnapMirror relationship to convert the replicated volume from a data protection volume to a read/write volume.</p>
 <div class="paragraph">
-<p><a href="task_replicating_data.html#managing-data-replication-schedules-and-relationships">Managing data replication schedules and relationships</a></p>
+<p>For details, see <a href="task_replicating_data.html#managing-data-replication-schedules-and-relationships">Managing data replication schedules and relationships</a>.</p>
 </div>
 </li>
 <li>
 <p>Configure the volume for data access.</p>
 <div class="paragraph">
-<p>For information about configuring a destination volume for data access, see the ONTAP 9 Volume Disaster Recovery Express Guide.</p>
+<p>For information about configuring a destination volume for data access, see the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-fr/home.html" target="_blank" rel="noopener">ONTAP 9 Volume Disaster Recovery Express Guide</a>.</p>
 </div>
 </li>
 <li>
 <p>Delete the original volume.</p>
 <div class="paragraph">
-<p><a href="task_managing_storage.html#managing-existing-volumes">Managing existing volumes</a></p>
+<p>For details, see <a href="task_managing_storage.html#managing-existing-volumes">Managing existing volumes</a>.</p>
 </div>
 </li>
 </ol>
@@ -1233,7 +1233,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <li>
 <p>If no aggregates have available capacity, create a new aggregate.</p>
 <div class="paragraph">
-<p><a href="task_provisioning_storage.html#creating-aggregates">Creating aggregates</a></p>
+<p>For details, see <a href="task_provisioning_storage.html#creating-aggregates">Creating aggregates</a>.</p>
 </div>
 </li>
 <li>

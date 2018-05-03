@@ -747,10 +747,7 @@
 </div>
 <div class="paragraph">
 <div class="title">Before you begin</div>
-<p>If you want to use CIFS in AWS, you must have set up DNS and Active Directory.</p>
-</div>
-<div class="paragraph">
-<p><a href="reference_networking_aws.html">AWS networking requirements</a></p>
+<p>If you want to use CIFS in AWS, you must have set up DNS and Active Directory. For details, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -760,7 +757,7 @@
 </li>
 <li>
 <p>Create a new volume on any aggregate or on a specific aggregate:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 30%;">
 <col style="width: 70%;">
@@ -778,7 +775,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new volume on a specific aggregate</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="olist loweralpha">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Click the menu icon, and then click <strong>Advanced &gt; Advanced allocation</strong>.</p>
@@ -800,7 +797,7 @@
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 30%;">
 <col style="width: 70%;">
@@ -833,7 +830,7 @@
 </li>
 <li>
 <p>If you chose the CIFS protocol and the CIFS server has not been set up, specify details for the server in the Create a CIFS Server dialog box, and then click <strong>Save and continue</strong>:</p>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 30%;">
 <col style="width: 70%;">
@@ -877,7 +874,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <li>
 <p>On the Usage Profile &amp; Tiering page, choose a usage profile and disk type, and then click <strong>Go</strong>.</p>
 <div class="paragraph">
-<p><a href="task_planning_your_config.html">Planning your configuration</a></p>
+<p>For details about usage profiles, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Choosing a volume usage profile</a>.</p>
 </div>
 </li>
 <li>
@@ -894,10 +891,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <p>If you provisioned a CIFS share, give users or groups permissions to the files and folders and verify that those users can access the share and create a file.</p>
 </div>
 <div class="paragraph">
-<p>If you want to apply quotas to volumes, you must use System Manager or the CLI.</p>
-</div>
-<div class="paragraph">
-<p>Quotas enable you to restrict or track the disk space and number of files used by a user, group, or qtree.</p>
+<p>If you want to apply quotas to volumes, you must use System Manager or the CLI. Quotas enable you to restrict or track the disk space and number of files used by a user, group, or qtree.</p>
 </div>
 </div>
 </div>
@@ -966,7 +960,7 @@ When you mount the volume to clients, you must use the floating IP address of th
 <li>
 <p>Click <strong>Add Aggregate</strong> and then specify details for the aggregate.</p>
 <div class="paragraph">
-<p><a href="task_planning_your_config.html">Planning your configuration</a></p>
+<p>For help with disk type and disk size, see <a href="task_planning_your_config.html">Planning your configuration</a>.</p>
 </div>
 </li>
 <li>
@@ -992,10 +986,7 @@ When you mount the volume to clients, you must use the floating IP address of th
 <p>You must have recorded the iSCSI initiator name from the host. You need to supply this name when you create an igroup for the LUN.</p>
 </li>
 <li>
-<p>Before you create volumes in System Manager, you must ensure that you have an aggregate with sufficient space. You need to create aggregates in Cloud Manager.</p>
-<div class="paragraph">
-<p><a href="task_provisioning_storage.html#creating-aggregates">Creating aggregates</a></p>
-</div>
+<p>Before you create volumes in System Manager, you must ensure that you have an aggregate with sufficient space. You need to create aggregates in Cloud Manager. For details, see <a href="task_provisioning_storage.html#creating-aggregates">Creating aggregates</a>.</p>
 </li>
 </ul>
 </div>
@@ -1007,10 +998,7 @@ When you mount the volume to clients, you must use the floating IP address of th
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Log in to System Manager.</p>
-<div class="paragraph">
-<p><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></p>
-</div>
+<p><a href="task_connecting_to_otc.html">Log in to System Manager</a>.</p>
 </li>
 <li>
 <p>Click <strong>Storage &gt; LUNs</strong>.</p>
