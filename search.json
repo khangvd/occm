@@ -701,7 +701,7 @@
 "tags": "",
 "keywords": "tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store",
 "url": "task_tiering.html",
-"summary": "You can reduce storage costs in AWS by combining an EBS performance tier for "hot" data with an S3 capacity tier for "cold" data."
+"summary": "You can reduce storage costs in AWS by combining an EBS performance tier for hot data with an S3 capacity tier for cold data."
 }
 ,
 
