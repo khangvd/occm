@@ -750,7 +750,27 @@ While you can install Cloud Manager in the IBM Cloud, ONTAP Cloud is not support
 </dd>
 <dt class="hdlist1">Connection to the Cloud Manager web console</dt>
 <dd>
-<p>Users must access Cloud Manager from a web browser. The easiest way to provide access is by allocating a public IP address to the host. However, if you want to use a private IP address instead, users can access the console through either of the following:</p>
+<p>Users must access Cloud Manager from a web browser. A web browser must have connections to the following endpoints:</p>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoint</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cloud Manager host</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>You must enter the host&#8217;s IP address from a web browser to load the Cloud Manager console.</p>
+</div>
+<div class="paragraph">
+<p>The easiest way to provide access is by allocating a public IP address. However, if you want to use a private IP address instead, users can access the console through either of the following:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -760,7 +780,14 @@ While you can install Cloud Manager in the IBM Cloud, ONTAP Cloud is not support
 <p>A host in your network that has a VPN connection to the private IP address</p>
 </li>
 </ul>
-</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your web browser connects to this endpoint for centralized user authentication through NetApp Cloud Central.</p></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </div>

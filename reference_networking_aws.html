@@ -746,14 +746,14 @@
 <dt class="hdlist1">Outbound internet access for Cloud Manager</dt>
 <dd>
 <p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing ONTAP Cloud in AWS:</p>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Endpoint</th>
+<th class="tableblock halign-left valign-top">Endpoints</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -812,6 +812,19 @@ cognito-identity.us-east-1.amazonaws.com</p></td>
 https://support.netapp.com/ServiceGW/entitlement</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp for licensing and support registration.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Various third-party locations, for example:</p>
+</div>
+<div class="paragraph">
+<p>https://repo1.maven.org/maven2<br>
+https://oss.sonatype.org/content/repositories/</p>
+</div>
+<div class="paragraph">
+<p>Third-party locations are subject to change.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">During upgrades, Cloud Manager downloads the latest packages for third-party dependencies.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonitionblock note">
@@ -844,20 +857,29 @@ If your network uses a proxy server for all communication to the internet, Cloud
 <p>The manual option can be a NAT gateway or an interface VPC endpoint from the target subnet to the AWS EC2 service. For details about VPC endpoints, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html" target="_blank" rel="noopener">AWS Documentation: Interface VPC Endpoints (AWS PrivateLink)</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1">Security groups</dt>
+<dt class="hdlist1">Outbound internet access from your web browser</dt>
 <dd>
-<p>You do not need to create security groups because Cloud Manager does that for you. If you need to use your own, refer to <a href="reference_security_groups.html">Security group rules</a>.</p>
-</dd>
-<dt class="hdlist1">Connection between Cloud Manager and ONTAP Cloud subnets</dt>
-<dd>
-<p>Cloud Manager requires a connection to the subnets in which you launch ONTAP Cloud systems, including the HA mediator.</p>
-<div class="paragraph">
-<p>If Cloud Manager is not installed in the target VPC, it must have network connectivity to that VPC. For example, if you install Cloud Manager in Azure or in your corporate network, then you must set up a VPN connection to the VPC in which you launch ONTAP Cloud systems.</p>
+<p>Users must access Cloud Manager from a web browser. A web browser must have connections to the following endpoints:</p>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoint</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cloud Manager host</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>You must enter the host&#8217;s IP address from a web browser to load the Cloud Manager console.</p>
 </div>
-</dd>
-<dt class="hdlist1">Connection to the Cloud Manager web console</dt>
-<dd>
-<p>Users must access Cloud Manager from a web browser. If you deploy Cloud Manager in AWS, the easiest way to provide access is by launching Cloud Manager in a public subnet with a public IP address. However, if you want to use a private IP address instead, users can access the console through either of the following:</p>
+<div class="paragraph">
+<p>If you deploy Cloud Manager in AWS, the easiest way to provide access is by allocating a public IP address. However, if you want to use a private IP address instead, users can access the console through either of the following:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -867,6 +889,24 @@ If your network uses a proxy server for all communication to the internet, Cloud
 <p>A host in your network that has a VPN connection to the private IP address</p>
 </li>
 </ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your web browser connects to this endpoint for centralized user authentication through NetApp Cloud Central.</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt class="hdlist1">Security groups</dt>
+<dd>
+<p>You do not need to create security groups because Cloud Manager does that for you. If you need to use your own, refer to <a href="reference_security_groups.html">Security group rules</a>.</p>
+</dd>
+<dt class="hdlist1">Connection between Cloud Manager and ONTAP Cloud subnets</dt>
+<dd>
+<p>Cloud Manager requires a connection to the subnets in which you launch ONTAP Cloud systems, including the HA mediator.</p>
+<div class="paragraph">
+<p>If Cloud Manager is not installed in the target VPC, it must have network connectivity to that VPC. For example, if you install Cloud Manager in Azure or in your corporate network, then you must set up a VPN connection to the VPC in which you launch ONTAP Cloud systems.</p>
 </div>
 </dd>
 <dt class="hdlist1">Connection from ONTAP Cloud to AWS S3 for data tiering</dt>
