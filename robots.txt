@@ -1,1 +1,1 @@
-Sitemap: https://clouddocs.netapp.com/occm/sitemap.xml
+Sitemap: http://clouddocs.netapp.com/occm/sitemap.xml
