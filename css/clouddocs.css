@@ -103,6 +103,16 @@
   width: 90vw;
 }
 
+p.downlevel {
+  color: blue;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.downlevel :after {
+  display: none !important;
+}
+
 /* Mobile landscape */
 @media screen and (min-width: 400px) {
   #ie-i18n-menu {

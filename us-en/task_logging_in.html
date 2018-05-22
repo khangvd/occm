@@ -114,16 +114,16 @@
       siteLocales.push("us-en");
     
 
-    standardizeUrl(siteLocales);
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
   </script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-2"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
   <script>
-  if (document.location.hostname.search("netapp.com") !== -1) {
+  if (document.location.hostname === "docs.netapp.com") {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-81697994-2');
+    gtag('config', 'UA-81697994-3');
   }
   </script>
 </head>
@@ -137,7 +137,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="http://clouddocs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -182,7 +182,7 @@
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="http://clouddocs.netapp.com/us-en/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
@@ -675,7 +675,9 @@
               <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
 
               <!-- Begin of page container -->
-              <div class="n-doc__component-detail-heading-wrap">
+              
+
+<div class="n-doc__component-detail-heading-wrap">
   <h1 class="n-doc__component-detail-heading">Logging in to Cloud Manager
     <span>
       

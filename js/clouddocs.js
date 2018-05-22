@@ -10,9 +10,17 @@ function netapp_mailto() {
   window.location = "mailto:" + loc;
 }
 
-function redirectToWebserver(pathChunks) {
+function redirectToWebserver(pathChunks, originUrl, proxyUrl) {
+	originUrl = originUrl || "clouddocs.netapp.com";
+	proxyUrl = proxyUrl || "https://docs.netapp.com";
 	var pathChanged = pathChunks.join("/") !== location.pathname;
-	if(pathChanged) {
+	var originServer = location.href.search(originUrl) !== -1;
+	if(originServer) {
+		if(pathChunks.length > 2) {
+			pathChunks.splice(1,2,pathChunks[2],pathChunks[1]);
+		}
+		location.href = proxyUrl + pathChunks.join("/");
+	} else if(pathChanged) {
 		location.pathname = pathChunks.join("/");
 	}
 }
@@ -27,7 +35,7 @@ function getBrowserLocale(browserLocales, siteLocales) {
 	return "us-en";
 }
 
-function standardizeUrl(siteLocales) {
+function standardizeUrl(siteLocales, originUrl, proxyUrl) {
 	var browserLocales = navigator.languages || "us-en"; // IE does not support navigator
 	var localeIndex = -1;
 	var pathChunks = location.pathname.split('/');
@@ -54,5 +62,5 @@ function standardizeUrl(siteLocales) {
 		pathChunks[localeIndex] = "us-en";
 	}
 
-	redirectToWebserver(pathChunks);
+	redirectToWebserver(pathChunks, originUrl, proxyUrl);
 }
