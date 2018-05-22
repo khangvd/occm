@@ -1,0 +1,1196 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
+  <head>
+  <title>Getting started with ONTAP Cloud in Azure | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation">
+  <meta http-equiv="nss-subtype" content="User Guide">
+
+  
+    <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
+  
+
+  <meta name="description" content="Getting started with ONTAP Cloud includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and the...">
+  <meta name="keywords" content=" microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, vpn, multi-cloud, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role, free trial, security group">
+
+  <!-- Icons -->
+  <link rel="icon" href="https://clouddocs.netapp.com/occm/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/bower_components/eightshapes-blocks/dist/esb.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/netapp-library/css/netapp-library.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc-components.css">
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="https://clouddocs.netapp.com/occm/us-en/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/customstyles.css">
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='https://clouddocs.netapp.com/occm/us-en/css/netapp.css' type='text/css'>
+
+  <!-- Controls the Sidebar layout -->
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/na-sidebar.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Controls the custom layout of the site -->
+  <link rel='stylesheet' href='https://clouddocs.netapp.com/occm/us-en/css/clouddocs.css' type='text/css'>
+  <script src='https://clouddocs.netapp.com/occm/us-en/js/clouddocs.js'></script>
+  <script src='https://clouddocs.netapp.com/occm/us-en/js/s_code_impl.js'></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/jquery.navgoco.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/toc.js"></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/customscripts.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("zz");
+    
+      siteLocales.push("en");
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales);
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-2"></script>
+  <script>
+  if (document.location.hostname.search("netapp.com") !== -1) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-2');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://clouddocs.netapp.com" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://clouddocs.netapp.com">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      <!-- NetApp Search Bar -->
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <input type="text" id="search-input" class="n-search-form__input" placeholder="Search Documentation">
+        <ul id="results-container"></ul>
+        <script src="https://clouddocs.netapp.com/occm/us-en/js/jekyll-search.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'https://clouddocs.netapp.com/occm/us-en/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#globe"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- End NetApp Search Bar -->
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/us-en" class="n-menu__header-text">English</a>
+                </li>
+                
+                  <li class="n-menu__list-item n-menu__list-item--level-1">
+                    <a target="_blank" href="http://docs.netapp.com/occm/topic/com.netapp.nav.occm-330/home.html?lang=ja" class="n-menu__header-text">日本語</a>
+                  </li>
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: us-en
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+          <div class="n-row">
+            <div class="n-doc n-doc__component-list">
+              <!-- Sidebar Column -->
+              
+              <div class="col-md-3" >
+                  
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Getting started in AWS</a></li>
+  
+
+  
+    <li class="active"><a href="task_getting_started_azure.html">Getting started in Azure</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Detailed networking requirements</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_networking_aws.html">AWS networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Azure networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central.html">NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="concept_storage.html">Storage</a></li>
+  
+
+  
+    <li><a href="concept_storage_management.html">Storage management</a></li>
+  
+
+  
+    <li><a href="concept_ha.html">High-availability pairs</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+  
+    <li><a href="concept_storage_automation.html">Cloud Storage Automation</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploying ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Logging in to Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_planning_your_config.html">Planning your configuration</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="task_provisioning_storage.html">Provisioning storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_tiering.html">Tiering data in AWS</a></li>
+  
+
+  
+    <li><a href="task_managing_storage.html">Managing storage</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing data across a hybrid cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discovering and managing ONTAP clusters</a></li>
+  
+
+  
+    <li><a href="task_replicating_data.html">Replicating data to and from the cloud</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provisioning NFS volumes</a>
+      <ul>
+        
+
+  
+    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
+  
+
+  
+    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
+  
+
+  
+    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administering Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+  
+
+  
+    <li><a href="task_editing_users.html">Editing user accounts</a></li>
+  
+
+  
+    <li><a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a></li>
+  
+
+  
+    <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renewing the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstalling Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
+  
+
+  
+    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="reference_regions.html">Supported regions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules for AWS</a></li>
+  
+
+  
+    <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
+  
+
+  
+    <li><a href="reference_apis.html">REST APIs</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+              </div>
+              
+
+              <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+
+              <!-- Begin of page container -->
+              <div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Getting started with ONTAP Cloud in Azure
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_getting_started_azure.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+      
+    </span>
+  </h1>
+</div>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Getting started with ONTAP Cloud includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and then launching ONTAP Cloud systems using Cloud Manager.</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#verifying-your-networking">Verifying your networking</a></li>
+<li><a href="#granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</a></li>
+<li><a href="#installing-and-setting-up-cloud-manager-in-azure">Installing and setting up Cloud Manager in Azure</a></li>
+<li><a href="#deploying-ontap-cloud-in-azure">Deploying ONTAP Cloud in Azure</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="verifying-your-networking">Verifying your networking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must choose the Azure VNet and subnets in which you want to deploy Cloud Manager and ONTAP Cloud. At a minimum, your networking must meet the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Outbound internet access</p>
+<div class="paragraph">
+<p>The target VNet must have one or more subnets that have outbound internet access so Cloud Manager and ONTAP Cloud can contact several endpoints. To review the list of endpoints, see <a href="reference_networking_azure.html">Azure networking requirements</a>.</p>
+</div>
+</li>
+<li>
+<p>Connections between networks</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To deploy ONTAP Cloud systems in subnets or networks separate from Cloud Manager, connections between those networks must be in place.</p>
+</li>
+<li>
+<p>To replicate data across a hybrid cloud or multi-cloud environment, VPN connections between networks must be in place. For details, refer to <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal" target="_blank" rel="noopener">Microsoft Azure Documentation: Create a Site-to-Site connection in the Azure portal</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For additional networking information, see <a href="reference_networking_azure.html">Azure networking requirements</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager needs permissions to perform actions in Azure. You must grant the required permissions by creating and setting up a service principal in Azure Active Directory and by obtaining the Azure credentials that Cloud Manager needs.</p>
+</div>
+<div class="paragraph">
+<div class="title">About this task</div>
+<p>The following image depicts how Cloud Manager obtains permissions to perform operations in Azure. A service principal object, which is tied to one or more Azure subscriptions, represents Cloud Manager in Azure Active Directory and is assigned to a custom role that allows the required permissions.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_azure_authentication.png" alt="Conceptual image that shows Cloud Manager obtaining authentication and authorization from Azure Active Directory before it can make an API call. In Active Directory" width="the Cloud Manager Operator role defines permissions. It is tied to one or more Azure subscriptions and a service principal object that represents the Cloud Manger application."></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The following steps use the new Azure portal. If you experience any issues, you should use the Azure classic portal.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><a href="#creating-a-custom-role-with-the-required-cloud-manager-permissions">Create a custom role with the required Cloud Manager permissions</a>.</p>
+</li>
+<li>
+<p><a href="#creating-an-active-directory-service-principal">Create an Active Directory service principal</a>.</p>
+</li>
+<li>
+<p><a href="#assigning-the-cloud-manager-operator-role-to-the-service-principal">Assign the custom Cloud Manager Operator role to the service principal</a>.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="creating-a-custom-role-with-the-required-cloud-manager-permissions">Creating a custom role with the required Cloud Manager permissions</h3>
+<div class="paragraph">
+<p>A custom role is required to provide Cloud Manager with the permissions that it needs to launch and manage ONTAP Cloud in Azure.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Download the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager Azure policy</a>.</p>
+</li>
+<li>
+<p>Modify the JSON file by adding Azure subscription IDs to the assignable scope.</p>
+<div class="paragraph">
+<p>You should add the ID for each Azure subscription from which users will create ONTAP Cloud systems.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>"AssignableScopes": [<br>
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",<br>
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",<br>
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</p>
+</div>
+</li>
+<li>
+<p>Use the JSON file to create a custom role in Azure.</p>
+<div class="paragraph">
+<p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
+</div>
+<div class="paragraph">
+<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3_4_5.json</strong></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>You should now have a custom role called OnCommand Cloud Manager Operator.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-an-active-directory-service-principal">Creating an Active Directory service principal</h3>
+<div class="paragraph">
+<p>You must create an Active Directory service principal so Cloud Manager can authenticate with Azure Active Directory.</p>
+</div>
+<div class="paragraph">
+<div class="title">Before you begin</div>
+<p>You must have the appropriate permissions in Azure to create an Active Directory application and to assign the application to a role. For details, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/" target="_blank" rel="noopener">Microsoft Azure Documentation: Use portal to create Active Directory application and service principal that can access resources</a></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>From the Azure portal, open the <strong>Azure Active Directory</strong> service.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_ad.gif" alt="Shows the Active Directory service in Microsoft Azure."></span></p>
+</div>
+</li>
+<li>
+<p>In the menu, click <strong>App registrations</strong>.</p>
+</li>
+<li>
+<p>Create the service principal:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <strong>New application registration</strong>.</p>
+</li>
+<li>
+<p>Enter a name for the application, keep <strong>Web app / API</strong> selected, and then enter any URL—for example, <a href="http://url" class="bare">http://url</a></p>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Modify the application to add the required permissions:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select the created application.</p>
+</li>
+<li>
+<p>Under Settings, click <strong>Required permissions</strong> and then click <strong>Add</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_ad_permissions.gif" alt="Shows the settings for an Active Directory application in Microsoft Azure and highlights the option to add required permissions for API access."></span></p>
+</div>
+</li>
+<li>
+<p>Click <strong>Select an API</strong>, select <strong>Windows Azure Service Management API</strong>, and then click <strong>Select</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_ad_api.gif" alt="Shows the API to select in Microsoft Azure when adding API access to the Active Directory application. The API is the Windows Azure Service Management API."></span></p>
+</div>
+</li>
+<li>
+<p>Click <strong>Access Azure Service Management as organization users</strong>, click <strong>Select</strong> and then click <strong>Done</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create a key for the service principal:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Under Settings, click <strong>Keys</strong>.</p>
+</li>
+<li>
+<p>Enter a description, select a duration, and then click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>Copy the key value.</p>
+<div class="paragraph">
+<p>You need to enter the key value in Cloud Manager when you create user accounts for this subscription.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Properties</strong> and then copy the application ID for the service principal.</p>
+<div class="paragraph">
+<p>Similar to the key value, you need to enter the application ID in Cloud Manager when you create user accounts for this subscription.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_ad_app_id.gif" alt="Shows the application ID for an Azure Active Directory service principal."></span></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Obtain the Active Directory tenant ID for your organization:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the Active Directory menu, click <strong>Properties</strong>.</p>
+</li>
+<li>
+<p>Copy the Directory ID.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_ad_id.gif" alt="Shows the Active Directory properties in the Azure portal and the Directory ID that you need to copy."></span></p>
+</div>
+<div class="paragraph">
+<p>Just like the application ID and application key, you must enter the Active Directory tenant ID when you create Cloud Manager user accounts.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>You should now have an Active Directory service principal and you should have copied the application ID, the application key, and the Active Directory tenant ID. You need to enter this information in Cloud Manager when you set up user accounts.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="assigning-the-cloud-manager-operator-role-to-the-service-principal">Assigning the Cloud Manager Operator role to the service principal</h3>
+<div class="paragraph">
+<p>You must bind the service principal to one or more Azure subscriptions and assign it the Cloud Manager Operator role so Cloud Manager has permissions in Azure.</p>
+</div>
+<div class="paragraph">
+<div class="title">About this task</div>
+<p>If you want to deploy ONTAP Cloud from multiple Azure subscriptions, then you must bind the service principal to each of those subscriptions. Cloud Manager enables you to select the subscription that you want to use when deploying ONTAP Cloud.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>From the Azure portal, select <strong>Subscriptions</strong> in the left pane.</p>
+</li>
+<li>
+<p>Select the subscription.</p>
+</li>
+<li>
+<p>Click <strong>Access control (IAM)</strong> and then click <strong>Add</strong>.</p>
+</li>
+<li>
+<p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
+</li>
+<li>
+<p>Search for the name of the application (you cannot find it in the list by scrolling).</p>
+</li>
+<li>
+<p>Select the application, click <strong>Select</strong>, and then click <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>The service principal for Cloud Manager now has the required Azure permissions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installing-and-setting-up-cloud-manager-in-azure">Installing and setting up Cloud Manager in Azure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need to install and set up Cloud Manager so you can use it to launch ONTAP Cloud in Azure.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Go to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a> and sign up or log in.</p>
+</li>
+<li>
+<p>Under <strong>ONTAP Cloud</strong>, click <strong>Start Free Trial</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Microsoft Azure</strong> to deploy Cloud Manager from the Azure Marketplace.</p>
+</li>
+<li>
+<p>Click <strong>Get it now</strong> and then click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>From the Azure portal, click <strong>Create</strong> and follow the steps to configure the virtual machine.</p>
+<div class="paragraph">
+<p>Note the following as you configure the virtual machine:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager can perform optimally with either HDD or SSD disks.</p>
+</li>
+<li>
+<p>You should choose one of the recommended virtual machine sizes: A2 or D2_v2.</p>
+</li>
+<li>
+<p>For the network security group, it is best to choose <strong>Advanced</strong>. The <strong>Advanced</strong> option creates a new security group that includes the required inbound rules for Cloud Manager. If you choose Basic, refer to <a href="reference_security_groups_azure.html">Security group rules</a> for the list of required rules.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Review your selections and click <strong>OK</strong>.</p>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_summary.gif" alt="Screen shot: Shows an example of the settings when deploying OnCommand Cloud Manager in Microsoft Azure."></span></p>
+</div>
+</li>
+<li>
+<p>Click <strong>Purchase</strong>.</p>
+<div class="paragraph">
+<p>Azure launches the virtual machine with the specified settings. The virtual machine and Cloud Manager software should be running in approximately five minutes.</p>
+</div>
+</li>
+<li>
+<p>Open a web browser from a host that has a connection to the Cloud Manager virtual machine and enter the following URL:</p>
+<div class="paragraph">
+<p>http://<em>ipaddress</em>:80</p>
+</div>
+<div class="paragraph">
+<p>When you log in, Cloud Manager automatically adds your user account as the administrator for this system.</p>
+</div>
+</li>
+<li>
+<p>After you log in, enter a name for the Cloud Manager system.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>Cloud Manager is now installed and set up so users can deploy ONTAP Cloud in Azure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploying-ontap-cloud-in-azure">Deploying ONTAP Cloud in Azure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can deploy ONTAP Cloud in Azure to provide enterprise-class features for your cloud storage.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>On the Working Environments page in Cloud Manager, click <strong>Create</strong>.</p>
+</li>
+<li>
+<p>Under Create, select <strong>ONTAP Cloud for Azure</strong>.</p>
+</li>
+<li>
+<p>Complete the steps in the wizard to launch the system.</p>
+<div class="paragraph">
+<p>Note the following as you complete the wizard:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The predefined network security group includes the rules that ONTAP Cloud needs to operate successfully. If you need to use your own, refer to <a href="reference_security_groups_azure.html">Security group rules</a>.</p>
+</li>
+<li>
+<p>The underlying Azure disk type is for the initial ONTAP Cloud volume. You can choose a different disk type for subsequent volumes.</p>
+</li>
+<li>
+<p>The performance of Azure Premium Storage is tied to the disk size. Larger disks provide higher IOPS and throughput.</p>
+</li>
+<li>
+<p>The disk size is the default size for all disks on the system.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you need a different size later, you can use the <strong>Advanced allocation</strong> option to create an aggregate that uses disks of a specific size.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following video shows how to deploy ONTAP Cloud in Azure.</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="./media/video_launch_otc_azure.mp4" width="848" height="480" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>Cloud Manager deploys the ONTAP Cloud system. You can track the progress in the timeline.</p>
+</div>
+</div>
+</div>
+
+              <!-- Page Container -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 1994-2018 NetApp, Inc. All rights reserved.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/netapptmlist.aspx" class="n-footer__copyright-link">Trademarks</a>
+              </div>
+              <div class="n-footer__social-links">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+                <p class="n-footer__fine-print">
+                    Have feedback for our website?
+                    <a target="_self" href="javascript:netapp_mailto()">Let us know</a>
+                </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="https://clouddocs.netapp.com/occm/us-en/common/js/components.js"></script>
+    <script src="https://clouddocs.netapp.com/occm/us-en/common/js/doc-components.js"></script>
+
+    <!-- i18n script -->
+    <script src="https://clouddocs.netapp.com/occm/us-en/js/responsive.js" type="text/javascript"></script>
+  </body>
+</html>

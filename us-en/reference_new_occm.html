@@ -1,0 +1,1239 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
+  <head>
+  <title>What&#8217;s new in Cloud Manager | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation">
+  <meta http-equiv="nss-subtype" content="User Guide">
+
+  
+    <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
+  
+
+  <meta name="description" content="OnCommand Cloud Manager typically introduces a new release every month to bring you new features, enhancements, and bug fixes.">
+  <meta name="keywords" content=" what's new, features, new, release notes, bugs, limitations, known issues, enhancements">
+
+  <!-- Icons -->
+  <link rel="icon" href="https://clouddocs.netapp.com/occm/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/bower_components/eightshapes-blocks/dist/esb.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/netapp-library/css/netapp-library.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc-components.css">
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="https://clouddocs.netapp.com/occm/us-en/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/customstyles.css">
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='https://clouddocs.netapp.com/occm/us-en/css/netapp.css' type='text/css'>
+
+  <!-- Controls the Sidebar layout -->
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/na-sidebar.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Controls the custom layout of the site -->
+  <link rel='stylesheet' href='https://clouddocs.netapp.com/occm/us-en/css/clouddocs.css' type='text/css'>
+  <script src='https://clouddocs.netapp.com/occm/us-en/js/clouddocs.js'></script>
+  <script src='https://clouddocs.netapp.com/occm/us-en/js/s_code_impl.js'></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/jquery.navgoco.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/toc.js"></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/customscripts.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("zz");
+    
+      siteLocales.push("en");
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales);
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-2"></script>
+  <script>
+  if (document.location.hostname.search("netapp.com") !== -1) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-2');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://clouddocs.netapp.com" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://clouddocs.netapp.com">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      <!-- NetApp Search Bar -->
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <input type="text" id="search-input" class="n-search-form__input" placeholder="Search Documentation">
+        <ul id="results-container"></ul>
+        <script src="https://clouddocs.netapp.com/occm/us-en/js/jekyll-search.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'https://clouddocs.netapp.com/occm/us-en/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#globe"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- End NetApp Search Bar -->
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/us-en" class="n-menu__header-text">English</a>
+                </li>
+                
+                  <li class="n-menu__list-item n-menu__list-item--level-1">
+                    <a target="_blank" href="http://docs.netapp.com/occm/topic/com.netapp.nav.occm-330/home.html?lang=ja" class="n-menu__header-text">日本語</a>
+                  </li>
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: us-en
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+          <div class="n-row">
+            <div class="n-doc n-doc__component-list">
+              <!-- Sidebar Column -->
+              
+              <div class="col-md-3" >
+                  
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Getting started in AWS</a></li>
+  
+
+  
+    <li><a href="task_getting_started_azure.html">Getting started in Azure</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Detailed networking requirements</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_networking_aws.html">AWS networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Azure networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central.html">NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="concept_storage.html">Storage</a></li>
+  
+
+  
+    <li><a href="concept_storage_management.html">Storage management</a></li>
+  
+
+  
+    <li><a href="concept_ha.html">High-availability pairs</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+  
+    <li><a href="concept_storage_automation.html">Cloud Storage Automation</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploying ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Logging in to Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_planning_your_config.html">Planning your configuration</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="task_provisioning_storage.html">Provisioning storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_tiering.html">Tiering data in AWS</a></li>
+  
+
+  
+    <li><a href="task_managing_storage.html">Managing storage</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing data across a hybrid cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discovering and managing ONTAP clusters</a></li>
+  
+
+  
+    <li><a href="task_replicating_data.html">Replicating data to and from the cloud</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provisioning NFS volumes</a>
+      <ul>
+        
+
+  
+    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
+  
+
+  
+    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
+  
+
+  
+    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administering Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+  
+
+  
+    <li><a href="task_editing_users.html">Editing user accounts</a></li>
+  
+
+  
+    <li><a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a></li>
+  
+
+  
+    <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renewing the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstalling Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li class="active"><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
+  
+
+  
+    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="reference_regions.html">Supported regions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules for AWS</a></li>
+  
+
+  
+    <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
+  
+
+  
+    <li><a href="reference_apis.html">REST APIs</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+              </div>
+              
+
+              <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+
+              <!-- Begin of page container -->
+              <div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">What&#8217;s new in Cloud Manager
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_new_occm.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+      
+    </span>
+  </h1>
+</div>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>OnCommand Cloud Manager typically introduces a new release every month to bring you new features, enhancements, and bug fixes.</p>
+</div>
+<div class="paragraph">
+<p>You can find information about known issues and limitations in the <a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839255" target="_blank" rel="noopener">Cloud Manager 3.4 Release Notes</a>.</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#cloud-manager-3-4-5">Cloud Manager 3.4.5</a></li>
+<li><a href="#cloud-manager-3-4-4">Cloud Manager 3.4.4</a></li>
+<li><a href="#cloud-manager-3-4-3">Cloud Manager 3.4.3</a></li>
+<li><a href="#cloud-manager-3-4-2">Cloud Manager 3.4.2</a></li>
+<li><a href="#cloud-manager-3-4-1">Cloud Manager 3.4.1</a></li>
+<li><a href="#cloud-manager-3-4">Cloud Manager 3.4</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-4-5">Cloud Manager 3.4.5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.4.5 includes new support and enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#support-for-rhel-7-4-and-centos-7-4">Support for RHEL 7.4 and CentOS 7.4</a></p>
+</li>
+<li>
+<p><a href="#cloud-manager-can-now-enable-programmatic-deployments">Cloud Manager can now enable programmatic deployments</a></p>
+</li>
+<li>
+<p><a href="#data-disk-limit-for-ontap-cloud-for-aws">Data disk limit for ONTAP Cloud for AWS</a></p>
+</li>
+<li>
+<p><a href="#changes-coming-soon">Changes coming soon</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="support-for-rhel-7-4-and-centos-7-4">Support for RHEL 7.4 and CentOS 7.4</h3>
+<div class="paragraph">
+<p>Cloud Manager is now supported on Red Hat Enterprise Linux 7.4 and CentOS 7.4.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-manager-can-now-enable-programmatic-deployments">Cloud Manager can now enable programmatic deployments</h3>
+<div class="paragraph">
+<p>In previous releases, you had to manually enable programmatic deployments of ONTAP Cloud from the Azure Marketplace for each Azure subscription. Cloud Manager can now do this for you.</p>
+</div>
+<div class="paragraph">
+<p>To enable programmatic deployments for an Azure subscription, Cloud Manager requires the following permissions:</p>
+</div>
+<div class="paragraph">
+<p>"Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read"<br>
+"Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write"</p>
+</div>
+<div class="paragraph">
+<p>You should update the role definition for the Cloud Manager Operator role to include these permissions.</p>
+</div>
+<div class="paragraph">
+<p>You can find the entire list of required permissions in <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">the policies provided by NetApp</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-disk-limit-for-ontap-cloud-for-aws">Data disk limit for ONTAP Cloud for AWS</h3>
+<div class="paragraph">
+<p>Due to AWS infrastructure changes, the number of data disks supported in AWS has been reduced. Cloud Manager enforces the following data disk limits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A single-node ONTAP Cloud system can have up to 35 data disks.</p>
+</li>
+<li>
+<p>An ONTAP Cloud HA node can have up to 32 data disks.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The data disk limit does not include the boot disk and root disk.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To ensure that you can utilize the system&#8217;s maximum capacity before it reaches the maximum number of data disks, Cloud Manager chooses larger disks as ONTAP Cloud systems grow in AWS. For additional details, see <a href="concept_storage_management.html#disk-size-selection-for-aggregates-in-aws">Disk size selection for aggregates in AWS</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes-coming-soon">Changes coming soon</h3>
+<div class="paragraph">
+<p>NetApp occasionally announces changes that will be made in upcoming releases of Cloud Manager and ONTAP Cloud so that you are provided advance notice.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#deprecation-of-ec2-instance-types">Deprecation of EC2 instance types</a></p>
+</li>
+<li>
+<p><a href="#new-permissions-required-for-ontap-cloud-9-4">New permissions required for ONTAP Cloud 9.4</a></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="deprecation-of-ec2-instance-types">Deprecation of EC2 instance types</h4>
+<div class="paragraph">
+<p>In June 2018, all versions of ONTAP Cloud will no longer support several EC2 instance types. Existing ONTAP Cloud systems running these instance types will continue to operate normally; however, NetApp strongly recommends changing to a different instance type.</p>
+</div>
+<div class="paragraph">
+<p>To review pricing differences between instance types and NetApp licenses, go to the AWS Marketplace for <a href="http://aws.amazon.com/marketplace/pp/B011KEZ734" target="_blank" rel="noopener">single-node ONTAP Cloud systems</a> and for <a href="http://aws.amazon.com/marketplace/pp/B01H4LVJ84" target="_blank" rel="noopener">ONTAP Cloud HA pairs</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Instance type no longer supported</th>
+<th class="tableblock halign-left valign-top">Recommended instance type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c3.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c4.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.2xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m3.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m3.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.2xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r3.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.2xlarge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r3.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.2xlarge</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+M3 and R3 instance types are not supported with ONTAP Cloud data tiering and enhanced performance, so moving to the M4 and R4 instance types allows you to take advantage of those features.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-permissions-required-for-ontap-cloud-9-4">New permissions required for ONTAP Cloud 9.4</h4>
+<div class="paragraph">
+<p>Cloud Manager will require new permissions for key features in the upcoming ONTAP Cloud 9.4 release. To ensure that your Cloud Manager systems are ready to deploy and manage ONTAP Cloud 9.4 systems, we recommend that you update your Cloud Manager policy now by adding the following permissions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For AWS: "ec2:DescribeInstanceAttribute",</p>
+</li>
+<li>
+<p>For Azure: "Microsoft.Network/virtualNetworks/subnets/write",</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can find the entire list of required permissions in <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">the latest policies provided by NetApp</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-4-4">Cloud Manager 3.4.4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.4.4 includes new features and enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#support-for-azure-france-regions">Support for Azure France regions</a></p>
+</li>
+<li>
+<p><a href="#enhancement-to-default-disk-size-selection-in-aws">Enhancement to default disk size selection in AWS</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="support-for-azure-france-regions">Support for Azure France regions</h3>
+<div class="paragraph">
+<p>Cloud Manager and ONTAP Cloud are now supported in the France Central and France South regions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-to-default-disk-size-selection-in-aws">Enhancement to default disk size selection in AWS</h3>
+<div class="paragraph">
+<p>Cloud Manager now chooses larger disks as ONTAP Cloud systems grow in AWS.</p>
+</div>
+<div class="paragraph">
+<p>When Cloud Manager creates new aggregates for ONTAP Cloud systems in AWS, it steadily increases the disk size in an aggregate, as the number of aggregates in the system increases. Cloud Manager does this to ensure that you can utilize the system&#8217;s maximum capacity before it reaches the maximum number of data disks allowed by AWS.</p>
+</div>
+<div class="paragraph">
+<p>For example, Cloud Manager might choose the following disk sizes for aggregates in an ONTAP Cloud Premium or BYOL system:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aggregate number</th>
+<th class="tableblock halign-left valign-top">Disk size</th>
+<th class="tableblock halign-left valign-top">Max aggregate capacity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500 MB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 TB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 TB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 TB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 TB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 TB</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can choose the disk size yourself by using the advanced allocation option.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-4-3">Cloud Manager 3.4.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can now create ONTAP Snapshot copies on demand.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_create_snapshot.gif" alt="Screenshot: Shows the &quot;Create a Snapshot copy&quot; action which is available when you select a Volume within a working environment."></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-4-2">Cloud Manager 3.4.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.4.2 includes several new features and enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#enhancements-to-the-cloud-storage-automation-report">Enhancements to the Cloud Storage Automation Report</a></p>
+</li>
+<li>
+<p><a href="#support-for-multiple-aws-accounts-when-using-an-iam-role">Support for multiple AWS accounts when using an IAM role</a></p>
+</li>
+<li>
+<p><a href="#support-for-multiple-azure-accounts">Support for multiple Azure accounts</a></p>
+</li>
+<li>
+<p><a href="#security-group-selection-for-the-ha-mediator">Security group selection for the HA mediator</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="enhancements-to-the-cloud-storage-automation-report">Enhancements to the Cloud Storage Automation Report</h3>
+<div class="paragraph">
+<p>The Cloud Storage Automation Report identifies several savings opportunities, including savings for unattached EBS volumes and unassociated snapshots. Starting in version 3.4.2, Cloud Manager now shows you the list of those volumes and snapshots and enables you to delete them.</p>
+</div>
+<div class="paragraph">
+<p>The following image shows how you can access the list of unattached volumes and unassociated snapshots:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_csa_update.png" alt="Screen shot: Shows the &quot;View List&quot; button that is now available for Unattached EBS Volumes and Unassociated EBS Snapshots" width="which are available in the Operations section."></span></p>
+</div>
+<div class="paragraph">
+<p>The following image shows an example of how you can delete unattached EBS volumes:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_csa_delete.png" alt="Screen shot: Shows a table of 44 EBS volumes that you can delete."></span></p>
+</div>
+<div class="paragraph">
+<p>For more details, see <a href="concept_storage_automation.html">Cloud Storage Automation</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-multiple-aws-accounts-when-using-an-iam-role">Support for multiple AWS accounts when using an IAM role</h3>
+<div class="paragraph">
+<p>Cloud Manager now enables you to choose the AWS account to use when launching an ONTAP Cloud system:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_aws_accounts.gif" alt="Screen shot: Shows the link to select a different account in the Details and Credentials page."></span></p>
+</div>
+<div class="paragraph">
+<p>This feature is supported if you associated the Cloud Manager instance with an IAM role.</p>
+</div>
+<div class="paragraph">
+<p>Before you can choose from multiple AWS accounts, you must first delegate access across those accounts.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_setting_up_cloud_manager.html#adding-additional-aws-accounts-to-cloud-manager">Adding additional AWS accounts to Cloud Manager</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-multiple-azure-accounts">Support for multiple Azure accounts</h3>
+<div class="paragraph">
+<p>Cloud Manager now enables you to choose the Azure subscription to use when deploying an ONTAP Cloud system:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_subscriptions.gif" alt="Screen shot: Shows the link to select a different subscription in the Details and Credentials page."></span></p>
+</div>
+<div class="paragraph">
+<p>Before you can choose from multiple Azure subscriptions, you must first bind the Active Directory service principal to multiple Azure subscriptions.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_getting_started_azure.html#granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This change is possible because Cloud Manager no longer associates user accounts with specific Azure subscriptions. Instead, Cloud Manager obtains the list of Azure subscriptions that are bound to the Active Directory service principal.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="security-group-selection-for-the-ha-mediator">Security group selection for the HA mediator</h3>
+<div class="paragraph">
+<p>You can now choose an existing security group for the HA mediator when you deploy a new ONTAP Cloud HA system. Cloud Manager always created this security group in previous releases.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-4-1">Cloud Manager 3.4.1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.4.1 includes several new features and enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#cloud-storage-automation-beta">Cloud Storage Automation (Beta)</a></p>
+</li>
+<li>
+<p><a href="#improved-reliability-when-upgrading-ontap-cloud-systems">Improved reliability when upgrading ONTAP Cloud systems</a></p>
+</li>
+<li>
+<p><a href="#resource-group-naming-in-azure">Resource group naming in Azure</a></p>
+</li>
+<li>
+<p><a href="#support-for-azure-us-gov-regions">Support for Azure US Gov regions</a></p>
+</li>
+<li>
+<p><a href="#improvement-when-replicating-data-from-on-premises-ontap-systems">Improvement when replicating data from on-premises ONTAP systems</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="cloud-storage-automation-beta">Cloud Storage Automation (Beta)</h3>
+<div class="paragraph">
+<p>Cloud Manager can now analyze your cloud storage to show you savings opportunities, data protection enhancements, and operations that can optimize the cloud storage associated with your AWS account. For example, Cloud Manager identifies savings opportunities for unassociated EBS volumes and snapshots, the EBS volumes that impact your recovery point objective, and EBS volumes that are running out of space.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_csa.jpg" alt="Screenshot that shows the Cloud Storage Automation Report."></span></p>
+</div>
+<div class="paragraph">
+<p>For more details, see <a href="concept_storage_automation.html">Cloud Storage Automation</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="improved-reliability-when-upgrading-ontap-cloud-systems">Improved reliability when upgrading ONTAP Cloud systems</h3>
+<div class="paragraph">
+<p>Cloud Manager now leverages Amazon S3 Transfer Acceleration when upgrading ONTAP Cloud software. This enhancement improves the reliability of downloading the software image, which reduces the chances of timeouts and proxy failures.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="resource-group-naming-in-azure">Resource group naming in Azure</h3>
+<div class="paragraph">
+<p>You can now specify the name of the Azure resource group that Cloud Manager creates for an ONTAP Cloud system when you create a new working environment.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-azure-us-gov-regions">Support for Azure US Gov regions</h3>
+<div class="paragraph">
+<p>You can now deploy Cloud Manager and ONTAP Cloud BYOL in the following Azure regions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>US Gov Arizona</p>
+</li>
+<li>
+<p>US Gov Texas</p>
+</li>
+<li>
+<p>US Gov Virginia</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To deploy Cloud Manager in these regions, you must create a CentOS 7.3 virtual machine from the Azure Marketplace, download the Cloud Manager installer from the NetApp Support Site, and then install the software. After Cloud Manager is running, you can deploy ONTAP Cloud BYOL systems in the these regions just like any other region.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="improvement-when-replicating-data-from-on-premises-ontap-systems">Improvement when replicating data from on-premises ONTAP systems</h3>
+<div class="paragraph">
+<p>When you replicate data from an on-premises ONTAP system, Cloud Manager now associates the LIF to the default IPspace.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-4">Cloud Manager 3.4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager is now integrated with NetApp Cloud Central.</p>
+</div>
+<div class="paragraph">
+<p>NetApp Cloud Central is a suite of data-driven services that allows you to run critical applications in the cloud, create automated DR sites, back up your SaaS data, and effectively migrate and control data across multiple clouds leveraging NetApp&#8217;s prominent data management expertise and technologies.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager&#8217;s integration with NetApp Cloud Central provides several benefits, including a simplified deployment experience, a single location to view and manage multiple Cloud Manager systems, and centralized user authentication.</p>
+</div>
+<div class="paragraph">
+<p>With centralized user authentication, you can use the same set of credentials across Cloud Manager systems and between Cloud Manager and other data services, such as Cloud Sync. It&#8217;s also easy to reset your password if you forgot it.</p>
+</div>
+<div class="paragraph">
+<p>You can keep using your existing Cloud Manager systems as is, but if you would like to use this new experience, you can deploy a new Cloud Manager 3.4 system from NetApp Cloud Central and then discover any existing ONTAP Cloud systems from the new Cloud Manager system.</p>
+</div>
+</div>
+</div>
+
+              <!-- Page Container -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 1994-2018 NetApp, Inc. All rights reserved.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/netapptmlist.aspx" class="n-footer__copyright-link">Trademarks</a>
+              </div>
+              <div class="n-footer__social-links">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+                <p class="n-footer__fine-print">
+                    Have feedback for our website?
+                    <a target="_self" href="javascript:netapp_mailto()">Let us know</a>
+                </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="https://clouddocs.netapp.com/occm/us-en/common/js/components.js"></script>
+    <script src="https://clouddocs.netapp.com/occm/us-en/common/js/doc-components.js"></script>
+
+    <!-- i18n script -->
+    <script src="https://clouddocs.netapp.com/occm/us-en/js/responsive.js" type="text/javascript"></script>
+  </body>
+</html>

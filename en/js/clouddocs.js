@@ -9,3 +9,50 @@ function netapp_mailto() {
   var loc = email + "?subject=clouddocs_feedback:%20" + pageurl;
   window.location = "mailto:" + loc;
 }
+
+function redirectToWebserver(pathChunks) {
+	var pathChanged = pathChunks.join("/") !== location.pathname;
+	if(pathChanged) {
+		location.pathname = pathChunks.join("/");
+	}
+}
+
+function getBrowserLocale(browserLocales, siteLocales) {
+	for (var s = 0; s < browserLocales.length; s++) {
+		if (siteLocales.indexOf(browserLocales[s]) != -1) {
+			return browserLocales[s] !== "en" ? browserLocales[s] : "us-en";
+		}
+	}
+
+	return "us-en";
+}
+
+function standardizeUrl(siteLocales) {
+	var browserLocales = navigator.languages || "us-en"; // IE does not support navigator
+	var localeIndex = -1;
+	var pathChunks = location.pathname.split('/');
+	for (var a = 0; a < pathChunks.length; a++) {
+		if(pathChunks[a].match(/^[a-zA-Z]{2}-[a-zA-Z]{2}$/) || pathChunks[a] == "en") {
+			localeIndex = a;
+			break;
+		}
+	}
+
+	var browserLocale = getBrowserLocale(browserLocales, siteLocales);
+	if(localeIndex == -1) {
+		if(pathChunks.length > 2) {
+			pathChunks.splice(2,0,browserLocale);
+		} else if(pathChunks.length > 1) {
+			pathChunks.splice(1,0,browserLocale);
+		} else {
+			pathChunks.unshift(browserLocale);
+		}
+	}
+
+	localeIndex = pathChunks.indexOf('en');
+	if(localeIndex != -1) {
+		pathChunks[localeIndex] = "us-en";
+	}
+
+	redirectToWebserver(pathChunks);
+}

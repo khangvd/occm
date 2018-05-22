@@ -28,7 +28,8 @@ function getUrlContext2() {
   return arr[0] + "/" + arr[1];
 }
 
-function setDefaultParams(cloudParams = {}) {
+function setDefaultParams(cloudParams) {
+  cloudParams = cloudParams || {};
   var hrefChunks = window.location.href.split('/');
   var projectId = 'CloudDocs';
   var productId = hrefChunks[3];
@@ -60,7 +61,8 @@ function setDefaultParams(cloudParams = {}) {
   cloudParams.eVar39 = cloudParams.prop39;
 }
 
-function sendAnalyticsPageLoad(cloudParams = {}) {
+function sendAnalyticsPageLoad(cloudParams) {
+  cloudParams = cloudParams || {};
   $.getScript(getApiUrl(), function () {
     if (typeof(s) == "undefined") {
       return;
@@ -71,7 +73,8 @@ function sendAnalyticsPageLoad(cloudParams = {}) {
   });
 }
 
-function sendAnalyticsSearchClick(searchParams, cloudParams = {}) {
+function sendAnalyticsSearchClick(searchParams, cloudParams) {
+  cloudParams = cloudParams || {};
   cloudParams.prop28 = cloudParams.channel+":Search Results";
   cloudParams.prop29 = searchParams.searchString;
   cloudParams.prop50 = searchParams.href;

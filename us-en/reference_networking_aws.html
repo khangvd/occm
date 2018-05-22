@@ -1,0 +1,1154 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
+  <head>
+  <title>AWS networking requirements | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation">
+  <meta http-equiv="nss-subtype" content="User Guide">
+
+  
+    <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
+  
+
+  <meta name="description" content="You must set up your AWS networking so that Cloud Manager can deploy ONTAP Cloud systems and so those systems can operate properly.">
+  <meta name="keywords" content=" networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, jump host, autosupport, URL, URLs, endpoints, endpoint">
+
+  <!-- Icons -->
+  <link rel="icon" href="https://clouddocs.netapp.com/occm/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/bower_components/eightshapes-blocks/dist/esb.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/netapp-library/css/netapp-library.min.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc.css">
+  <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc-components.css">
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="https://clouddocs.netapp.com/occm/us-en/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/customstyles.css">
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='https://clouddocs.netapp.com/occm/us-en/css/netapp.css' type='text/css'>
+
+  <!-- Controls the Sidebar layout -->
+  <link rel="stylesheet" href="https://clouddocs.netapp.com/occm/us-en/css/na-sidebar.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Controls the custom layout of the site -->
+  <link rel='stylesheet' href='https://clouddocs.netapp.com/occm/us-en/css/clouddocs.css' type='text/css'>
+  <script src='https://clouddocs.netapp.com/occm/us-en/js/clouddocs.js'></script>
+  <script src='https://clouddocs.netapp.com/occm/us-en/js/s_code_impl.js'></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/jquery.navgoco.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/toc.js"></script>
+  <script src="https://clouddocs.netapp.com/occm/us-en/js/customscripts.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("zz");
+    
+      siteLocales.push("en");
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales);
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-2"></script>
+  <script>
+  if (document.location.hostname.search("netapp.com") !== -1) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-2');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://clouddocs.netapp.com" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://clouddocs.netapp.com">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      <!-- NetApp Search Bar -->
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <input type="text" id="search-input" class="n-search-form__input" placeholder="Search Documentation">
+        <ul id="results-container"></ul>
+        <script src="https://clouddocs.netapp.com/occm/us-en/js/jekyll-search.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'https://clouddocs.netapp.com/occm/us-en/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#globe"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- End NetApp Search Bar -->
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/us-en" class="n-menu__header-text">English</a>
+                </li>
+                
+                  <li class="n-menu__list-item n-menu__list-item--level-1">
+                    <a target="_blank" href="http://docs.netapp.com/occm/topic/com.netapp.nav.occm-330/home.html?lang=ja" class="n-menu__header-text">日本語</a>
+                  </li>
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: us-en
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+          <div class="n-row">
+            <div class="n-doc n-doc__component-list">
+              <!-- Sidebar Column -->
+              
+              <div class="col-md-3" >
+                  
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Getting started in AWS</a></li>
+  
+
+  
+    <li><a href="task_getting_started_azure.html">Getting started in Azure</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Detailed networking requirements</a>
+      <ul>
+        
+
+  
+    <li class="active"><a href="reference_networking_aws.html">AWS networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Azure networking requirements</a></li>
+  
+
+  
+    <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central.html">NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="concept_storage.html">Storage</a></li>
+  
+
+  
+    <li><a href="concept_storage_management.html">Storage management</a></li>
+  
+
+  
+    <li><a href="concept_ha.html">High-availability pairs</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+  
+    <li><a href="concept_storage_automation.html">Cloud Storage Automation</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploying ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Logging in to Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_planning_your_config.html">Planning your configuration</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="task_provisioning_storage.html">Provisioning storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing ONTAP Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_tiering.html">Tiering data in AWS</a></li>
+  
+
+  
+    <li><a href="task_managing_storage.html">Managing storage</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing data across a hybrid cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discovering and managing ONTAP clusters</a></li>
+  
+
+  
+    <li><a href="task_replicating_data.html">Replicating data to and from the cloud</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provisioning NFS volumes</a>
+      <ul>
+        
+
+  
+    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
+  
+
+  
+    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
+  
+
+  
+    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administering Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+  
+
+  
+    <li><a href="task_editing_users.html">Editing user accounts</a></li>
+  
+
+  
+    <li><a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a></li>
+  
+
+  
+    <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renewing the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstalling Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
+  
+
+  
+    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+  
+
+  
+    <li><a href="reference_regions.html">Supported regions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules for AWS</a></li>
+  
+
+  
+    <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
+  
+
+  
+    <li><a href="reference_apis.html">REST APIs</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+              </div>
+              
+
+              <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+
+              <!-- Begin of page container -->
+              <div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">AWS networking requirements
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_networking_aws.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+      
+    </span>
+  </h1>
+</div>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>You must set up your AWS networking so that Cloud Manager can deploy ONTAP Cloud systems and so those systems can operate properly.</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#general-networking-requirements">General networking requirements</a></li>
+<li><a href="#networking-requirements-for-ontap-cloud-ha-in-multiple-azs">Networking requirements for ONTAP Cloud HA in multiple AZs</a></li>
+<li><a href="#sample-vpc-configurations">Sample VPC configurations</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="general-networking-requirements">General networking requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following requirements must be met in AWS.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Outbound internet access for Cloud Manager</dt>
+<dd>
+<p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing ONTAP Cloud in AWS:</p>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoints</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AWS services (amazonaws.com):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CloudFormation</p>
+</li>
+<li>
+<p>Elastic Compute Cloud (EC2)</p>
+</li>
+<li>
+<p>Key Management Service (KMS)</p>
+</li>
+<li>
+<p>Security Token Service (STS)</p>
+</li>
+<li>
+<p>Simple Storage Service (S3)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The exact endpoint depends on the region in which you deploy ONTAP Cloud. <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html" target="_blank" rel="noopener">Refer to AWS documentation for details.</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage ONTAP Cloud systems in AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloud.support.netapp.com.s3.us-west-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides access to software images, manifests, and templates.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cognito-idp.us-east-1.amazonaws.com<br>
+cognito-identity.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to access and download manifests, templates, and ONTAP Cloud upgrade images.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kinesis.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables NetApp to stream data from audit records.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp Cloud Central for centralized user authentication.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://mysupport.netapp.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp AutoSupport.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.netapp.com/svcgw<br>
+https://support.netapp.com/ServiceGW/entitlement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp for licensing and support registration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Various third-party locations, for example:</p>
+</div>
+<div class="paragraph">
+<p>https://repo1.maven.org/maven2<br>
+https://oss.sonatype.org/content/repositories<br>
+https://repo.typesafe.org</p>
+</div>
+<div class="paragraph">
+<p>Third-party locations are subject to change.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">During upgrades, Cloud Manager downloads the latest packages for third-party dependencies.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If your network uses a proxy server for all communication to the internet, Cloud Manager prompts you to specify the proxy during setup. You can also specify the proxy server from the Settings page. Refer to <a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a>.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Outbound internet access for ONTAP Cloud</dt>
+<dd>
+<p>ONTAP Cloud requires outbound internet access to send messages to NetApp AutoSupport, which proactively monitors the health of your storage.</p>
+<div class="paragraph">
+<p>Routing and firewall policies must allow AWS HTTP/HTTPS traffic to mysupport.netapp.com.</p>
+</div>
+<div class="paragraph">
+<p>If you have a NAT instance, you must define an inbound security group rule that allows HTTPS traffic from the private subnet to the internet.</p>
+</div>
+</dd>
+<dt class="hdlist1">Outbound internet access for the HA mediator</dt>
+<dd>
+<p>The HA mediator instance must have an outbound connection to the AWS EC2 service so it can assist with storage failover. To provide the connection, you can add a public IP address, specify a proxy server, or use a manual option.</p>
+<div class="paragraph">
+<p>The manual option can be a NAT gateway or an interface VPC endpoint from the target subnet to the AWS EC2 service. For details about VPC endpoints, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html" target="_blank" rel="noopener">AWS Documentation: Interface VPC Endpoints (AWS PrivateLink)</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1">Outbound internet access from your web browser</dt>
+<dd>
+<p>Users must access Cloud Manager from a web browser. A web browser must have connections to the following endpoints:</p>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoint</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cloud Manager host</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>You must enter the host&#8217;s IP address from a web browser to load the Cloud Manager console.</p>
+</div>
+<div class="paragraph">
+<p>If you deploy Cloud Manager in AWS, the easiest way to provide access is by allocating a public IP address. However, if you want to use a private IP address instead, users can access the console through either of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A jump host in the VPC that has a connection to Cloud Manager</p>
+</li>
+<li>
+<p>A host in your network that has a VPN connection to the private IP address</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your web browser connects to this endpoint for centralized user authentication through NetApp Cloud Central.</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt class="hdlist1">Security groups</dt>
+<dd>
+<p>You do not need to create security groups because Cloud Manager does that for you. If you need to use your own, refer to <a href="reference_security_groups.html">Security group rules</a>.</p>
+</dd>
+<dt class="hdlist1">Connection between Cloud Manager and ONTAP Cloud subnets</dt>
+<dd>
+<p>Cloud Manager requires a connection to the subnets in which you launch ONTAP Cloud systems, including the HA mediator.</p>
+<div class="paragraph">
+<p>If Cloud Manager is not installed in the target VPC, it must have network connectivity to that VPC. For example, if you install Cloud Manager in Azure or in your corporate network, then you must set up a VPN connection to the VPC in which you launch ONTAP Cloud systems.</p>
+</div>
+</dd>
+<dt class="hdlist1">Connection from ONTAP Cloud to AWS S3 for data tiering</dt>
+<dd>
+<p>If you want to use EBS as a performance tier and AWS S3 as a capacity tier, you must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
+<div class="paragraph">
+<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the ONTAP Cloud instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, ONTAP Cloud cannot connect to the S3 service.</p>
+</div>
+<div class="paragraph">
+<p>If you experience any issues, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/" target="_blank" rel="noopener">AWS Support Knowledge Center: Why can’t I connect to an S3 bucket using a gateway VPC endpoint?</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1">Connections to ONTAP systems in other networks</dt>
+<dd>
+<p>To replicate data between an ONTAP Cloud system in AWS and ONTAP systems in other networks, you must have a VPN connection between the AWS VPC and the other network—for example, an Azure VNet or your corporate network. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html" target="_blank" rel="noopener">AWS Documentation: Setting Up an AWS VPN Connection</a>.</p>
+</dd>
+<dt class="hdlist1">Connection to key managers</dt>
+<dd>
+<p>If you want to use the ONTAP Cloud data encryption feature, ONTAP Cloud instances must have a connection to one or more key managers that are either in AWS or in your network. For instructions, see <a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up ONTAP Cloud encryption</a>.</p>
+</dd>
+<dt class="hdlist1">DNS and Active Directory for CIFS</dt>
+<dd>
+<p>If you want to provision CIFS storage, you must set up DNS and Active Directory in AWS or extend your on-premises setup to AWS.</p>
+<div class="paragraph">
+<p>The DNS server must provide name resolution services for the Active Directory environment. You can configure DHCP option sets to use the default EC2 DNS server, which must not be the DNS server used by the Active Directory environment.</p>
+</div>
+<div class="paragraph">
+<p>For instructions, refer to <a href="https://s3.amazonaws.com/quickstart-reference/microsoft/activedirectory/latest/doc/Microsoft_Active_Directory_Quick_Start.pdf" target="_blank" rel="noopener">AWS Documentation: Active Directory Domain Services on the AWS Cloud Quick Start Reference Deployment</a>.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="networking-requirements-for-ontap-cloud-ha-in-multiple-azs">Networking requirements for ONTAP Cloud HA in multiple AZs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Additional AWS networking requirements apply to ONTAP Cloud HA configurations that use multiple Availability Zones (AZs). You should review these requirements before you launch an HA pair because you must enter the networking details in Cloud Manager.</p>
+</div>
+<div class="paragraph">
+<p>To understand how HA pairs work, see <a href="concept_ha.html">High-availability pairs</a>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Availability Zones</dt>
+<dd>
+<p>This HA deployment model uses multiple AZs to ensure high availability of your data. You should use a dedicated AZ for each ONTAP Cloud instance and the mediator instance, which provides a communication channel between the HA pair.</p>
+</dd>
+<dt class="hdlist1">Floating IP addresses for NAS data access</dt>
+<dd>
+<p>ONTAP Cloud HA configurations in multiple AZs use floating IP addresses for NAS client access from within the VPC. These IP addresses can migrate between nodes when failures occur.</p>
+<div class="paragraph">
+<p>You must specify three floating IP addresses that are outside of the CIDR blocks for all VPCs in the AWS region in which you deploy the HA configuration. You can think of the floating IP addresses as a logical subnet that is outside of the VPCs in your region.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+One floating IP address is for cluster management, one is for NFS/CIFS data on node 1, and one is for NFS/CIFS data on node 2.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following example shows the relationship between floating IP addresses and the VPCs in an AWS region. While the floating IP addresses are outside the CIDR blocks for all VPCs, they are routable to subnets through route tables.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_ha_floating_ips.png" alt="Conceptual image showing the CIDR blocks for five VPCs in an AWS region and three floating IP addresses that are outside the CIDR blocks of the VPCs."></span></p>
+</div>
+<div class="paragraph">
+<p>You must manually enter the floating IP addresses in Cloud Manager when you create an ONTAP Cloud HA working environment. Cloud Manager allocates the IP addresses to the HA pair when it launches the system.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager automatically creates static IP addresses for iSCSI access and for NAS access from clients outside the VPC. You do not need to meet any requirements for these types of IP addresses.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Floating IP address for SVM management</dt>
+<dd>
+<p>If you use SnapDrive for Windows or SnapCenter with an ONTAP Cloud HA pair, a floating IP address is also required for the SVM management LIF. You must create this LIF after you launch the HA pair. For details, see <a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a>.</p>
+</dd>
+<dt class="hdlist1">Route tables</dt>
+<dd>
+<p>After you specify the floating IP addresses in Cloud Manager, you must select the route tables that should include routes to the floating IP addresses. This enables client access to the ONTAP Cloud HA pair.</p>
+<div class="paragraph">
+<p>If you have just one route table for the subnets in your VPC (the main route table), then Cloud Manager automatically adds the floating IP addresses to that route table. If you have more than one route table, it is very important to select the correct route tables when launching the HA pair. Otherwise, some clients might not have access to ONTAP Cloud.</p>
+</div>
+<div class="paragraph">
+<p>For example, you might have two subnets that are associated with different route tables. If you select route table A, but not route table B, then clients in the subnet associated with route table A can access the HA pair, but clients in the subnet associated with route table B cannot access the HA pair.</p>
+</div>
+<div class="paragraph">
+<p>For more information about route tables, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1">Connection to NetApp management tools</dt>
+<dd>
+<p>When deployed in multiple AZs, ONTAP Cloud HA configurations use a floating IP address for the cluster management interface, which means external routing is not available. If you want to use NetApp management tools with ONTAP Cloud HA configurations, they must be in the same VPC with similar routing configuration as NAS clients.</p>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="example-configuration">Example configuration</h3>
+<div class="paragraph">
+<p>The following image shows an optimal ONTAP Cloud HA configuration in AWS operating as an active-passive configuration:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_ha_networking.png" alt="Conceptual image showing components in an ONTAP Cloud HA architecture: two ONTAP Cloud nodes and a mediator instance" width="each in separate availability zones."></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sample-vpc-configurations">Sample VPC configurations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To better understand how you can deploy Cloud Manager and ONTAP Cloud in AWS, you should review the most common VPC configurations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A VPC with public and private subnets and a NAT device</p>
+</li>
+<li>
+<p>A VPC with a private subnet and a VPN connection to your network</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="a-vpc-with-public-and-private-subnets-and-a-nat-device">A VPC with public and private subnets and a NAT device</h3>
+<div class="paragraph">
+<p>This VPC configuration includes public and private subnets, an internet gateway that connects the VPC to the internet, and a NAT gateway or NAT instance in the public subnet that enables outbound internet traffic from the private subnet. In this configuration, you can run Cloud Manager in a public subnet or private subnet, but the public subnet is recommended because it allows access from hosts outside the VPC. You can then launch ONTAP Cloud instances in the private subnet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Instead of a NAT device, you can use an HTTP proxy to provide internet connectivity.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For more details about this scenario, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html" target="_blank" rel="noopener">AWS Documentation: Scenario 2: VPC with Public and Private Subnets (NAT)</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following graphic shows Cloud Manager running in a public subnet and single node ONTAP Cloud instances running in a private subnet:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_vpc_public_and_private.png" alt="This illustration shows Cloud Manager and a NAT instance running in a public subnet" width="and ONTAP Cloud instances and a NetApp Support instance running in a private subnet."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="a-vpc-with-a-private-subnet-and-a-vpn-connection-to-your-network">A VPC with a private subnet and a VPN connection to your network</h3>
+<div class="paragraph">
+<p>This VPC configuration is a hybrid cloud configuration in which ONTAP Cloud instances become an extension of your private environment. The configuration includes a private subnet and a virtual private gateway with a VPN connection to your network. Routing across the VPN tunnel allows EC2 instances to access the internet through your network and firewalls. You can run Cloud Manager in the private subnet or in your data center. You would then launch ONTAP Cloud instances in the private subnet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can also use a proxy server in this configuration to allow internet access. The proxy server can be in your data center or in AWS.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you want to replicate data between FAS systems in your data center and ONTAP Cloud systems in AWS, you should use a VPN connection so that the link is secure.</p>
+</div>
+<div class="paragraph">
+<p>For more details about this scenario, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html" target="_blank" rel="noopener">AWS Documentation: Scenario 4: VPC with a Private Subnet Only and AWS Managed VPN Access</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following graphic shows Cloud Manager running in your data center and single node ONTAP Cloud instances running in a private subnet:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_vpc_private.png" alt="This illustration shows Cloud Manager running in a data center" width="and ONTAP Cloud instances and a NetApp Support instance running in a private subnet. There is a VPN connection between the data center and Amazon Web Services."></span></p>
+</div>
+</div>
+</div>
+</div>
+
+              <!-- Page Container -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 1994-2018 NetApp, Inc. All rights reserved.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/netapptmlist.aspx" class="n-footer__copyright-link">Trademarks</a>
+              </div>
+              <div class="n-footer__social-links">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://clouddocs.netapp.com/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+                <p class="n-footer__fine-print">
+                    Have feedback for our website?
+                    <a target="_self" href="javascript:netapp_mailto()">Let us know</a>
+                </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="https://clouddocs.netapp.com/occm/us-en/common/js/components.js"></script>
+    <script src="https://clouddocs.netapp.com/occm/us-en/common/js/doc-components.js"></script>
+
+    <!-- i18n script -->
+    <script src="https://clouddocs.netapp.com/occm/us-en/js/responsive.js" type="text/javascript"></script>
+  </body>
+</html>
