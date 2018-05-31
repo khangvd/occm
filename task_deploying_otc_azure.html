@@ -280,7 +280,47 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.5 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Release notes</a>
+      <ul>
+        
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new</a></li>
+  
+
+  
+    <li><a href="reference_issues.html">Known issues</a></li>
+  
+
+  
+    <li><a href="reference_limitations.html">Known limitations</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_new_otc.html">ONTAP Cloud</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -571,10 +611,6 @@
   
 
   
-    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
-  
-
-  
     <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
   
 
@@ -615,11 +651,7 @@
         
 
   
-    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
-  
-
-  
-    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+    <li><a href="reference_integration_faq.html">FAQ for Cloud Central integration</a></li>
   
 
   
@@ -709,7 +741,7 @@
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>On the Working Environments page, click <strong>Add environment</strong>.</p>
+<p>On the Working Environments page, click <strong>Add Working Environment</strong></p>
 </li>
 <li>
 <p>Under Create, select <strong>ONTAP Cloud</strong>.</p>
@@ -770,7 +802,7 @@ If Azure credentials were not specified for your Cloud Manager account, you are 
 <p>On the Location page, enter the network information that you recorded in the worksheet, select the checkbox to confirm network connectivity, and then click <strong>Continue</strong>.</p>
 </li>
 <li>
-<p>On the ONTAP Cloud BYOL License page, specify whether you want to enter a license for this ONTAP Cloud system.</p>
+<p>On the ONTAP Cloud BYOL License page, specify whether you have a license for this ONTAP Cloud system.</p>
 <div class="paragraph">
 <p>To understand how licenses work, see <a href="concept_licensing.html">Licensing</a>.</p>
 </div>
@@ -809,18 +841,15 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>On the Underlying storage resources page, choose either <strong>Premium Storage</strong> or <strong>Standard Storage</strong>.</p>
+<p>On the Underlying Storage Resources page, choose either <strong>Premium Storage</strong> or <strong>Standard Storage</strong> and select a disk size.</p>
 <div class="paragraph">
 <p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes. For help choosing a disk type, see <a href="task_planning_your_config.html#choosing-an-azure-disk-type">Choosing an Azure disk type</a>.</p>
 </div>
-</li>
-<li>
-<p>On the Disk Size page, select the default disk size for all disks in the initial aggregate and for any additional aggregates that Cloud Manager creates when you use the simple provisioning option.</p>
 <div class="paragraph">
-<p>You can create aggregates that use a different disk size by using the advanced allocation option.</p>
+<p>The disk size is for all disks in the initial aggregate and for any additional aggregates that Cloud Manager creates when you use the simple provisioning option. You can create aggregates that use a different disk size by using the advanced allocation option.</p>
 </div>
 <div class="paragraph">
-<p>For help choosing a size, see <a href="task_planning_your_config.html#choosing-a-disk-size">Choosing disk size</a>.</p>
+<p>For help choosing a size, see <a href="task_planning_your_config.html#choosing-a-disk-size">Choosing a disk size</a>.</p>
 </div>
 </li>
 <li>
@@ -862,13 +891,8 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <td class="tableblock halign-left valign-top"><p class="tableblock">These fields enable you to control the level of access to a share for users and groups (also called access control lists or ACLs). You can specify local or domain Windows users or groups, or UNIX users or groups. If you specify a domain Windows user name, you must include the user&#8217;s domain using the format domain\username.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Volume Protection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot Policy</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A Snapshot copy policy specifies the frequency and number of automatically created NetApp Snapshot copies. A NetApp Snapshot copy is a point-in-time file system image that has no performance impact and requires minimal storage. You can choose the default policy or none. You might choose none for transient data: for example, tempdb for Microsoft SQL Server.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Usage Profile</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Usage profiles define the NetApp storage efficiency features that are enabled for a volume.<br>
-<a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -920,6 +944,12 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </tr>
 </tbody>
 </table>
+</li>
+<li>
+<p>On the Usage Profile, Disk Type, and Tiering Policy page, choose whether you want to enable storage efficiency features.</p>
+<div class="paragraph">
+<p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a>.</p>
+</div>
 </li>
 <li>
 <p>On the Review &amp; Approve page, review and confirm your selections:</p>

@@ -103,7 +103,7 @@
   width: 90vw;
 }
 
-p.downlevel {
+#downlevel-header {
   color: blue;
   font-weight: bold;
   padding-left: 10px;

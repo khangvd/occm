@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Migrating to NetApp Cloud Central | NetApp Cloud Docs</title>
+  <title>Known issues | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,11 +17,11 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You can migrate to NetApp Cloud Central if you have an existing Cloud Manager system. You just need to deploy a new Cloud Manager system from Cloud Central a...">
-  <meta name="keywords" content=" migrating, cloud central, portal, migrate, move, existing">
+  <meta name="description" content="Known issues identify problems that might prevent you from using this release of the product successfully.">
+  <meta name="keywords" content=" issues, bugs, known issues">
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
 
   <!-- LUCI CSS Content -->
   <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/bower_components/eightshapes-blocks/dist/esb.min.css">
@@ -30,29 +30,29 @@
   <link rel="stylesheet" href="//luci.netapp.com/archives/3_3_2/css/doc-components.css">
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/en/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/occm/en/css/customstyles.css">
+  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/occm/us-en/css/customstyles.css">
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/en/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/en/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
 
   <!-- Controls the Sidebar layout -->
-  <link rel="stylesheet" href="/occm/en/css/na-sidebar.css">
+  <link rel="stylesheet" href="/occm/us-en/css/na-sidebar.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Controls the custom layout of the site -->
-  <link rel='stylesheet' href='/occm/en/css/clouddocs.css' type='text/css'>
-  <script src='/occm/en/js/clouddocs.js'></script>
-  <script src='/occm/en/js/s_code_impl.js'></script>
-  <script src="/occm/en/js/jquery.navgoco.min.js"></script>
+  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
+  <script src='/occm/us-en/js/clouddocs.js'></script>
+  <script src='/occm/us-en/js/s_code_impl.js'></script>
+  <script src="/occm/us-en/js/jquery.navgoco.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
-  <script src="/occm/en/js/toc.js"></script>
-  <script src="/occm/en/js/customscripts.js"></script>
+  <script src="/occm/us-en/js/toc.js"></script>
+  <script src="/occm/us-en/js/customscripts.js"></script>
 
   <script>
       $(document).ready(function() {
@@ -137,7 +137,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="https://docs.netapp.com/en/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -178,19 +178,19 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/en/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="https://docs.netapp.com/en/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -202,13 +202,13 @@
       <div id="search-demo-container" class="n-property-bar__search">
         <input type="text" id="search-input" class="n-search-form__input" placeholder="Search Documentation">
         <ul id="results-container"></ul>
-        <script src="/occm/en/js/jekyll-search.js" type="text/javascript"></script>
+        <script src="/occm/us-en/js/jekyll-search.js" type="text/javascript"></script>
 
       <script type="text/javascript">
       window.simpleJekyllSearch = new SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
-        json: '/occm/en/search.json',
+        json: '/occm/us-en/search.json',
         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
         noResultsText: 'No results found',
         limit: 10,
@@ -226,7 +226,7 @@
             <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
               <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/en/common/svg/sprite.svg#globe"></use>
+                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe"></use>
               </svg>
             </a>
           </li>
@@ -256,7 +256,7 @@
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: en
+            <p>Current Language: us-en
             </p>
           </div>
         </div>
@@ -280,7 +280,47 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.5 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Release notes</a>
+      <ul>
+        
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new</a></li>
+  
+
+  
+    <li class="active"><a href="reference_issues.html">Known issues</a></li>
+  
+
+  
+    <li><a href="reference_limitations.html">Known limitations</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_new_otc.html">ONTAP Cloud</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -571,10 +611,6 @@
   
 
   
-    <li class="active"><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
-  
-
-  
     <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
   
 
@@ -615,11 +651,7 @@
         
 
   
-    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
-  
-
-  
-    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+    <li><a href="reference_integration_faq.html">FAQ for Cloud Central integration</a></li>
   
 
   
@@ -678,38 +710,23 @@
               
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Migrating to NetApp Cloud Central
+  <h1 class="n-doc__component-detail-heading">Known issues
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_migrating_to_portal.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_issues.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
       
     </span>
   </h1>
 </div>
 
 <div class="paragraph lead">
-<p>You can migrate to NetApp Cloud Central if you have an existing Cloud Manager system. You just need to deploy a new Cloud Manager system from Cloud Central and then discover existing ONTAP Cloud systems from the new Cloud Manager system.</p>
+<p>Known issues identify problems that might prevent you from using this release of the product successfully.</p>
 </div>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>Cloud Manager&#8217;s integration with NetApp Cloud Central provides several benefits, including a simplified deployment experience, a single location to view and manage multiple Cloud Manager systems, and centralized user authentication.</p>
+<p>There are no known issues in this release of Cloud Manager.</p>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Deploy a new Cloud Manager system from the <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a>.</p>
-</li>
-<li>
-<p>If needed, <a href="task_setting_up_cloud_manager.html#adding-users-to-cloud-manager">add user accounts to Cloud Manager</a>.</p>
-</li>
-<li>
-<p><a href="task_adding_ontap_cloud.html">Discover existing ONTAP Cloud systems</a> from the new Cloud Manager system.</p>
-</li>
-<li>
-<p>Delete the old Cloud Manager system.</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>You can find known issues for ONTAP Cloud in the <a href="https://mysupport.netapp.com/documentation/docweb/index.html?productID=62567&amp;language=en-US" target="_blank" rel="noopener">ONTAP Cloud Release Notes</a> and for ONTAP software in general in the <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508" target="_blank" rel="noopener">ONTAP Release Notes</a>.</p>
 </div>
 
               <!-- Page Container -->
@@ -738,7 +755,7 @@
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -747,7 +764,7 @@
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -757,7 +774,7 @@
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -766,7 +783,7 @@
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -785,10 +802,10 @@
 
     </div>
 
-    <script src="/occm/en/common/js/components.js"></script>
-    <script src="/occm/en/common/js/doc-components.js"></script>
+    <script src="/occm/us-en/common/js/components.js"></script>
+    <script src="/occm/us-en/common/js/doc-components.js"></script>
 
     <!-- i18n script -->
-    <script src="/occm/en/js/responsive.js" type="text/javascript"></script>
+    <script src="/occm/us-en/js/responsive.js" type="text/javascript"></script>
   </body>
 </html>

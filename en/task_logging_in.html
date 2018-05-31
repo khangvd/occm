@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You can log in to Cloud Manager from any web browser that has a connection to the Cloud Manager system. For new Cloud Manager 3.4 systems and later, you must...">
+  <meta name="description" content="You can log in to Cloud Manager from any web browser that has a connection to the Cloud Manager system. You should log in using a NetApp Cloud Central user a...">
   <meta name="keywords" content=" logging in, log in, sign in, signing in, cloud central, netapp cloud central, user account">
 
   <!-- Icons -->
@@ -280,7 +280,47 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.5 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Release notes</a>
+      <ul>
+        
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new</a></li>
+  
+
+  
+    <li><a href="reference_issues.html">Known issues</a></li>
+  
+
+  
+    <li><a href="reference_limitations.html">Known limitations</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_new_otc.html">ONTAP Cloud</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -571,10 +611,6 @@
   
 
   
-    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
-  
-
-  
     <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
   
 
@@ -615,11 +651,7 @@
         
 
   
-    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
-  
-
-  
-    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+    <li><a href="reference_integration_faq.html">FAQ for Cloud Central integration</a></li>
   
 
   
@@ -688,31 +720,37 @@
 </div>
 
 <div class="paragraph lead">
-<p>You can log in to Cloud Manager from any web browser that has a connection to the Cloud Manager system. For new Cloud Manager 3.4 systems and later, you must have a <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a> user account to log in.</p>
+<p>You can log in to Cloud Manager from any web browser that has a connection to the Cloud Manager system. You should log in using a <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a> user account.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Open a web browser and enter the following URL:</p>
-<div class="paragraph">
-<p>https://<em>ipaddress</em>:<em>port</em></p>
-</div>
-<div class="paragraph">
-<p><em>ipaddress</em> can be localhost, a private IP address, or a public IP address, depending on the configuration of the Cloud Manager host. For example, if Cloud Manager is in the public cloud without a public IP address, you must enter a private IP address from a host that has a connection to the Cloud Manager host.</p>
-</div>
-<div class="paragraph">
-<p><em>port</em> is required if you changed the default HTTP (80) or HTTPS (443) ports. For example, if the HTTPS port was changed to 8443, you would enter <a href="https://ipaddress:8443" class="bare">https://ipaddress:8443</a></p>
-</div>
-<div class="paragraph">
-<p>After you enter the URL, the Cloud Manager log in screen appears. The following image shows the log in screen for new Cloud Manager 3.4 systems and later.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_login.gif" alt="Shows the log in screen for Cloud Manager."></span></p>
+<p>Open a web browser and log in to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a>.</p>
+</li>
+<li>
+<p>Click <strong>Go to Cloud Data Services</strong> and select <strong>ONTAP Cloud</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Go to Cloud Manager</strong> for the Cloud Manager system that you want to access.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you do not see any systems listed, make sure that the Cloud Manager administrator added your NetApp Cloud Central account to the system.
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
-<p>If you do not have a NetApp Cloud Central user account, you must sign up for one and then the Cloud Manager administrator must add your account to the system before you can log in.</p>
+<p>Log in to Cloud Manager using your NetApp Cloud Central account.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_login.gif" alt="The log in screen for Cloud Manager."></span></p>
+</div>
 </li>
 </ol>
 </div>

@@ -280,7 +280,47 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.4 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.5 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Release notes</a>
+      <ul>
+        
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new</a></li>
+  
+
+  
+    <li><a href="reference_issues.html">Known issues</a></li>
+  
+
+  
+    <li><a href="reference_limitations.html">Known limitations</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_new_otc.html">ONTAP Cloud</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -571,10 +611,6 @@
   
 
   
-    <li><a href="task_migrating_to_portal.html">Migrating to NetApp Cloud Central</a></li>
-  
-
-  
     <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
   
 
@@ -615,11 +651,7 @@
         
 
   
-    <li><a href="reference_new_occm.html">What's new in Cloud Manager</a></li>
-  
-
-  
-    <li><a href="reference_new_otc.html">What's new in ONTAP Cloud</a></li>
+    <li><a href="reference_integration_faq.html">FAQ for Cloud Central integration</a></li>
   
 
   
@@ -728,6 +760,10 @@
 "ec2:TerminateInstances",<br>
 "ec2:ModifyInstanceAttribute",</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Launches an ONTAP Cloud instance and stops, starts, and monitors the instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"ec2:DescribeInstanceAttribute",</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verifies that enhanced networking is enabled for supported instance types.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">"ec2:DescribeRouteTables",<br>
@@ -925,6 +961,10 @@
 "Microsoft.Network/virtualNetworks/virtualMachines/read",<br>
 "Microsoft.Network/virtualNetworks/subnets/join/action",</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Gets network information about regions, the target VNet and subnet, and adds ONTAP Cloud systems to VNets.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Microsoft.Network/virtualNetworks/subnets/write",</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables VNet service endpoints for data tiering.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">"Microsoft.Resources/deployments/operations/read",<br>
