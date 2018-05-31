@@ -103,6 +103,10 @@
   width: 90vw;
 }
 
+main {
+  min-height: 86vh;
+}
+
 #downlevel-header {
   color: blue;
   font-weight: bold;
