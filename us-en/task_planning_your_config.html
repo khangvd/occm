@@ -315,7 +315,7 @@
   
 
   
-    <li><a href="reference_new_otc.html">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
   
 
 
@@ -511,7 +511,7 @@
         
 
   
-    <li><a href="task_tiering.html">Tiering data in AWS</a></li>
+    <li><a href="task_tiering.html">Tiering cold data to object storage</a></li>
   
 
   
@@ -655,6 +655,10 @@
   
 
   
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+  
+
+  
     <li><a href="reference_regions.html">Supported regions</a></li>
   
 
@@ -744,223 +748,17 @@
 <h2 id="choosing-a-license-type">Choosing a license type</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ONTAP Cloud is available in AWS and Azure in two pricing options: pay-as-you-go and Bring Your Own License (BYOL). For pay-as-you-go, you can choose from three configurations: Explore, Standard, or Premium.</p>
+<p>ONTAP Cloud is available in AWS and Azure in two pricing options: pay-as-you-go and Bring Your Own License (BYOL). For pay-as-you-go, you can choose from three licenses: Explore, Standard, or Premium. Each license provides different capacity and compute options.</p>
 </div>
-<div class="sect2">
-<h3 id="ontap-cloud-for-aws">ONTAP Cloud for AWS</h3>
-<div class="paragraph">
-<p>In AWS, you can deploy ONTAP Cloud as a single system or an HA pair.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"></th>
-<th class="tableblock halign-left valign-top">Explore</th>
-<th class="tableblock halign-left valign-top">Standard</th>
-<th class="tableblock halign-left valign-top">Premium</th>
-<th class="tableblock halign-left valign-top">BYOL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance types</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m4.xlarge</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<div class="ulist">
 <ul>
 <li>
-<p>m4.2xlarge</p>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_94.html" target="_blank" rel="noopener">Supported configurations for ONTAP Cloud 9.4</a></p>
 </li>
 <li>
-<p>r4.xlarge</p>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_93.html" target="_blank" rel="noopener">Supported configurations for ONTAP Cloud 9.3</a></p>
 </li>
 </ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>c4.4xlarge</p>
-</li>
-<li>
-<p>c4.8xlarge</p>
-</li>
-<li>
-<p>m4.4xlarge</p>
-</li>
-<li>
-<p>r4.2xlarge</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>c4.4xlarge</p>
-</li>
-<li>
-<p>c4.8xlarge</p>
-</li>
-<li>
-<p>m4.xlarge</p>
-</li>
-<li>
-<p>m4.2xlarge</p>
-</li>
-<li>
-<p>m4.4xlarge</p>
-</li>
-<li>
-<p>r4.xlarge</p>
-</li>
-<li>
-<p>r4.2xlarge</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EBS raw capacity limit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2 TB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10 TB</p></td>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>368 TB for single node systems</p>
-</li>
-<li>
-<p>360 TB per node in an HA pair</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Term</p></td>
-<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Hourly</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6 or 12 months</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Notes:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Pay-as-you-go configurations are not supported in GovCloud (US).</p>
-</li>
-<li>
-<p>When you choose an EC2 instance type, you can specify whether it is a shared instance or a dedicated instance.</p>
-</li>
-<li>
-<p>Enhanced write performance is supported when using EBS SSDs with ONTAP Cloud Standard, Premium, and BYOL.</p>
-</li>
-<li>
-<p>Data tiering is supported with ONTAP Cloud Standard, Premium, and BYOL.</p>
-</li>
-<li>
-<p>For AWS region support, see <a href="reference_regions.html#supported-aws-regions">Supported AWS regions</a>.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ontap-cloud-for-azure">ONTAP Cloud for Azure</h3>
-<div class="paragraph">
-<p>In Azure, you can deploy ONTAP Cloud as a single node system.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"></th>
-<th class="tableblock halign-left valign-top">Explore</th>
-<th class="tableblock halign-left valign-top">Standard</th>
-<th class="tableblock halign-left valign-top">Premium</th>
-<th class="tableblock halign-left valign-top">BYOL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual machine types</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DS3_v2</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>DS4_v2</p>
-</li>
-<li>
-<p>DS13_v2</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>DS5_v2</p>
-</li>
-<li>
-<p>DS14_v2</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>DS3_v2</p>
-</li>
-<li>
-<p>DS4_v2</p>
-</li>
-<li>
-<p>DS5_v2</p>
-</li>
-<li>
-<p>DS13_v2</p>
-</li>
-<li>
-<p>DS14_v2</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Raw capacity limit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2 TB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10 TB</p></td>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">252 TB</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Term</p></td>
-<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Hourly</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12 months</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Notes:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The actual maximum capacity may be less because of virtual machine limits: 60 TB for DS3, 124 TB for DS4 and DS13, and 252 TB for DS5 and DS14.</p>
-</li>
-<li>
-<p>For Azure region support, see <a href="reference_regions.html#supported-azure-regions">Supported Azure regions</a>.</p>
-</li>
-</ol>
-</div>
 </div>
 </div>
 </div>
@@ -970,12 +768,15 @@
 <div class="paragraph">
 <p>The raw capacity limit for an ONTAP Cloud system is tied to the license. Additional limits impact the size of aggregates and volumes. You should be aware of these limits as you plan your configuration.</p>
 </div>
-<div class="paragraph">
-<p>You can find storage limits in the ONTAP Cloud Release Notes.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839309" target="_blank" rel="noopener">ONTAP Cloud 9.3 for AWS Release Notes</a><br>
-<a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2839308" target="_blank" rel="noopener">ONTAP Cloud 9.3 for Azure Release Notes</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_storage_limits_94.html" target="_blank" rel="noopener">Storage limits for ONTAP Cloud 9.4</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_storage_limits_93.html" target="_blank" rel="noopener">Storage limits for ONTAP Cloud 9.3</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -983,10 +784,10 @@
 <h2 id="choosing-an-aws-disk-type">Choosing an AWS disk type</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you create volumes for ONTAP Cloud systems, you need to choose the underlying EBS volume type (which ONTAP Cloud sees as a <em>disk</em>). You should choose the configuration that meets your requirements for performance and cost.</p>
+<p>When you create volumes for ONTAP Cloud systems, you need to choose the underlying cloud storage that ONTAP Cloud uses as a disk. In AWS, you can choose a single EBS disk type or a tiered storage configuration that uses EBS storage as a performance tier and S3 as a capacity tier. You should choose the configuration that meets your requirements for performance and cost.</p>
 </div>
 <div class="paragraph">
-<p>The underlying AWS disk type for ONTAP Cloud can be a single EBS disk type or a tiered storage configuration that uses EBS as a performance tier and S3 as a capacity tier. For an overview of data tiering, see <a href="concept_storage.html">Storage</a>. For requirements, see <a href="task_tiering.html">Tiering data in AWS</a>.</p>
+<p>For an overview of data tiering, see <a href="concept_storage.html">Storage</a>. For requirements, see <a href="task_tiering.html">Tiering data in AWS</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="supported-ebs-disk-types">Supported EBS disk types</h3>
@@ -1031,8 +832,13 @@ Cold HDD disks are not supported with ONTAP Cloud HA configurations.
 <h2 id="choosing-an-azure-disk-type">Choosing an Azure disk type</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you create volumes for ONTAP Cloud systems, you need to choose the underlying Azure disk type. Each disk type is designed for different workloads. You should choose the disk that meets your requirements for both performance and cost.</p>
+<p>When you create volumes for ONTAP Cloud systems, you need to choose the underlying cloud storage that ONTAP Cloud uses as a disk. in Azure, you can choose a managed disk or a tiered storage configuration that uses managed disks as a performance tier and Azure Blob storage as a capacity tier. You should choose the configuration that meets your requirements for performance and cost.</p>
 </div>
+<div class="paragraph">
+<p>For an overview of data tiering, see <a href="concept_storage.html">Storage</a>. For requirements, see <a href="task_tiering.html">Tiering cold data to low-cost object storage</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="supported-azure-managed-disks">Supported Azure managed disks</h3>
 <div class="paragraph">
 <p>The underlying disk type for Azure can be Premium Storage or Standard Storage:</p>
 </div>
@@ -1048,6 +854,7 @@ Cold HDD disks are not supported with ONTAP Cloud HA configurations.
 </div>
 <div class="paragraph">
 <p>For additional details about the use cases for these disks, see <a href="https://azure.microsoft.com/documentation/articles/storage-introduction/" target="_blank" rel="noopener">Microsoft Azure Documentation: Introduction to Microsoft Azure Storage</a>.</p>
+</div>
 </div>
 </div>
 </div>

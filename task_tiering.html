@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Tiering data in AWS | NetApp Cloud Docs</title>
+  <title>Tiering cold data to low-cost object storage | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,8 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You can reduce storage costs in AWS by combining an EBS performance tier for hot data with an S3 capacity tier for cold data.">
-  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store">
+  <meta name="description" content="You can reduce storage costs in AWS and Azure by combining an SSD or HDD performance tier for hot data with an object storage capacity tier for cold data.">
+  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, azure tiering, blob tiering, azure blob, container">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -315,7 +315,7 @@
   
 
   
-    <li><a href="reference_new_otc.html">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
   
 
 
@@ -511,7 +511,7 @@
         
 
   
-    <li class="active"><a href="task_tiering.html">Tiering data in AWS</a></li>
+    <li class="active"><a href="task_tiering.html">Tiering cold data to object storage</a></li>
   
 
   
@@ -655,6 +655,10 @@
   
 
   
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+  
+
+  
     <li><a href="reference_regions.html">Supported regions</a></li>
   
 
@@ -710,7 +714,7 @@
               
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Tiering data in AWS
+  <h1 class="n-doc__component-detail-heading">Tiering cold data to low-cost object storage
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_tiering.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
@@ -722,60 +726,13 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can reduce storage costs in AWS by combining an EBS performance tier for "hot" data with an S3 capacity tier for "cold" data. For an overview of data tiering, see <a href="concept_storage.html#data-tiering-in-aws">Data tiering in AWS</a>.</p>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle" class="title">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#configurations-supported-with-data-tiering">Configurations supported with data tiering</a></li>
-<li><a href="#requirements-for-data-tiering">Requirements for data tiering</a></li>
-<li><a href="#tiering-data-on-read-write-volumes">Tiering data on read-write volumes</a></li>
-<li><a href="#tiering-data-on-data-protection-volumes">Tiering data on data protection volumes</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="configurations-supported-with-data-tiering">Configurations supported with data tiering</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Data tiering is supported with specific configurations and features:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Data tiering is supported with ONTAP Cloud Standard, Premium, and BYOL.</p>
-</li>
-<li>
-<p>The EBS tier can be General Purpose SSDs or Throughput Optimized HDDs.</p>
-</li>
-<li>
-<p>Data tiering is supported with AWS-managed encryption.</p>
-<div class="paragraph">
-<p>It is not supported with ONTAP Cloud-managed encryption.</p>
-</div>
-</li>
-<li>
-<p>Thin provisioning must be enabled on volumes.</p>
-</li>
-<li>
-<p>ONTAP performance enhancements introduced in ONTAP Cloud 9.2 are not supported with data tiering.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="requirements-for-data-tiering">Requirements for data tiering</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
+<p>You can reduce storage costs in AWS and Azure by combining an SSD or HDD performance tier for "hot" data with an object storage capacity tier for "cold" data. For a high-level overview, see <a href="concept_storage.html#data-tiering">Data tiering</a>.</p>
 </div>
 <div class="paragraph">
-<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the ONTAP Cloud instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, ONTAP Cloud cannot connect to the S3 service.</p>
+<p>To set up data tiering, you simply need to do the following:</p>
 </div>
 <div class="paragraph">
-<p>If you experience any issues, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/" target="_blank" rel="noopener">AWS Support Knowledge Center: Why can’t I connect to an S3 bucket using a gateway VPC endpoint?</a>.</p>
+<p><span class="image"><img src="./media/diagram_tiering.gif" alt="A diagram that shows the workflow for enabling tiering: choose a supported configuration" width="ensure that connectivity is available between tiers" height="and then choose a tiering policy when creating"></span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -791,7 +748,7 @@
 <p>You do not need to install a feature license to enable data tiering.</p>
 </li>
 <li>
-<p>You do not need to create the S3 bucket. Cloud Manager creates it for you.</p>
+<p>You do not need to create the capacity tier (either an S3 bucket or an Azure Blob container). Cloud Manager does that for you.</p>
 </li>
 </ul>
 </div>
@@ -799,13 +756,112 @@
 </tr>
 </table>
 </div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#configurations-that-support-data-tiering">Configurations that support data tiering</a></li>
+<li><a href="#requirements-for-tiering-data-in-aws">Requirements for tiering data in AWS</a></li>
+<li><a href="#requirements-for-tiering-data-in-microsoft-azure">Requirements for tiering data in Microsoft Azure</a></li>
+<li><a href="#tiering-data-on-read-write-volumes">Tiering data on read-write volumes</a></li>
+<li><a href="#tiering-data-on-data-protection-volumes">Tiering data on data protection volumes</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configurations-that-support-data-tiering">Configurations that support data tiering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can enable data tiering when using specific configurations and features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data tiering is supported with ONTAP Cloud Standard, Premium, and BYOL, starting with ONTAP Cloud 9.2 for AWS and ONTAP Cloud 9.4 for Microsoft Azure.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Tiering policies are supported with the following licenses:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Snapshot-only is supported with Standard, Premium, and BYOL.</p>
+</li>
+<li>
+<p>Backup is supported with Standard, Premium, and BYOL.</p>
+</li>
+<li>
+<p>Auto is supported with Premium and BYOL only.</p>
+<div class="paragraph">
+<p>For a description of these policies, see <a href="concept_storage.html#data-tiering">Data tiering</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>In AWS, the performance tier can be General Purpose SSDs, Provisioned IOPS SSDs, or Throughput Optimized HDDs.</p>
+</li>
+<li>
+<p>In Azure, the performance tier can be either Premium Storage (SSD) or Standard Storage (HDD).</p>
+</li>
+<li>
+<p>Data tiering is supported with AWS-managed encryption and Azure-managed encryption.</p>
+<div class="paragraph">
+<p>It is not supported with ONTAP Cloud-managed encryption.</p>
+</div>
+</li>
+<li>
+<p>Thin provisioning must be enabled on volumes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="requirements-for-tiering-data-in-aws">Requirements for tiering data in AWS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
+</div>
+<div class="paragraph">
+<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the ONTAP Cloud instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, ONTAP Cloud cannot connect to the S3 service.</p>
+</div>
+<div class="paragraph">
+<p>If you experience any issues, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/" target="_blank" rel="noopener">AWS Support Knowledge Center: Why can’t I connect to an S3 bucket using a gateway VPC endpoint?</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="requirements-for-tiering-data-in-microsoft-azure">Requirements for tiering data in Microsoft Azure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You do not need to set up a connection between the performance tier and the capacity tier as long as Cloud Manager has the required permissions. Cloud Manager enables a VNet service endpoint for you if the Cloud Manager policy has the appropriate permission:</p>
+</div>
+<div class="paragraph">
+<p>"Microsoft.Network/virtualNetworks/subnets/write",</p>
+</div>
+<div class="paragraph">
+<p>That permission is included in the latest Cloud Manager policy. For details about providing permissions, see <a href="task_getting_started_azure.html#granting-azure-permissions-to-cloud-manager">Granting Azure Permissions to Cloud Manager</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="tiering-data-on-read-write-volumes">Tiering data on read-write volumes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ONTAP Cloud can tier Snapshot copies of read-write volumes to cost-effective S3 storage, freeing up the EBS performance tier for "hot" data.</p>
+<p>ONTAP Cloud can tier cold data on read-write volumes to cost-effective object storage, freeing up the performance tier for hot data.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -836,12 +892,15 @@
 </table>
 </li>
 <li>
-<p>Enable S3 Tiering:</p>
+<p>Select the Snapshot Only policy or the Auto policy (supported only with ONTAP Cloud Premium or BYOL).</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_tiered_storage.gif" alt="Screenshot that shows the icon to enable tiering to S3."></span></p>
+<p><strong>Example</strong></p>
 </div>
 <div class="paragraph">
-<p>Cloud Manager creates a new aggregate if a data tiering-enabled aggregate does not already exist.</p>
+<p><span class="image"><img src="./media/screenshot_tiered_storage.gif" alt="Screenshot that shows the icon to enable tiering to object storage."></span></p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager creates a new aggregate for the volume if a data tiering-enabled aggregate does not already exist.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -850,7 +909,7 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you prefer to create aggregates yourself, you can enable data tiering when creating aggregates.
+If you prefer to create aggregates yourself, you can enable data tiering on aggregates when you create them.
 </td>
 </tr>
 </table>
@@ -864,7 +923,7 @@ If you prefer to create aggregates yourself, you can enable data tiering when cr
 <h2 id="tiering-data-on-data-protection-volumes">Tiering data on data protection volumes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ONTAP Cloud can tier data from a data protection volume to an S3 capacity tier. If you activate the destination volume, the data gradually moves to the EBS performance tier as it is read.</p>
+<p>ONTAP Cloud can tier data from a data protection volume to a capacity tier. If you activate the destination volume, the data gradually moves to the performance tier as it is read.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -873,7 +932,13 @@ If you prefer to create aggregates yourself, you can enable data tiering when cr
 <p>On the Working Environments page, select the working environment that contains the source volume, and then drag it to the working environment to which you want to replicate the volume.</p>
 </li>
 <li>
-<p>Follow the prompts until you reach the tiering page and enable <strong>S3 Tiering</strong>.</p>
+<p>Follow the prompts until you reach the tiering page and enable data tiering to object storage.</p>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_replication_tiering.gif" alt="Screenshot that shows the S3 tiering option when replicating a volume."></span></p>
+</div>
 <div class="paragraph">
 <p>For help with replicating data, see <a href="task_replicating_data.html">Replicating data to and from the cloud</a>.</p>
 </div>

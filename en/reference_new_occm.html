@@ -315,7 +315,7 @@
   
 
   
-    <li><a href="reference_new_otc.html">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
   
 
 
@@ -511,7 +511,7 @@
         
 
   
-    <li><a href="task_tiering.html">Tiering data in AWS</a></li>
+    <li><a href="task_tiering.html">Tiering cold data to object storage</a></li>
   
 
   
@@ -655,6 +655,10 @@
   
 
   
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+  
+
+  
     <li><a href="reference_regions.html">Supported regions</a></li>
   
 
@@ -735,6 +739,9 @@
 <div class="ulist">
 <ul>
 <li>
+<p><a href="#support-for-ontap-cloud-9-4">Support for ONTAP Cloud 9.4</a></p>
+</li>
+<li>
 <p><a href="#new-permissions-required-for-ontap-cloud-9-4">New permissions required for ONTAP Cloud 9.4</a></p>
 </li>
 <li>
@@ -749,17 +756,29 @@
 </ul>
 </div>
 <div class="sect2">
+<h3 id="support-for-ontap-cloud-9-4">Support for ONTAP Cloud 9.4</h3>
+<div class="paragraph">
+<p>You can now deploy new ONTAP Cloud 9.4 systems from Cloud Manager and upgrade your existing systems to the 9.4 release. Cloud Manager also provides support for <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank" rel="noopener">the new features introduced in ONTAP Cloud 9.4</a>.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="new-permissions-required-for-ontap-cloud-9-4">New permissions required for ONTAP Cloud 9.4</h3>
 <div class="paragraph">
-<p>Cloud Manager will require new permissions for key features in the upcoming ONTAP Cloud 9.4 release. To ensure that your Cloud Manager systems are ready to deploy and manage ONTAP Cloud 9.4 systems, NetApp recommends that you update your Cloud Manager policy now by adding the following permissions:</p>
+<p>Cloud Manager requires new permissions for key features in the ONTAP Cloud 9.4 release. To ensure that your Cloud Manager systems can deploy and manage ONTAP Cloud 9.4 systems, you must update your Cloud Manager policy by adding the following permissions:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>For AWS: "ec2:DescribeInstanceAttribute",</p>
+<div class="paragraph">
+<p>Cloud Manager uses this permission to verify that enhanced networking is enabled for supported instance types.</p>
+</div>
 </li>
 <li>
 <p>For Azure: "Microsoft.Network/virtualNetworks/subnets/write",</p>
+<div class="paragraph">
+<p>Cloud Manager uses this permission to enable VNet service endpoints for data tiering.</p>
+</div>
 </li>
 </ul>
 </div>
