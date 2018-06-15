@@ -722,10 +722,10 @@
 <dt class="hdlist1">Outbound internet access for Cloud Manager</dt>
 <dd>
 <p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing ONTAP Cloud in Microsoft Azure:</p>
-<table class="tableblock frame-all grid-all fit-content">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col>
-<col>
+<col style="width: 43%;">
+<col style="width: 57.0%;">
 </colgroup>
 <thead>
 <tr>
@@ -780,10 +780,18 @@ https://support.netapp.com/ServiceGW/entitlement</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Various third-party locations, for example:</p>
 </div>
-<div class="paragraph">
-<p>https://repo1.maven.org/maven2<br>
-https://oss.sonatype.org/content/repositories<br>
-https://repo.typesafe.org</p>
+<div class="ulist">
+<ul>
+<li>
+<p>https://repo1.maven.org/maven2</p>
+</li>
+<li>
+<p>https://oss.sonatype.org/content/repositories</p>
+</li>
+<li>
+<p>https://repo.typesafe.org</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Third-party locations are subject to change.</p>
@@ -815,10 +823,10 @@ If your network uses a proxy server for all communication to the internet, Cloud
 <dt class="hdlist1">Outbound internet access from your web browser</dt>
 <dd>
 <p>Users must access Cloud Manager from a web browser. A web browser must have connections to the following endpoints:</p>
-<table class="tableblock frame-all grid-all fit-content">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col>
-<col>
+<col style="width: 43%;">
+<col style="width: 57.0%;">
 </colgroup>
 <thead>
 <tr>
@@ -847,7 +855,8 @@ If your network uses a proxy server for all communication to the internet, Cloud
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://auth0.com<br>
+https://netapp-cloud-account.auth0.com<br>
 https://services.cloud.netapp.com</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Your web browser connects to these endpoints for centralized user authentication through NetApp Cloud Central.</p></td>
 </tr>
