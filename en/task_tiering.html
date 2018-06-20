@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -768,7 +768,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Data tiering is supported with ONTAP Cloud Standard, Premium, and BYOL, starting with ONTAP Cloud 9.2 for AWS and ONTAP Cloud 9.4 for Microsoft Azure.</p>
+<p>Data tiering is supported with Cloud Volumes ONTAP Standard, Premium, and BYOL, starting with version 9.2 in AWS and version 9.4 in Microsoft Azure.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -810,7 +810,7 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 <li>
 <p>Data tiering is supported with AWS-managed encryption and Azure-managed encryption.</p>
 <div class="paragraph">
-<p>It is not supported with ONTAP Cloud-managed encryption.</p>
+<p>It is not supported with Cloud Volumes ONTAP-managed encryption.</p>
 </div>
 </li>
 <li>
@@ -824,10 +824,10 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 <h2 id="requirements-for-tiering-data-in-aws">Requirements for tiering data in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
+<p>You must ensure that Cloud Volumes ONTAP has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
 </div>
 <div class="paragraph">
-<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the ONTAP Cloud instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, ONTAP Cloud cannot connect to the S3 service.</p>
+<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the Cloud Volumes ONTAP instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, Cloud Volumes ONTAP cannot connect to the S3 service.</p>
 </div>
 <div class="paragraph">
 <p>If you experience any issues, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/" target="_blank" rel="noopener">AWS Support Knowledge Center: Why can’t I connect to an S3 bucket using a gateway VPC endpoint?</a>.</p>
@@ -852,7 +852,7 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 <h2 id="tiering-data-on-read-write-volumes">Tiering data on read-write volumes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ONTAP Cloud can tier cold data on read-write volumes to cost-effective object storage, freeing up the performance tier for hot data.</p>
+<p>Cloud Volumes ONTAP can tier cold data on read-write volumes to cost-effective object storage, freeing up the performance tier for hot data.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -883,7 +883,7 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 </table>
 </li>
 <li>
-<p>Select the Snapshot Only policy or the Auto policy (supported only with ONTAP Cloud Premium or BYOL).</p>
+<p>Select the Snapshot Only policy or the Auto policy (supported only with Cloud Volumes ONTAP Premium or BYOL).</p>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -914,7 +914,7 @@ If you prefer to create aggregates yourself, you can enable data tiering on aggr
 <h2 id="tiering-data-on-data-protection-volumes">Tiering data on data protection volumes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ONTAP Cloud can tier data from a data protection volume to a capacity tier. If you activate the destination volume, the data gradually moves to the performance tier as it is read.</p>
+<p>Cloud Volumes ONTAP can tier data from a data protection volume to a capacity tier. If you activate the destination volume, the data gradually moves to the performance tier as it is read.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>

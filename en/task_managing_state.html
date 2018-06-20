@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Managing the state of ONTAP Cloud systems | NetApp Cloud Docs</title>
+  <title>Managing the state of Cloud Volumes ONTAP | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You can stop and start ONTAP Cloud systems from Cloud Manager to manage your cloud compute costs.">
+  <meta name="description" content="You can stop and start Cloud Volumes ONTAP from Cloud Manager to manage your cloud compute costs.">
   <meta name="keywords" content=" schedule, schedules, scheduling, shutdowns, shut down, restart, stop, stopping, turn off, weekday, weekend">
 
   <!-- Icons -->
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li class="active"><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li class="active"><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -705,7 +705,7 @@
                   
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Managing the state of ONTAP Cloud systems
+  <h1 class="n-doc__component-detail-heading">Managing the state of Cloud Volumes ONTAP
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_managing_state.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
@@ -717,22 +717,22 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can stop and start ONTAP Cloud systems from Cloud Manager to manage your cloud compute costs.</p>
+<p>You can stop and start Cloud Volumes ONTAP from Cloud Manager to manage your cloud compute costs.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#scheduling-automatic-shutdowns-of-ontap-cloud-instances">Scheduling automatic shutdowns of ONTAP Cloud instances</a></li>
-<li><a href="#stopping-ontap-cloud-instances">Stopping ONTAP Cloud instances</a></li>
+<li><a href="#scheduling-automatic-shutdowns-of-cloud-volumes-ontap">Scheduling automatic shutdowns of Cloud Volumes ONTAP</a></li>
+<li><a href="#stopping-cloud-volumes-ontap">Stopping Cloud Volumes ONTAP</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="scheduling-automatic-shutdowns-of-ontap-cloud-instances">Scheduling automatic shutdowns of ONTAP Cloud instances</h2>
+<h2 id="scheduling-automatic-shutdowns-of-cloud-volumes-ontap">Scheduling automatic shutdowns of Cloud Volumes ONTAP</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You might want to shut down ONTAP Cloud instances during specific time intervals to lower your compute costs. Rather than do this manually, you can configure Cloud Manager to automatically shut down and then restart instances at specific times.</p>
+<p>You might want to shut down Cloud Volumes ONTAP during specific time intervals to lower your compute costs. Rather than do this manually, you can configure Cloud Manager to automatically shut down and then restart systems at specific times.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
@@ -752,18 +752,18 @@
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Choose whether you want to shut down the instance every day, every weekday, every weekend, or any combination of the three options.</p>
+<p>Choose whether you want to shut down the system every day, every weekday, every weekend, or any combination of the three options.</p>
 </li>
 <li>
-<p>Specify when you want to turn off the instance and for how long you want it turned off.</p>
+<p>Specify when you want to turn off the system and for how long you want it turned off.</p>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
 <div class="paragraph">
-<p>The following image shows a schedule that instructs Cloud Manager to shut down the instance every Saturday at 12:00 a.m. for 48 hours. Cloud Manager restarts the instance every Monday at 12:00 a.m.</p>
+<p>The following image shows a schedule that instructs Cloud Manager to shut down the system every Saturday at 12:00 a.m. for 48 hours. Cloud Manager restarts the system every Monday at 12:00 a.m.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_shutdown.gif" alt="Screen shot: Shows a shutdown schedule that shuts down a ONTAP Cloud instance every weekend at 12:00 AM for 48 hours."></span></p>
+<p><span class="image"><img src="./media/screenshot_shutdown.gif" alt="Screen shot: Shows a shutdown schedule that shuts down Cloud Volumes ONTAP every weekend at 12:00 AM for 48 hours."></span></p>
 </div>
 </li>
 </ol>
@@ -781,14 +781,14 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="stopping-ontap-cloud-instances">Stopping ONTAP Cloud instances</h2>
+<h2 id="stopping-cloud-volumes-ontap">Stopping Cloud Volumes ONTAP</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Stopping ONTAP Cloud saves you from accruing compute costs and creates snapshots of the root and boot disks, which can be helpful for troubleshooting.</p>
+<p>Stopping Cloud Volumes ONTAP saves you from accruing compute costs and creates snapshots of the root and boot disks, which can be helpful for troubleshooting.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>When you stop an ONTAP Cloud HA pair, Cloud Manager shuts down both nodes.</p>
+<p>When you stop an HA pair, Cloud Manager shuts down both nodes.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -796,7 +796,7 @@
 <li>
 <p>From the working environment, click the <strong>Turn off</strong> icon.</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_otc_turn_off.gif" alt="Screen shot: Shows the icon to turn off an ONTAP Cloud system."></span></p>
+<p><span class="image"><img src="./media/screenshot_otc_turn_off.gif" alt="Screen shot: Shows the icon to turn off a Cloud Volumes ONTAP system."></span></p>
 </div>
 </li>
 <li>
@@ -805,7 +805,7 @@
 <li>
 <p>Click <strong>Turn Off</strong>.</p>
 <div class="paragraph">
-<p>It can take up to a few minutes to stop the instance or instances. You can restart instances at a later time from the working environment page.</p>
+<p>It can take up to a few minutes to stop the system. You can restart systems at a later time from the working environment page.</p>
 </div>
 </li>
 </ol>

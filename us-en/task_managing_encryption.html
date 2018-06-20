@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Managing encryption settings for ONTAP Cloud | NetApp Cloud Docs</title>
+  <title>Managing encryption settings for Cloud Volumes ONTAP | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You might need to periodically manage Cloud Manager encryption settings to ensure that ONTAP Cloud systems in AWS can communicate with key managers.">
+  <meta name="description" content="You might need to periodically manage Cloud Manager encryption settings to ensure that Cloud Volumes ONTAP systems in AWS can communicate with key managers.">
   <meta name="keywords" content=" encryption, managing, settings, certificate, CA, expire, renew, intermediate, CSR, key managers">
 
   <!-- Icons -->
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -705,7 +705,7 @@
                   
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Managing encryption settings for ONTAP Cloud
+  <h1 class="n-doc__component-detail-heading">Managing encryption settings for Cloud Volumes ONTAP
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_managing_encryption.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
@@ -717,7 +717,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You might need to periodically manage Cloud Manager encryption settings to ensure that ONTAP Cloud systems in AWS can communicate with key managers.</p>
+<p>You might need to periodically manage Cloud Manager encryption settings to ensure that Cloud Volumes ONTAP systems in AWS can communicate with key managers.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
@@ -732,11 +732,11 @@
 <h2 id="renewing-the-cloud-manager-intermediate-ca-certificate">Renewing the Cloud Manager intermediate CA certificate</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must renew the Cloud Manager certificate before it expires; otherwise, Cloud Manager cannot sign client certificates for ONTAP Cloud systems.</p>
+<p>You must renew the Cloud Manager certificate before it expires; otherwise, Cloud Manager cannot sign client certificates for Cloud Volumes ONTAP.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>If you renew the Cloud Manager intermediate CA certificate, Cloud Manager uses the renewed certificate to generate client certificates for <em>new</em> ONTAP Cloud systems. You can renew client certificates for <em>existing</em> ONTAP Cloud systems from the working environment.</p>
+<p>If you renew the Cloud Manager intermediate CA certificate, Cloud Manager uses the renewed certificate to generate client certificates for <em>new</em> Cloud Volumes ONTAP systems. You can renew client certificates for <em>existing</em> Cloud Volumes ONTAP systems from the working environment.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -770,11 +770,11 @@
 <h2 id="managing-available-key-managers-and-ca-certificates">Managing available key managers and CA certificates</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can modify the key managers and key manager CA certificates that Cloud Manager users can use with their ONTAP Cloud systems. For example, you can add a new key manager that is available in your environment and you can add a new CA certificate, if a previous certificate expired.</p>
+<p>You can modify the key managers and key manager CA certificates that Cloud Manager users can use with their Cloud Volumes ONTAP systems. For example, you can add a new key manager that is available in your environment and you can add a new CA certificate, if a previous certificate expired.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>The changes that you make from the Encryption Setup page affect only new ONTAP Cloud systems. Changes to existing ONTAP Cloud systems must be made from the working environment.</p>
+<p>The changes that you make from the Encryption Setup page affect only new Cloud Volumes ONTAP systems. Changes to existing Cloud Volumes ONTAP systems must be made from the working environment.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -803,27 +803,27 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Change the KMIP port for communicating with key managers</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Modify the port and then click <strong>Save</strong>.<br>
 <br>
-The port change affects only new ONTAP Cloud systems.<br>
+The port change affects only new Cloud Volumes ONTAP systems.<br>
 <br>
-To change the port for an existing ONTAP Cloud system, connect to the CLI and then run the security key-manager setup command.</p></td>
+To change the port for an existing Cloud Volumes ONTAP system, connect to the CLI and then run the security key-manager setup command.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a new key manager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Click Add, enter details about the key manager, and then click Add again.<br>
 <br>
-This action does not add the key manager to existing ONTAP Cloud systems. You must add the key manager from the working environment, if necessary.</p></td>
+This action does not add the key manager to existing Cloud Volumes ONTAP systems. You must add the key manager from the working environment, if necessary.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edit the details for a key manager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the key manager, click Edit, modify the details, and then click Save.<br>
 <br>
-Any changes affect only new ONTAP Cloud systems that will use this key manager. To apply this change to existing ONTAP Cloud systems, go to the working environment, remove the key manager, and then add it back.</p></td>
+Any changes affect only new Cloud Volumes ONTAP systems that will use this key manager. To apply this change to existing Cloud Volumes ONTAP systems, go to the working environment, remove the key manager, and then add it back.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete an existing key manager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the key manager, click <strong>Delete</strong>, and then click <strong>Delete</strong> again.<br>
 <br>
-If you delete a key manager, you cannot configure ONTAP Cloud systems to use it. Existing systems that are using this key manager can continue to use it.</p></td>
+If you delete a key manager, you cannot configure Cloud Volumes ONTAP systems to use it. Existing systems that are using this key manager can continue to use it.</p></td>
 </tr>
 </tbody>
 </table>
@@ -854,7 +854,7 @@ If you delete a key manager, you cannot configure ONTAP Cloud systems to use it.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete a certificate</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the certificate, click <strong>Delete</strong>, and then click <strong>Delete</strong> again.<br>
 <br>
-If you delete a certificate, you cannot configure ONTAP Cloud systems to use it. Existing systems that are using the certificate can continue to use it.</p></td>
+If you delete a certificate, you cannot configure Cloud Volumes ONTAP systems to use it. Existing systems that are using the certificate can continue to use it.</p></td>
 </tr>
 </tbody>
 </table>

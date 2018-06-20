@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Launching ONTAP Cloud in AWS | NetApp Cloud Docs</title>
+  <title>Launching Cloud Volumes ONTAP in AWS | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,8 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You can launch ONTAP Cloud instances in a single-system configuration or as an HA pair in AWS.">
-  <meta name="keywords" content=" ontap cloud, deploying, launching, creating, deploy, launch, create, aws, serial number, license key, byol, test instance, aws tags, tags, location, vpc, encryption, security group, aws-managed encryption, disk size, disk type, write speed, licensing, IAM role, preconfigured package, access control, volume protection, usage profile, register, CIFS share, quota, qtree, WorkingEnvironmentId, HA, high availability">
+  <meta name="description" content="You can launch Cloud Volumes ONTAP instances in a single-system configuration or as an HA pair in AWS.">
+  <meta name="keywords" content=" Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, aws, serial number, license key, byol, test instance, aws tags, tags, location, vpc, encryption, security group, aws-managed encryption, disk size, disk type, write speed, licensing, IAM role, preconfigured package, access control, volume protection, usage profile, register, CIFS share, quota, qtree, WorkingEnvironmentId, HA, high availability">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li class="active"><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li class="active"><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -705,7 +705,7 @@
                   
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Launching ONTAP Cloud in AWS
+  <h1 class="n-doc__component-detail-heading">Launching Cloud Volumes ONTAP in AWS
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_deploying_otc_aws.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
@@ -717,31 +717,31 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can launch ONTAP Cloud in a single-system configuration or as an HA pair in AWS.</p>
+<p>You can launch Cloud Volumes ONTAP in a single-system configuration or as an HA pair in AWS.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#launching-a-single-ontap-cloud-system-in-aws">Launching a single ONTAP Cloud system in AWS</a></li>
-<li><a href="#launching-an-ontap-cloud-ha-pair-in-aws">Launching an ONTAP Cloud HA pair in AWS</a></li>
+<li><a href="#launching-a-single-cloud-volumes-ontap-system-in-aws">Launching a single Cloud Volumes ONTAP system in AWS</a></li>
+<li><a href="#launching-a-cloud-volumes-ontap-ha-pair-in-aws">Launching a Cloud Volumes ONTAP HA pair in AWS</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="launching-a-single-ontap-cloud-system-in-aws">Launching a single ONTAP Cloud system in AWS</h2>
+<h2 id="launching-a-single-cloud-volumes-ontap-system-in-aws">Launching a single Cloud Volumes ONTAP system in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to launch an ONTAP Cloud instance in AWS, you need to create an ONTAP Cloud working environment in Cloud Manager.</p>
+<p>If you want to launch Cloud Volumes ONTAP in AWS, you need to create a new working environment in Cloud Manager.</p>
 </div>
 <div class="ulist">
 <div class="title">Before you begin</div>
 <ul>
 <li>
-<p>You should have prepared by choosing a configuration and by obtaining AWS networking information from your administrator. For details, see <a href="task_planning_your_config.html">Planning your ONTAP Cloud configuration</a>.</p>
+<p>You should have prepared by choosing a configuration and by obtaining AWS networking information from your administrator. For details, see <a href="task_planning_your_config.html">Planning your Cloud Volumes ONTAP configuration</a>.</p>
 </li>
 <li>
-<p>If you want to launch an ONTAP Cloud BYOL instance, you must have the 20-digit serial number (license key) and you must have credentials for a NetApp Support Site account, if the tenant is not already linked with an account.</p>
+<p>If you want to launch a BYOL system, you must have the 20-digit serial number (license key) and you must have credentials for a NetApp Support Site account, if the tenant is not already linked with an account.</p>
 </li>
 <li>
 <p>If you want to use CIFS, you must have set up DNS and Active Directory. For details, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
@@ -750,7 +750,7 @@
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>Immediately after you create the working environment, Cloud Manager launches a test instance in the specified VPC to verify connectivity. If successful, Cloud Manager immediately terminates the instance and then starts deploying the ONTAP Cloud system. If Cloud Manager cannot verify connectivity, creation of the working environment fails. The test instance is either a t2.nano (for default VPC tenancy) or m3.medium (for dedicated VPC tenancy).</p>
+<p>Immediately after you create the working environment, Cloud Manager launches a test instance in the specified VPC to verify connectivity. If successful, Cloud Manager immediately terminates the instance and then starts deploying the Cloud Volumes ONTAP system. If Cloud Manager cannot verify connectivity, creation of the working environment fails. The test instance is either a t2.nano (for default VPC tenancy) or m3.medium (for dedicated VPC tenancy).</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -780,19 +780,19 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS Account</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If you want to deploy ONTAP Cloud systems in other AWS accounts, then you must delegate access across accounts using an IAM role. For instructions, see <a href="task_setting_up_cloud_manager.html#adding-additional-aws-accounts-to-cloud-manager">Adding additional AWS accounts to Cloud Manager</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If you want to deploy Cloud Volumes ONTAP in other AWS accounts, then you must delegate access across accounts using an IAM role. For instructions, see <a href="task_setting_up_cloud_manager.html#adding-additional-aws-accounts-to-cloud-manager">Adding additional AWS accounts to Cloud Manager</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Working Environment Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager uses the working environment name to name both the ONTAP Cloud system and the Amazon EC2 instance. It also uses the name as the prefix for the predefined security group, if you select that option.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager uses the working environment name to name both the Cloud Volumes ONTAP system and the Amazon EC2 instance. It also uses the name as the prefix for the predefined security group, if you select that option.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the ONTAP Cloud instance and each AWS resource associated with the instance. For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the Cloud Volumes ONTAP instance and each AWS resource associated with the instance. For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Credentials</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">These are the credentials for the ONTAP Cloud cluster admin account. You can use these credentials to connect to ONTAP Cloud through OnCommand System Manager or its CLI.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">These are the credentials for the Cloud Volumes ONTAP cluster admin account. You can use these credentials to connect to Cloud Volumes ONTAP through OnCommand System Manager or its CLI.</p></td>
 </tr>
 </tbody>
 </table>
@@ -815,11 +815,11 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 <p>The following image shows the Location page filled out:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_cot_vpc.gif" alt="Screen shot: Shows the VPC page filled out for a new ONTAP Cloud instance."></span></p>
+<p><span class="image"><img src="./media/screenshot_cot_vpc.gif" alt="Screen shot: Shows the VPC page filled out for a new Cloud Volumes ONTAP instance."></span></p>
 </div>
 </li>
 <li>
-<p>On the Data Encryption page, choose no data encryption, ONTAP Cloud-managed encryption, or AWS-managed encryption.</p>
+<p>On the Data Encryption page, choose no data encryption, encryption managed by Cloud Volumes ONTAP, or AWS-managed encryption.</p>
 <div class="paragraph">
 <p>To better understand these options, see <a href="concept_security.html#data-encryption-in-aws">Data encryption in AWS</a>.</p>
 </div>
@@ -833,14 +833,14 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If Cloud Manager was not set up for encryption, the Cloud Manager Admin must set it up. See <a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up ONTAP Cloud encryption</a>.
+If Cloud Manager was not set up for encryption, the Cloud Manager Admin must set it up. See <a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up Cloud Volumes ONTAP encryption</a>.
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>If you chose ONTAP Cloud encryption, select one to four key managers, select the certificate of the CA that signed the server certificate for each key manager, and then click <strong>Continue</strong>.</p>
+<p>If you chose Cloud Volumes ONTAP encryption, select one to four key managers, select the certificate of the CA that signed the server certificate for each key manager, and then click <strong>Continue</strong>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -855,13 +855,13 @@ The key manager CA certificate is for all selected key managers, which means the
 </div>
 </li>
 <li>
-<p>On the ONTAP Cloud BYOL License page, specify whether you have a license for this ONTAP Cloud system.</p>
+<p>On the BYOL License page, specify whether you have a license for this Cloud Volumes ONTAP system.</p>
 <div class="paragraph">
 <p>To understand how licenses work, see <a href="concept_licensing.html">Licensing</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Preconfigured Packages page, select one of the packages to quickly launch an ONTAP Cloud system, or click <strong>Create my own configuration</strong>.</p>
+<p>On the Preconfigured Packages page, select one of the packages to quickly launch Cloud Volumes ONTAP, or click <strong>Create my own configuration</strong>.</p>
 <div class="paragraph">
 <p>If you choose one of the packages, you only need to specify a volume and then review and approve the configuration.</p>
 </div>
@@ -869,11 +869,11 @@ The key manager CA certificate is for all selected key managers, which means the
 <li>
 <p>On the IAM Role page, you should keep the default option to let Cloud Manager create the role for you.</p>
 <div class="paragraph">
-<p>If you prefer to use your own policy, it must meet <a href="http://mysupport.netapp.com/cloudontap/support/iampolicies" target="_blank" rel="noopener">policy requirements for ONTAP Cloud nodes</a>.</p>
+<p>If you prefer to use your own policy, it must meet <a href="http://mysupport.netapp.com/cloudontap/support/iampolicies" target="_blank" rel="noopener">policy requirements for Cloud Volumes ONTAP nodes</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Licensing page, change the ONTAP Cloud version as needed, select a license, an instance type, the instance tenancy, and then click <strong>Continue</strong>.</p>
+<p>On the Licensing page, change the Cloud Volumes ONTAP version as needed, select a license, an instance type, the instance tenancy, and then click <strong>Continue</strong>.</p>
 <div class="paragraph">
 <p>If your needs change after you launch the instance, you can modify the license or instance type later.</p>
 </div>
@@ -884,7 +884,7 @@ The key manager CA certificate is for all selected key managers, which means the
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select ONTAP Cloud 9.4 RC1 and ONTAP Cloud 9.4 GA is available. The update does not occur from one release to another—for example, from 9.3 to 9.4.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.4 RC1 and 9.4 GA is available. The update does not occur from one release to another—for example, from 9.3 to 9.4.
 </td>
 </tr>
 </table>
@@ -953,11 +953,11 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <p>The following image shows the Volume page filled out for the CIFS protocol:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_cot_vol.gif" alt="Screen shot: Shows the Volume page filled out for a ONTAP Cloud instance."></span></p>
+<p><span class="image"><img src="./media/screenshot_cot_vol.gif" alt="Screen shot: Shows the Volume page filled out for a Cloud Volumes ONTAP instance."></span></p>
 </div>
 </li>
 <li>
-<p>If you chose the CIFS protocol, set up a CIFS server on the ONTAP Cloud CIFS Setup page:</p>
+<p>If you chose the CIFS protocol, set up a CIFS server on the CIFS Setup page:</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -993,7 +993,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS Domain</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The DNS domain for the ONTAP Cloud storage virtual machine (SVM). In most cases, the domain is the same as the AD domain.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The DNS domain for the Cloud Volumes ONTAP storage virtual machine (SVM). In most cases, the domain is the same as the AD domain.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1027,21 +1027,21 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager launches the ONTAP Cloud instance. You can track the progress in the timeline.</p>
+<p>Cloud Manager launches the Cloud Volumes ONTAP instance. You can track the progress in the timeline.</p>
 </div>
 <div class="paragraph">
-<p>If you experience any issues launching the ONTAP Cloud instance, review the failure message. You can also select the working environment and click Re-create environment.</p>
+<p>If you experience any issues launching the Cloud Volumes ONTAP instance, review the failure message. You can also select the working environment and click Re-create environment.</p>
 </div>
 <div class="paragraph">
-<p>For additional help, go to <a href="https://mysupport.netapp.com/cloudontap" target="_blank" rel="noopener">NetApp ONTAP Cloud Support</a>.</p>
+<p>For additional help, go to <a href="https://mysupport.netapp.com/cloudontap" target="_blank" rel="noopener">NetApp Cloud Volumes ONTAP Support</a>.</p>
 </div>
 <div class="ulist">
 <div class="title">After you finish</div>
 <ul>
 <li>
-<p>If you launched an ONTAP Cloud pay-as-you-go instance and the tenant is not linked to a NetApp Support Site account, manually register the instance with NetApp to enable support. For instructions, see <a href="task_registering.html">Registering ONTAP Cloud instances</a>.</p>
+<p>If you launched a pay-as-you-go instance and the tenant is not linked to a NetApp Support Site account, manually register the instance with NetApp to enable support. For instructions, see <a href="task_registering.html">Registering Cloud Volumes ONTAP</a>.</p>
 <div class="paragraph">
-<p>Support from NetApp is included with your ONTAP Cloud instance. To activate support, you must first register the instance with NetApp.</p>
+<p>Support from NetApp is included with your Cloud Volumes ONTAP system. To activate support, you must first register the instance with NetApp.</p>
 </div>
 </li>
 <li>
@@ -1054,26 +1054,26 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </div>
 </li>
 <li>
-<p>If this is the first ONTAP Cloud instance launched in AWS, remind your administrator to finish <a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">setting up AWS billing and cost management for Cloud Manager</a> by enabling the WorkingEnvironmentId tag. This tag is not available in AWS until after you create your first ONTAP Cloud working environment under the AWS payer account.</p>
+<p>If this is the first Cloud Volumes ONTAP instance launched in AWS, remind your administrator to finish <a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">setting up AWS billing and cost management for Cloud Manager</a> by enabling the WorkingEnvironmentId tag. This tag is not available in AWS until after you create your first Cloud Volumes ONTAP working environment under the AWS payer account.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="launching-an-ontap-cloud-ha-pair-in-aws">Launching an ONTAP Cloud HA pair in AWS</h2>
+<h2 id="launching-a-cloud-volumes-ontap-ha-pair-in-aws">Launching a Cloud Volumes ONTAP HA pair in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to launch an ONTAP Cloud HA pair in AWS, you need to create an ONTAP Cloud HA working environment in Cloud Manager.</p>
+<p>If you want to launch a Cloud Volumes ONTAP HA pair in AWS, you need to create an HA working environment in Cloud Manager.</p>
 </div>
 <div class="ulist">
 <div class="title">Before you begin</div>
 <ul>
 <li>
-<p>You should have prepared by choosing a configuration and by obtaining AWS networking information from your administrator. For details, see <a href="task_planning_your_config.html">Planning your ONTAP Cloud configuration</a>.</p>
+<p>You should have prepared by choosing a configuration and by obtaining AWS networking information from your administrator. For details, see <a href="task_planning_your_config.html">Planning your Cloud Volumes ONTAP configuration</a>.</p>
 </li>
 <li>
-<p>If you purchased ONTAP Cloud BYOL licenses, you must have a 20-digit serial number (license key) for each node, and you must have credentials for a NetApp Support Site account if the tenant is not already associated with an account.</p>
+<p>If you purchased BYOL licenses, you must have a 20-digit serial number (license key) for each node, and you must have credentials for a NetApp Support Site account if the tenant is not already associated with an account.</p>
 </li>
 <li>
 <p>If you want to use CIFS, you must have set up DNS and Active Directory. For details, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
@@ -1082,7 +1082,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>Immediately after you create the working environment, Cloud Manager launches a test instance in the specified VPC to verify connectivity. If successful, Cloud Manager immediately terminates the instance and then starts deploying the ONTAP Cloud system. If Cloud Manager cannot verify connectivity, creation of the working environment fails. The test instance is either a t2.nano (for default VPC tenancy) or m3.medium (for dedicated VPC tenancy).</p>
+<p>Immediately after you create the working environment, Cloud Manager launches a test instance in the specified VPC to verify connectivity. If successful, Cloud Manager immediately terminates the instance and then starts deploying the Cloud Volumes ONTAP system. If Cloud Manager cannot verify connectivity, creation of the working environment fails. The test instance is either a t2.nano (for default VPC tenancy) or m3.medium (for dedicated VPC tenancy).</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1112,19 +1112,19 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS Account</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If you want to deploy ONTAP Cloud systems in other AWS accounts, then you must delegate access across accounts using an IAM role. For instructions, see <a href="task_setting_up_cloud_manager.html#adding-additional-aws-accounts-to-cloud-manager">Adding additional AWS accounts to Cloud Manager</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If you want to deploy Cloud Volumes ONTAP in other AWS accounts, then you must delegate access across accounts using an IAM role. For instructions, see <a href="task_setting_up_cloud_manager.html#adding-additional-aws-accounts-to-cloud-manager">Adding additional AWS accounts to Cloud Manager</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Working Environment Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager uses the working environment name to name both the ONTAP Cloud system and the Amazon EC2 instance. It also uses the name as the prefix for the predefined security group, if you select that option.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager uses the working environment name to name both the Cloud Volumes ONTAP system and the Amazon EC2 instance. It also uses the name as the prefix for the predefined security group, if you select that option.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the ONTAP Cloud instance and each AWS resource associated with the instance. For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the Cloud Volumes ONTAP instance and each AWS resource associated with the instance. For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Credentials</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">These are the credentials for the ONTAP Cloud cluster admin account. You can use these credentials to connect to ONTAP Cloud through OnCommand System Manager or its CLI.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">These are the credentials for the Cloud Volumes ONTAP cluster admin account. You can use these credentials to connect to Cloud Volumes ONTAP through OnCommand System Manager or its CLI.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1144,7 +1144,7 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 <li>
 <p>On the HA Deployment Models page, choose an HA configuration.</p>
 <div class="paragraph">
-<p>For an overview of the deployment models, see <a href="concept_ha.html">ONTAP Cloud HA for AWS</a>.</p>
+<p>For an overview of the deployment models, see <a href="concept_ha.html">Cloud Volumes ONTAP HA for AWS</a>.</p>
 </div>
 </li>
 <li>
@@ -1162,17 +1162,17 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 <li>
 <p>If you chose multiple AZs, specify the floating IP addresses for the cluster management interface port and the two NFS/CIFS data ports and then click <strong>Continue</strong>.</p>
 <div class="paragraph">
-<p>The IP addresses must be outside of the CIDR block for all VPCs in the region. For additional details, see <a href="reference_networking_aws.html#networking-requirements-for-ontap-cloud-ha-in-multiple-azs">AWS networking requirements for ONTAP Cloud HA in multiple AZs</a>.</p>
+<p>The IP addresses must be outside of the CIDR block for all VPCs in the region. For additional details, see <a href="reference_networking_aws.html#networking-requirements-for-ontap-cloud-ha-in-multiple-azs">AWS networking requirements for Cloud Volumes ONTAP HA in multiple AZs</a>.</p>
 </div>
 </li>
 <li>
 <p>If you chose multiple AZs, select the route tables that should include routes to the floating IP addresses and then click <strong>Continue</strong>.</p>
 <div class="paragraph">
-<p>If you have more than one route table, it is very important to select the correct route tables. Otherwise, some clients might not have access to the ONTAP Cloud HA pair. For more information about route tables, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a>.</p>
+<p>If you have more than one route table, it is very important to select the correct route tables. Otherwise, some clients might not have access to the Cloud Volumes ONTAP HA pair. For more information about route tables, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Data Encryption page, choose no data encryption, ONTAP Cloud-managed encryption, or AWS-managed encryption.</p>
+<p>On the Data Encryption page, choose no data encryption, encryption managed by Cloud Volumes ONTAP, or AWS-managed encryption.</p>
 <div class="paragraph">
 <p>To better understand these options, see <a href="concept_security.html#data-encryption-in-aws">Data encryption in AWS</a>.</p>
 </div>
@@ -1186,14 +1186,14 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If Cloud Manager was not set up for encryption, the Cloud Manager Admin must set it up. See <a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up ONTAP Cloud encryption</a>.
+If Cloud Manager was not set up for encryption, the Cloud Manager Admin must set it up. See <a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up Cloud Volumes ONTAP encryption</a>.
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>If you selected ONTAP Cloud encryption, select one to four key managers, select the certificate of the CA that signed the server certificate for each key manager, and then click <strong>Continue</strong>.</p>
+<p>If you selected Cloud Volumes ONTAP encryption, select one to four key managers, select the certificate of the CA that signed the server certificate for each key manager, and then click <strong>Continue</strong>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1208,13 +1208,13 @@ The key manager CA certificate is for all selected key managers, which means the
 </div>
 </li>
 <li>
-<p>On the ONTAP Cloud BYOL License page, specify whether you have a license for this ONTAP Cloud system.</p>
+<p>On the BYOL License page, specify whether you have a license for this Cloud Volumes ONTAP system.</p>
 <div class="paragraph">
 <p>To understand how licenses work, see <a href="concept_licensing.html">Licensing</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Preconfigured Packages page, select one of the packages to quickly launch an ONTAP Cloud system, or click <strong>Create my own configuration</strong>.</p>
+<p>On the Preconfigured Packages page, select one of the packages to quickly launch a Cloud Volumes ONTAP system, or click <strong>Create my own configuration</strong>.</p>
 <div class="paragraph">
 <p>If you choose one of the packages, you only need to specify a volume and then review and approve the configuration.</p>
 </div>
@@ -1222,11 +1222,11 @@ The key manager CA certificate is for all selected key managers, which means the
 <li>
 <p>On the IAM Role page, you should keep the default option to let Cloud Manager create the roles for you.</p>
 <div class="paragraph">
-<p>If you prefer to use your own policy, it must meet <a href="http://mysupport.netapp.com/cloudontap/support/iampolicies" target="_blank" rel="noopener">policy requirements for ONTAP Cloud nodes and the HA mediator</a>.</p>
+<p>If you prefer to use your own policy, it must meet <a href="http://mysupport.netapp.com/cloudontap/support/iampolicies" target="_blank" rel="noopener">policy requirements for Cloud Volumes ONTAP nodes and the HA mediator</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Licensing page, change the ONTAP Cloud version as needed, select a license, an instance type, the instance tenancy, and then click <strong>Continue</strong>.</p>
+<p>On the Licensing page, change the Cloud Volumes ONTAP version as needed, select a license, an instance type, the instance tenancy, and then click <strong>Continue</strong>.</p>
 <div class="paragraph">
 <p>If your needs change after you launch the instances, you can modify the license or instance type later.</p>
 </div>
@@ -1237,7 +1237,7 @@ The key manager CA certificate is for all selected key managers, which means the
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select ONTAP Cloud 9.4 RC1 and ONTAP Cloud 9.4 GA is available. The update does not occur from one release to another—for example, from 9.3 to 9.4.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.4 RC1 and 9.4 GA is available. The update does not occur from one release to another—for example, from 9.3 to 9.4.
 </td>
 </tr>
 </table>
@@ -1300,11 +1300,11 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <p>The following image shows the Volume page filled out for the CIFS protocol:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_cot_vol.gif" alt="Screen shot: Shows the Volume page filled out for a ONTAP Cloud instance."></span></p>
+<p><span class="image"><img src="./media/screenshot_cot_vol.gif" alt="Screen shot: Shows the Volume page filled out for a Cloud Volumes ONTAP instance."></span></p>
 </div>
 </li>
 <li>
-<p>If you selected the CIFS protocol, set up a CIFS server on the ONTAP Cloud CIFS Setup page:</p>
+<p>If you selected the CIFS protocol, set up a CIFS server on the CIFS Setup page:</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1340,7 +1340,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS Domain</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The DNS domain for the ONTAP Cloud storage virtual machine (SVM). In most cases, the domain is the same as the AD domain.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The DNS domain for the Cloud Volumes ONTAP storage virtual machine (SVM). In most cases, the domain is the same as the AD domain.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1374,21 +1374,21 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager launches the ONTAP Cloud HA pair. You can track the progress in the timeline.</p>
+<p>Cloud Manager launches the Cloud Volumes ONTAP HA pair. You can track the progress in the timeline.</p>
 </div>
 <div class="paragraph">
 <p>If you experience any issues launching the HA pair, review the failure message. You can also select the working environment and click Re-create environment.</p>
 </div>
 <div class="paragraph">
-<p>For additional help, go to <a href="https://mysupport.netapp.com/cloudontap" target="_blank" rel="noopener">NetApp ONTAP Cloud Support</a>.</p>
+<p>For additional help, go to <a href="https://mysupport.netapp.com/cloudontap" target="_blank" rel="noopener">NetApp Cloud Volumes ONTAP Support</a>.</p>
 </div>
 <div class="ulist">
 <div class="title">After you finish</div>
 <ul>
 <li>
-<p>If you launched an ONTAP Cloud pay-as-you-go instance and the tenant is not linked to a NetApp Support Site account, manually register the instance with NetApp to enable support. For instructions, see <a href="task_registering.html">Registering ONTAP Cloud instances</a>.</p>
+<p>If you launched a pay-as-you-go instance and the tenant is not linked to a NetApp Support Site account, manually register the instance with NetApp to enable support. For instructions, see <a href="task_registering.html">Registering Cloud Volumes ONTAP</a>.</p>
 <div class="paragraph">
-<p>Support from NetApp is included with your ONTAP Cloud instance. To activate support, you must first register the instance with NetApp.</p>
+<p>Support from NetApp is included with your Cloud Volumes ONTAP system. To activate support, you must first register the instance with NetApp.</p>
 </div>
 </li>
 <li>
@@ -1401,7 +1401,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </div>
 </li>
 <li>
-<p>If this is the first ONTAP Cloud instance launched in AWS, remind your administrator to finish <a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">setting up AWS billing and cost management for Cloud Manager</a> by enabling the WorkingEnvironmentId tag. This tag is not available in AWS until after you create your first ONTAP Cloud working environment under the AWS payer account.</p>
+<p>If this is the first Cloud Volumes ONTAP instance launched in AWS, remind your administrator to finish <a href="task_setting_up_cloud_manager.html#setting-up-aws-billing-and-cost-management-for-cloud-manager">setting up AWS billing and cost management for Cloud Manager</a> by enabling the WorkingEnvironmentId tag. This tag is not available in AWS until after you create your first Cloud Volumes ONTAP working environment under the AWS payer account.</p>
 </li>
 </ul>
 </div>

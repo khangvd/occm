@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Getting started with ONTAP Cloud in AWS | NetApp Cloud Docs</title>
+  <title>Getting started with Cloud Volumes ONTAP in AWS | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="Getting started with ONTAP Cloud includes preparing your AWS environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and then ...">
+  <meta name="description" content="Getting started with Cloud Volumes ONTAP includes preparing your AWS environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, a...">
   <meta name="keywords" content=" amazon web services, aws, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, disk, vpc, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, get started, network, vpn, multi-cloud, tier, tiering, storage tier, data tier, vpc endpoint, endpoint, S3, subscribe, subscribing, marketplace, granting, permissions, policy, IAM policy, free trial, security group">
 
   <!-- Icons -->
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -705,7 +705,7 @@
                   
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Getting started with ONTAP Cloud in AWS
+  <h1 class="n-doc__component-detail-heading">Getting started with Cloud Volumes ONTAP in AWS
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_getting_started_aws.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
@@ -717,16 +717,16 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Getting started with ONTAP Cloud includes preparing your AWS environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and then launching ONTAP Cloud systems using Cloud Manager.</p>
+<p>Getting started with Cloud Volumes ONTAP (formerly ONTAP Cloud) includes preparing your AWS environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and then launching Cloud Volumes ONTAP using Cloud Manager.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#verifying-your-networking">Verifying your networking</a></li>
-<li><a href="#subscribing-to-ontap-cloud-in-aws">Subscribing to ONTAP Cloud in AWS</a></li>
+<li><a href="#subscribing-to-cloud-volumes-ontap-in-aws">Subscribing to Cloud Volumes ONTAP in AWS</a></li>
 <li><a href="#granting-aws-permissions">Granting AWS permissions</a></li>
 <li><a href="#launching-cloud-manager-in-aws">Launching Cloud Manager in AWS</a></li>
-<li><a href="#launching-ontap-cloud-in-aws">Launching ONTAP Cloud in AWS</a></li>
+<li><a href="#launching-cloud-volumes-ontap-in-aws">Launching Cloud Volumes ONTAP in AWS</a></li>
 </ul>
 </div>
 </div>
@@ -735,14 +735,14 @@
 <h2 id="verifying-your-networking">Verifying your networking</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must choose the AWS VPC and subnets in which you want to launch Cloud Manager and ONTAP Cloud. At a minimum, your networking must meet the following requirements:</p>
+<p>You must choose the AWS VPC and subnets in which you want to launch Cloud Manager and Cloud Volumes ONTAP. At a minimum, your networking must meet the following requirements:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Outbound internet access</p>
 <div class="paragraph">
-<p>The target VPC must have one or more subnets that have outbound internet access so Cloud Manager and ONTAP Cloud can contact several endpoints. To review the list of endpoints, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
+<p>The target VPC must have one or more subnets that have outbound internet access so Cloud Manager and Cloud Volumes ONTAP can contact several endpoints. To review the list of endpoints, see <a href="reference_networking_aws.html">AWS networking requirements</a>.</p>
 </div>
 </li>
 <li>
@@ -750,7 +750,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>To deploy ONTAP Cloud systems in subnets or networks separate from Cloud Manager, connections between those networks must be in place.</p>
+<p>To deploy Cloud Volumes ONTAP in subnets or networks separate from Cloud Manager, connections between those networks must be in place.</p>
 </li>
 <li>
 <p>To replicate data across a hybrid cloud or multi-cloud environment, VPN connections between networks must be in place. For details, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html" target="_blank" rel="noopener">AWS Documentation: Setting Up an AWS VPN Connection</a>.</p>
@@ -761,7 +761,7 @@
 <li>
 <p>Endpoint to S3</p>
 <div class="paragraph">
-<p>To reduce storage costs by using EBS as a performance tier and AWS S3 as a capacity tier, the VPC in which you launch ONTAP Cloud must have an endpoint to the S3 service. For details, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
+<p>To reduce storage costs by using EBS as a performance tier and AWS S3 as a capacity tier, the VPC in which you launch Cloud Volumes ONTAP must have an endpoint to the S3 service. For details, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
 </div>
 </li>
 </ul>
@@ -771,34 +771,34 @@
 </div>
 <div class="paragraph">
 <p>The following sample VPC configuration shows public and private subnets and a NAT device that enables outbound internet access for the private subnet:<br>
-<span class="image"><img src="./media/diagram_vpc_public_and_private.png" alt="This illustration shows Cloud Manager and a NAT instance running in a public subnet" width="and ONTAP Cloud instances running in a private subnet."></span></p>
+<span class="image"><img src="./media/diagram_vpc_public_and_private.png" alt="This illustration shows Cloud Manager and a NAT instance running in a public subnet" width="and Cloud Volumes ONTAP instances running in a private subnet."></span></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="subscribing-to-ontap-cloud-in-aws">Subscribing to ONTAP Cloud in AWS</h2>
+<h2 id="subscribing-to-cloud-volumes-ontap-in-aws">Subscribing to Cloud Volumes ONTAP in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must subscribe to ONTAP Cloud from the AWS Marketplace so you can launch ONTAP Cloud in AWS.</p>
+<p>You must subscribe to Cloud Volumes ONTAP from the AWS Marketplace so you can launch systems in AWS.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Go to the AWS Marketplace pages for ONTAP Cloud:</p>
+<p>Go to the AWS Marketplace pages for Cloud Volumes ONTAP:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://aws.amazon.com/marketplace/pp/B011KEZ734" target="_blank" rel="noopener">ONTAP Cloud for AWS (PayGo)</a></p>
+<p><a href="http://aws.amazon.com/marketplace/pp/B011KEZ734" target="_blank" rel="noopener">Cloud Volumes ONTAP for AWS (PayGo)</a></p>
 </li>
 <li>
-<p><a href="http://aws.amazon.com/marketplace/pp/B00OMA46T0" target="_blank" rel="noopener">ONTAP Cloud for AWS (BYOL)</a></p>
+<p><a href="http://aws.amazon.com/marketplace/pp/B00OMA46T0" target="_blank" rel="noopener">Cloud Volumes ONTAP for AWS (BYOL)</a></p>
 </li>
 <li>
-<p><a href="http://aws.amazon.com/marketplace/pp/B01H4LVJ84" target="_blank" rel="noopener">ONTAP Cloud for AWS - High Availability (PayGo)</a></p>
+<p><a href="http://aws.amazon.com/marketplace/pp/B01H4LVJ84" target="_blank" rel="noopener">Cloud Volumes ONTAP for AWS - High Availability (PayGo)</a></p>
 </li>
 <li>
-<p><a href="http://aws.amazon.com/marketplace/pp/B01H4LVJUC" target="_blank" rel="noopener">ONTAP Cloud for AWS - High Availability (BYOL)</a></p>
+<p><a href="http://aws.amazon.com/marketplace/pp/B01H4LVJUC" target="_blank" rel="noopener">Cloud Volumes ONTAP for AWS - High Availability (BYOL)</a></p>
 </li>
 </ul>
 </div>
@@ -812,7 +812,7 @@
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-You must not launch ONTAP Cloud instances from the AWS Marketplace. You must use Cloud Manager to launch ONTAP Cloud.
+You must not launch Cloud Volumes ONTAP instances from the AWS Marketplace. You must use Cloud Manager to launch Cloud Volumes ONTAP.
 </td>
 </tr>
 </table>
@@ -824,7 +824,7 @@ You must not launch ONTAP Cloud instances from the AWS Marketplace. You must use
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Subscribing is not required to launch ONTAP Cloud in the AWS GovCloud (US) region.
+Subscribing is not required to launch Cloud Volumes ONTAP in the AWS GovCloud (US) region.
 </td>
 </tr>
 </table>
@@ -845,7 +845,7 @@ Subscribing is not required to launch ONTAP Cloud in the AWS GovCloud (US) regio
 <p>Providing the credentials is secure and private—NetApp does not save the credentials. It uses them only to launch the instance.</p>
 </div>
 <div class="paragraph">
-<p>When you launch Cloud Manager, NetApp Cloud Central creates an IAM policy and an IAM role for the instance. This gives Cloud Manager permissions to deploy and manage ONTAP Cloud in AWS. To review the list of permissions, see <a href="reference_permissions.html">AWS and Azure permissions for Cloud Manager</a>.</p>
+<p>When you launch Cloud Manager, NetApp Cloud Central creates an IAM policy and an IAM role for the instance. This gives Cloud Manager permissions to deploy and manage Cloud Volumes ONTAP in AWS. To review the list of permissions, see <a href="reference_permissions.html">AWS and Azure permissions for Cloud Manager</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -874,7 +874,7 @@ Your browser does not support the video tag.
 <h2 id="launching-cloud-manager-in-aws">Launching Cloud Manager in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You need to install and set up Cloud Manager so you can use it to launch ONTAP Cloud in AWS.</p>
+<p>You need to install and set up Cloud Manager so you can use it to launch Cloud Volumes ONTAP in AWS.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -883,7 +883,7 @@ Your browser does not support the video tag.
 <p>Go to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a> and sign up or log in.</p>
 </li>
 <li>
-<p>Under <strong>ONTAP Cloud</strong>, click <strong>Start Free Trial</strong>.</p>
+<p>Under <strong>Cloud Volumes ONTAP</strong>, click <strong>Start Free Trial</strong>.</p>
 </li>
 <li>
 <p>Follow the prompts to deploy the Cloud Manager instance and software in AWS.</p>
@@ -917,15 +917,15 @@ Your browser does not support the video tag.
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager is now installed and set up so users can launch ONTAP Cloud instances.</p>
+<p>Cloud Manager is now installed and set up so users can launch Cloud Volumes ONTAP instances.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="launching-ontap-cloud-in-aws">Launching ONTAP Cloud in AWS</h2>
+<h2 id="launching-cloud-volumes-ontap-in-aws">Launching Cloud Volumes ONTAP in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can launch ONTAP Cloud in AWS to provide enterprise-class features for your cloud storage. You can choose a single-node configuration, or an HA pair to provide nondisruptive operations and fault tolerance in AWS.</p>
+<p>You can launch Cloud Volumes ONTAP in AWS to provide enterprise-class features for your cloud storage. You can choose a single-node configuration, or an HA pair to provide nondisruptive operations and fault tolerance in AWS.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -944,10 +944,10 @@ Your browser does not support the video tag.
 <div class="ulist">
 <ul>
 <li>
-<p>The predefined security group includes the rules that ONTAP Cloud needs to operate successfully. If you need to use your own, refer to <a href="reference_security_groups.html">Security group rules</a>.</p>
+<p>The predefined security group includes the rules that Cloud Volumes ONTAP needs to operate successfully. If you need to use your own, refer to <a href="reference_security_groups.html">Security group rules</a>.</p>
 </li>
 <li>
-<p>The underlying AWS disk type is for the initial ONTAP Cloud volume. You can choose a different disk type for subsequent volumes.</p>
+<p>The underlying AWS disk type is for the initial Cloud Volumes ONTAP volume. You can choose a different disk type for subsequent volumes.</p>
 </li>
 <li>
 <p>The performance of AWS disks is tied to disk size. You should choose the disk size that gives you the sustained performance that you need. For details, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: Amazon EBS Volume Types</a>.</p>
@@ -984,7 +984,7 @@ Your browser does not support the video tag.
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager launches the ONTAP Cloud instance in AWS. You can track the progress in the timeline.</p>
+<p>Cloud Manager launches the Cloud Volumes ONTAP instance in AWS. You can track the progress in the timeline.</p>
 </div>
 </div>
 </div>

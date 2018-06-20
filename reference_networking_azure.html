@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You must set up your Azure networking so that Cloud Manager can deploy ONTAP Cloud systems and so those systems can operate properly.">
+  <meta name="description" content="You must set up your Azure networking so that Cloud Manager can deploy Cloud Volumes ONTAP systems and so those systems can operate properly.">
   <meta name="keywords" content=" networking, network, requirements, connection, connections, vnet, security group, security groups, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, URL, URLs, endpoints, endpoint">
 
   <!-- Icons -->
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -715,13 +715,13 @@
 </div>
 
 <div class="paragraph lead">
-<p>You must set up your Azure networking so that Cloud Manager can deploy ONTAP Cloud systems and so those systems can operate properly.</p>
+<p>You must set up your Azure networking so that Cloud Manager can deploy Cloud Volumes ONTAP systems and so those systems can operate properly.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Outbound internet access for Cloud Manager</dt>
 <dd>
-<p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing ONTAP Cloud in Microsoft Azure:</p>
+<p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing Cloud Volumes ONTAP in Microsoft Azure:</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 43%;">
@@ -737,17 +737,17 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">https://management.azure.com<br>
 https://login.microsoftonline.com</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage ONTAP Cloud systems in most Azure regions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage Cloud Volumes ONTAP in most Azure regions.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">https://management.microsoftazure.de<br>
 https://login.microsoftonline.de</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage ONTAP Cloud systems in the Azure Germany regions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage Cloud Volumes ONTAP in the Azure Germany regions.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">https://management.usgovcloudapi.net<br>
 https://login.microsoftonline.com</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage ONTAP Cloud systems in the Azure US Gov regions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage Cloud Volumes ONTAP in the Azure US Gov regions.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cloud.support.netapp.com.s3.us-west-1.amazonaws.com</p></td>
@@ -757,7 +757,7 @@ https://login.microsoftonline.com</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cognito-idp.us-east-1.amazonaws.com<br>
 cognito-identity.us-east-1.amazonaws.com<br>
 sts.amazonaws.com</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to access and download manifests, templates, and ONTAP Cloud upgrade images.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to access and download manifests, templates, and Cloud Volumes ONTAP upgrade images.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kinesis.us-east-1.amazonaws.com</p></td>
@@ -813,11 +813,11 @@ If your network uses a proxy server for all communication to the internet, Cloud
 </table>
 </div>
 </dd>
-<dt class="hdlist1">Outbound internet access for ONTAP Cloud</dt>
+<dt class="hdlist1">Outbound internet access for Cloud Volumes ONTAP</dt>
 <dd>
-<p>ONTAP Cloud requires outbound internet access to send messages to NetApp AutoSupport, which proactively monitors the health of your storage.</p>
+<p>Cloud Volumes ONTAP requires outbound internet access to send messages to NetApp AutoSupport, which proactively monitors the health of your storage.</p>
 <div class="paragraph">
-<p>Routing and firewall policies must allow Azure HTTP/HTTPS traffic to mysupport.netapp.com so ONTAP Cloud can send AutoSupport messages.</p>
+<p>Routing and firewall policies must allow Azure HTTP/HTTPS traffic to mysupport.netapp.com so Cloud Volumes ONTAP can send AutoSupport messages.</p>
 </div>
 </dd>
 <dt class="hdlist1">Outbound internet access from your web browser</dt>
@@ -867,14 +867,14 @@ https://services.cloud.netapp.com</p></td>
 <dd>
 <p>You do not need to create security groups because Cloud Manager does that for you. If you need to use your own, refer to <a href="reference_security_groups_azure.html">Security group rules</a>.</p>
 </dd>
-<dt class="hdlist1">Connection between Cloud Manager and ONTAP Cloud subnets</dt>
+<dt class="hdlist1">Connection between Cloud Manager and target subnets</dt>
 <dd>
-<p>Cloud Manager requires a connection to the subnets in which you deploy ONTAP Cloud systems.</p>
+<p>Cloud Manager requires a connection to the subnets in which you deploy Cloud Volumes ONTAP.</p>
 <div class="paragraph">
-<p>If Cloud Manager is not installed in the target VNet, it must have network connectivity to that VNet. For example, if you install Cloud Manager in AWS or in your corporate network, you must set up a VPN connection to the VNet in which you deploy ONTAP Cloud systems.</p>
+<p>If Cloud Manager is not installed in the target VNet, it must have network connectivity to that VNet. For example, if you install Cloud Manager in AWS or in your corporate network, you must set up a VPN connection to the VNet in which you deploy Cloud Volumes ONTAP.</p>
 </div>
 </dd>
-<dt class="hdlist1">Connection from ONTAP Cloud to Azure Blob storage for data tiering</dt>
+<dt class="hdlist1">Connection from Cloud Volumes ONTAP to Azure Blob storage for data tiering</dt>
 <dd>
 <p>If you want to tier cold data to Azure Blob storage, you do not need to set up a VNet service endpoint as long as Cloud Manager has the required permission:</p>
 <div class="paragraph">
@@ -889,7 +889,7 @@ https://services.cloud.netapp.com</p></td>
 </dd>
 <dt class="hdlist1">Connections to ONTAP systems in other networks</dt>
 <dd>
-<p>To replicate data between an ONTAP Cloud system in Azure and ONTAP systems in other networks, you must have a VPN connection between the Azure VNet and the other network—for example, an AWS VPC or your corporate network.</p>
+<p>To replicate data between a Cloud Volumes ONTAP system in Azure and ONTAP systems in other networks, you must have a VPN connection between the Azure VNet and the other network—for example, an AWS VPC or your corporate network.</p>
 <div class="paragraph">
 <p>For instructions, refer to <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal" target="_blank" rel="noopener">Microsoft Azure Documentation: Create a Site-to-Site connection in the Azure portal</a>.</p>
 </div>

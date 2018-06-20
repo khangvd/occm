@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You must set up your AWS networking so that Cloud Manager can deploy ONTAP Cloud systems and so those systems can operate properly.">
+  <meta name="description" content="You must set up your AWS networking so that Cloud Manager can deploy Cloud Volumes ONTAP systems and so those systems can operate properly.">
   <meta name="keywords" content=" networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, jump host, autosupport, URL, URLs, endpoints, endpoint">
 
   <!-- Icons -->
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -717,13 +717,13 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You must set up your AWS networking so that Cloud Manager can deploy ONTAP Cloud systems and so those systems can operate properly.</p>
+<p>You must set up your AWS networking so that Cloud Manager can deploy Cloud Volumes ONTAP systems and so those systems can operate properly.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#general-networking-requirements">General networking requirements</a></li>
-<li><a href="#networking-requirements-for-ontap-cloud-ha-in-multiple-azs">Networking requirements for ONTAP Cloud HA in multiple AZs</a></li>
+<li><a href="#networking-requirements-for-cloud-volumes-ontap-ha-in-multiple-azs">Networking requirements for Cloud Volumes ONTAP HA in multiple AZs</a></li>
 <li><a href="#sample-vpc-configurations">Sample VPC configurations</a></li>
 </ul>
 </div>
@@ -739,7 +739,7 @@
 <dl>
 <dt class="hdlist1">Outbound internet access for Cloud Manager</dt>
 <dd>
-<p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing ONTAP Cloud in AWS:</p>
+<p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing Cloud Volumes ONTAP in AWS:</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 43%;">
@@ -776,9 +776,9 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>The exact endpoint depends on the region in which you deploy ONTAP Cloud. <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html" target="_blank" rel="noopener">Refer to AWS documentation for details.</a></p>
+<p>The exact endpoint depends on the region in which you deploy Cloud Volumes ONTAP. <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html" target="_blank" rel="noopener">Refer to AWS documentation for details.</a></p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage ONTAP Cloud systems in AWS.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage Cloud Volumes ONTAP in AWS.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cloud.support.netapp.com.s3.us-west-1.amazonaws.com</p></td>
@@ -787,7 +787,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cognito-idp.us-east-1.amazonaws.com<br>
 cognito-identity.us-east-1.amazonaws.com</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to access and download manifests, templates, and ONTAP Cloud upgrade images.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to access and download manifests, templates, and Cloud Volumes ONTAP upgrade images.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kinesis.us-east-1.amazonaws.com</p></td>
@@ -843,9 +843,9 @@ If your network uses a proxy server for all communication to the internet, Cloud
 </table>
 </div>
 </dd>
-<dt class="hdlist1">Outbound internet access for ONTAP Cloud</dt>
+<dt class="hdlist1">Outbound internet access for Cloud Volumes ONTAP</dt>
 <dd>
-<p>ONTAP Cloud requires outbound internet access to send messages to NetApp AutoSupport, which proactively monitors the health of your storage.</p>
+<p>Cloud Volumes ONTAP requires outbound internet access to send messages to NetApp AutoSupport, which proactively monitors the health of your storage.</p>
 <div class="paragraph">
 <p>Routing and firewall policies must allow AWS HTTP/HTTPS traffic to mysupport.netapp.com.</p>
 </div>
@@ -907,18 +907,18 @@ https://services.cloud.netapp.com</p></td>
 <dd>
 <p>You do not need to create security groups because Cloud Manager does that for you. If you need to use your own, refer to <a href="reference_security_groups.html">Security group rules</a>.</p>
 </dd>
-<dt class="hdlist1">Connection between Cloud Manager and ONTAP Cloud subnets</dt>
+<dt class="hdlist1">Connection between Cloud Manager and target subnets</dt>
 <dd>
-<p>Cloud Manager requires a connection to the subnets in which you launch ONTAP Cloud systems, including the HA mediator.</p>
+<p>Cloud Manager requires a connection to the subnets in which you launch Cloud Volumes ONTAP, including the HA mediator.</p>
 <div class="paragraph">
-<p>If Cloud Manager is not installed in the target VPC, it must have network connectivity to that VPC. For example, if you install Cloud Manager in Azure or in your corporate network, then you must set up a VPN connection to the VPC in which you launch ONTAP Cloud systems.</p>
+<p>If Cloud Manager is not installed in the target VPC, it must have network connectivity to that VPC. For example, if you install Cloud Manager in Azure or in your corporate network, then you must set up a VPN connection to the VPC in which you launch Cloud Volumes ONTAP.</p>
 </div>
 </dd>
-<dt class="hdlist1">Connection from ONTAP Cloud to AWS S3 for data tiering</dt>
+<dt class="hdlist1">Connection from Cloud Volumes ONTAP to AWS S3 for data tiering</dt>
 <dd>
-<p>If you want to use EBS as a performance tier and AWS S3 as a capacity tier, you must ensure that ONTAP Cloud has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
+<p>If you want to use EBS as a performance tier and AWS S3 as a capacity tier, you must ensure that Cloud Volumes ONTAP has a connection to S3. The best way to provide that connection is by creating a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
 <div class="paragraph">
-<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the ONTAP Cloud instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, ONTAP Cloud cannot connect to the S3 service.</p>
+<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the Cloud Volumes ONTAP instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, Cloud Volumes ONTAP cannot connect to the S3 service.</p>
 </div>
 <div class="paragraph">
 <p>If you experience any issues, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/" target="_blank" rel="noopener">AWS Support Knowledge Center: Why can’t I connect to an S3 bucket using a gateway VPC endpoint?</a>.</p>
@@ -926,11 +926,11 @@ https://services.cloud.netapp.com</p></td>
 </dd>
 <dt class="hdlist1">Connections to ONTAP systems in other networks</dt>
 <dd>
-<p>To replicate data between an ONTAP Cloud system in AWS and ONTAP systems in other networks, you must have a VPN connection between the AWS VPC and the other network—for example, an Azure VNet or your corporate network. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html" target="_blank" rel="noopener">AWS Documentation: Setting Up an AWS VPN Connection</a>.</p>
+<p>To replicate data between a Cloud Volumes ONTAP system in AWS and ONTAP systems in other networks, you must have a VPN connection between the AWS VPC and the other network—for example, an Azure VNet or your corporate network. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html" target="_blank" rel="noopener">AWS Documentation: Setting Up an AWS VPN Connection</a>.</p>
 </dd>
 <dt class="hdlist1">Connection to key managers</dt>
 <dd>
-<p>If you want to use the ONTAP Cloud data encryption feature, ONTAP Cloud instances must have a connection to one or more key managers that are either in AWS or in your network. For instructions, see <a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up ONTAP Cloud encryption</a>.</p>
+<p>If you want to use the Cloud Volumes ONTAP data encryption feature, the instances must have a connection to one or more key managers that are either in AWS or in your network. For instructions, see <a href="task_setting_up_cloud_manager.html#setting-up-ontap-cloud-encryption">Setting up Cloud Volumes ONTAP encryption</a>.</p>
 </dd>
 <dt class="hdlist1">DNS and Active Directory for CIFS</dt>
 <dd>
@@ -947,10 +947,10 @@ https://services.cloud.netapp.com</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="networking-requirements-for-ontap-cloud-ha-in-multiple-azs">Networking requirements for ONTAP Cloud HA in multiple AZs</h2>
+<h2 id="networking-requirements-for-cloud-volumes-ontap-ha-in-multiple-azs">Networking requirements for Cloud Volumes ONTAP HA in multiple AZs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Additional AWS networking requirements apply to ONTAP Cloud HA configurations that use multiple Availability Zones (AZs). You should review these requirements before you launch an HA pair because you must enter the networking details in Cloud Manager.</p>
+<p>Additional AWS networking requirements apply to Cloud Volumes ONTAP HA configurations that use multiple Availability Zones (AZs). You should review these requirements before you launch an HA pair because you must enter the networking details in Cloud Manager.</p>
 </div>
 <div class="paragraph">
 <p>To understand how HA pairs work, see <a href="concept_ha.html">High-availability pairs</a>.</p>
@@ -959,11 +959,11 @@ https://services.cloud.netapp.com</p></td>
 <dl>
 <dt class="hdlist1">Availability Zones</dt>
 <dd>
-<p>This HA deployment model uses multiple AZs to ensure high availability of your data. You should use a dedicated AZ for each ONTAP Cloud instance and the mediator instance, which provides a communication channel between the HA pair.</p>
+<p>This HA deployment model uses multiple AZs to ensure high availability of your data. You should use a dedicated AZ for each Cloud Volumes ONTAP instance and the mediator instance, which provides a communication channel between the HA pair.</p>
 </dd>
 <dt class="hdlist1">Floating IP addresses for NAS data access</dt>
 <dd>
-<p>ONTAP Cloud HA configurations in multiple AZs use floating IP addresses for NAS client access from within the VPC. These IP addresses can migrate between nodes when failures occur.</p>
+<p>Cloud Volumes ONTAP HA configurations in multiple AZs use floating IP addresses for NAS client access from within the VPC. These IP addresses can migrate between nodes when failures occur.</p>
 <div class="paragraph">
 <p>You must specify three floating IP addresses that are outside of the CIDR blocks for all VPCs in the AWS region in which you deploy the HA configuration. You can think of the floating IP addresses as a logical subnet that is outside of the VPCs in your region.</p>
 </div>
@@ -986,7 +986,7 @@ One floating IP address is for cluster management, one is for NFS/CIFS data on n
 <p><span class="image"><img src="./media/diagram_ha_floating_ips.png" alt="Conceptual image showing the CIDR blocks for five VPCs in an AWS region and three floating IP addresses that are outside the CIDR blocks of the VPCs."></span></p>
 </div>
 <div class="paragraph">
-<p>You must manually enter the floating IP addresses in Cloud Manager when you create an ONTAP Cloud HA working environment. Cloud Manager allocates the IP addresses to the HA pair when it launches the system.</p>
+<p>You must manually enter the floating IP addresses in Cloud Manager when you create a Cloud Volumes ONTAP HA working environment. Cloud Manager allocates the IP addresses to the HA pair when it launches the system.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1003,13 +1003,13 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 </dd>
 <dt class="hdlist1">Floating IP address for SVM management</dt>
 <dd>
-<p>If you use SnapDrive for Windows or SnapCenter with an ONTAP Cloud HA pair, a floating IP address is also required for the SVM management LIF. You must create this LIF after you launch the HA pair. For details, see <a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a>.</p>
+<p>If you use SnapDrive for Windows or SnapCenter with an HA pair, a floating IP address is also required for the SVM management LIF. You must create this LIF after you launch the HA pair. For details, see <a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a>.</p>
 </dd>
 <dt class="hdlist1">Route tables</dt>
 <dd>
-<p>After you specify the floating IP addresses in Cloud Manager, you must select the route tables that should include routes to the floating IP addresses. This enables client access to the ONTAP Cloud HA pair.</p>
+<p>After you specify the floating IP addresses in Cloud Manager, you must select the route tables that should include routes to the floating IP addresses. This enables client access to the HA pair.</p>
 <div class="paragraph">
-<p>If you have just one route table for the subnets in your VPC (the main route table), then Cloud Manager automatically adds the floating IP addresses to that route table. If you have more than one route table, it is very important to select the correct route tables when launching the HA pair. Otherwise, some clients might not have access to ONTAP Cloud.</p>
+<p>If you have just one route table for the subnets in your VPC (the main route table), then Cloud Manager automatically adds the floating IP addresses to that route table. If you have more than one route table, it is very important to select the correct route tables when launching the HA pair. Otherwise, some clients might not have access to Cloud Volumes ONTAP.</p>
 </div>
 <div class="paragraph">
 <p>For example, you might have two subnets that are associated with different route tables. If you select route table A, but not route table B, then clients in the subnet associated with route table A can access the HA pair, but clients in the subnet associated with route table B cannot access the HA pair.</p>
@@ -1020,17 +1020,17 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 </dd>
 <dt class="hdlist1">Connection to NetApp management tools</dt>
 <dd>
-<p>When deployed in multiple AZs, ONTAP Cloud HA configurations use a floating IP address for the cluster management interface, which means external routing is not available. If you want to use NetApp management tools with ONTAP Cloud HA configurations, they must be in the same VPC with similar routing configuration as NAS clients.</p>
+<p>When deployed in multiple AZs, Cloud Volumes ONTAP HA configurations use a floating IP address for the cluster management interface, which means external routing is not available. If you want to use NetApp management tools with HA configurations, they must be in the same VPC with similar routing configuration as NAS clients.</p>
 </dd>
 </dl>
 </div>
 <div class="sect2">
 <h3 id="example-configuration">Example configuration</h3>
 <div class="paragraph">
-<p>The following image shows an optimal ONTAP Cloud HA configuration in AWS operating as an active-passive configuration:</p>
+<p>The following image shows an optimal HA configuration in AWS operating as an active-passive configuration:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_ha_networking.png" alt="Conceptual image showing components in an ONTAP Cloud HA architecture: two ONTAP Cloud nodes and a mediator instance" width="each in separate availability zones."></span></p>
+<p><span class="image"><img src="./media/diagram_ha_networking.png" alt="Conceptual image showing components in a Cloud Volumes ONTAP HA architecture: two Cloud Volumes ONTAP nodes and a mediator instance" width="each in separate availability zones."></span></p>
 </div>
 </div>
 </div>
@@ -1039,7 +1039,7 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 <h2 id="sample-vpc-configurations">Sample VPC configurations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To better understand how you can deploy Cloud Manager and ONTAP Cloud in AWS, you should review the most common VPC configurations.</p>
+<p>To better understand how you can deploy Cloud Manager and Cloud Volumes ONTAP in AWS, you should review the most common VPC configurations.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1054,7 +1054,7 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 <div class="sect2">
 <h3 id="a-vpc-with-public-and-private-subnets-and-a-nat-device">A VPC with public and private subnets and a NAT device</h3>
 <div class="paragraph">
-<p>This VPC configuration includes public and private subnets, an internet gateway that connects the VPC to the internet, and a NAT gateway or NAT instance in the public subnet that enables outbound internet traffic from the private subnet. In this configuration, you can run Cloud Manager in a public subnet or private subnet, but the public subnet is recommended because it allows access from hosts outside the VPC. You can then launch ONTAP Cloud instances in the private subnet.</p>
+<p>This VPC configuration includes public and private subnets, an internet gateway that connects the VPC to the internet, and a NAT gateway or NAT instance in the public subnet that enables outbound internet traffic from the private subnet. In this configuration, you can run Cloud Manager in a public subnet or private subnet, but the public subnet is recommended because it allows access from hosts outside the VPC. You can then launch Cloud Volumes ONTAP instances in the private subnet.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1072,16 +1072,16 @@ Instead of a NAT device, you can use an HTTP proxy to provide internet connectiv
 <p>For more details about this scenario, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html" target="_blank" rel="noopener">AWS Documentation: Scenario 2: VPC with Public and Private Subnets (NAT)</a>.</p>
 </div>
 <div class="paragraph">
-<p>The following graphic shows Cloud Manager running in a public subnet and single node ONTAP Cloud instances running in a private subnet:</p>
+<p>The following graphic shows Cloud Manager running in a public subnet and single node systems running in a private subnet:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_vpc_public_and_private.png" alt="This illustration shows Cloud Manager and a NAT instance running in a public subnet" width="and ONTAP Cloud instances and a NetApp Support instance running in a private subnet."></span></p>
+<p><span class="image"><img src="./media/diagram_vpc_public_and_private.png" alt="This illustration shows Cloud Manager and a NAT instance running in a public subnet" width="and Cloud Volumes ONTAP instances and a NetApp Support instance running in a private subnet."></span></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="a-vpc-with-a-private-subnet-and-a-vpn-connection-to-your-network">A VPC with a private subnet and a VPN connection to your network</h3>
 <div class="paragraph">
-<p>This VPC configuration is a hybrid cloud configuration in which ONTAP Cloud instances become an extension of your private environment. The configuration includes a private subnet and a virtual private gateway with a VPN connection to your network. Routing across the VPN tunnel allows EC2 instances to access the internet through your network and firewalls. You can run Cloud Manager in the private subnet or in your data center. You would then launch ONTAP Cloud instances in the private subnet.</p>
+<p>This VPC configuration is a hybrid cloud configuration in which Cloud Volumes ONTAP becomes an extension of your private environment. The configuration includes a private subnet and a virtual private gateway with a VPN connection to your network. Routing across the VPN tunnel allows EC2 instances to access the internet through your network and firewalls. You can run Cloud Manager in the private subnet or in your data center. You would then launch Cloud Volumes ONTAP in the private subnet.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1096,16 +1096,16 @@ You can also use a proxy server in this configuration to allow internet access. 
 </table>
 </div>
 <div class="paragraph">
-<p>If you want to replicate data between FAS systems in your data center and ONTAP Cloud systems in AWS, you should use a VPN connection so that the link is secure.</p>
+<p>If you want to replicate data between FAS systems in your data center and Cloud Volumes ONTAP systems in AWS, you should use a VPN connection so that the link is secure.</p>
 </div>
 <div class="paragraph">
 <p>For more details about this scenario, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html" target="_blank" rel="noopener">AWS Documentation: Scenario 4: VPC with a Private Subnet Only and AWS Managed VPN Access</a>.</p>
 </div>
 <div class="paragraph">
-<p>The following graphic shows Cloud Manager running in your data center and single node ONTAP Cloud instances running in a private subnet:</p>
+<p>The following graphic shows Cloud Manager running in your data center and single node systems running in a private subnet:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_vpc_private.png" alt="This illustration shows Cloud Manager running in a data center" width="and ONTAP Cloud instances and a NetApp Support instance running in a private subnet. There is a VPN connection between the data center and Amazon Web Services."></span></p>
+<p><span class="image"><img src="./media/diagram_vpc_private.png" alt="This illustration shows Cloud Manager running in a data center" width="and Cloud Volumes ONTAP instances and a NetApp Support instance running in a private subnet. There is a VPN connection between the data center and Amazon Web Services."></span></p>
 </div>
 </div>
 </div>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.2">
 <meta name="description" content="Provides an overview of the OnCommand Cloud Manager APIs, examples of how to use them, and an API reference.">
-<meta name="keywords" content="script, scripts, scripting, api request, api response, json schema, authentication, api, restful, restful API, rest API, rest, error codes, api parameters, netapp, cloud, ontap, ontap cloud, manager, management, oncommand, storage">
+<meta name="keywords" content="script, scripts, scripting, api request, api response, json schema, authentication, api, restful, restful API, rest API, rest, error codes, api parameters, netapp, cloud, ontap, Cloud Volumes ONTAP, manager, management, oncommand, storage">
 <title>Cloud Manager 3.5 API Developer Guide</title>
 <link rel="stylesheet" href="./css/netapp.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -42,18 +42,18 @@ if (document.location.hostname.search("netapp.com") !== -1) {
 <li><a href="#_accessing_the_api_reference_and_running_operations_using_swagger">Accessing the API reference and running operations using Swagger</a></li>
 <li><a href="#_api_examples_for_the_storage_system_view">API examples for the Storage System View</a>
 <ul class="sectlevel2">
-<li><a href="#_preparing_to_launch_an_ontap_cloud_instance_in_aws">Preparing to launch an ONTAP Cloud instance in AWS</a></li>
-<li><a href="#_launching_a_single_ontap_cloud_instance_in_aws">Launching a single ONTAP Cloud instance in AWS</a></li>
-<li><a href="#_deploying_an_ontap_cloud_system_in_azure">Deploying an ONTAP Cloud system in Azure</a></li>
-<li><a href="#_creating_an_aggregate_for_a_single_ontap_cloud_system_in_aws">Creating an aggregate for a single ONTAP Cloud system in AWS</a></li>
-<li><a href="#_creating_an_aggregate_for_an_ontap_cloud_system_in_azure">Creating an aggregate for an ONTAP Cloud system in Azure</a></li>
-<li><a href="#_creating_a_volume_on_a_single_ontap_cloud_system_in_aws">Creating a volume on a single ONTAP Cloud system in AWS</a></li>
+<li><a href="#_preparing_to_launch_cloud_volumes_ontap_in_aws">Preparing to launch Cloud Volumes ONTAP in AWS</a></li>
+<li><a href="#_launching_a_single_cloud_volumes_ontap_instance_in_aws">Launching a single Cloud Volumes ONTAP instance in AWS</a></li>
+<li><a href="#_deploying_a_cloud_volumes_ontap_system_in_azure">Deploying a Cloud Volumes ONTAP system in Azure</a></li>
+<li><a href="#_creating_an_aggregate_for_a_single_cloud_volumes_ontap_system_in_aws">Creating an aggregate for a single Cloud Volumes ONTAP system in AWS</a></li>
+<li><a href="#_creating_an_aggregate_for_a_cloud_volumes_ontap_system_in_azure">Creating an aggregate for a Cloud Volumes ONTAP system in Azure</a></li>
+<li><a href="#_creating_a_volume_on_a_single_cloud_volumes_ontap_system_in_aws">Creating a volume on a single Cloud Volumes ONTAP system in AWS</a></li>
 <li><a href="#_creating_a_volume_on_an_aggregate_that_uses_provisioned_iops_ssds">Creating a volume on an aggregate that uses Provisioned IOPS SSDs</a></li>
-<li><a href="#_stopping_a_single_ontap_cloud_instance_in_aws">Stopping a single ONTAP Cloud instance in AWS</a></li>
-<li><a href="#_starting_a_single_ontap_cloud_instance_in_aws">Starting a single ONTAP Cloud instance in AWS</a></li>
-<li><a href="#_deleting_a_single_ontap_cloud_working_environment">Deleting a single ONTAP Cloud working environment</a></li>
-<li><a href="#_launching_an_ontap_cloud_ha_configuration_in_multiple_availability_zones">Launching an ONTAP Cloud HA configuration in multiple Availability Zones</a></li>
-<li><a href="#_launching_an_ontap_cloud_ha_configuration_in_a_single_availability_zone">Launching an ONTAP Cloud HA configuration in a single Availability Zone</a></li>
+<li><a href="#_stopping_a_single_cloud_volumes_ontap_instance_in_aws">Stopping a single Cloud Volumes ONTAP instance in AWS</a></li>
+<li><a href="#_starting_a_single_cloud_volumes_ontap_instance_in_aws">Starting a single Cloud Volumes ONTAP instance in AWS</a></li>
+<li><a href="#_deleting_a_single_cloud_volumes_ontap_working_environment">Deleting a single Cloud Volumes ONTAP working environment</a></li>
+<li><a href="#_launching_a_cloud_volumes_ontap_ha_configuration_in_multiple_availability_zones">Launching a Cloud Volumes ONTAP HA configuration in multiple Availability Zones</a></li>
+<li><a href="#_launching_an_ha_configuration_in_a_single_availability_zone">Launching an HA configuration in a single Availability Zone</a></li>
 <li><a href="#_specifying_a_proxy_for_the_ha_mediator">Specifying a proxy for the HA mediator</a></li>
 <li><a href="#_specifying_a_public_ip_address_for_the_ha_mediator">Specifying a public IP address for the HA mediator</a></li>
 <li><a href="#_creating_an_aggregate_on_a_node_in_an_ha_configuration">Creating an aggregate on a node in an HA configuration</a></li>
@@ -65,7 +65,7 @@ if (document.location.hostname.search("netapp.com") !== -1) {
 </li>
 <li><a href="#_api_examples_for_the_volume_view">API examples for the Volume View</a>
 <ul class="sectlevel2">
-<li><a href="#_setting_a_password_for_ontap_cloud_systems">Setting a password for ONTAP Cloud systems</a></li>
+<li><a href="#_setting_a_password_for_cloud_volumes_ontap_systems">Setting a password for Cloud Volumes ONTAP systems</a></li>
 <li><a href="#_creating_a_volume">Creating a volume</a></li>
 <li><a href="#_finding_an_existing_instance_for_a_new_volume">Finding an existing instance for a new volume</a></li>
 <li><a href="#_obtaining_the_mount_point_for_a_volume">Obtaining the mount point for a volume</a></li>
@@ -471,7 +471,7 @@ if (document.location.hostname.search("netapp.com") !== -1) {
 <h2 id="_how_the_rest_apis_work">How the REST APIs work</h2>
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>OnCommand Cloud Manager includes REST APIs that enable software developers to automate the management of NetApp storage in the cloud. You should understand how the APIs work before you get started.</p>
+<p>OnCommand Cloud Manager includes REST APIs that enable software developers to automate the management of Cloud Volumes ONTAP (formerly ONTAP Cloud). You should understand how the APIs work before you get started.</p>
 </div>
 <div class="sect2">
 <h3 id="_api_resources">API resources</h3>
@@ -494,7 +494,7 @@ Used to authenticate with Cloud Manager so you can run API operations</p>
 </li>
 <li>
 <p><strong>Working environment resources</strong><br>
-Used to deploy and manage working environments: single ONTAP Cloud systems, ONTAP Cloud HA configurations, and ONTAP clusters</p>
+Used to deploy and manage working environments: single Cloud Volumes ONTAP systems, Cloud Volumes ONTAP HA configurations, and ONTAP clusters</p>
 </li>
 </ul>
 </div>
@@ -505,7 +505,7 @@ Used to deploy and manage working environments: single ONTAP Cloud systems, ONTA
 <p>Cloud Manager API URLs are relative to <em><a href="http://ip_address:port/occm/api" class="bare">http://ip_address:port/occm/api</a></em>.</p>
 </div>
 <div class="paragraph">
-<p>For example, the request URL to a launch an ONTAP Cloud instance in AWS is <em><a href="http://ip_address:port/occm/api/vsa/working-environments" class="bare">http://ip_address:port/occm/api/vsa/working-environments</a></em>.</p>
+<p>For example, the request URL to a launch Cloud Volumes ONTAP in AWS is <em><a href="http://ip_address:port/occm/api/vsa/working-environments" class="bare">http://ip_address:port/occm/api/vsa/working-environments</a></em>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -593,7 +593,7 @@ The server automatically returns content in JSON format if Accept is not specifi
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">202</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The operation was accepted and is currently in process. Cloud Manager returns this code when the API operation returns before the actual operation finishes. For example, the <em>/vsa/working-environments</em> operation returns with code 202, but the ONTAP Cloud instance successfully launches up to 25 minutes later.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operation was accepted and is currently in process. Cloud Manager returns this code when the API operation returns before the actual operation finishes. For example, the <em>/vsa/working-environments</em> operation returns with code 202, but the Cloud Volumes ONTAP instance successfully launches up to 25 minutes later.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">204</p></td>
@@ -747,15 +747,15 @@ This new authentication method was introduced in Cloud Manager 3.5. Previous ver
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The examples use curl as the HTTP client. Some examples show API calls for single ONTAP Cloud systems and others show API calls for ONTAP Cloud HA configurations.
+The examples use curl as the HTTP client. Some examples show API calls for single Cloud Volumes ONTAP systems and others show API calls for Cloud Volumes ONTAP HA configurations.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_preparing_to_launch_an_ontap_cloud_instance_in_aws">Preparing to launch an ONTAP Cloud instance in AWS</h3>
+<h3 id="_preparing_to_launch_cloud_volumes_ontap_in_aws">Preparing to launch Cloud Volumes ONTAP in AWS</h3>
 <div class="paragraph">
-<p>When you launch an ONTAP Cloud instance, you must specify valid values for license type, AWS region, ONTAP Cloud version, and instance type. You can obtain valid values for your version of Cloud Manager by using the following API call:</p>
+<p>When you launch Cloud Volumes ONTAP, you must specify valid values for license type, AWS region, Cloud Volumes ONTAP version, and instance type. You can obtain valid values for your version of Cloud Manager by using the following API call:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -775,7 +775,7 @@ GET --header "Content-Type:application/json" --header "Authorization:$token"</pr
 <p>For regions, the <em>code</em> field displays valid values for the <em>region</em> parameter.</p>
 </li>
 <li>
-<p>For ONTAP Cloud versions, the valid values for the <em>ontapVersion</em> parameter display underneath the version of Cloud Manager that you are running.</p>
+<p>For Cloud Volumes ONTAP versions, the valid values for the <em>ontapVersion</em> parameter display underneath the version of Cloud Manager that you are running.</p>
 </li>
 <li>
 <p>For instance types, the valid values for the <em>instanceType</em> parameter display underneath each license type.</p>
@@ -783,7 +783,7 @@ GET --header "Content-Type:application/json" --header "Authorization:$token"</pr
 </ul>
 </div>
 <div class="paragraph">
-<p>You must also identify the target VPC and subnet before you can launch an ONTAP Cloud instance. The following API call provides the target VPC ID and subnet ID in a specific region:</p>
+<p>You must also identify the target VPC and subnet before you can launch Cloud Volumes ONTAP. The following API call provides the target VPC ID and subnet ID in a specific region:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -792,9 +792,9 @@ GET --header "Content-Type:application/json" --header "Authorization:$token"</pr
 </div>
 </div>
 <div class="sect2">
-<h3 id="_launching_a_single_ontap_cloud_instance_in_aws">Launching a single ONTAP Cloud instance in AWS</h3>
+<h3 id="_launching_a_single_cloud_volumes_ontap_instance_in_aws">Launching a single Cloud Volumes ONTAP instance in AWS</h3>
 <div class="paragraph">
-<p>The following operation launches an ONTAP Cloud instance in AWS:</p>
+<p>The following operation launches Cloud Volumes ONTAP in AWS:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -823,7 +823,7 @@ weid=`cat vsaId.txt`</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>After the ONTAP Cloud instance is up and running, you can use the following API call to get details about the instance:</p>
+<p>After the Cloud Volumes ONTAP instance is up and running, you can use the following API call to get details about the instance:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -874,9 +874,9 @@ weid=`cat vsaId.txt`</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deploying_an_ontap_cloud_system_in_azure">Deploying an ONTAP Cloud system in Azure</h3>
+<h3 id="_deploying_a_cloud_volumes_ontap_system_in_azure">Deploying a Cloud Volumes ONTAP system in Azure</h3>
 <div class="paragraph">
-<p>The following operation deploys an ONTAP Cloud system in Azure:</p>
+<p>The following operation deploys a Cloud Volumes ONTAP system in Azure:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -894,9 +894,9 @@ azureId=`cat azureId.txt`</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_an_aggregate_for_a_single_ontap_cloud_system_in_aws">Creating an aggregate for a single ONTAP Cloud system in AWS</h3>
+<h3 id="_creating_an_aggregate_for_a_single_cloud_volumes_ontap_system_in_aws">Creating an aggregate for a single Cloud Volumes ONTAP system in AWS</h3>
 <div class="paragraph">
-<p>Use the following API call to create a new aggregate on an ONTAP Cloud system:</p>
+<p>Use the following API call to create a new aggregate on a Cloud Volumes ONTAP system:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -913,9 +913,9 @@ azureId=`cat azureId.txt`</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_an_aggregate_for_an_ontap_cloud_system_in_azure">Creating an aggregate for an ONTAP Cloud system in Azure</h3>
+<h3 id="_creating_an_aggregate_for_a_cloud_volumes_ontap_system_in_azure">Creating an aggregate for a Cloud Volumes ONTAP system in Azure</h3>
 <div class="paragraph">
-<p>The following API call creates an aggregate on an ONTAP Cloud system in Azure using the public ID returned when creating the working environment:</p>
+<p>The following API call creates an aggregate on a Cloud Volumes ONTAP system in Azure using the public ID returned when creating the working environment:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -924,9 +924,9 @@ azureId=`cat azureId.txt`</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_a_volume_on_a_single_ontap_cloud_system_in_aws">Creating a volume on a single ONTAP Cloud system in AWS</h3>
+<h3 id="_creating_a_volume_on_a_single_cloud_volumes_ontap_system_in_aws">Creating a volume on a single Cloud Volumes ONTAP system in AWS</h3>
 <div class="paragraph">
-<p>The first API call in the following example gets the Storage Virtual Machine (SVM) name to specify when creating the volume. The second API call gets the required number of disks and the aggregate name in which to create the volume. The third API call creates a new volume on an ONTAP Cloud system using the public ID of the working environment, which was returned after Cloud Manager created the working environment.</p>
+<p>The first API call in the following example gets the Storage Virtual Machine (SVM) name to specify when creating the volume. The second API call gets the required number of disks and the aggregate name in which to create the volume. The third API call creates a new volume on a Cloud Volumes ONTAP system using the public ID of the working environment, which was returned after Cloud Manager created the working environment.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -970,9 +970,9 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 <div class="sect2">
-<h3 id="_stopping_a_single_ontap_cloud_instance_in_aws">Stopping a single ONTAP Cloud instance in AWS</h3>
+<h3 id="_stopping_a_single_cloud_volumes_ontap_instance_in_aws">Stopping a single Cloud Volumes ONTAP instance in AWS</h3>
 <div class="paragraph">
-<p>The following operation stops an ONTAP Cloud instance in AWS:</p>
+<p>The following operation stops a Cloud Volumes ONTAP instance in AWS:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -981,9 +981,9 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 <div class="sect2">
-<h3 id="_starting_a_single_ontap_cloud_instance_in_aws">Starting a single ONTAP Cloud instance in AWS</h3>
+<h3 id="_starting_a_single_cloud_volumes_ontap_instance_in_aws">Starting a single Cloud Volumes ONTAP instance in AWS</h3>
 <div class="paragraph">
-<p>The following operation starts an ONTAP Cloud instance in AWS:</p>
+<p>The following operation starts a Cloud Volumes ONTAP instance in AWS:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -992,9 +992,9 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deleting_a_single_ontap_cloud_working_environment">Deleting a single ONTAP Cloud working environment</h3>
+<h3 id="_deleting_a_single_cloud_volumes_ontap_working_environment">Deleting a single Cloud Volumes ONTAP working environment</h3>
 <div class="paragraph">
-<p>The following API call deletes an ONTAP Cloud working environment, which terminates the instance in AWS:</p>
+<p>The following API call deletes a Cloud Volumes ONTAP working environment, which terminates the instance in AWS:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1003,9 +1003,9 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 <div class="sect2">
-<h3 id="_launching_an_ontap_cloud_ha_configuration_in_multiple_availability_zones">Launching an ONTAP Cloud HA configuration in multiple Availability Zones</h3>
+<h3 id="_launching_a_cloud_volumes_ontap_ha_configuration_in_multiple_availability_zones">Launching a Cloud Volumes ONTAP HA configuration in multiple Availability Zones</h3>
 <div class="paragraph">
-<p>The following API call launches an ONTAP Cloud HA configuration in AWS:</p>
+<p>The following API call launches an HA configuration in AWS:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1014,9 +1014,9 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 <div class="sect2">
-<h3 id="_launching_an_ontap_cloud_ha_configuration_in_a_single_availability_zone">Launching an ONTAP Cloud HA configuration in a single Availability Zone</h3>
+<h3 id="_launching_an_ha_configuration_in_a_single_availability_zone">Launching an HA configuration in a single Availability Zone</h3>
 <div class="paragraph">
-<p>The following API call launches an ONTAP Cloud HA configuration in a single AZ in AWS, sets up a proxy configuration for the mediator, and uses dedicated EC2 instances:</p>
+<p>The following API call launches a Cloud Volumes ONTAP HA configuration in a single AZ in AWS, sets up a proxy configuration for the mediator, and uses dedicated EC2 instances:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1140,9 +1140,9 @@ The examples use curl as the HTTP client. Some examples show API calls for volum
 </table>
 </div>
 <div class="sect2">
-<h3 id="_setting_a_password_for_ontap_cloud_systems">Setting a password for ONTAP Cloud systems</h3>
+<h3 id="_setting_a_password_for_cloud_volumes_ontap_systems">Setting a password for Cloud Volumes ONTAP systems</h3>
 <div class="paragraph">
-<p>The following API call defines the password that Cloud Manager should set for each ONTAP Cloud system that it creates. The password must be defined before you create volumes in the Volume View:</p>
+<p>The following API call defines the password that Cloud Manager should set for each Cloud Volumes ONTAP system that it creates. The password must be defined before you create volumes in the Volume View:</p>
 </div>
 <div class="listingblock">
 <div class="content">

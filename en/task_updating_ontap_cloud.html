@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Updating ONTAP Cloud software | NetApp Cloud Docs</title>
+  <title>Updating Cloud Volumes ONTAP software | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="Cloud Manager includes several options that you can use to upgrade to the current ONTAP Cloud release or to downgrade ONTAP Cloud to an earlier release.">
+  <meta name="description" content="Cloud Manager includes several options that you can use to upgrade to the current Cloud Volumes ONTAP release or to downgrade Cloud Volumes ONTAP to an earli...">
   <meta name="keywords" content=" update, updating, upgrading, upgrade, software, downgrade, downgrading, FTP, HTTP, mediator, local image">
 
   <!-- Icons -->
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li class="active"><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li class="active"><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -705,7 +705,7 @@
                   
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Updating ONTAP Cloud software
+  <h1 class="n-doc__component-detail-heading">Updating Cloud Volumes ONTAP software
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_updating_ontap_cloud.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
@@ -717,16 +717,16 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Manager includes several options that you can use to upgrade to the current ONTAP Cloud release or to downgrade ONTAP Cloud to an earlier release. You should prepare ONTAP Cloud systems before you upgrade or downgrade the software.</p>
+<p>Cloud Manager includes several options that you can use to upgrade to the current Cloud Volumes ONTAP release or to downgrade Cloud Volumes ONTAP to an earlier release. You should prepare Cloud Volumes ONTAP systems before you upgrade or downgrade the software.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#overview">Overview</a></li>
-<li><a href="#preparing-to-update-ontap-cloud-software">Preparing to update ONTAP Cloud software</a></li>
-<li><a href="#upgrading-ontap-cloud-to-the-latest-version">Upgrading ONTAP Cloud to the latest version</a></li>
-<li><a href="#upgrading-or-downgrading-ontap-cloud-by-using-an-http-or-ftp-server">Upgrading or downgrading ONTAP Cloud by using an HTTP or FTP server</a></li>
-<li><a href="#downgrading-ontap-cloud-by-using-a-local-image">Downgrading ONTAP Cloud by using a local image</a></li>
+<li><a href="#preparing-to-update-cloud-volumes-ontap-software">Preparing to update Cloud Volumes ONTAP software</a></li>
+<li><a href="#upgrading-cloud-volumes-ontap-to-the-latest-version">Upgrading Cloud Volumes ONTAP to the latest version</a></li>
+<li><a href="#upgrading-or-downgrading-cloud-volumes-ontap-by-using-an-http-or-ftp-server">Upgrading or downgrading Cloud Volumes ONTAP by using an HTTP or FTP server</a></li>
+<li><a href="#downgrading-cloud-volumes-ontap-by-using-a-local-image">Downgrading Cloud Volumes ONTAP by using a local image</a></li>
 </ul>
 </div>
 </div>
@@ -735,7 +735,7 @@
 <h2 id="overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Manager displays a notification in ONTAP Cloud working environments when a new version of ONTAP Cloud is available:</p>
+<p>Cloud Manager displays a notification in Cloud Volumes ONTAP working environments when a new version of Cloud Volumes ONTAP is available:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_cot_upgrade.gif" alt="Screen shot: Shows the New version available notification which displays in the Working Environments page after you select a working environment."></span></p>
@@ -759,7 +759,7 @@ Cloud Manager might upgrade the HA mediator as part of this process.
 <div class="sect2">
 <h3 id="advanced-options-for-software-updates">Advanced options for software updates</h3>
 <div class="paragraph">
-<p>Cloud Manager also provides the following advanced options for updating ONTAP Cloud software:</p>
+<p>Cloud Manager also provides the following advanced options for updating Cloud Volumes ONTAP software:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -778,13 +778,13 @@ Cloud Manager might upgrade the HA mediator as part of this process.
 </ul>
 </div>
 <div class="paragraph">
-<p>Transitioning ONTAP Cloud to an earlier release in the same release family (for example, 9.3 to 9.2) is referred to as a downgrade. You can downgrade without assistance when downgrading new or test clusters, but you should contact technical support if you want to downgrade a production cluster.</p>
+<p>Transitioning Cloud Volumes ONTAP to an earlier release in the same release family (for example, 9.3 to 9.2) is referred to as a downgrade. You can downgrade without assistance when downgrading new or test clusters, but you should contact technical support if you want to downgrade a production cluster.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="preparing-to-update-ontap-cloud-software">Preparing to update ONTAP Cloud software</h2>
+<h2 id="preparing-to-update-cloud-volumes-ontap-software">Preparing to update Cloud Volumes ONTAP software</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Before performing an upgrade or downgrade, you must verify that your systems are ready and make any required configuration changes.</p>
@@ -792,11 +792,11 @@ Cloud Manager might upgrade the HA mediator as part of this process.
 <div class="sect2">
 <h3 id="suspending-snapmirror-transfers">Suspending SnapMirror transfers</h3>
 <div class="paragraph">
-<p>If an ONTAP Cloud system has active SnapMirror relationships, it is best to suspend transfers before you update the ONTAP Cloud software. Suspending the transfers prevents SnapMirror failures. You must suspend the transfers from the destination system.</p>
+<p>If a Cloud Volumes ONTAP system has active SnapMirror relationships, it is best to suspend transfers before you update the Cloud Volumes ONTAP software. Suspending the transfers prevents SnapMirror failures. You must suspend the transfers from the destination system.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>These steps describe how to use System Manager for ONTAP Cloud 9.3 and later.</p>
+<p>These steps describe how to use System Manager for version 9.3 and later.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -816,11 +816,11 @@ Cloud Manager might upgrade the HA mediator as part of this process.
 <div class="sect2">
 <h3 id="verifying-that-aggregates-are-online">Verifying that aggregates are online</h3>
 <div class="paragraph">
-<p>ONTAP Cloud aggregates must be online before you update the software. Aggregates should be online in most configurations, but if they are not, then you should bring them online.</p>
+<p>Aggregates for Cloud Volumes ONTAP must be online before you update the software. Aggregates should be online in most configurations, but if they are not, then you should bring them online.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>These steps describe how to use System Manager for ONTAP Cloud 9.3 and later.</p>
+<p>These steps describe how to use System Manager for version 9.3 and later.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -856,18 +856,18 @@ Cloud Manager might upgrade the HA mediator as part of this process.
 </div>
 </div>
 <div class="sect1">
-<h2 id="upgrading-ontap-cloud-to-the-latest-version">Upgrading ONTAP Cloud to the latest version</h2>
+<h2 id="upgrading-cloud-volumes-ontap-to-the-latest-version">Upgrading Cloud Volumes ONTAP to the latest version</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can upgrade to the latest version of ONTAP Cloud directly from Cloud Manager. Cloud Manager notifies you when a new version is available.</p>
+<p>You can upgrade to the latest version of Cloud Volumes ONTAP directly from Cloud Manager. Cloud Manager notifies you when a new version is available.</p>
 </div>
 <div class="paragraph">
 <div class="title">Before you begin</div>
-<p>Cloud Manager operations such as volume or aggregate creation must not be in progress for the ONTAP Cloud system.</p>
+<p>Cloud Manager operations such as volume or aggregate creation must not be in progress for the Cloud Volumes ONTAP system.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>The upgrade process takes up to 25 minutes for a single ONTAP Cloud system and up to 90 minutes for an HA pair. Upgrades of HA pairs are nondisruptive. HA pairs continue to serve data during the upgrade process.</p>
+<p>The upgrade process takes up to 25 minutes for a single Cloud Volumes ONTAP system and up to 90 minutes for an HA pair. Upgrades of HA pairs are nondisruptive. HA pairs continue to serve data during the upgrade process.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -888,7 +888,7 @@ Cloud Manager might upgrade the HA mediator as part of this process.
 <p>If a new version is available, click <strong>Upgrade</strong>.</p>
 </li>
 <li>
-<p>In the Release Information page, click the link to read the ONTAP Cloud Release Notes for the specified version, and then select the <strong>I have read&#8230;&#8203;</strong> check box.</p>
+<p>In the Release Information page, click the link to read the Release Notes for the specified version, and then select the <strong>I have read&#8230;&#8203;</strong> check box.</p>
 </li>
 <li>
 <p>In the End User License Agreement (EULA) page, read the EULA, and then select <strong>I read and approve the EULA</strong>.</p>
@@ -909,26 +909,26 @@ Cloud Manager might upgrade the HA mediator as part of this process.
 </div>
 </div>
 <div class="sect1">
-<h2 id="upgrading-or-downgrading-ontap-cloud-by-using-an-http-or-ftp-server">Upgrading or downgrading ONTAP Cloud by using an HTTP or FTP server</h2>
+<h2 id="upgrading-or-downgrading-cloud-volumes-ontap-by-using-an-http-or-ftp-server">Upgrading or downgrading Cloud Volumes ONTAP by using an HTTP or FTP server</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can place the ONTAP Cloud software image on an HTTP or FTP server and then initiate the software update from Cloud Manager. You might use this option if Cloud Manager cannot access the S3 bucket to upgrade the software or if you want to downgrade the software.</p>
+<p>You can place the Cloud Volumes ONTAP software image on an HTTP or FTP server and then initiate the software update from Cloud Manager. You might use this option if Cloud Manager cannot access the S3 bucket to upgrade the software or if you want to downgrade the software.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>This upgrade or downgrade process takes up to 25 minutes for a single ONTAP Cloud system and up to 90 minutes for an HA pair. Upgrades and downgrades of HA pairs are nondisruptive. HA pairs continue to serve data during the process.</p>
+<p>This upgrade or downgrade process takes up to 25 minutes for a single Cloud Volumes ONTAP system and up to 90 minutes for an HA pair. Upgrades and downgrades of HA pairs are nondisruptive. HA pairs continue to serve data during the process.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Set up an HTTP server or FTP server that can host the ONTAP Cloud software image.</p>
+<p>Set up an HTTP server or FTP server that can host the Cloud Volumes ONTAP software image.</p>
 </li>
 <li>
-<p>If you have a VPN connection to the VPC, you can place the ONTAP Cloud software image on an HTTP server or FTP server in your own network. Otherwise, you must place the file on an HTTP server or FTP server in AWS.</p>
+<p>If you have a VPN connection to the VPC, you can place the Cloud Volumes ONTAP software image on an HTTP server or FTP server in your own network. Otherwise, you must place the file on an HTTP server or FTP server in AWS.</p>
 </li>
 <li>
-<p>If you use your own security group for ONTAP Cloud instances, ensure that the outbound rules allow HTTP or FTP connections so ONTAP Cloud can access the software image.</p>
+<p>If you use your own security group for Cloud Volumes ONTAP, ensure that the outbound rules allow HTTP or FTP connections so Cloud Volumes ONTAP can access the software image.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -936,7 +936,7 @@ Cloud Manager might upgrade the HA mediator as part of this process.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The predefined ONTAP Cloud security group allows outbound HTTP and FTP connections by default.
+The predefined Cloud Volumes ONTAP security group allows outbound HTTP and FTP connections by default.
 </td>
 </tr>
 </table>
@@ -952,7 +952,7 @@ The predefined ONTAP Cloud security group allows outbound HTTP and FTP connectio
 <p>From the working environment in Cloud Manager, click the menu icon, and then click <strong>Advanced &gt; Update ONTAP Cloud software</strong>.</p>
 </li>
 <li>
-<p>On the Update ONTAP Cloud software page, choose <strong>Select an image available from a URL</strong>, enter the URL, and then click <strong>Change Image</strong>.</p>
+<p>On the update software page, choose <strong>Select an image available from a URL</strong>, enter the URL, and then click <strong>Change Image</strong>.</p>
 </li>
 <li>
 <p>Click <strong>Proceed</strong> to confirm.</p>
@@ -970,14 +970,14 @@ The predefined ONTAP Cloud security group allows outbound HTTP and FTP connectio
 </div>
 </div>
 <div class="sect1">
-<h2 id="downgrading-ontap-cloud-by-using-a-local-image">Downgrading ONTAP Cloud by using a local image</h2>
+<h2 id="downgrading-cloud-volumes-ontap-by-using-a-local-image">Downgrading Cloud Volumes ONTAP by using a local image</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Each ONTAP Cloud system can hold two software images: the current image that is running, and an alternate image that you can boot. Cloud Manager can change the alternate image to be the default image. You can use this option to downgrade to the previous version of ONTAP Cloud, if you are experiencing issues with the current image.</p>
+<p>Each Cloud Volumes ONTAP system can hold two software images: the current image that is running, and an alternate image that you can boot. Cloud Manager can change the alternate image to be the default image. You can use this option to downgrade to the previous version of Cloud Volumes ONTAP, if you are experiencing issues with the current image.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>This downgrade process is available for single ONTAP Cloud systems only. It is not available for HA pairs. The process takes the ONTAP Cloud system offline for up to 25 minutes.</p>
+<p>This downgrade process is available for single Cloud Volumes ONTAP systems only. It is not available for HA pairs. The process takes the Cloud Volumes ONTAP system offline for up to 25 minutes.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -986,7 +986,7 @@ The predefined ONTAP Cloud security group allows outbound HTTP and FTP connectio
 <p>From the working environment, click the menu icon, and then click <strong>Advanced &gt; Update ONTAP Cloud software</strong>.</p>
 </li>
 <li>
-<p>On the Update ONTAP Cloud software page, select the alternate image, and then click <strong>Change Image</strong>.</p>
+<p>On the update software page, select the alternate image, and then click <strong>Change Image</strong>.</p>
 </li>
 <li>
 <p>Click <strong>Proceed</strong> to confirm.</p>

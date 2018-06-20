@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You can start creating ONTAP Cloud systems right after you deploy Cloud Manager. However, you might want to perform additional setup first by setting up the ...">
+  <meta name="description" content="You can start creating Cloud Volumes ONTAP systems right after you deploy Cloud Manager. However, you might want to perform additional setup first by setting...">
   <meta name="keywords" content=" https certificate, certificate, security, users, adding, creating, tenants, linking, netapp support site account, nss, encryption, key managers, CA, key manager, requirements, safenet, vormetric, kms, key management service, cmk, amazon encryption, encryption, billing, s3 bucket, cost, accounts, aws accounts, trust relationship, csr">
 
   <!-- Icons -->
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -717,7 +717,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can start creating ONTAP Cloud systems right after you deploy Cloud Manager. However, you might want to perform additional setup first by setting up the AWS Key Management Service, installing an HTTPS certificate, and more.</p>
+<p>You can start creating Cloud Volumes ONTAP systems right after you deploy Cloud Manager. However, you might want to perform additional setup first by setting up the AWS Key Management Service, installing an HTTPS certificate, and more.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
@@ -728,7 +728,7 @@
 <li><a href="#adding-users-to-cloud-manager">Adding users to Cloud Manager</a></li>
 <li><a href="#linking-tenants-to-a-netapp-support-site-account">Linking tenants to a NetApp Support Site account</a></li>
 <li><a href="#setting-up-aws-billing-and-cost-management-for-cloud-manager">Setting up AWS billing and cost management for Cloud Manager</a></li>
-<li><a href="#setting-up-ontap-cloud-encryption">Setting up ONTAP Cloud encryption</a>
+<li><a href="#setting-up-cloud-volumes-ontap-encryption">Setting up Cloud Volumes ONTAP encryption</a>
 <ul class="sectlevel2">
 <li><a href="#key-manager-requirements">Key manager requirements</a></li>
 <li><a href="#setting-up-cloud-manager-as-an-intermediate-ca">Setting up Cloud Manager as an intermediate CA</a></li>
@@ -743,7 +743,7 @@
 <h2 id="adding-additional-aws-accounts-to-cloud-manager">Adding additional AWS accounts to Cloud Manager</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When Cloud Manager is associated with an IAM role, it deploys ONTAP Cloud systems in the AWS account from which the Cloud Manager instance was created. If you want to deploy ONTAP Cloud systems in other AWS accounts, then you must delegate access across accounts.</p>
+<p>When Cloud Manager is associated with an IAM role, it deploys Cloud Volumes ONTAP in the AWS account from which the Cloud Manager instance was created. If you want to deploy Cloud Volumes ONTAP in other AWS accounts, then you must delegate access across accounts.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
@@ -756,7 +756,7 @@
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Create an IAM role in the AWS account in which you want to deploy ONTAP Cloud systems.</p>
+<p>Create an IAM role in the AWS account in which you want to deploy Cloud Volumes ONTAP.</p>
 <div class="paragraph">
 <p>The role must meet the following requirements:</p>
 </div>
@@ -798,7 +798,7 @@ You can find the name of the Cloud Manager IAM role from the EC2 console by view
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As always, you must ensure network connectivity between Cloud Manager and the location of the target ONTAP Cloud systems. This is important when the instances are created by different accounts.
+As always, you must ensure network connectivity between Cloud Manager and the location of the target Cloud Volumes ONTAP systems. This is important when the instances are created by different accounts.
 </td>
 </tr>
 </table>
@@ -816,7 +816,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 <h2 id="setting-up-the-aws-kms">Setting up the AWS KMS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to use Amazon encryption with ONTAP Cloud, then you must set up the AWS Key Management Service (KMS).</p>
+<p>If you want to use Amazon encryption with Cloud Volumes ONTAP, then you must set up the AWS Key Management Service (KMS).</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -830,7 +830,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 <li>
 <p>Add the IAM role associated with the Cloud Manager instance to the list of key users for a CMK.</p>
 <div class="paragraph">
-<p>This gives Cloud Manager permissions to use the CMK with ONTAP Cloud systems.</p>
+<p>This gives Cloud Manager permissions to use the CMK with Cloud Volumes ONTAP.</p>
 </div>
 </li>
 </ol>
@@ -951,7 +951,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 <h2 id="linking-tenants-to-a-netapp-support-site-account">Linking tenants to a NetApp Support Site account</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You should link a tenant to a NetApp Support Site account so Cloud Manager can manage licenses for BYOL systems, register pay-as-you-go instances for support, and upgrade ONTAP Cloud software.</p>
+<p>You should link a tenant to a NetApp Support Site account so Cloud Manager can manage licenses for BYOL systems, register pay-as-you-go instances for support, and upgrade Cloud Volumes ONTAP software.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -978,7 +978,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager registers all existing and future ONTAP Cloud systems in the tenant with NetApp support.</p>
+<p>Cloud Manager registers all existing and future Cloud Volumes ONTAP systems in the tenant with NetApp support.</p>
 </div>
 </div>
 </div>
@@ -986,7 +986,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 <h2 id="setting-up-aws-billing-and-cost-management-for-cloud-manager">Setting up AWS billing and cost management for Cloud Manager</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Manager can display the monthly compute and storage costs associated with running ONTAP Cloud in AWS. Before Cloud Manager can display the costs, users of AWS payer accounts must set up AWS to store billing reports in an S3 bucket, Cloud Manager must have permissions to access that S3 bucket, and AWS report tags must be enabled after you launch your first ONTAP Cloud instance.</p>
+<p>Cloud Manager can display the monthly compute and storage costs associated with running Cloud Volumes ONTAP in AWS. Before Cloud Manager can display the costs, users of AWS payer accounts must set up AWS to store billing reports in an S3 bucket, Cloud Manager must have permissions to access that S3 bucket, and AWS report tags must be enabled after you launch your first Cloud Volumes ONTAP instance.</p>
 </div>
 <div class="paragraph">
 <div class="title">Before you begin</div>
@@ -994,7 +994,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>Users of AWS payer accounts must set up AWS to store billing reports in an S3 bucket. Cloud Manager uses the information from the reports to show monthly compute and storage costs associated with an ONTAP Cloud instance, as well as storage cost savings from NetApp product efficiency features (if they are enabled). For an example, see see <a href="task_monitoring_costs.html">Monitoring AWS storage and compute costs</a>.</p>
+<p>Users of AWS payer accounts must set up AWS to store billing reports in an S3 bucket. Cloud Manager uses the information from the reports to show monthly compute and storage costs associated with a Cloud Volumes ONTAP instance, as well as storage cost savings from NetApp product efficiency features (if they are enabled). For an example, see see <a href="task_monitoring_costs.html">Monitoring AWS storage and compute costs</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1044,9 +1044,9 @@ If you grant AWS permissions to Cloud Manager by specifying AWS keys, you must s
 </div>
 </li>
 <li>
-<p>After you launch your first ONTAP Cloud instance, go back to Billing and Cost Management <strong>Preferences</strong>, click <strong>Manage report tags</strong>, and enable the <strong>WorkingEnvironmentId</strong> tag.</p>
+<p>After you launch your first Cloud Volumes ONTAP instance, go back to Billing and Cost Management <strong>Preferences</strong>, click <strong>Manage report tags</strong>, and enable the <strong>WorkingEnvironmentId</strong> tag.</p>
 <div class="paragraph">
-<p>This tag is not available in AWS until you create your first ONTAP Cloud working environment using any account under the AWS payer account.</p>
+<p>This tag is not available in AWS until you create your first Cloud Volumes ONTAP working environment using any account under the AWS payer account.</p>
 </div>
 </li>
 </ol>
@@ -1062,10 +1062,10 @@ If you grant AWS permissions to Cloud Manager by specifying AWS keys, you must s
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up-ontap-cloud-encryption">Setting up ONTAP Cloud encryption</h2>
+<h2 id="setting-up-cloud-volumes-ontap-encryption">Setting up Cloud Volumes ONTAP encryption</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Cloud Manager Admin user must set up Cloud Manager before other users can enable ONTAP Cloud encryption on new ONTAP Cloud systems in AWS.</p>
+<p>The Cloud Manager Admin user must set up Cloud Manager before other users can enable Cloud Volumes ONTAP encryption on new Cloud Volumes ONTAP systems in AWS.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1084,12 +1084,12 @@ If you grant AWS permissions to Cloud Manager by specifying AWS keys, you must s
 <div class="sect2">
 <h3 id="key-manager-requirements">Key manager requirements</h3>
 <div class="paragraph">
-<p>You need a supported key management infrastructure to use ONTAP Cloud encryption.</p>
+<p>You need a supported key management infrastructure to use Cloud Volumes ONTAP encryption.</p>
 </div>
 <div class="sect3">
 <h4 id="supported-key-managers">Supported key managers</h4>
 <div class="paragraph">
-<p>An external key manager is a system in your network or in AWS that securely stores authentication keys and provides them upon demand to ONTAP Cloud systems using secure TLS connections. The following key managers are supported:</p>
+<p>An external key manager is a system in your network or in AWS that securely stores authentication keys and provides them upon demand to Cloud Volumes ONTAP using secure TLS connections. The following key managers are supported:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1108,7 +1108,7 @@ If you grant AWS permissions to Cloud Manager by specifying AWS keys, you must s
 <p>See the <a href="http://mysupport.netapp.com/matrix" target="_blank" rel="noopener">NetApp Interoperability Matrix Tool</a> for supported software versions.</p>
 </div>
 <div class="paragraph">
-<p>Each ONTAP Cloud system supports up to four key managers. You should use multiple key managers in a clustered configuration for redundancy.</p>
+<p>Each Cloud Volumes ONTAP system supports up to four key managers. You should use multiple key managers in a clustered configuration for redundancy.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1123,7 +1123,7 @@ If you grant AWS permissions to Cloud Manager by specifying AWS keys, you must s
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The Encryption Setup page in Cloud Manager pertains to SafeNet key managers only. You must refer to the KB article to set up ONTAP Cloud with Vormetric key managers. The rest of this section describes setup for SafeNet key managers.
+The Encryption Setup page in Cloud Manager pertains to SafeNet key managers only. You must refer to the KB article to set up Cloud Volumes ONTAP with Vormetric key managers. The rest of this section describes setup for SafeNet key managers.
 </td>
 </tr>
 </table>
@@ -1132,7 +1132,7 @@ The Encryption Setup page in Cloud Manager pertains to SafeNet key managers only
 <div class="sect3">
 <h4 id="safenet-configuration-requirements">SafeNet configuration requirements</h4>
 <div class="paragraph">
-<p>Each SafeNet key manager must have several certificates, a KMIP server, and a network connection to ONTAP Cloud systems. The key manager must also meet specific requirements if using client certificate authentication. Note that Cloud Manager does not communicate with key managers, so a network connection between Cloud Manager and key managers is not required.</p>
+<p>Each SafeNet key manager must have several certificates, a KMIP server, and a network connection to Cloud Volumes ONTAP systems. The key manager must also meet specific requirements if using client certificate authentication. Note that Cloud Manager does not communicate with key managers, so a network connection between Cloud Manager and key managers is not required.</p>
 </div>
 <div class="paragraph">
 <p>A description of the key manager requirements follows:</p>
@@ -1151,30 +1151,30 @@ The Encryption Setup page in Cloud Manager pertains to SafeNet key managers only
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must have a server certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers need a server certificate to authenticate with ONTAP Cloud systems. The SSL certificate must use the Privacy Enhanced Mail (PEM) Base-64 encoded X.509 format. You select this server certificate when you configure the KMIP server on the key manager.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers need a server certificate to authenticate with Cloud Volumes ONTAP systems. The SSL certificate must use the Privacy Enhanced Mail (PEM) Base-64 encoded X.509 format. You select this server certificate when you configure the KMIP server on the key manager.<br>
 <br>
-If you plan to use two to four key managers with an ONTAP Cloud system, the same certificate authority (CA) must sign the server certificate for each key manager.</p></td>
+If you plan to use two to four key managers with a Cloud Volumes ONTAP system, the same certificate authority (CA) must sign the server certificate for each key manager.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must trust the signing CA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The CA that signed the server certificate must be known and trusted by the key manager.<br>
-Key managers must have a KMIP server 	Each key manager must have a KMIP server that uses SSL and a specific port. The default and recommended port for ONTAP Cloud is 5696. If needed, you can change this port when you set up Cloud Manager.</p></td>
+Key managers must have a KMIP server 	Each key manager must have a KMIP server that uses SSL and a specific port. The default and recommended port for Cloud Volumes ONTAP is 5696. If needed, you can change this port when you set up Cloud Manager.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must have a network connection to ONTAP Cloud systems</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the key managers are in AWS, they must have a connection to the subnet in which ONTAP Cloud instances are running. If the key managers are in your network, a VPN connection to the VPC provides the required connection.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must have a network connection to Cloud Volumes ONTAP systems</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the key managers are in AWS, they must have a connection to the subnet in which Cloud Volumes ONTAP instances are running. If the key managers are in your network, a VPN connection to the VPC provides the required connection.<br>
 <br>
 Firewall settings must allow communication through the KMIP port.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must trust the Cloud Manager CA and its root CA, if using client certificate authentication</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">When you set up Cloud Manager, you configure it to act as an intermediate CA so it can sign ONTAP Cloud client certificates. If a KMIP server requires client certificate authentication, then the Cloud Manager intermediate CA must be known and trusted by key managers.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When you set up Cloud Manager, you configure it to act as an intermediate CA so it can sign client certificates for Cloud Volumes ONTAP. If a KMIP server requires client certificate authentication, then the Cloud Manager intermediate CA must be known and trusted by key managers.<br>
 <br>
 The root CA that signed the Cloud Manager certificate must also be known and trusted by the key manager.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must check a compatible user name field, if using client certificate authentication</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the key manager&#8217;s KMIP server checks for a user name in client certificates, it must use a field compatible with ONTAP Cloud client certificates. Cloud Manager can create ONTAP Cloud client certificates that include a user name in the CN (Common Name), E (Email address), and OU (Organizational Unit) fields.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the key manager&#8217;s KMIP server checks for a user name in client certificates, it must use a field compatible with client certificates for Cloud Volumes ONTAP. Cloud Manager can create client certificates that include a user name in the CN (Common Name), E (Email address), and OU (Organizational Unit) fields.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">KMIP Cryptographic Usage Mask must be set to no</p></td>
@@ -1221,14 +1221,14 @@ The root CA that signed the Cloud Manager certificate must also be known and tru
 </ol>
 </div>
 <div class="paragraph">
-<p>After you meet these requirements, you must set up Cloud Manager so users can enable ONTAP Cloud encryption.</p>
+<p>After you meet these requirements, you must set up Cloud Manager so users can enable Cloud Volumes ONTAP encryption.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="setting-up-cloud-manager-as-an-intermediate-ca">Setting up Cloud Manager as an intermediate CA</h3>
 <div class="paragraph">
-<p>Cloud Manager must be an intermediate certificate authority (CA) because it needs to create client certificates for ONTAP Cloud. You set up Cloud Manager to be an intermediate CA by generating a certificate signing request (CSR), getting the CSR signed by a root CA, and then installing the certificate in Cloud Manager.</p>
+<p>Cloud Manager must be an intermediate certificate authority (CA) because it needs to create client certificates for Cloud Volumes ONTAP. You set up Cloud Manager to be an intermediate CA by generating a certificate signing request (CSR), getting the CSR signed by a root CA, and then installing the certificate in Cloud Manager.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1258,20 +1258,20 @@ The root CA that signed the Cloud Manager certificate must also be known and tru
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager is now an intermediate CA—it can sign client certificates for ONTAP Cloud systems. The following image shows a Cloud Manager system that is configured to be an intermediate CA:</p>
+<p>Cloud Manager is now an intermediate CA—it can sign client certificates for Cloud Volumes ONTAP systems. The following image shows a Cloud Manager system that is configured to be an intermediate CA:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_intermediate_ca.gif" alt="Screen shot: Shows the Cloud Manager certificate in the Intermediate CA tab" width="which appears after Cloud Manager is configured to be an intermediate CA"></span></p>
 </div>
 <div class="paragraph">
 <div class="title">After you finish</div>
-<p>If a KMIP server requires client certificate authentication, add the Cloud Manager intermediate CA and its root CA to the key manager&#8217;s list of trusted CAs. This step is necessary because the key manager must verify that ONTAP Cloud client certificates were signed by a trusted CA.</p>
+<p>If a KMIP server requires client certificate authentication, add the Cloud Manager intermediate CA and its root CA to the key manager&#8217;s list of trusted CAs. This step is necessary because the key manager must verify that Cloud Volumes ONTAP client certificates were signed by a trusted CA.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-key-managers-and-ca-certificates-to-cloud-manager">Adding key managers and CA certificates to Cloud Manager</h3>
 <div class="paragraph">
-<p>Cloud Manager needs information about your key managers and CA certificates so users can select them for use with ONTAP Cloud systems.</p>
+<p>Cloud Manager needs information about your key managers and CA certificates so users can select them for use with Cloud Volumes ONTAP systems.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1282,7 +1282,7 @@ The root CA that signed the Cloud Manager certificate must also be known and tru
 <li>
 <p>If your key managers use a KMIP port other than 5696, change the port and then click Save.</p>
 <div class="paragraph">
-<p>Cloud Manager configures ONTAP Cloud systems to connect to key managers using this port.</p>
+<p>Cloud Manager configures Cloud Volumes ONTAP systems to connect to key managers using this port.</p>
 </div>
 </li>
 <li>
@@ -1326,7 +1326,7 @@ The root CA that signed the Cloud Manager certificate must also be known and tru
 </ul>
 </div>
 <div class="paragraph">
-<p>Cloud Manager generates ONTAP Cloud client certificates with the value defined in the user name field.</p>
+<p>Cloud Manager generates client certificates for Cloud Volumes ONTAP with the value defined in the user name field.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1345,7 +1345,7 @@ The root CA that signed the Cloud Manager certificate must also be known and tru
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager is now set up to create ONTAP Cloud systems with encryption enabled.</p>
+<p>Cloud Manager is now set up to create Cloud Volumes ONTAP systems with encryption enabled.</p>
 </div>
 </div>
 </div>

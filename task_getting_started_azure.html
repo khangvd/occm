@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Getting started with ONTAP Cloud in Azure | NetApp Cloud Docs</title>
+  <title>Getting started with Cloud Volumes ONTAP in Azure | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="Getting started with ONTAP Cloud includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and the...">
+  <meta name="description" content="Getting started with Cloud Volumes ONTAP includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central,...">
   <meta name="keywords" content=" microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, vpn, multi-cloud, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role, free trial, security group">
 
   <!-- Icons -->
@@ -306,7 +306,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
   
 
 
@@ -453,7 +453,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Deploying ONTAP Cloud</a>
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -470,11 +470,11 @@
   
 
   
-    <li><a href="task_deploying_otc_aws.html">Launching ONTAP Cloud in AWS</a></li>
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="task_deploying_otc_azure.html">Launching ONTAP Cloud in Azure</a></li>
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
   
 
   
@@ -482,7 +482,7 @@
   
 
   
-    <li><a href="task_setting_up_ontap_cloud.html">Setting up ONTAP Cloud</a></li>
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
   
 
   
@@ -497,7 +497,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing ONTAP Cloud</a>
+      <a href="#">Managing Cloud Volumes ONTAP</a>
       <ul>
         
 
@@ -510,19 +510,19 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating ONTAP Cloud software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying ONTAP Cloud systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_connecting_to_otc.html">Connecting to ONTAP Cloud systems</a></li>
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of ONTAP Cloud systems</a></li>
+    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
   
 
   
@@ -530,11 +530,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing ONTAP Cloud systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting ONTAP Cloud systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
   
 
 
@@ -606,7 +606,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing ONTAP Cloud working environments</a></li>
+    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
   
 
   
@@ -646,7 +646,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for ONTAP Cloud</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -705,7 +705,7 @@
                   
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Getting started with ONTAP Cloud in Azure
+  <h1 class="n-doc__component-detail-heading">Getting started with Cloud Volumes ONTAP in Azure
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_getting_started_azure.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
@@ -717,7 +717,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Getting started with ONTAP Cloud includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and then launching ONTAP Cloud systems using Cloud Manager.</p>
+<p>Getting started with Cloud Volumes ONTAP (formerly ONTAP Cloud) includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and then launching Cloud Volumes ONTAP using Cloud Manager.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
@@ -725,7 +725,7 @@
 <li><a href="#verifying-your-networking">Verifying your networking</a></li>
 <li><a href="#granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</a></li>
 <li><a href="#installing-and-setting-up-cloud-manager-in-azure">Installing and setting up Cloud Manager in Azure</a></li>
-<li><a href="#deploying-ontap-cloud-in-azure">Deploying ONTAP Cloud in Azure</a></li>
+<li><a href="#deploying-cloud-volumes-ontap-in-azure">Deploying Cloud Volumes ONTAP in Azure</a></li>
 </ul>
 </div>
 </div>
@@ -734,14 +734,14 @@
 <h2 id="verifying-your-networking">Verifying your networking</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must choose the Azure VNet and subnets in which you want to deploy Cloud Manager and ONTAP Cloud. At a minimum, your networking must meet the following requirements:</p>
+<p>You must choose the Azure VNet and subnets in which you want to deploy Cloud Manager and Cloud Volumes ONTAP. At a minimum, your networking must meet the following requirements:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Outbound internet access</p>
 <div class="paragraph">
-<p>The target VNet must have one or more subnets that have outbound internet access so Cloud Manager and ONTAP Cloud can contact several endpoints. To review the list of endpoints, see <a href="reference_networking_azure.html">Azure networking requirements</a>.</p>
+<p>The target VNet must have one or more subnets that have outbound internet access so Cloud Manager and Cloud Volumes ONTAP can contact several endpoints. To review the list of endpoints, see <a href="reference_networking_azure.html">Azure networking requirements</a>.</p>
 </div>
 </li>
 <li>
@@ -749,7 +749,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>To deploy ONTAP Cloud systems in subnets or networks separate from Cloud Manager, connections between those networks must be in place.</p>
+<p>To deploy Cloud Volumes ONTAP in subnets or networks separate from Cloud Manager, connections between those networks must be in place.</p>
 </li>
 <li>
 <p>To replicate data across a hybrid cloud or multi-cloud environment, VPN connections between networks must be in place. For details, refer to <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal" target="_blank" rel="noopener">Microsoft Azure Documentation: Create a Site-to-Site connection in the Azure portal</a>.</p>
@@ -806,7 +806,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <div class="sect2">
 <h3 id="creating-a-custom-role-with-the-required-cloud-manager-permissions">Creating a custom role with the required Cloud Manager permissions</h3>
 <div class="paragraph">
-<p>A custom role is required to provide Cloud Manager with the permissions that it needs to launch and manage ONTAP Cloud in Azure.</p>
+<p>A custom role is required to provide Cloud Manager with the permissions that it needs to launch and manage Cloud Volumes ONTAP in Azure.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -817,7 +817,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <li>
 <p>Modify the JSON file by adding Azure subscription IDs to the assignable scope.</p>
 <div class="paragraph">
-<p>You should add the ID for each Azure subscription from which users will create ONTAP Cloud systems.</p>
+<p>You should add the ID for each Azure subscription from which users will create Cloud Volumes ONTAP systems.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
@@ -968,7 +968,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>If you want to deploy ONTAP Cloud from multiple Azure subscriptions, then you must bind the service principal to each of those subscriptions. Cloud Manager enables you to select the subscription that you want to use when deploying ONTAP Cloud.</p>
+<p>If you want to deploy Cloud Volumes ONTAP from multiple Azure subscriptions, then you must bind the service principal to each of those subscriptions. Cloud Manager enables you to select the subscription that you want to use when deploying Cloud Volumes ONTAP.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1004,7 +1004,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <h2 id="installing-and-setting-up-cloud-manager-in-azure">Installing and setting up Cloud Manager in Azure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You need to install and set up Cloud Manager so you can use it to launch ONTAP Cloud in Azure.</p>
+<p>You need to install and set up Cloud Manager so you can use it to launch Cloud Volumes ONTAP in Azure.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1013,7 +1013,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <p>Go to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a> and sign up or log in.</p>
 </li>
 <li>
-<p>Under <strong>ONTAP Cloud</strong>, click <strong>Start Free Trial</strong>.</p>
+<p>Under <strong>Cloud Volumes ONTAP</strong>, click <strong>Start Free Trial</strong>.</p>
 </li>
 <li>
 <p>Select <strong>Microsoft Azure</strong> to deploy Cloud Manager from the Azure Marketplace.</p>
@@ -1071,15 +1071,15 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager is now installed and set up so users can deploy ONTAP Cloud in Azure.</p>
+<p>Cloud Manager is now installed and set up so users can deploy Cloud Volumes ONTAP in Azure.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="deploying-ontap-cloud-in-azure">Deploying ONTAP Cloud in Azure</h2>
+<h2 id="deploying-cloud-volumes-ontap-in-azure">Deploying Cloud Volumes ONTAP in Azure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can deploy ONTAP Cloud in Azure to provide enterprise-class features for your cloud storage.</p>
+<p>You can deploy Cloud Volumes ONTAP in Azure to provide enterprise-class features for your cloud storage.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1098,10 +1098,10 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <div class="ulist">
 <ul>
 <li>
-<p>The predefined network security group includes the rules that ONTAP Cloud needs to operate successfully. If you need to use your own, refer to <a href="reference_security_groups_azure.html">Security group rules</a>.</p>
+<p>The predefined network security group includes the rules that Cloud Volumes ONTAP needs to operate successfully. If you need to use your own, refer to <a href="reference_security_groups_azure.html">Security group rules</a>.</p>
 </li>
 <li>
-<p>The underlying Azure disk type is for the initial ONTAP Cloud volume. You can choose a different disk type for subsequent volumes.</p>
+<p>The underlying Azure disk type is for the initial Cloud Volumes ONTAP volume. You can choose a different disk type for subsequent volumes.</p>
 </li>
 <li>
 <p>The performance of Azure Premium Storage is tied to the disk size. Larger disks provide higher IOPS and throughput.</p>
@@ -1121,7 +1121,7 @@ If you need a different size later, you can use the <strong>Advanced allocation<
 </table>
 </div>
 <div class="paragraph">
-<p>The following video shows how to deploy ONTAP Cloud in Azure.</p>
+<p>The following video shows how to deploy Cloud Volumes ONTAP in Azure.</p>
 </div>
 <div class="videoblock">
 <div class="content">
@@ -1138,7 +1138,7 @@ Your browser does not support the video tag.
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager deploys the ONTAP Cloud system. You can track the progress in the timeline.</p>
+<p>Cloud Manager deploys the Cloud Volumes ONTAP system. You can track the progress in the timeline.</p>
 </div>
 </div>
 </div>
