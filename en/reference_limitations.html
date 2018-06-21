@@ -727,6 +727,7 @@
 <li><a href="#volume-view-limitations">Volume View limitations</a></li>
 <li><a href="#cloud-manager-does-not-verify-ip-addresses-of-key-managers">Cloud Manager does not verify IP addresses of key managers</a></li>
 <li><a href="#cloud-manager-does-not-set-up-iscsi-volumes">Cloud Manager does not set up iSCSI volumes</a></li>
+<li><a href="#storage-virtual-machine-svm-limitation">Storage Virtual Machine (SVM) limitation</a></li>
 </ul>
 </div>
 </div>
@@ -803,6 +804,17 @@ All instances use Amazon EBS encryption.
 <div class="sectionbody">
 <div class="paragraph">
 <p>When you create a volume in Cloud Manager using the Storage System View, you can choose the NFS or CIFS protocol. You must use OnCommand System Manager to create a volume for iSCSI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="storage-virtual-machine-svm-limitation">Storage Virtual Machine (SVM) limitation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP Cloud Volumes supports one data-serving SVM and one or more SVMs used for disaster recovery.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager does not provide any setup or orchestration support for SVM disaster recovery. It also does not support storage-related tasks on any additional SVMs. You must use System Manager or the CLI for SVM disaster recovery.</p>
 </div>
 </div>
 </div>
