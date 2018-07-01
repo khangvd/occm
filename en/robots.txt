@@ -1,1 +1,1 @@
-Sitemap: https://docs.netapp.com/occm/en/sitemap.xml
+Sitemap: https://docs.netapp.com/en/occm/sitemap.xml
