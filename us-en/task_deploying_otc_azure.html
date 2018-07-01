@@ -336,6 +336,46 @@
   
 
   
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when not launching Cloud Manager from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
     <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
   
 
@@ -356,42 +396,6 @@
 
   
     <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional installation options</a>
-      <ul>
-        
-
-  
-    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
-  
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
-  
-
-  
-    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
-  
-
-  
-    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
-  
-
-  
-    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
   
 
 
@@ -600,6 +604,10 @@
         
 
   
+    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
+  
+
+  
     <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
   
 
@@ -762,7 +770,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Azure Subscription</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the Azure service principal is bound to multiple Azure subscriptions, select the current subscription and then choose another subscription. For instructions about binding the service principal, see <a href="task_getting_started_azure.html#granting-azure-permissions-to-cloud-manager">Granting Azure Permissions to Cloud Manager</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different Azure subscription if you provided permissions through multiple subscriptions. If you are using a Managed Service Identity, see <a href="task_enabling_msi.html">Enabling a Managed Service Identity on an existing Cloud Manager virtual machine</a>. If you are using a service principal with credentials, see <a href="task_creating_service_principal.html#assigning-the-cloud-manager-operator-role-to-the-service-principal">Assigning the Cloud Manager Operator role to the service principal</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Working Environment Name</p></td>
@@ -774,7 +782,11 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tags are metadata for your Azure resources. Cloud Manager adds the tags to the Cloud Volumes ONTAP system and each Azure resource associated with the system. For information about tags, refer to <a href="https://azure.microsoft.com/documentation/articles/resource-group-using-tags/" target="_blank" rel="noopener">Microsoft Azure Documentation: Using tags to organize your Azure resources</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags are metadata for your Azure resources. Cloud Manager adds the tags to the Cloud Volumes ONTAP system and each Azure resource associated with the system.<br>
+<br>
+You can add up to four tags from the user interface when creating a working environment, and then you can add more after its created. Note that the API does not limit you to four tags when creating a working environment.<br>
+<br>
+For information about tags, refer to <a href="https://azure.microsoft.com/documentation/articles/resource-group-using-tags/" target="_blank" rel="noopener">Microsoft Azure Documentation: Using tags to organize your Azure resources</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Credentials</p></td>
@@ -945,7 +957,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <li>
 <p>On the Usage Profile, Disk Type, and Tiering Policy page, choose whether you want to enable storage efficiency features and change the tiering policy, if needed.</p>
 <div class="paragraph">
-<p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_storage.html#data-tiering">Data tiering</a>.</p>
+<p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_storage.html#data-tiering-overview">Data tiering overview</a>.</p>
 </div>
 </li>
 <li>

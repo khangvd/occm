@@ -336,6 +336,46 @@
   
 
   
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when not launching Cloud Manager from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
     <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
   
 
@@ -356,42 +396,6 @@
 
   
     <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional installation options</a>
-      <ul>
-        
-
-  
-    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
-  
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
-  
-
-  
-    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
-  
-
-  
-    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
-  
-
-  
-    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
   
 
 
@@ -600,6 +604,10 @@
         
 
   
+    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
+  
+
+  
     <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
   
 
@@ -719,7 +727,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can reduce storage costs in AWS and Azure by combining an SSD or HDD performance tier for "hot" data with an object storage capacity tier for "cold" data. For a high-level overview, see <a href="concept_storage.html#data-tiering">Data tiering</a>.</p>
+<p>You can reduce storage costs in AWS and Azure by combining an SSD or HDD performance tier for "hot" data with an object storage capacity tier for "cold" data. For a high-level overview, see <a href="concept_storage.html#data-tiering-overview">Data tiering overview</a>.</p>
 </div>
 <div class="paragraph">
 <p>To set up data tiering, you simply need to do the following:</p>
@@ -757,6 +765,7 @@
 <li><a href="#requirements-for-tiering-data-in-microsoft-azure">Requirements for tiering data in Microsoft Azure</a></li>
 <li><a href="#tiering-data-on-read-write-volumes">Tiering data on read-write volumes</a></li>
 <li><a href="#tiering-data-on-data-protection-volumes">Tiering data on data protection volumes</a></li>
+<li><a href="#changing-the-tiering-level">Changing the tiering level</a></li>
 </ul>
 </div>
 </div>
@@ -797,7 +806,7 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 <li>
 <p>Auto is supported with Premium and BYOL only.</p>
 <div class="paragraph">
-<p>For a description of these policies, see <a href="concept_storage.html#data-tiering">Data tiering</a>.</p>
+<p>For a description of these policies, see <a href="concept_storage.html#data-tiering-overview">Data tiering overview</a>.</p>
 </div>
 </li>
 </ul>
@@ -846,7 +855,7 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 <p>"Microsoft.Network/virtualNetworks/subnets/write",</p>
 </div>
 <div class="paragraph">
-<p>That permission is included in the latest Cloud Manager policy. For details about providing permissions, see <a href="task_getting_started_azure.html#granting-azure-permissions-to-cloud-manager">Granting Azure Permissions to Cloud Manager</a>.</p>
+<p>That permission is included in the latest Cloud Manager policy. For details about providing permissions, see <a href="task_getting_started_azure.html#granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</a>.</p>
 </div>
 </div>
 </div>
@@ -935,6 +944,38 @@ If you prefer to create aggregates yourself, you can enable data tiering on aggr
 <div class="paragraph">
 <p>For help with replicating data, see <a href="task_replicating_data.html">Replicating data to and from the cloud</a>.</p>
 </div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="changing-the-tiering-level">Changing the tiering level</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you enable data tiering, Cloud Volumes ONTAP tiers cold data to the S3 <em>Standard</em> storage class in AWS or to the <em>hot</em> storage tier in Azure. After you deploy Cloud Volumes ONTAP, you can reduce your storage costs by changing the tiering level for cold data that has not been accessed for 30 days. The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level.</p>
+</div>
+<div class="paragraph">
+<div class="title">About this task</div>
+<p>The tiering level is system wide—​it is not per volume.</p>
+</div>
+<div class="paragraph">
+<p>In AWS, you can change the tiering level so cold data moves to the  <em>Standard-Infrequent Access</em> storage class or to the <em>One Zone-Infrequent Access</em> storage class after 30 days of inactivity.</p>
+</div>
+<div class="paragraph">
+<p>In Azure, you can change the tiering level so cold data moves to the  <em>cool</em> storage tier after 30 days of inactivity.</p>
+</div>
+<div class="paragraph">
+<p>For more information about how tiering levels work, see <a href="concept_storage.html#data-tiering-overview">Data tiering overview</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>From the working environment, click menu icon and then click <strong>Tiering Level</strong>.</p>
+</li>
+<li>
+<p>Choose the tiering level and then click <strong>Save</strong>.</p>
 </li>
 </ol>
 </div>

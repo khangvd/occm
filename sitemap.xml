@@ -54,7 +54,7 @@
     <url>
       <loc>https://docs.netapp.com/occm/concept_storage.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-07-01T01:07:01+00:00</lastmod>
       
     </url>
   
@@ -145,7 +145,7 @@
     <url>
       <loc>https://docs.netapp.com/occm/reference_limitations.html</loc>
       
-        <lastmod>2018-06-21T13:27:38+00:00</lastmod>
+        <lastmod>2018-07-01T01:07:34+00:00</lastmod>
       
     </url>
   
@@ -159,7 +159,7 @@
     <url>
       <loc>https://docs.netapp.com/occm/reference_networking_azure.html</loc>
       
-        <lastmod>2018-06-24T13:07:29+00:00</lastmod>
+        <lastmod>2018-07-01T01:19:51+00:00</lastmod>
       
     </url>
   
@@ -173,7 +173,7 @@
     <url>
       <loc>https://docs.netapp.com/occm/reference_new_occm.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-07-01T01:10:36+00:00</lastmod>
       
     </url>
   
@@ -215,7 +215,7 @@
     <url>
       <loc>https://docs.netapp.com/occm/search.html</loc>
       
-        <lastmod>2018-06-29T13:38:24+00:00</lastmod>
+        <lastmod>2018-07-01T01:20:58+00:00</lastmod>
       
     </url>
   
@@ -255,6 +255,13 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/occm/task_creating_service_principal.html</loc>
+      
+        <lastmod>2018-07-01T01:11:22+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/occm/task_deleting_working_env.html</loc>
       
         <lastmod>2018-06-20T17:22:08+00:00</lastmod>
@@ -264,14 +271,14 @@
     <url>
       <loc>https://docs.netapp.com/occm/task_deploying_otc_aws.html</loc>
       
-        <lastmod>2018-06-20T18:58:07+00:00</lastmod>
+        <lastmod>2018-07-01T01:10:48+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/occm/task_deploying_otc_azure.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-07-01T01:10:25+00:00</lastmod>
       
     </url>
   
@@ -290,6 +297,13 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/occm/task_enabling_msi.html</loc>
+      
+        <lastmod>2018-07-01T01:10:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/occm/task_getting_started_aws.html</loc>
       
         <lastmod>2018-06-20T17:22:08+00:00</lastmod>
@@ -299,7 +313,7 @@
     <url>
       <loc>https://docs.netapp.com/occm/task_getting_started_azure.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-07-01T01:10:25+00:00</lastmod>
       
     </url>
   
@@ -313,21 +327,21 @@
     <url>
       <loc>https://docs.netapp.com/occm/task_installing_azure_germany.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-07-01T01:10:25+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/occm/task_installing_azure_gov.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-07-01T01:10:25+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/occm/task_installing_linux.html</loc>
       
-        <lastmod>2018-06-24T13:07:05+00:00</lastmod>
+        <lastmod>2018-07-01T01:19:51+00:00</lastmod>
       
     </url>
   
@@ -397,7 +411,7 @@
     <url>
       <loc>https://docs.netapp.com/occm/task_provisioning_storage.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-07-01T01:07:01+00:00</lastmod>
       
     </url>
   
@@ -460,7 +474,7 @@
     <url>
       <loc>https://docs.netapp.com/occm/task_tiering.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-07-01T01:07:01+00:00</lastmod>
       
     </url>
   

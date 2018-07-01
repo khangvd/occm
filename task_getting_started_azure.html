@@ -17,8 +17,8 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="Getting started with Cloud Volumes ONTAP includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central,...">
-  <meta name="keywords" content=" microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, vpn, multi-cloud, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role, free trial, security group">
+  <meta name="description" content="Getting started with Cloud Volumes ONTAP (formerly ONTAP Cloud) includes verifying your networking, deploying Cloud Manager, granting Azure permissions, and ...">
+  <meta name="keywords" content=" microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, vpn, multi-cloud, custom role, role, json, active directory, ad, managed service identity, msi, permissions, virtual machine">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -336,6 +336,46 @@
   
 
   
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional installation options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
+  
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when not launching Cloud Manager from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
     <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
   
 
@@ -356,42 +396,6 @@
 
   
     <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional installation options</a>
-      <ul>
-        
-
-  
-    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
-  
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
-  
-
-  
-    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
-  
-
-  
-    <li><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
-  
-
-  
-    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
   
 
 
@@ -600,6 +604,10 @@
         
 
   
+    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
+  
+
+  
     <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
   
 
@@ -719,14 +727,14 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Getting started with Cloud Volumes ONTAP (formerly ONTAP Cloud) includes preparing your Azure environment, launching the OnCommand Cloud Manager software from NetApp Cloud Central, and then launching Cloud Volumes ONTAP using Cloud Manager.</p>
+<p>Getting started with Cloud Volumes ONTAP (formerly ONTAP Cloud) includes verifying your networking, deploying Cloud Manager, granting Azure permissions, and then launching Cloud Volumes ONTAP using Cloud Manager.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#verifying-your-networking">Verifying your networking</a></li>
+<li><a href="#deploying-cloud-manager-in-azure">Deploying Cloud Manager in Azure</a></li>
 <li><a href="#granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</a></li>
-<li><a href="#installing-and-setting-up-cloud-manager-in-azure">Installing and setting up Cloud Manager in Azure</a></li>
 <li><a href="#deploying-cloud-volumes-ontap-in-azure">Deploying Cloud Volumes ONTAP in Azure</a></li>
 </ul>
 </div>
@@ -767,243 +775,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager needs permissions to perform actions in Azure. You must grant the required permissions by creating and setting up a service principal in Azure Active Directory and by obtaining the Azure credentials that Cloud Manager needs.</p>
-</div>
-<div class="paragraph">
-<div class="title">About this task</div>
-<p>The following image depicts how Cloud Manager obtains permissions to perform operations in Azure. A service principal object, which is tied to one or more Azure subscriptions, represents Cloud Manager in Azure Active Directory and is assigned to a custom role that allows the required permissions.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/diagram_azure_authentication.png" alt="Conceptual image that shows Cloud Manager obtaining authentication and authorization from Azure Active Directory before it can make an API call. In Active Directory" width="the Cloud Manager Operator role defines permissions. It is tied to one or more Azure subscriptions and a service principal object that represents the Cloud Manger application."></span></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The following steps use the new Azure portal. If you experience any issues, you should use the Azure classic portal.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p><a href="#creating-a-custom-role-with-the-required-cloud-manager-permissions">Create a custom role with the required Cloud Manager permissions</a>.</p>
-</li>
-<li>
-<p><a href="#creating-an-active-directory-service-principal">Create an Active Directory service principal</a>.</p>
-</li>
-<li>
-<p><a href="#assigning-the-cloud-manager-operator-role-to-the-service-principal">Assign the custom Cloud Manager Operator role to the service principal</a>.</p>
-</li>
-</ol>
-</div>
-<div class="sect2">
-<h3 id="creating-a-custom-role-with-the-required-cloud-manager-permissions">Creating a custom role with the required Cloud Manager permissions</h3>
-<div class="paragraph">
-<p>A custom role is required to provide Cloud Manager with the permissions that it needs to launch and manage Cloud Volumes ONTAP in Azure.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Download the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager Azure policy</a>.</p>
-</li>
-<li>
-<p>Modify the JSON file by adding Azure subscription IDs to the assignable scope.</p>
-<div class="paragraph">
-<p>You should add the ID for each Azure subscription from which users will create Cloud Volumes ONTAP systems.</p>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="paragraph">
-<p>"AssignableScopes": [<br>
-"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",<br>
-"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",<br>
-"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</p>
-</div>
-</li>
-<li>
-<p>Use the JSON file to create a custom role in Azure.</p>
-<div class="paragraph">
-<p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
-</div>
-<div class="paragraph">
-<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3_4_5.json</strong></p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<div class="title">Result</div>
-<p>You should now have a custom role called OnCommand Cloud Manager Operator.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="creating-an-active-directory-service-principal">Creating an Active Directory service principal</h3>
-<div class="paragraph">
-<p>You must create an Active Directory service principal so Cloud Manager can authenticate with Azure Active Directory.</p>
-</div>
-<div class="paragraph">
-<div class="title">Before you begin</div>
-<p>You must have the appropriate permissions in Azure to create an Active Directory application and to assign the application to a role. For details, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/" target="_blank" rel="noopener">Microsoft Azure Documentation: Use portal to create Active Directory application and service principal that can access resources</a></p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>From the Azure portal, open the <strong>Azure Active Directory</strong> service.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad.gif" alt="Shows the Active Directory service in Microsoft Azure."></span></p>
-</div>
-</li>
-<li>
-<p>In the menu, click <strong>App registrations</strong>.</p>
-</li>
-<li>
-<p>Create the service principal:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Click <strong>New application registration</strong>.</p>
-</li>
-<li>
-<p>Enter a name for the application, keep <strong>Web app / API</strong> selected, and then enter any URL—for example, <a href="http://url" class="bare">http://url</a></p>
-</li>
-<li>
-<p>Click <strong>Create</strong>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Modify the application to add the required permissions:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Select the created application.</p>
-</li>
-<li>
-<p>Under Settings, click <strong>Required permissions</strong> and then click <strong>Add</strong>.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad_permissions.gif" alt="Shows the settings for an Active Directory application in Microsoft Azure and highlights the option to add required permissions for API access."></span></p>
-</div>
-</li>
-<li>
-<p>Click <strong>Select an API</strong>, select <strong>Windows Azure Service Management API</strong>, and then click <strong>Select</strong>.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad_api.gif" alt="Shows the API to select in Microsoft Azure when adding API access to the Active Directory application. The API is the Windows Azure Service Management API."></span></p>
-</div>
-</li>
-<li>
-<p>Click <strong>Access Azure Service Management as organization users</strong>, click <strong>Select</strong> and then click <strong>Done</strong>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Create a key for the service principal:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Under Settings, click <strong>Keys</strong>.</p>
-</li>
-<li>
-<p>Enter a description, select a duration, and then click <strong>Save</strong>.</p>
-</li>
-<li>
-<p>Copy the key value.</p>
-<div class="paragraph">
-<p>You need to enter the key value in Cloud Manager when you create user accounts for this subscription.</p>
-</div>
-</li>
-<li>
-<p>Click <strong>Properties</strong> and then copy the application ID for the service principal.</p>
-<div class="paragraph">
-<p>Similar to the key value, you need to enter the application ID in Cloud Manager when you create user accounts for this subscription.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad_app_id.gif" alt="Shows the application ID for an Azure Active Directory service principal."></span></p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Obtain the Active Directory tenant ID for your organization:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>In the Active Directory menu, click <strong>Properties</strong>.</p>
-</li>
-<li>
-<p>Copy the Directory ID.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad_id.gif" alt="Shows the Active Directory properties in the Azure portal and the Directory ID that you need to copy."></span></p>
-</div>
-<div class="paragraph">
-<p>Just like the application ID and application key, you must enter the Active Directory tenant ID when you create Cloud Manager user accounts.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<div class="title">Result</div>
-<p>You should now have an Active Directory service principal and you should have copied the application ID, the application key, and the Active Directory tenant ID. You need to enter this information in Cloud Manager when you set up user accounts.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="assigning-the-cloud-manager-operator-role-to-the-service-principal">Assigning the Cloud Manager Operator role to the service principal</h3>
-<div class="paragraph">
-<p>You must bind the service principal to one or more Azure subscriptions and assign it the Cloud Manager Operator role so Cloud Manager has permissions in Azure.</p>
-</div>
-<div class="paragraph">
-<div class="title">About this task</div>
-<p>If you want to deploy Cloud Volumes ONTAP from multiple Azure subscriptions, then you must bind the service principal to each of those subscriptions. Cloud Manager enables you to select the subscription that you want to use when deploying Cloud Volumes ONTAP.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>From the Azure portal, select <strong>Subscriptions</strong> in the left pane.</p>
-</li>
-<li>
-<p>Select the subscription.</p>
-</li>
-<li>
-<p>Click <strong>Access control (IAM)</strong> and then click <strong>Add</strong>.</p>
-</li>
-<li>
-<p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
-</li>
-<li>
-<p>Search for the name of the application (you cannot find it in the list by scrolling).</p>
-</li>
-<li>
-<p>Select the application, click <strong>Select</strong>, and then click <strong>OK</strong>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<div class="title">Result</div>
-<p>The service principal for Cloud Manager now has the required Azure permissions.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="installing-and-setting-up-cloud-manager-in-azure">Installing and setting up Cloud Manager in Azure</h2>
+<h2 id="deploying-cloud-manager-in-azure">Deploying Cloud Manager in Azure</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You need to install and set up Cloud Manager so you can use it to launch Cloud Volumes ONTAP in Azure.</p>
@@ -1039,22 +811,22 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <li>
 <p>For the network security group, it is best to choose <strong>Advanced</strong>. The <strong>Advanced</strong> option creates a new security group that includes the required inbound rules for Cloud Manager. If you choose Basic, refer to <a href="reference_security_groups_azure.html">Security group rules</a> for the list of required rules.</p>
 </li>
+<li>
+<p>Under the settings, enable <strong>Managed Service Identity</strong> for Cloud Manager by selecting <strong>Yes</strong>.</p>
+<div class="paragraph">
+<p>This setting is important because a Managed Service Identity allows a Cloud Manager virtual machine to identify itself to Azure Active Directory without providing any credentials. This method is simpler than <a href="task_creating_service_principal.html">manually setting up an Azure service principal and providing the credentials to Cloud Manager</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information about Managed Service Identities, refer to <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview" target="_blank" rel="noopener">Azure documentation</a>.</p>
+</div>
+</li>
 </ul>
 </div>
 </li>
 <li>
-<p>Review your selections and click <strong>OK</strong>.</p>
+<p>On the summary page, review your selections and click <strong>Create</strong> to start the deployment.</p>
 <div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_summary.gif" alt="Screen shot: Shows an example of the settings when deploying OnCommand Cloud Manager in Microsoft Azure."></span></p>
-</div>
-</li>
-<li>
-<p>Click <strong>Purchase</strong>.</p>
-<div class="paragraph">
-<p>Azure launches the virtual machine with the specified settings. The virtual machine and Cloud Manager software should be running in approximately five minutes.</p>
+<p>Azure deploys the virtual machine with the specified settings. The virtual machine and Cloud Manager software should be running in approximately five minutes.</p>
 </div>
 </li>
 <li>
@@ -1073,7 +845,114 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager is now installed and set up so users can deploy Cloud Volumes ONTAP in Azure.</p>
+<p>Cloud Manager is now installed and set up. You must grant Azure permissions before users can deploy Cloud Volumes ONTAP in Azure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you deployed Cloud Manager in Azure, you should have enabled a Managed Service Identity. You must now grant the required Azure permissions by creating a custom role and then by assigning the role to the Cloud Manager virtual machine for one or more subscriptions.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Create a custom role using the Cloud Manager policy:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager Azure policy</a>.</p>
+</li>
+<li>
+<p>Modify the JSON file by adding Azure subscription IDs to the assignable scope.</p>
+<div class="paragraph">
+<p>You should add the ID for each Azure subscription from which users will create Cloud Volumes ONTAP systems.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>"AssignableScopes": [<br>
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",<br>
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",<br>
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</p>
+</div>
+</li>
+<li>
+<p>Use the JSON file to create a custom role in Azure.</p>
+<div class="paragraph">
+<p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
+</div>
+<div class="paragraph">
+<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3_4_5.json</strong></p>
+</div>
+<div class="paragraph">
+<p>You should now have a custom role called OnCommand Cloud Manager Operator that you can assign to the Cloud Manager virtual machine.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Assign the role to the Cloud Manager virtual machine for one or more subscriptions:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open the <strong>Subscriptions</strong> service and then select the subscription in which you want to deploy Cloud Volumes ONTAP systems.</p>
+</li>
+<li>
+<p>Click <strong>Access control (IAM)</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong> and then add the permissions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+OnCommand Cloud Manager Operator is the default name provided in the <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html">Cloud Manager policy</a>. If you chose a different name for the role, then select that name instead.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Assign access to a <strong>Virtual Machine</strong>.</p>
+</li>
+<li>
+<p>Select the subscription in which the Cloud Manager virtual machine was created.</p>
+</li>
+<li>
+<p>Select the resource group for the Cloud Manager virtual machine.</p>
+</li>
+<li>
+<p>Select the Cloud Manager virtual machine.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If you want to deploy Cloud Volumes ONTAP from additional subscriptions, switch to that subscription and then repeat these steps.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>Cloud Manager now has the permissions that it needs to deploy and manage Cloud Volumes ONTAP in Azure.</p>
 </div>
 </div>
 </div>
@@ -1121,16 +1000,6 @@ If you need a different size later, you can use the <strong>Advanced allocation<
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>The following video shows how to deploy Cloud Volumes ONTAP in Azure.</p>
-</div>
-<div class="videoblock">
-<div class="content">
-<video src="./media/video_launch_otc_azure.mp4" width="848" height="480" controls>
-Your browser does not support the video tag.
-</video>
-</div>
 </div>
 </li>
 </ul>
