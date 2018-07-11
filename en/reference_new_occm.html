@@ -736,6 +736,28 @@
 <li><a href="#cloud-manager-3-5">Cloud Manager 3.5</a></li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Looking for a previous version?</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/occm34/reference_new_occm.html">What&#8217;s new in Cloud Manager 3.4</a></p>
+</li>
+<li>
+<p><a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2735470">What&#8217;s new in Cloud Manager 3.3</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -747,6 +769,9 @@
 <div class="ulist">
 <ul>
 <li>
+<p><a href="#support-for-pay-as-you-go-in-the-aws-govcloud-us-region">Support for pay-as-you-go in the AWS GovCloud (US) region</a></p>
+</li>
+<li>
 <p><a href="#tiering-levels-for-cold-data">Tiering levels for cold data</a></p>
 </li>
 <li>
@@ -756,6 +781,15 @@
 <p><a href="#new-used-capacity-charts">New used capacity charts</a></p>
 </li>
 </ul>
+</div>
+<div class="sect2">
+<h3 id="support-for-pay-as-you-go-in-the-aws-govcloud-us-region">Support for pay-as-you-go in the AWS GovCloud (US) region</h3>
+<div class="paragraph">
+<p>The pay-as-you-go version of Cloud Volumes ONTAP is now supported in the AWS GovCloud (US) region. This is in addition to supporting Cloud Volumes ONTAP BYOL in the GovCloud (US) region.</p>
+</div>
+<div class="paragraph">
+<p>You can deploy Cloud Volumes ONTAP in the GovCloud (US) region just like any other region. Go to NetApp Cloud Central and launch Cloud Manager in GovCloud (US). Then launch Cloud Volumes ONTAP PAYGO or BYOL by creating a new working environment in Cloud Manager.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="tiering-levels-for-cold-data">Tiering levels for cold data</h3>
@@ -791,6 +825,18 @@
 </div>
 <div class="paragraph">
 <p>To use a Managed Service Identity with Cloud Manager, follow <a href="task_getting_started_azure.html">instructions for new Cloud Manager virtual machines</a> or <a href="task_enabling_msi.html">instructions for existing Cloud Manager virtual machines</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Managed Service Identities are not supported in the Azure US Gov regions. You must <a href="task_creating_service_principal.html">grant Azure permissions to Cloud Manager using a service principal and credentials</a>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>For more information about Managed Service Identities, refer to <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview" target="_blank" rel="noopener">Azure documentation</a>.</p>

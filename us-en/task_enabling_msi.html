@@ -727,6 +727,18 @@
 <div class="paragraph lead">
 <p>You can provide Azure permissions to Cloud Manager by using a Managed Service Identity. A Managed Service Identity allows the Cloud Manager virtual machine to identify itself to Azure Active Directory without providing any credentials.</p>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Managed Service Identities are not supported in the US Gov regions. You must <a href="task_creating_service_principal.html">grant Azure permissions to Cloud Manager using a service principal and credentials</a>.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <div class="title">About this task</div>
 <p>If you currently provide Cloud Manager with Azure permissions through a service principal, you can change to using a Managed Service Identity instead. This method is simpler than manually setting up an Azure service principal and providing the credentials to Cloud Manager.</p>
