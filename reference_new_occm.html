@@ -440,6 +440,10 @@
   
 
   
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+  
     <li><a href="concept_licensing.html">Licensing</a></li>
   
 
@@ -733,9 +737,18 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#cloud-manager-3-5-2">Cloud Manager 3.5.2</a></li>
 <li><a href="#cloud-manager-3-5-1">Cloud Manager 3.5.1</a></li>
 <li><a href="#cloud-manager-3-5">Cloud Manager 3.5</a></li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-5-2">Cloud Manager 3.5.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.5.2 includes new features and enhancements.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -744,20 +757,110 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="title">Looking for a previous version?</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.netapp.com/us-en/occm34/reference_new_occm.html">What&#8217;s new in Cloud Manager 3.4</a></p>
-</li>
-<li>
-<p><a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2735470">What&#8217;s new in Cloud Manager 3.3</a></p>
-</li>
-</ul>
-</div>
+Changes in this release require a new Azure permission for Cloud Manager. Read the changes below.
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#support-for-worm-storage">Support for WORM storage</a></p>
+</li>
+<li>
+<p><a href="#support-for-the-auto-tiering-policy-with-cloud-volumes-ontap-standard">Support for the auto tiering policy with Cloud Volumes ONTAP Standard</a></p>
+</li>
+<li>
+<p><a href="#cloud-manager-deployment-in-azure-from-netapp-cloud-central">Cloud Manager deployment in Azure from NetApp Cloud Central</a></p>
+</li>
+<li>
+<p><a href="#animation-added-to-used-capacity-charts">Animation added to used capacity charts</a></p>
+</li>
+<li>
+<p><a href="#locks-on-azure-disks">Locks on Azure disks</a></p>
+</li>
+<li>
+<p><a href="#tags-on-aws-cloudformation-stacks">Tags on AWS CloudFormation stacks</a></p>
+</li>
+<li>
+<p><a href="#deprecation-of-cloud-volumes-ontap-encryption-in-aws">Deprecation of Cloud Volumes ONTAP encryption in AWS</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="support-for-worm-storage">Support for WORM storage</h3>
+<div class="paragraph">
+<p>You can now activate WORM storage on new Cloud Volumes ONTAP systems. Write once, read many (WORM) storage enables you to retain critical files in unmodified form for regulatory and governance purposes and to protect from malware attacks. WORM files are protected at the file level.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_worm.html">Learn more about WORM storage</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-the-auto-tiering-policy-with-cloud-volumes-ontap-standard">Support for the auto tiering policy with Cloud Volumes ONTAP Standard</h3>
+<div class="paragraph">
+<p>The <em>auto</em> volume tiering policy is now supported with the pay-as-you-go Standard license for Cloud Volumes ONTAP. You can select the auto tiering policy when creating, modifying, or replicating a volume. Data tiering enables automated tiering of cold data to low-cost object storage.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Auto is the default policy when creating new volumes for Cloud Volumes ONTAP Standard, Premium, and BYOL.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="concept_storage.html#data-tiering-overview">Learn more about data tiering</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-manager-deployment-in-azure-from-netapp-cloud-central">Cloud Manager deployment in Azure from NetApp Cloud Central</h3>
+<div class="paragraph">
+<p>Starting soon, you can deploy new Cloud Manager systems in Microsoft Azure directly from <a href="https://cloud.netapp.com">NetApp Cloud Central</a>. Cloud Central simplifies the deployment experience and provides a single location to view and manage multiple Cloud Manager systems. Providing your Azure credentials is secure and private because they are entered in an Azure pop-up window.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_cloud_central.html">Learn more about Cloud Central</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="animation-added-to-used-capacity-charts">Animation added to used capacity charts</h3>
+<div class="paragraph">
+<p>An animation now shows you the amount of used capacity when you view volumes or aggregates.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_used_capacity_animation.gif" alt="An animated screenshot that shows an aggregate and its used capacity."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locks-on-azure-disks">Locks on Azure disks</h3>
+<div class="paragraph">
+<p>Cloud Manager can now add locks to the Azure disks that it allocates to Cloud Volumes ONTAP. The locks help to ensure that the disks are not accidently deleted. This change requires a new permission so Cloud Manager can add, delete, and query the locks:</p>
+</div>
+<div class="paragraph">
+<p>"Microsoft.Authorization/locks/*"</p>
+</div>
+<div class="paragraph">
+<p>You should add this permission to the custom role that provides Cloud Manager with the required permissions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tags-on-aws-cloudformation-stacks">Tags on AWS CloudFormation stacks</h3>
+<div class="paragraph">
+<p>Cloud Manager now adds user tags to the AWS CloudFormation stacks that it creates. The tags can help to ensure that the stacks are not deleted by automated processes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deprecation-of-cloud-volumes-ontap-encryption-in-aws">Deprecation of Cloud Volumes ONTAP encryption in AWS</h3>
+<div class="paragraph">
+<p>Data-at-rest encryption of aggregates using external key managers is no longer supported when launching new Cloud Volumes ONTAP systems in AWS. Existing systems that use this feature are still supported; however, Cloud Volumes ONTAP encryption will be deprecated in the 9.5 release. NetApp will contact you to discuss how to upgrade those systems to the 9.5 release and how to implement a replacement encryption feature.</p>
+</div>
+<div class="paragraph">
+<p>You can still enable data encryption on new systems by using the AWS Key Management Service (KMS).</p>
+</div>
 </div>
 </div>
 </div>
@@ -827,11 +930,11 @@
 <div class="paragraph">
 <p>To use a Managed Service Identity with Cloud Manager, follow <a href="task_getting_started_azure.html">instructions for new Cloud Manager virtual machines</a> or <a href="task_enabling_msi.html">instructions for existing Cloud Manager virtual machines</a>.</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 Managed Service Identities are not supported in the Azure US Gov regions and in the Germany regions. You must <a href="task_creating_service_principal.html">grant Azure permissions to Cloud Manager using a service principal and credentials</a>.

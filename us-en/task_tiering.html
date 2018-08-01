@@ -440,6 +440,10 @@
   
 
   
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+  
     <li><a href="concept_licensing.html">Licensing</a></li>
   
 
@@ -795,25 +799,6 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 </div>
 </li>
 <li>
-<p>Tiering policies are supported with the following licenses:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Snapshot-only is supported with Standard, Premium, and BYOL.</p>
-</li>
-<li>
-<p>Backup is supported with Standard, Premium, and BYOL.</p>
-</li>
-<li>
-<p>Auto is supported with Premium and BYOL only.</p>
-<div class="paragraph">
-<p>For a description of these policies, see <a href="concept_storage.html#data-tiering-overview">Data tiering overview</a>.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>In AWS, the performance tier can be General Purpose SSDs, Provisioned IOPS SSDs, or Throughput Optimized HDDs.</p>
 </li>
 <li>
@@ -821,9 +806,6 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 </li>
 <li>
 <p>Data tiering is supported with AWS-managed encryption and Azure-managed encryption.</p>
-<div class="paragraph">
-<p>It is not supported with Cloud Volumes ONTAP-managed encryption.</p>
-</div>
 </li>
 <li>
 <p>Thin provisioning must be enabled on volumes.</p>
@@ -857,6 +839,18 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 </div>
 <div class="paragraph">
 <p>That permission is included in the latest Cloud Manager policy. For details about providing permissions, see <a href="task_getting_started_azure.html#granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If your network configuration uses route tables, then Cloud Manager also requires the following permission: Microsoft.Network/routeTables/join/action
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -895,7 +889,10 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 </table>
 </li>
 <li>
-<p>Select the Snapshot Only policy or the Auto policy (supported only with Cloud Volumes ONTAP Premium or BYOL).</p>
+<p>Select the Snapshot Only policy or the Auto policy.</p>
+<div class="paragraph">
+<p>For a description of these policies, see <a href="concept_storage.html#data-tiering-overview">Data tiering overview</a>.</p>
+</div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -973,7 +970,7 @@ If you prefer to create aggregates yourself, you can enable data tiering on aggr
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>From the working environment, click menu icon and then click <strong>Tiering Level</strong>.</p>
+<p>From the working environment, click the menu icon and then click <strong>Tiering Level</strong>.</p>
 </li>
 <li>
 <p>Choose the tiering level and then click <strong>Save</strong>.</p>

@@ -18,7 +18,7 @@
   
 
   <meta name="description" content="You can start creating Cloud Volumes ONTAP systems right after you deploy Cloud Manager. However, you might want to perform additional setup first by setting...">
-  <meta name="keywords" content=" https certificate, certificate, security, users, adding, creating, tenants, linking, netapp support site account, nss, encryption, key managers, CA, key manager, requirements, safenet, vormetric, kms, key management service, cmk, amazon encryption, encryption, billing, s3 bucket, cost, accounts, aws accounts, trust relationship, csr">
+  <meta name="keywords" content=" https certificate, certificate, security, users, adding, creating, tenants, linking, netapp support site account, nss, encryption, key managers, CA, key manager, requirements, safenet, vormetric, kms, key management service, cmk, billing, s3 bucket, cost, accounts, aws accounts, trust relationship, csr">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
@@ -440,6 +440,10 @@
   
 
   
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+  
     <li><a href="concept_licensing.html">Licensing</a></li>
   
 
@@ -739,13 +743,6 @@
 <li><a href="#adding-users-to-cloud-manager">Adding users to Cloud Manager</a></li>
 <li><a href="#linking-tenants-to-a-netapp-support-site-account">Linking tenants to a NetApp Support Site account</a></li>
 <li><a href="#setting-up-aws-billing-and-cost-management-for-cloud-manager">Setting up AWS billing and cost management for Cloud Manager</a></li>
-<li><a href="#setting-up-cloud-volumes-ontap-encryption">Setting up Cloud Volumes ONTAP encryption</a>
-<ul class="sectlevel2">
-<li><a href="#key-manager-requirements">Key manager requirements</a></li>
-<li><a href="#setting-up-cloud-manager-as-an-intermediate-ca">Setting up Cloud Manager as an intermediate CA</a></li>
-<li><a href="#adding-key-managers-and-ca-certificates-to-cloud-manager">Adding key managers and CA certificates to Cloud Manager</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -1069,295 +1066,6 @@ If you grant AWS permissions to Cloud Manager by specifying AWS keys, you must s
 <div class="paragraph">
 <div class="title">After you finish</div>
 <p>Repeat these steps for other AWS payer accounts for which cost reporting is needed. For details about how to view the cost information, see <a href="task_monitoring_costs.html">Monitoring AWS storage and compute costs</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="setting-up-cloud-volumes-ontap-encryption">Setting up Cloud Volumes ONTAP encryption</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The Cloud Manager Admin user must set up Cloud Manager before other users can enable Cloud Volumes ONTAP encryption on new Cloud Volumes ONTAP systems in AWS.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p><a href="#key-manager-requirements">Implement a supported key management infrastructure</a>.</p>
-</li>
-<li>
-<p><a href="#setting-up-cloud-manager-as-an-intermediate-ca">Set up Cloud Manager as an intermediate CA</a>.</p>
-</li>
-<li>
-<p><a href="#adding-key-managers-and-ca-certificates-to-cloud-manager">Add key managers and their CA certificates to Cloud Manager</a>.</p>
-</li>
-</ol>
-</div>
-<div class="sect2">
-<h3 id="key-manager-requirements">Key manager requirements</h3>
-<div class="paragraph">
-<p>You need a supported key management infrastructure to use Cloud Volumes ONTAP encryption.</p>
-</div>
-<div class="sect3">
-<h4 id="supported-key-managers">Supported key managers</h4>
-<div class="paragraph">
-<p>An external key manager is a system in your network or in AWS that securely stores authentication keys and provides them upon demand to Cloud Volumes ONTAP using secure TLS connections. The following key managers are supported:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>SafeNet Virtual KeySecure k150v</p>
-</li>
-<li>
-<p>SafeNet KeySecure k460</p>
-</li>
-<li>
-<p>Vormetric Data Security Manager</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>See the <a href="http://mysupport.netapp.com/matrix" target="_blank" rel="noopener">NetApp Interoperability Matrix Tool</a> for supported software versions.</p>
-</div>
-<div class="paragraph">
-<p>Each Cloud Volumes ONTAP system supports up to four key managers. You should use multiple key managers in a clustered configuration for redundancy.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="vormetric-configuration-requirements">Vormetric configuration requirements</h4>
-<div class="paragraph">
-<p>See <a href="https://kb.netapp.com/app/answers/answer_view/a_id/1029882" target="_blank" rel="noopener">NetApp KB article 000033069</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The Encryption Setup page in Cloud Manager pertains to SafeNet key managers only. You must refer to the KB article to set up Cloud Volumes ONTAP with Vormetric key managers. The rest of this section describes setup for SafeNet key managers.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="safenet-configuration-requirements">SafeNet configuration requirements</h4>
-<div class="paragraph">
-<p>Each SafeNet key manager must have several certificates, a KMIP server, and a network connection to Cloud Volumes ONTAP systems. The key manager must also meet specific requirements if using client certificate authentication. Note that Cloud Manager does not communicate with key managers, so a network connection between Cloud Manager and key managers is not required.</p>
-</div>
-<div class="paragraph">
-<p>A description of the key manager requirements follows:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Requirement</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must have a server certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers need a server certificate to authenticate with Cloud Volumes ONTAP systems. The SSL certificate must use the Privacy Enhanced Mail (PEM) Base-64 encoded X.509 format. You select this server certificate when you configure the KMIP server on the key manager.<br>
-<br>
-If you plan to use two to four key managers with a Cloud Volumes ONTAP system, the same certificate authority (CA) must sign the server certificate for each key manager.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must trust the signing CA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The CA that signed the server certificate must be known and trusted by the key manager.<br>
-Key managers must have a KMIP server 	Each key manager must have a KMIP server that uses SSL and a specific port. The default and recommended port for Cloud Volumes ONTAP is 5696. If needed, you can change this port when you set up Cloud Manager.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must have a network connection to Cloud Volumes ONTAP systems</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the key managers are in AWS, they must have a connection to the subnet in which Cloud Volumes ONTAP instances are running. If the key managers are in your network, a VPN connection to the VPC provides the required connection.<br>
-<br>
-Firewall settings must allow communication through the KMIP port.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must trust the Cloud Manager CA and its root CA, if using client certificate authentication</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">When you set up Cloud Manager, you configure it to act as an intermediate CA so it can sign client certificates for Cloud Volumes ONTAP. If a KMIP server requires client certificate authentication, then the Cloud Manager intermediate CA must be known and trusted by key managers.<br>
-<br>
-The root CA that signed the Cloud Manager certificate must also be known and trusted by the key manager.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key managers must check a compatible user name field, if using client certificate authentication</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the key manager&#8217;s KMIP server checks for a user name in client certificates, it must use a field compatible with client certificates for Cloud Volumes ONTAP. Cloud Manager can create client certificates that include a user name in the CN (Common Name), E (Email address), and OU (Organizational Unit) fields.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">KMIP Cryptographic Usage Mask must be set to no</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>If you use SafeNet OS v8.6, you must do the following:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Connect to the CLI using the admin user</p>
-</li>
-<li>
-<p>Enter the following commands:</p>
-<div class="paragraph">
-<p><strong>config</strong><br>
-<strong>no kmip cryptographicusagemask</strong></p>
-</div>
-</li>
-<li>
-<p>Restart the NAE Server from the user interface</p>
-</li>
-</ol>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The following graphic depicts these requirements:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/diagram_encryption_reqs.png" alt="This illustration shows the requirements for key managers: a KMIP server" width="a server certificate" height="a CA certificate"></span></p>
-</div>
-<div class="paragraph">
-<p>Notes:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The Cloud Manager intermediate CA and its root CA must be trusted only if the KMIP server requires client certificate authentication.</p>
-</li>
-<li>
-<p>The same CA must have signed the server certificate for both key managers. This CA is called the key manager CA.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>After you meet these requirements, you must set up Cloud Manager so users can enable Cloud Volumes ONTAP encryption.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="setting-up-cloud-manager-as-an-intermediate-ca">Setting up Cloud Manager as an intermediate CA</h3>
-<div class="paragraph">
-<p>Cloud Manager must be an intermediate certificate authority (CA) because it needs to create client certificates for Cloud Volumes ONTAP. You set up Cloud Manager to be an intermediate CA by generating a certificate signing request (CSR), getting the CSR signed by a root CA, and then installing the certificate in Cloud Manager.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the upper-right corner of the Cloud Manager console, click the task drop-down list, and then select <strong>Encryption Setup</strong>.</p>
-</li>
-<li>
-<p>In the Intermediate CA tab, click <strong>Generate CSR</strong>.</p>
-<div class="paragraph">
-<p>Cloud Manager displays a certificate signing request.</p>
-</div>
-</li>
-<li>
-<p>Use the CSR to submit a certificate request to a CA.</p>
-<div class="paragraph">
-<p>The intermediate CA certificate must use the Privacy Enhanced Mail (PEM) Base-64 encoded X.509 format.</p>
-</div>
-</li>
-<li>
-<p>Copy the content of the signed certificate and paste it in the Cloud Manager certificate field.</p>
-</li>
-<li>
-<p>Click <strong>Install Cloud Manager Certificate</strong>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<div class="title">Result</div>
-<p>Cloud Manager is now an intermediate CA—it can sign client certificates for Cloud Volumes ONTAP systems. The following image shows a Cloud Manager system that is configured to be an intermediate CA:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_intermediate_ca.gif" alt="Screen shot: Shows the Cloud Manager certificate in the Intermediate CA tab" width="which appears after Cloud Manager is configured to be an intermediate CA"></span></p>
-</div>
-<div class="paragraph">
-<div class="title">After you finish</div>
-<p>If a KMIP server requires client certificate authentication, add the Cloud Manager intermediate CA and its root CA to the key manager&#8217;s list of trusted CAs. This step is necessary because the key manager must verify that Cloud Volumes ONTAP client certificates were signed by a trusted CA.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-key-managers-and-ca-certificates-to-cloud-manager">Adding key managers and CA certificates to Cloud Manager</h3>
-<div class="paragraph">
-<p>Cloud Manager needs information about your key managers and CA certificates so users can select them for use with Cloud Volumes ONTAP systems.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the Encryption Setup page, click <strong>Key Manager</strong>.</p>
-</li>
-<li>
-<p>If your key managers use a KMIP port other than 5696, change the port and then click Save.</p>
-<div class="paragraph">
-<p>Cloud Manager configures Cloud Volumes ONTAP systems to connect to key managers using this port.</p>
-</div>
-</li>
-<li>
-<p>In the Key Managers table, click <strong>Add</strong>.</p>
-<div class="paragraph">
-<p>In the Add Key Manager dialog box, enter details about the key manager, and then click <strong>Add</strong>:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key Manager Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique name to distinguish the key manager.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IP Address</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enter the IP address of the key manager.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User Name for Client Certificate Authentication</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>If the key manager is enabled for client certificate authentication by having the key manager verify a user name from client certificates, specify the field and user name:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Select the field in which the key manager should look for a user name.</p>
-</li>
-<li>
-<p>Enter a user name that is defined in the key manager.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cloud Manager generates client certificates for Cloud Volumes ONTAP with the value defined in the user name field.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>In the Key Managers' CA Certificates table, click <strong>Add</strong>.</p>
-</li>
-<li>
-<p>Paste the certificate of the certificate authority (CA) that signed the key manager&#8217;s server certificate and then click <strong>Add</strong>.</p>
-</li>
-<li>
-<p>Repeat the steps for any additional key managers and their CA certificates.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<div class="title">Result</div>
-<p>Cloud Manager is now set up to create Cloud Volumes ONTAP systems with encryption enabled.</p>
-</div>
 </div>
 </div>
 </div>

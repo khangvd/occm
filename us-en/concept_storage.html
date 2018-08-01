@@ -440,6 +440,10 @@
   
 
   
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+  
     <li><a href="concept_licensing.html">Licensing</a></li>
   
 
@@ -929,7 +933,7 @@ A Cloud Volumes ONTAP working environment uses an Azure Blob container for all t
 <div class="sect2">
 <h3 id="how-data-tiering-affects-capacity-limits">How data tiering affects capacity limits</h3>
 <div class="paragraph">
-<p>A system&#8217;s capacity limit is spread across the performance tier and the capacity tier.</p>
+<p>If you enable data tiering, a system&#8217;s capacity limit stays the same. The limit is spread across the performance tier and the capacity tier.</p>
 </div>
 </div>
 <div class="sect2">
@@ -956,7 +960,7 @@ A Cloud Volumes ONTAP working environment uses an Azure Blob container for all t
 <dd>
 <p>After an aggregate has reached 50% capacity, Cloud Volumes ONTAP tiers cold data blocks in a volume to a capacity tier. The cold data includes not just Snapshot copies but also cold user data from the active file system. The cooling period is approximately 31 days.</p>
 <div class="paragraph">
-<p>This policy is supported starting with Cloud Volumes ONTAP 9.4. It is supported with Premium and BYOL only.</p>
+<p>This policy is supported starting with Cloud Volumes ONTAP 9.4.</p>
 </div>
 <div class="paragraph">
 <p>If read by random reads, the cold data blocks in the capacity tier become hot and move to the performance tier. If read by sequential reads, such as those associated with index and antivirus scans, the cold data blocks stay cold and do not move to the performance tier.</p>

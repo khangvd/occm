@@ -440,6 +440,10 @@
   
 
   
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+  
     <li><a href="concept_licensing.html">Licensing</a></li>
   
 
@@ -770,7 +774,7 @@
 <p>On the Working Environments page, click <strong>Add Working Environment</strong>.</p>
 </li>
 <li>
-<p>Under Create, select <strong>ONTAP Cloud</strong>.</p>
+<p>Under Create, select <strong>Cloud Volumes ONTAP</strong>.</p>
 </li>
 <li>
 <p>On the Details and Credentials page, optionally change the AWS account, enter a working environment name, add tags if needed, and then enter a password.</p>
@@ -834,39 +838,12 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 </div>
 </li>
 <li>
-<p>On the Data Encryption page, choose no data encryption, encryption managed by Cloud Volumes ONTAP, or AWS-managed encryption.</p>
+<p>On the Data Encryption page, choose no data encryption or AWS-managed encryption.</p>
 <div class="paragraph">
 <p>To better understand these options, see <a href="concept_security.html#data-encryption-in-aws">Data encryption in AWS</a>.</p>
 </div>
 <div class="paragraph">
 <p>For AWS-managed encryption, you can choose a different master key if more than one key is available in your account.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If Cloud Manager was not set up for encryption, the Cloud Manager Admin must set it up. See <a href="task_setting_up_cloud_manager.html#setting-up-cloud-volumes-ontap-encryption">Setting up Cloud Volumes ONTAP encryption</a>.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>If you chose Cloud Volumes ONTAP encryption, select one to four key managers, select the certificate of the CA that signed the server certificate for each key manager, and then click <strong>Continue</strong>.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The key manager CA certificate is for all selected key managers, which means the same certificate authority (CA) must have signed the server certificate for each key manager.
-</td>
-</tr>
-</table>
 </div>
 </li>
 <li>
@@ -921,9 +898,12 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>On the Write Speed page, choose <strong>Normal</strong> or <strong>High</strong>.</p>
+<p>On the Write Speed &amp; WORM page, choose <strong>Normal</strong> or <strong>High</strong> write speed, and activate write once, read many (WORM) storage, if desired.</p>
 <div class="paragraph">
-<p>For help choosing between the options, see <a href="task_planning_your_config.html#choosing-a-write-speed">Choosing a write speed</a>.</p>
+<p><a href="task_planning_your_config.html#choosing-a-write-speed">Learn more about write speed</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_worm.html">Learn more about WORM storage</a>.</p>
 </div>
 </li>
 <li>
@@ -1106,7 +1086,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <p>On the Working Environments page, click <strong>Add Working Environment</strong>.</p>
 </li>
 <li>
-<p>Under Create, select <strong>ONTAP Cloud HA</strong>.</p>
+<p>Under Create, select <strong>Cloud Volumes ONTAP HA</strong>.</p>
 </li>
 <li>
 <p>On the Details and Credentials page, optionally change the AWS account, enter a working environment name, add tags if needed, and then enter a password.</p>
@@ -1187,39 +1167,12 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 </div>
 </li>
 <li>
-<p>On the Data Encryption page, choose no data encryption, encryption managed by Cloud Volumes ONTAP, or AWS-managed encryption.</p>
+<p>On the Data Encryption page, choose no data encryption or AWS-managed encryption.</p>
 <div class="paragraph">
 <p>To better understand these options, see <a href="concept_security.html#data-encryption-in-aws">Data encryption in AWS</a>.</p>
 </div>
 <div class="paragraph">
 <p>For AWS-managed encryption, you can choose a different master key if more than one key is available in your account.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If Cloud Manager was not set up for encryption, the Cloud Manager Admin must set it up. See <a href="task_setting_up_cloud_manager.html#setting-up-cloud-volumes-ontap-encryption">Setting up Cloud Volumes ONTAP encryption</a>.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>If you selected Cloud Volumes ONTAP encryption, select one to four key managers, select the certificate of the CA that signed the server certificate for each key manager, and then click <strong>Continue</strong>.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The key manager CA certificate is for all selected key managers, which means the same certificate authority (CA) must have signed the server certificate for each key manager.
-</td>
-</tr>
-</table>
 </div>
 </li>
 <li>
@@ -1271,6 +1224,12 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 <div class="paragraph">
 <p>For help choosing a disk size, see <a href="task_planning_your_config.html#choosing-a-disk-size">Choosing a disk size</a>.</p>
+</div>
+</li>
+<li>
+<p>On the WORM page, activate write once, read many (WORM) storage, if desired.</p>
+<div class="paragraph">
+<p><a href="concept_worm.html">Learn more about WORM storage</a>.</p>
 </div>
 </li>
 <li>

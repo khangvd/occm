@@ -440,6 +440,10 @@
   
 
   
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+  
     <li><a href="concept_licensing.html">Licensing</a></li>
   
 
@@ -734,12 +738,7 @@
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#data-encryption-in-azure">Data encryption in Azure</a></li>
-<li><a href="#data-encryption-in-aws">Data encryption in AWS</a>
-<ul class="sectlevel2">
-<li><a href="#encryption-using-the-aws-kms">Encryption using the AWS KMS</a></li>
-<li><a href="#cloud-volumes-ontap-encryption">Cloud Volumes ONTAP encryption</a></li>
-</ul>
-</li>
+<li><a href="#data-encryption-in-aws">Data encryption in AWS</a></li>
 <li><a href="#ontap-virus-scanning">ONTAP virus scanning</a></li>
 </ul>
 </div>
@@ -769,115 +768,10 @@ Customer-managed keys are not supported with Cloud Volumes ONTAP.
 <h2 id="data-encryption-in-aws">Data encryption in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can choose whether to encrypt data on Cloud Volumes ONTAP systems in AWS when you create a new working environment. If data encryption is needed, you can choose between AWS-managed encryption and Cloud Volumes ONTAP encryption.</p>
-</div>
-<div class="sect2">
-<h3 id="encryption-using-the-aws-kms">Encryption using the AWS KMS</h3>
-<div class="paragraph">
-<p>The AWS Key Management Service (KMS) is a managed service that gives you control of encryption keys without having to administer a key management infrastructure. If you choose AWS-managed encryption, Cloud Manager requests data keys using a customer master key (CMK).</p>
+<p>Data encryption is supported in AWS using the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/overview.html" target="_blank" rel="noopener">AWS Key Management Service (KMS)</a>. Cloud Manager requests data keys using a customer master key (CMK).</p>
 </div>
 <div class="paragraph">
 <p>If you want to use this encryption option, then you must ensure that the AWS KMS is set up appropriately. For details, see <a href="task_setting_up_cloud_manager.html#setting-up-the-aws-kms">Setting up the AWS KMS</a>.</p>
-</div>
-<div class="paragraph">
-<p>For more information about the AWS KMS, refer to the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html" target="_blank" rel="noopener">AWS Documentation: EBS Encryption</a></p>
-</li>
-<li>
-<p><a href="http://docs.aws.amazon.com/kms/latest/developerguide/overview.html" target="_blank" rel="noopener">AWS Documentation: What is AWS Key Management Service?</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="cloud-volumes-ontap-encryption">Cloud Volumes ONTAP encryption</h3>
-<div class="paragraph">
-<p>You can protect your data from unauthorized access by using data-at-rest encryption provided by Cloud Volumes ONTAP. This optional feature encrypts and decrypts data using encryption keys that are stored on one or more key managers that are under your control.</p>
-</div>
-<div class="paragraph">
-<p>Communication with key managers is always secure. Cloud Volumes ONTAP connects to key managers using a TLS connection and communicates using the Key Management Interoperability Protocol (KMIP).</p>
-</div>
-<div class="paragraph">
-<p>Cloud Volumes ONTAP uses the XTS-AES algorithm, a mode of the Advanced Encryption Standard (AES), to protect data-at-rest. Before data is written to disk, it is encrypted using XTS-AES. When data is read from disk, the encrypted data is decrypted using XTS-AES before being sent to the requester.</p>
-</div>
-<div class="paragraph">
-<p>If you use the NetApp Storage Encryption feature with a physical FAS system and enable encryption on a Cloud Volumes ONTAP system, any data that you replicate between those systems is decrypted before it is replicated and then re-encrypted after it is replicated.</p>
-</div>
-<div class="paragraph">
-<p>You must set up and configure a key management infrastructure to use Cloud Volumes ONTAP encryption. For details, see <a href="task_setting_up_cloud_manager.html#setting-up-cloud-volumes-ontap-encryption">Setting up Cloud Volumes ONTAP encryption</a>.</p>
-</div>
-<div class="sect3">
-<h4 id="how-cloud-volumes-ontap-encryption-works-with-safenet-key-managers">How Cloud Volumes ONTAP encryption works with SafeNet key managers</h4>
-<div class="paragraph">
-<p>Understanding how Cloud Volumes ONTAP encryption works with SafeNet key managers can help you set up and use the feature. The following graphic shows the steps and components involved in the encryption process when using SafeNet key managers:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/diagram_encryption_overview.png" alt="This illustration shows how to set up and use Cloud Volumes ONTAP encryption. The following text describes this illustration."></span></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The Cloud Manager Admin sets up Cloud Manager as follows:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Generates a certificate signing request (CSR), uses it to obtain a signed certificate from a certificate authority (CA), and then installs the signed certificate in Cloud Manager.</p>
-</li>
-<li>
-<p>Adds details about key managers and key manager CA certificates in Cloud Manager.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Users launch Cloud Volumes ONTAP with encryption enabled (it cannot be enabled afterward).</p>
-<div class="paragraph">
-<p>Cloud Manager sets up Cloud Volumes ONTAP by installing the key manager CA certificate, generating and installing a client certificate, configuring the KMIP client, and linking the system to one or more key managers.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-All data on the system is encrypted, except for the root aggregate, which does not contain user data.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>For each aggregate, Cloud Volumes ONTAP generates and sends an encryption key to key managers.</p>
-</li>
-<li>
-<p>Each time Cloud Volumes ONTAP boots, it authenticates with key managers to obtain encryption keys, which are then stored in cache and never displayed in cleartext.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Cloud Volumes ONTAP communicates with key managers when it boots and when new aggregates are created. It does not communicate with key managers at any other time.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Before data is written to disk, it is encrypted using XTS-AES.</p>
-<div class="paragraph">
-<p>When data is read from disk, the encrypted data is decrypted using XTS-AES before being sent.</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
 </div>
 </div>
 </div>

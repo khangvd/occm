@@ -440,6 +440,10 @@
   
 
   
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+  
     <li><a href="concept_licensing.html">Licensing</a></li>
   
 
@@ -733,33 +737,35 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#security-group-rules-for-cloud-manager">Security group rules for Cloud Manager</a></li>
-<li><a href="#security-group-rules-for-cloud-volumes-ontap">Security group rules for Cloud Volumes ONTAP</a></li>
-<li><a href="#external-security-group-rules-for-the-ha-mediator">External security group rules for the HA mediator</a></li>
-<li><a href="#internal-security-group-rules-for-the-ha-mediator">Internal security group rules for the HA mediator</a></li>
+<li><a href="#rules-for-cloud-manager">Rules for Cloud Manager</a></li>
+<li><a href="#rules-for-cloud-volumes-ontap">Rules for Cloud Volumes ONTAP</a></li>
+<li><a href="#rules-for-the-ha-mediator-external-security-group">Rules for the HA mediator external security group</a></li>
+<li><a href="#rules-for-the-ha-mediator-internal-security-group">Rules for the HA mediator internal security group</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="security-group-rules-for-cloud-manager">Security group rules for Cloud Manager</h2>
+<h2 id="rules-for-cloud-manager">Rules for Cloud Manager</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Inbound rules</strong></p>
+<p>The security group for Cloud Manager requires both inbound and outbound rules.</p>
 </div>
+<div class="sect2">
+<h3 id="inbound-rules-for-cloud-manager">Inbound rules for Cloud Manager</h3>
 <div class="paragraph">
-<p>The source for inbound rules is 0.0.0.0/0.</p>
+<p>The source for inbound rules in the predefined security group is 0.0.0.0/0.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 80%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -767,33 +773,41 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SSH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH connections to Cloud Manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides SSH access to the Cloud Manager host</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Accessing the Cloud Manager console</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides HTTP access from client web browsers to the Cloud Manager web console</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Accessing the Cloud Manager console</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides HTTPS access from client web browsers to the Cloud Manager web console</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Outbound rules</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<div class="sect2">
+<h3 id="outbound-rules-for-cloud-manager">Outbound rules for Cloud Manager</h3>
+<div class="paragraph">
+<p>The predefined security group for Cloud Manager opens all outbound traffic. If that is acceptable, follow the basic outbound rules. If you need more rigid rules, use the advanced outbound rules.</p>
+</div>
+<div class="sect3">
+<h4 id="basic-outbound-rules">Basic outbound rules</h4>
+<div class="paragraph">
+<p>The predefined security group for Cloud Manager includes the following outbound rules.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 70%;">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -811,26 +825,144 @@
 </tbody>
 </table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="security-group-rules-for-cloud-volumes-ontap">Security group rules for Cloud Volumes ONTAP</h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="advanced-outbound-rules">Advanced outbound rules</h4>
 <div class="paragraph">
-<p><strong>Inbound rules</strong></p>
+<p>If you need rigid rules for outbound traffic, you can use the following information to open only those ports that are required for outbound communication by Cloud Manager.</p>
 </div>
-<div class="paragraph">
-<p>The source for inbound rules is 0.0.0.0/0.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The source IP address is the Cloud Manager host.
+</td>
+</tr>
+</table>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
+<col>
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="9"><p class="tableblock">Active Directory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">88</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V authentication</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS service session</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">389</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft SMB/CIFS over TCP with NetBIOS framing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V change &amp; set password (SET_CHANGE)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory Kerberos V change &amp; set password (RPCSEC_GSS)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">137</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS name service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">138</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS datagram service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos key administration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API calls and AutoSupport</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Outbound internet and ONTAP cluster management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API calls to AWS and ONTAP, and sending AutoSupport messages to NetApp</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API calls</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP cluster management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API calls to ONTAP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used for DNS resolve by Cloud Manager</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rules-for-cloud-volumes-ontap">Rules for Cloud Volumes ONTAP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The security group for Cloud Volumes ONTAP requires both inbound and outbound rules.</p>
+</div>
+<div class="sect2">
+<h3 id="inbound-rules-for-cloud-volumes-ontap">Inbound rules for Cloud Volumes ONTAP</h3>
+<div class="paragraph">
+<p>The source for inbound rules in the predefined security group is 0.0.0.0/0.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -841,115 +973,143 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pinging the instance</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Portmapper</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft SMB</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS mount</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3260</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">iSCSI</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4045-4046</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS mountd</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom TCP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11104-11105</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Intercluster management and data</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom UDP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Portmapper</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom UDP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom UDP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS mount</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom UDP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom UDP Rule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4045-4046</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS mountd</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">System Manager access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP access to the System Manager web console using the IP address of the cluster management LIF</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">System Manager access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS access to the System Manager web console using the IP address of the cluster management LIF</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SSH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH to the CLI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH access to the IP address of the cluster management LIF or a node management LIF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote procedure call for NFS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS service session for CIFS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple network management protocol</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft SMB/CIFS over TCP with NetBIOS framing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS mount</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS server daemon</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3260</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">iSCSI access through the iSCSI data LIF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4045</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS lock daemon</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4046</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Network status monitor for NFS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Backup using NDMP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11104</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Management of intercluster communication sessions for SnapMirror</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11105</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror data transfer using intercluster LIFs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote procedure call for NFS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple network management protocol</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS mount</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS server daemon</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4045</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS lock daemon</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4046</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Network status monitor for NFS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS rquotad protocol</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Outbound rules</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<div class="sect2">
+<h3 id="outbound-rules-for-cloud-volumes-ontap">Outbound rules for Cloud Volumes ONTAP</h3>
+<div class="paragraph">
+<p>The predefined security group for Cloud Volumes ONTAP opens all outbound traffic. If that is acceptable, follow the basic outbound rules. If you need more rigid rules, use the advanced outbound rules.</p>
+</div>
+<div class="sect3">
+<h4 id="basic-outbound-rules-2">Basic outbound rules</h4>
+<div class="paragraph">
+<p>The predefined security group for Cloud Volumes ONTAP includes the following outbound rules.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 70%;">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -957,7 +1117,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All ICMP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound traffic (SnapMirror and SnapVault)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound traffic</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All TCP</p></td>
@@ -972,26 +1132,311 @@
 </tbody>
 </table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="external-security-group-rules-for-the-ha-mediator">External security group rules for the HA mediator</h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="advanced-outbound-rules-2">Advanced outbound rules</h4>
 <div class="paragraph">
-<p><strong>Inbound rules</strong></p>
+<p>If you need rigid rules for outbound traffic, you can use the following information to open only those ports that are required for outbound communication by Cloud Volumes ONTAP.</p>
 </div>
-<div class="paragraph">
-<p>The source for inbound rules is 0.0.0.0/0.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The source is the interface (IP address) on the Cloud Volumes ONTAP system.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1818%;">
+<col style="width: 36.3637%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="18"><p class="tableblock">Active Directory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">88</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V authentication</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">137</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS name service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">138</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS datagram service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS service session</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">389</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft SMB/CIFS over TCP with NetBIOS framing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V change &amp; set password (SET_CHANGE)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos key administration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V change &amp; set Password (RPCSEC_GSS)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">88</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V authentication</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">137</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS name service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">138</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS datagram service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS service session</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">389</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft SMB/CIFS over TCP with NetBIOS framing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V change &amp; set password (SET_CHANGE)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos key administration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory forest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V change &amp; set password (RPCSEC_GSS)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Cluster</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All traffic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All traffic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All LIFs on one node</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All LIFs on the other node</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercluster communications (Cloud Volumes ONTAP HA only)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HA mediator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ZAPI calls (Cloud Volumes ONTAP HA only)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICMP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HA mediator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep alive (Cloud Volumes ONTAP HA only)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">68</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP client for first-time setup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">67</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP server</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF and data LIF (NFS, CIFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18600–18699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Destination servers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP copy</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMTP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mail server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMTP alerts, can be used for AutoSupport</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">SNMP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">161</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitor server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring by SNMP traps</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">161</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitor server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring by SNMP traps</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">162</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitor server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring by SNMP traps</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">162</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitor server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring by SNMP traps</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">SnapMirror</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11104</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercluster LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP intercluster LIFs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Management of intercluster communication sessions for SnapMirror</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11105</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercluster LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP intercluster LIFs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror data transfer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Syslog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">514</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node management LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Syslog server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Syslog forward messages</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rules-for-the-ha-mediator-external-security-group">Rules for the HA mediator external security group</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The predefined external security group for the Cloud Volumes ONTAP HA mediator includes the following inbound and outbound rules.</p>
+</div>
+<div class="sect2">
+<h3 id="inbound-rules">Inbound rules</h3>
+<div class="paragraph">
+<p>The source for inbound rules is 0.0.0.0/0.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 70%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -1008,19 +1453,27 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Outbound rules</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<div class="sect2">
+<h3 id="outbound-rules">Outbound rules</h3>
+<div class="paragraph">
+<p>The predefined security group for the HA mediator opens all outbound traffic. If that is acceptable, follow the basic outbound rules. If you need more rigid rules, use the advanced outbound rules.</p>
+</div>
+<div class="sect3">
+<h4 id="basic-outbound-rules-3">Basic outbound rules</h4>
+<div class="paragraph">
+<p>The predefined security group for the HA mediator includes the following outbound rules.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 70%;">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -1038,26 +1491,82 @@
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="advanced-outbound-rules-3">Advanced outbound rules</h4>
+<div class="paragraph">
+<p>If you need rigid rules for outbound traffic, you can use the following information to open only those ports that are required for outbound communication by the HA mediator.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 70%;">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS API services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assist with storage failover</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS API services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assist with storage failover</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Rather than open these two ports, you can use a private endpoint instead.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="internal-security-group-rules-for-the-ha-mediator">Internal security group rules for the HA mediator</h2>
+<h2 id="rules-for-the-ha-mediator-internal-security-group">Rules for the HA mediator internal security group</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Manager always creates this security group. You do not have the option to use your own security group.</p>
+<p>The predefined internal security group for the Cloud Volumes ONTAP HA mediator includes the following rules. Cloud Manager always creates this security group. You do not have the option to use your own.</p>
 </div>
+<div class="sect2">
+<h3 id="inbound-rules-2">Inbound rules</h3>
 <div class="paragraph">
-<p><strong>Inbound rules</strong></p>
+<p>The predefined security group includes the following inbound rules.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-all" style="width: 70%;">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -1065,23 +1574,26 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All traffic</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Communication between the HA mediator and HA nodes only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication between the HA mediator and HA nodes</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Outbound rules</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<div class="sect2">
+<h3 id="outbound-rules-2">Outbound rules</h3>
+<div class="paragraph">
+<p>The predefined security group includes the following outbound rules.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 70%;">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Port range</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
@@ -1089,10 +1601,11 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All traffic</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Communication between the HA mediator and HA nodes only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication between the HA mediator and HA nodes</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 

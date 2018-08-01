@@ -440,6 +440,10 @@
   
 
   
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+  
     <li><a href="concept_licensing.html">Licensing</a></li>
   
 
@@ -730,11 +734,11 @@
 <div class="paragraph lead">
 <p>Getting started with Cloud Volumes ONTAP (formerly ONTAP Cloud) includes verifying your networking, deploying Cloud Manager, granting Azure permissions, and then launching Cloud Volumes ONTAP using Cloud Manager.</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 The steps to deploy Cloud Manager in an Azure US Gov region or in an Azure Germany region are different than the steps on this page. Refer to instructions for <a href="task_installing_azure_gov.html">US Gov regions</a> or for <a href="task_installing_azure_germany.html">Azure Germany regions</a> instead.
@@ -832,11 +836,11 @@ The steps to deploy Cloud Manager in an Azure US Gov region or in an Azure Germa
 <div class="paragraph">
 <p>For more information about Managed Service Identities, refer to <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview" target="_blank" rel="noopener">Azure documentation</a>.</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 Managed Service Identities are not supported in the Azure US Gov regions and in the Germany regions. Refer to instructions for <a href="task_installing_azure_gov.html">US Gov regions</a> or for <a href="task_installing_azure_germany.html">Azure Germany regions</a> instead.
@@ -911,7 +915,7 @@ Managed Service Identities are not supported in the Azure US Gov regions and in 
 <p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
 </div>
 <div class="paragraph">
-<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3_4_5.json</strong></p>
+<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3_5_2.json</strong></p>
 </div>
 <div class="paragraph">
 <p>You should now have a custom role called OnCommand Cloud Manager Operator that you can assign to the Cloud Manager virtual machine.</p>
@@ -994,7 +998,7 @@ OnCommand Cloud Manager Operator is the default name provided in the <a href="ht
 <p>On the Working Environments page in Cloud Manager, click <strong>Create</strong>.</p>
 </li>
 <li>
-<p>Under Create, select <strong>ONTAP Cloud for Azure</strong>.</p>
+<p>Under Create, select <strong>Cloud Volumes ONTAP for Azure</strong>.</p>
 </li>
 <li>
 <p>Complete the steps in the wizard to launch the system.</p>
