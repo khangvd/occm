@@ -3,7 +3,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Managing encryption settings for Cloud Volumes ONTAP | NetApp Cloud Docs</title>
+  <title>Deploying Cloud Manager from the Azure Marketplace | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,11 +17,11 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You might need to periodically manage Cloud Manager encryption settings to ensure that Cloud Volumes ONTAP systems in AWS can communicate with key managers.">
-  <meta name="keywords" content=" encryption, managing, settings, certificate, CA, expire, renew, intermediate, CSR, key managers">
+  <meta name="description" content="It is best to deploy Cloud Manager in Azure using NetApp Cloud Central, but you can deploy it from the Azure Marketplace, if needed.">
+  <meta name="keywords" content=" install, installation, installing, marketplace, azure, deploy, virtual machine, permissions">
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
 
@@ -29,39 +29,39 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/occm/us-en/common/css/esb.min.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/doc.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/doc-components.css">
+  <link rel="stylesheet" href="/occm/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/occm/us-en/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/occm/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/occm/us-en/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/occm/us-en/js/na-search.js'></script>
+    <script src='/occm/js/na-search.js'></script>
   
 
-  <script src='/occm/us-en/js/clouddocs.js'></script>
-  <script src='/occm/us-en/js/s_code_impl.js'></script>
-  <script src="/occm/us-en/js/jquery.navgoco.min.js"></script>
+  <script src='/occm/js/clouddocs.js'></script>
+  <script src='/occm/js/s_code_impl.js'></script>
+  <script src="/occm/js/jquery.navgoco.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
-  <script src="/occm/us-en/js/toc.js"></script>
-  <script src="/occm/us-en/js/customscripts.js"></script>
+  <script src="/occm/js/toc.js"></script>
+  <script src="/occm/js/customscripts.js"></script>
 
   <script>
       $(document).ready(function() {
@@ -146,7 +146,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/zz/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -187,19 +187,19 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/zz/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -219,7 +219,7 @@
             <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
               <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe"></use>
+                <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
               </svg>
             </a>
           </li>
@@ -249,7 +249,7 @@
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: us-en
+            <p>Current Language: zz
             </p>
           </div>
         </div>
@@ -379,7 +379,7 @@
   
 
   
-    <li><a href="task_launching_azure_mktp.html">Deploying Cloud Manager from the Azure Marketplace</a></li>
+    <li class="active"><a href="task_launching_azure_mktp.html">Deploying Cloud Manager from the Azure Marketplace</a></li>
   
 
   
@@ -648,7 +648,7 @@
   
 
   
-    <li class="active"><a href="task_managing_encryption.html">Managing encryption settings</a></li>
+    <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
   
 
   
@@ -735,11 +735,11 @@
                   
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Managing encryption settings for Cloud Volumes ONTAP
+  <h1 class="n-doc__component-detail-heading">Deploying Cloud Manager from the Azure Marketplace
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_managing_encryption.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Managing encryption settings for Cloud Volumes ONTAP](https://docs.netapp.com/us-en/occm/task_managing_encryption.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_launching_azure_mktp.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Deploying Cloud Manager from the Azure Marketplace](https://docs.netapp.com/zz/occm/task_launching_azure_mktp.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -748,8 +748,151 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You might need to periodically manage Cloud Manager encryption settings to ensure that Cloud Volumes ONTAP systems in AWS can communicate with key managers.</p>
+<p>It is best to deploy Cloud Manager in Azure using <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a>, but you can deploy it from the Azure Marketplace, if needed.</p>
 </div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#deploying-cloud-manager-in-azure">Deploying Cloud Manager in Azure</a></li>
+<li><a href="#granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploying-cloud-manager-in-azure">Deploying Cloud Manager in Azure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need to install and set up Cloud Manager so you can use it to launch Cloud Volumes ONTAP in Azure.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><a href="https://azure.microsoft.com/en-us/marketplace/partners/netapp/netapp-oncommand-cloud-manager/" target="_blank" rel="noopener">Go to the Azure Marketplace page for Cloud Manager</a>.</p>
+</li>
+<li>
+<p>Click <strong>Get it now</strong> and then click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>From the Azure portal, click <strong>Create</strong> and follow the steps to configure the virtual machine.</p>
+<div class="paragraph">
+<p>Note the following as you configure the virtual machine:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager can perform optimally with either HDD or SSD disks.</p>
+</li>
+<li>
+<p>You should choose one of the recommended virtual machine sizes: A2 or D2_v2.</p>
+</li>
+<li>
+<p>For the network security group, it is best to choose <strong>Advanced</strong>.</p>
+<div class="paragraph">
+<p>The <strong>Advanced</strong> option creates a new security group that includes the required inbound rules for Cloud Manager. If you choose Basic, refer to <a href="reference_security_groups_azure.html">Security group rules</a> for the list of required rules.</p>
+</div>
+</li>
+<li>
+<p>Under the settings, enable <strong>Managed Service Identity</strong> for Cloud Manager by selecting <strong>Yes</strong>.</p>
+<div class="paragraph">
+<p>This setting is important because a Managed Service Identity allows a Cloud Manager virtual machine to identify itself to Azure Active Directory without providing any credentials. This method is simpler than <a href="task_creating_service_principal.html">manually setting up an Azure service principal and providing the credentials to Cloud Manager</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information about Managed Service Identities, refer to <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview" target="_blank" rel="noopener">Azure documentation</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>On the summary page, review your selections and click <strong>Create</strong> to start the deployment.</p>
+<div class="paragraph">
+<p>Azure deploys the virtual machine with the specified settings. The virtual machine and Cloud Manager software should be running in approximately five minutes.</p>
+</div>
+</li>
+<li>
+<p>Open a web browser from a host that has a connection to the Cloud Manager virtual machine and enter the following URL:</p>
+<div class="paragraph">
+<p>http://<em>ipaddress</em>:80</p>
+</div>
+<div class="paragraph">
+<p>When you log in, Cloud Manager automatically adds your user account as the administrator for this system.</p>
+</div>
+</li>
+<li>
+<p>After you log in, enter a name for the Cloud Manager system.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>Cloud Manager is now installed and set up. You must grant Azure permissions before users can deploy Cloud Volumes ONTAP in Azure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you deployed Cloud Manager in Azure, you should have enabled a Managed Service Identity. You must now grant the required Azure permissions by creating a custom role and then by assigning the role to the Cloud Manager virtual machine for one or more subscriptions.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Create a custom role using the Cloud Manager policy:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager Azure policy</a>.</p>
+</li>
+<li>
+<p>Modify the JSON file by adding Azure subscription IDs to the assignable scope.</p>
+<div class="paragraph">
+<p>You should add the ID for each Azure subscription from which users will create Cloud Volumes ONTAP systems.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>"AssignableScopes": [<br>
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",<br>
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",<br>
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</p>
+</div>
+</li>
+<li>
+<p>Use the JSON file to create a custom role in Azure.</p>
+<div class="paragraph">
+<p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
+</div>
+<div class="paragraph">
+<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3_5_2.json</strong></p>
+</div>
+<div class="paragraph">
+<p>You should now have a custom role called OnCommand Cloud Manager Operator that you can assign to the Cloud Manager virtual machine.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Assign the role to the Cloud Manager virtual machine for one or more subscriptions:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open the <strong>Subscriptions</strong> service and then select the subscription in which you want to deploy Cloud Volumes ONTAP systems.</p>
+</li>
+<li>
+<p>Click <strong>Access control (IAM)</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong> and then add the permissions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -757,152 +900,38 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Data-at-rest encryption provided by Cloud Volumes ONTAP is no longer supported when launching new Cloud Volumes ONTAP systems in AWS. Existing systems that use this feature are still supported. See <a href="reference_new_occm.html">What&#8217;s new in Cloud Manager</a> for more details.
+OnCommand Cloud Manager Operator is the default name provided in the <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html">Cloud Manager policy</a>. If you chose a different name for the role, then select that name instead.
 </td>
 </tr>
 </table>
 </div>
-<div id="toc" class="toc">
-<div id="toctitle" class="title">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#renewing-the-cloud-manager-intermediate-ca-certificate">Renewing the Cloud Manager intermediate CA certificate</a></li>
-<li><a href="#managing-available-key-managers-and-ca-certificates">Managing available key managers and CA certificates</a></li>
+</li>
+<li>
+<p>Assign access to a <strong>Virtual Machine</strong>.</p>
+</li>
+<li>
+<p>Select the subscription in which the Cloud Manager virtual machine was created.</p>
+</li>
+<li>
+<p>Select the Cloud Manager virtual machine.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="renewing-the-cloud-manager-intermediate-ca-certificate">Renewing the Cloud Manager intermediate CA certificate</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You must renew the Cloud Manager certificate before it expires; otherwise, Cloud Manager cannot sign client certificates for Cloud Volumes ONTAP.</p>
-</div>
-<div class="paragraph">
-<div class="title">About this task</div>
-<p>If you renew the Cloud Manager intermediate CA certificate, Cloud Manager uses the renewed certificate to generate client certificates for <em>new</em> Cloud Volumes ONTAP systems. You can renew client certificates for <em>existing</em> Cloud Volumes ONTAP systems from the working environment.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the upper-right corner of the Cloud Manager console, click the task drop-down list, and then click <strong>Encryption Setup</strong>.</p>
 </li>
 <li>
-<p>In the Intermediate CA tab, click <strong>Renew Intermediate CA</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Generate CSR</strong>.</p>
-</li>
-<li>
-<p>Use the CSR to submit a certificate request to a CA.</p>
-<div class="paragraph">
-<p>The intermediate CA certificate must use the Privacy Enhanced Mail (PEM) Base-64 encoded X. 509 format.</p>
-</div>
-</li>
-<li>
-<p>Copy the contents of the signed certificate and paste it in the Cloud Manager certificate field.</p>
-</li>
-<li>
-<p>Click <strong>Install Cloud Manager Certificate</strong>.</p>
+<p>If you want to deploy Cloud Volumes ONTAP from additional subscriptions, switch to that subscription and then repeat these steps.</p>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="managing-available-key-managers-and-ca-certificates">Managing available key managers and CA certificates</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You can modify the key managers and key manager CA certificates that Cloud Manager users can use with their Cloud Volumes ONTAP systems. For example, you can add a new key manager that is available in your environment and you can add a new CA certificate, if a previous certificate expired.</p>
-</div>
-<div class="paragraph">
-<div class="title">About this task</div>
-<p>The changes that you make from the Encryption Setup page affect only new Cloud Volumes ONTAP systems. Changes to existing Cloud Volumes ONTAP systems must be made from the working environment.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the upper-right corner of the Cloud Manager console, click the task drop-down list, and then click <strong>Encryption Setup</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Key Manager</strong>.</p>
-</li>
-<li>
-<p>Manage your key managers as necessary:</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Action</th>
-<th class="tableblock halign-left valign-top">Steps</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Change the KMIP port for communicating with key managers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modify the port and then click <strong>Save</strong>.<br>
-<br>
-The port change affects only new Cloud Volumes ONTAP systems.<br>
-<br>
-To change the port for an existing Cloud Volumes ONTAP system, connect to the CLI and then run the security key-manager setup command.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new key manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Click Add, enter details about the key manager, and then click Add again.<br>
-<br>
-This action does not add the key manager to existing Cloud Volumes ONTAP systems. You must add the key manager from the working environment, if necessary.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit the details for a key manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the key manager, click Edit, modify the details, and then click Save.<br>
-<br>
-Any changes affect only new Cloud Volumes ONTAP systems that will use this key manager. To apply this change to existing Cloud Volumes ONTAP systems, go to the working environment, remove the key manager, and then add it back.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete an existing key manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the key manager, click <strong>Delete</strong>, and then click <strong>Delete</strong> again.<br>
-<br>
-If you delete a key manager, you cannot configure Cloud Volumes ONTAP systems to use it. Existing systems that are using this key manager can continue to use it.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Manage the key managers' CA certificates as necessary:</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Action</th>
-<th class="tableblock halign-left valign-top">Steps</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Click <strong>Add</strong>, paste the certificate, and then click <strong>Add</strong> again.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View a certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the key manager and click <strong>View</strong>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the certificate, click <strong>Delete</strong>, and then click <strong>Delete</strong> again.<br>
-<br>
-If you delete a certificate, you cannot configure Cloud Volumes ONTAP systems to use it. Existing systems that are using the certificate can continue to use it.</p></td>
-</tr>
-</tbody>
-</table>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>Cloud Manager now has the permissions that it needs to deploy and manage Cloud Volumes ONTAP in Azure.</p>
 </div>
 </div>
 </div>
@@ -934,7 +963,7 @@ If you delete a certificate, you cannot configure Cloud Volumes ONTAP systems to
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -943,7 +972,7 @@ If you delete a certificate, you cannot configure Cloud Volumes ONTAP systems to
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -953,7 +982,7 @@ If you delete a certificate, you cannot configure Cloud Volumes ONTAP systems to
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -962,7 +991,7 @@ If you delete a certificate, you cannot configure Cloud Volumes ONTAP systems to
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -981,14 +1010,14 @@ If you delete a certificate, you cannot configure Cloud Volumes ONTAP systems to
 
     </div>
 
-    <script src="/occm/us-en/common/js/components.js"></script>
-    <script src="/occm/us-en/common/js/doc-components.js"></script>
+    <script src="/occm/common/js/components.js"></script>
+    <script src="/occm/common/js/doc-components.js"></script>
 
     <!-- i18n script -->
-    <script type="text/javascript" src="/occm/us-en/js/responsive.js"></script>
+    <script type="text/javascript" src="/occm/js/responsive.js"></script>
 
     <!-- Elasticsearch JS -->
-    <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
+    <script type="text/javascript" src='/occm/js/bundle.js'></script>
   </body>
 
   

@@ -169,7 +169,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/reference_networking_azure.html</loc>
       
-        <lastmod>2018-07-31T15:44:23+00:00</lastmod>
+        <lastmod>2018-08-15T23:53:54+00:00</lastmod>
       
     </url>
   
@@ -183,7 +183,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/reference_new_occm.html</loc>
       
-        <lastmod>2018-08-07T14:07:55+00:00</lastmod>
+        <lastmod>2018-08-16T00:16:05+00:00</lastmod>
       
     </url>
   
@@ -225,7 +225,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm//search.html</loc>
       
-        <lastmod>2018-08-07T14:10:40+00:00</lastmod>
+        <lastmod>2018-08-16T00:17:25+00:00</lastmod>
       
     </url>
   
@@ -309,7 +309,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/task_enabling_msi.html</loc>
       
-        <lastmod>2018-07-12T14:29:13+00:00</lastmod>
+        <lastmod>2018-08-15T23:53:54+00:00</lastmod>
       
     </url>
   
@@ -323,7 +323,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/task_getting_started_azure.html</loc>
       
-        <lastmod>2018-07-31T15:45:14+00:00</lastmod>
+        <lastmod>2018-08-15T23:53:54+00:00</lastmod>
       
     </url>
   
@@ -359,6 +359,13 @@
       <loc>https://docs.netapp.com/en/occm/task_launching_aws_mktp.html</loc>
       
         <lastmod>2018-05-31T00:08:56+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/en/occm/task_launching_azure_mktp.html</loc>
+      
+        <lastmod>2018-08-15T23:53:54+00:00</lastmod>
       
     </url>
   
@@ -484,7 +491,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/task_tiering.html</loc>
       
-        <lastmod>2018-07-31T15:44:23+00:00</lastmod>
+        <lastmod>2018-08-15T23:53:54+00:00</lastmod>
       
     </url>
   

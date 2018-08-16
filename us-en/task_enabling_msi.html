@@ -336,6 +336,10 @@
   
 
   
+    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Detailed networking requirements</a>
@@ -360,13 +364,9 @@
   
 
   
-    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
-  
-
-  
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Additional installation options</a>
+      <a href="#">Additional deployment options</a>
       <ul>
         
 
@@ -375,15 +375,11 @@
   
 
   
-    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
+    <li><a href="task_launching_aws_mktp.html">Deploying Cloud Manager from the AWS Marketplace</a></li>
   
 
   
-    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when not launching Cloud Manager from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_launching_aws_mktp.html">Launching Cloud Manager from the AWS Marketplace</a></li>
+    <li><a href="task_launching_azure_mktp.html">Deploying Cloud Manager from the Azure Marketplace</a></li>
   
 
   
@@ -396,6 +392,30 @@
 
   
     <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional ways to provide permissions</a>
+      <ul>
+        
+
+  
+    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when Cloud Manager is not launched from Cloud Central</a></li>
+  
+
+  
+    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
+  
+
+  
+    <li class="active"><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
   
 
 
@@ -608,10 +628,6 @@
         
 
   
-    <li class="active"><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
-  
-
-  
     <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
   
 
@@ -732,11 +748,11 @@
 <div class="paragraph lead">
 <p>You can provide Azure permissions to Cloud Manager by using a Managed Service Identity. A Managed Service Identity allows the Cloud Manager virtual machine to identify itself to Azure Active Directory without providing any credentials.</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 Managed Service Identities are not supported in the Azure US Gov regions and in the Germany regions. You must <a href="task_creating_service_principal.html">grant Azure permissions to Cloud Manager using a service principal and credentials</a>.
@@ -800,7 +816,7 @@ Managed Service Identities are not supported in the Azure US Gov regions and in 
 <p>OnCommand Cloud Manager Operator is the default name provided in the <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html">Cloud Manager policy</a>. If you chose a different name for the role, then select that name instead.</p>
 </div>
 <div class="paragraph">
-<p>If you have not yet created this role, follow <a href="task_getting_started_azure.html#creating-a-role-for-the-azure-managed-service-identity">these instructions</a>.</p>
+<p>If you have not yet created this role, follow <a href="task_getting_started_azure.html#granting-azure-permissions">these instructions</a>.</p>
 </div>
 </td>
 </tr>
@@ -812,9 +828,6 @@ Managed Service Identities are not supported in the Azure US Gov regions and in 
 </li>
 <li>
 <p>Select the subscription in which the Cloud Manager virtual machine was created.</p>
-</li>
-<li>
-<p>Select the resource group for the Cloud Manager virtual machine.</p>
 </li>
 <li>
 <p>Select the Cloud Manager virtual machine.</p>
