@@ -17,7 +17,7 @@
   
 
   <meta name="description" content="Cloud Manager makes storage provisioning easy by purchasing the AWS and Azure storage that you need to provision volumes for Cloud Volumes ONTAP.">
-  <meta name="keywords" content=" tenants, provisioning, volume view, working environments, capacity management, storage provisioning, netapp support site, manual, automatic, advanced allocation, aggregates, thin provisioning, free space, mode, tenants, isolate, isolation, cloud manager admin, admin, tenant admin, working environment admin, support registration, registration, volume view">
+  <meta name="keywords" content=" tenants, provisioning, volume view, working environments, capacity management, storage provisioning, netapp support site, manual, automatic, advanced allocation, aggregates, thin provisioning, free space, mode, tenants, isolate, isolation, cloud manager admin, admin, tenant admin, working environment admin, support registration, registration, volume view, register, paygo, license, upgrade">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -749,6 +749,18 @@
 <div class="paragraph lead">
 <p>Cloud Manager provides simplified and advanced management of Cloud Volumes ONTAP storage.</p>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+All disks and aggregates must be created and deleted directly from Cloud Manager. You should not perform these actions from another management tool. Doing so can impact system stability, hamper the ability to add disks in the future, and potentially generate redundant cloud provider fees.
+</td>
+</tr>
+</table>
+</div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
@@ -972,29 +984,19 @@ The Cloud Manager Admin can modify free space thresholds from the <strong>Settin
 <div class="paragraph">
 <p>Cloud Manager prompts you to enter NetApp Support Site credentials for a tenant because it uses the credentials to manage licenses for Cloud Volumes ONTAP BYOL systems, to register pay-as-you-go instances for support, and to upgrade Cloud Volumes ONTAP software.</p>
 </div>
-<div class="sect3">
-<h4 id="license-management-for-byol-systems">License management for BYOL systems</h4>
 <div class="paragraph">
-<p>Linking a tenant to your NetApp Support Site account is required if you plan to launch BYOL instances in a tenant. Cloud Manager uses your account to obtain license files from NetApp and installs them on Cloud Volumes ONTAP BYOL systems. The NetApp Support Site account must be authorized to access the serial numbers of the Cloud Volumes ONTAP BYOL systems in the tenant.</p>
+<p>Watch the following video for more information about providing Cloud Manager with your NetApp Support Site credentials.</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe width="848" height="480" src="https://www.youtube.com/embed/_8s16fS_L1Y?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
-<div class="sect3">
-<h4 id="support-registration-for-pay-as-you-go-instances">Support registration for pay-as-you-go instances</h4>
 <div class="paragraph">
-<p>While entering an account is not required to launch pay-as-you-go instances, it is highly recommended because Cloud Manager automatically registers new pay-as-you-go instances for support.</p>
+<p>For step-by-step instructions and requirements for NetApp Support Site accounts, refer to <a href="task_setting_up_cloud_manager.html#linking-tenants-to-a-netapp-support-site-account">Linking tenants to a NetApp Support Site account</a>.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="software-upgrades">Software upgrades</h4>
 <div class="paragraph">
-<p>Entering a NetApp Support Site account also enables Cloud Volumes ONTAP software upgrades directly from Cloud Manager for both pay-as-you-go and BYOL instances.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="netapp-support-site-account-requirements">NetApp Support Site account requirements</h4>
-<div class="paragraph">
-<p>Each NetApp Support Site account that you link to a tenant must be a NetApp customer-level account (not a guest or temp account). For the AWS GovCloud (US) region, the NetApp Support Site account must be a secure account. If you do not have an account, you can create one from the <a href="http://mysupport.netapp.com/" target="_blank" rel="noopener">NetApp Support Site</a>.</p>
-</div>
+<p>For more information about how Cloud Manager manages license files, refer to <a href="concept_licensing.html">Licensing</a>.</p>
 </div>
 </div>
 </div>

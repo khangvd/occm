@@ -780,12 +780,12 @@ You should test AutoSupport to ensure that it can send messages. For instruction
 You can configure EMS using the CLI. For instructions, see the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-ems/home.html" target="_blank" rel="noopener">ONTAP 9 EMS Configuration Express Guide</a>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional: Create an SVM management network interface (LIF)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional: Create an SVM management network interface (LIF) for HA systems</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>If you want to use SnapDrive for Windows or SnapCenter with an HA pair, you must create the storage virtual machine (SVM) management network interface (LIF) that SnapDrive and SnapCenter require. The SVM management LIF must use a floating IP address. You can create the LIF from System Manager or the CLI.</p>
+<p>A storage virtual machine (SVM) management network interface (LIF) is required if you want to use SnapCenter or SnapDrive for Windows with an HA pair. The SVM management LIF must use a <em>floating</em> IP address when using an HA pair across multiple AWS Availability Zones.</p>
 </div>
 <div class="paragraph">
-<p>The following example shows how to create the LIF from the CLI:</p>
+<p>Cloud Manager prompts you to specify the floating IP address when you launch the HA pair. If you did not specify the IP address, you can create the SVM Management LIF yourself from System Manager or the CLI. The following example shows how to create the LIF from the CLI:</p>
 </div>
 <div class="literalblock">
 <div class="content">

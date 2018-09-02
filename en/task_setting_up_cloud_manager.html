@@ -974,7 +974,30 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 <h2 id="linking-tenants-to-a-netapp-support-site-account">Linking tenants to a NetApp Support Site account</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You should link a tenant to a NetApp Support Site account so Cloud Manager can manage licenses for BYOL systems, register pay-as-you-go instances for support, and upgrade Cloud Volumes ONTAP software.</p>
+<p>You should link a tenant to a NetApp Support Site account so Cloud Manager can manage licenses for BYOL systems, register pay-as-you-go instances for support, and upgrade Cloud Volumes ONTAP software. For more information about these benefits, <a href="https://youtu.be/_8s16fS_L1Y" target="_blank" rel="noopener">watch this video</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Before you begin</div>
+<p>Each NetApp Support Site account that you link to a tenant must meet the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The account must be a NetApp customer-level account (not a guest or temp account).</p>
+</li>
+<li>
+<p>If you purchased a secure BYOL subscription, then a <em>secure</em> NetApp Support Site account is required to upload the license file.</p>
+<div class="paragraph">
+<p>Contact your NetApp account team for further information about secure BYOL subscriptions.</p>
+</div>
+</li>
+<li>
+<p>The account must be authorized to access the serial numbers of any BYOL systems deployed in the tenant.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you do not have an account, you can create one from the <a href="http://mysupport.netapp.com/" target="_blank" rel="noopener">NetApp Support Site</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -995,7 +1018,7 @@ As always, you must ensure network connectivity between Cloud Manager and the lo
 <p>Click <strong>Change NSS account</strong>.</p>
 </li>
 <li>
-<p>Enter the user name and password for a NetApp customer-level account (not a guest or temp account) and click <strong>Save</strong>.</p>
+<p>Enter the user name and password for the account and click <strong>Save</strong>.</p>
 </li>
 </ol>
 </div>
