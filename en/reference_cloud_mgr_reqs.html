@@ -374,15 +374,15 @@
   
 
   
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
     <li><a href="task_launching_aws_mktp.html">Deploying Cloud Manager from the AWS Marketplace</a></li>
   
 
   
     <li><a href="task_launching_azure_mktp.html">Deploying Cloud Manager from the Azure Marketplace</a></li>
-  
-
-  
-    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
   
 
   
@@ -747,29 +747,18 @@
 <div class="paragraph lead">
 <p>If you install Cloud Manager on your own host, then you must verify support for your configuration, which includes operating system requirements, port requirements, and so on.</p>
 </div>
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-AWS EC2 instance type
-</td>
-<td class="hdlist2">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Supported AWS EC2 instance types</dt>
+<dd>
 <p>t2.medium or m4.large</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Azure VM size
-</td>
-<td class="hdlist2">
+</dd>
+<dt class="hdlist1">Supported Azure VM sizes</dt>
+<dd>
 <p>A2 or D2_v2</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Operating system
-</td>
-<td class="hdlist2">
+</dd>
+<dt class="hdlist1">Supported operating systems</dt>
+<dd>
 <div class="ulist">
 <ul>
 <li>
@@ -798,46 +787,49 @@ Operating system
 </li>
 </ul>
 </div>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Hypervisor
-</td>
-<td class="hdlist2">
+</dd>
+<dt class="hdlist1">Hypervisor</dt>
+<dd>
 <p>A bare metal or hosted hypervisor that is certified to run CentOS or Red Hat Enterprise Linux<br>
 <a href="https://access.redhat.com/certified-hypervisors" target="_blank" rel="noopener">Red Hat Solution: Which hypervisors are certified to run Red Hat Enterprise Linux?</a></p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-CPU
-</td>
-<td class="hdlist2">
+</dd>
+<dt class="hdlist1">CPU</dt>
+<dd>
 <p>2.27 GHz or higher with two cores</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-RAM
-</td>
-<td class="hdlist2">
+</dd>
+<dt class="hdlist1">RAM</dt>
+<dd>
 <p>4 GB</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Free disk space
-</td>
-<td class="hdlist2">
+</dd>
+<dt class="hdlist1">Free disk space</dt>
+<dd>
 <p>50 GB</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Ports
-</td>
-<td class="hdlist2">
+</dd>
+<dt class="hdlist1">Outbound internet access</dt>
+<dd>
+<p>Cloud Manager software must have access to the following URLs during installation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</p>
+</li>
+<li>
+<p>https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</p>
+</li>
+<li>
+<p>https://s3.amazonaws.com/aws-cli/awscli-bundle.zip</p>
+</li>
+<li>
+<p>http://169.254.169.254/latest/meta-data/public-hostname</p>
+<div class="paragraph">
+<p>Cloud Manager accesses additional endpoints when it deploys Cloud Volumes ONTAP in AWS or in Azure. Refer to <a href="reference_networking_aws.html">networking requirements for AWS</a> and <a href="reference_networking_azure.html">networking requirements for Azure</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Ports</dt>
+<dd>
 <p>The following ports must be available:</p>
 <div class="ulist">
 <ul>
@@ -852,13 +844,6 @@ Ports
 </li>
 <li>
 <p>8080 for the Cloud Manager API proxy</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>If other services are using these ports, Cloud Manager installation fails.</p>
 </div>
@@ -886,6 +871,12 @@ There is a potential conflict with port 3306. If another instance of MySQL is ru
 <p>Specify the port when you enter the URL to the Cloud Manager web console.</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
 </div>
 
         </article>

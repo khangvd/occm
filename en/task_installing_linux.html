@@ -374,15 +374,15 @@
   
 
   
+    <li class="active"><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
     <li><a href="task_launching_aws_mktp.html">Deploying Cloud Manager from the AWS Marketplace</a></li>
   
 
   
     <li><a href="task_launching_azure_mktp.html">Deploying Cloud Manager from the Azure Marketplace</a></li>
-  
-
-  
-    <li class="active"><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
   
 
   
@@ -747,9 +747,16 @@
 <div class="paragraph lead">
 <p>If you want to run the Cloud Manager software on an existing host, you can download and install the software on a Linux host in your network or in the cloud.</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
 <div class="title">Before you begin</div>
+<ul>
+<li>
 <p>A Red Hat Enterprise Linux system must be registered with Red Hat Subscription Management. If it is not registered, the system cannot access repositories to update required 3rd party software during Cloud Manager installation.</p>
+</li>
+<li>
+<p>Cloud Manager software accesses several URLs during installation. You must ensure that outbound internet access is allowed to those endpoints. Refer to <a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements for details</a>.</p>
+</li>
+</ul>
 </div>
 <div class="ulist">
 <div class="title">About this task</div>
