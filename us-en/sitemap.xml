@@ -15,14 +15,14 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_cloud_central.html</loc>
       
-        <lastmod>2018-04-13T13:47:45+00:00</lastmod>
+        <lastmod>2018-04-20T14:09:48+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_ha.html</loc>
       
-        <lastmod>2018-06-20T18:58:07+00:00</lastmod>
+        <lastmod>2018-09-25T14:35:55+00:00</lastmod>
       
     </url>
   
@@ -85,7 +85,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-09-20T18:20:59+00:00</lastmod>
       
     </url>
   
@@ -113,7 +113,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_cloud_mgr_reqs.html</loc>
       
-        <lastmod>2018-09-20T11:33:08+00:00</lastmod>
+        <lastmod>2018-09-20T18:21:55+00:00</lastmod>
       
     </url>
   
@@ -162,21 +162,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_networking_aws.html</loc>
       
-        <lastmod>2018-08-23T20:39:23+00:00</lastmod>
+        <lastmod>2018-09-25T14:36:23+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_networking_azure.html</loc>
       
-        <lastmod>2018-08-15T23:53:54+00:00</lastmod>
+        <lastmod>2018-09-25T14:36:23+00:00</lastmod>
       
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/us-en/occm/reference_networking_ibm.html</loc>
+      <loc>https://docs.netapp.com/us-en/occm/reference_networking_cloud_manager.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-09-25T14:36:23+00:00</lastmod>
       
     </url>
   
@@ -225,7 +225,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm//search.html</loc>
       
-        <lastmod>2018-09-20T11:40:01+00:00</lastmod>
+        <lastmod>2018-09-25T16:08:11+00:00</lastmod>
       
     </url>
   
@@ -239,7 +239,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_backing_up_restoring.html</loc>
       
-        <lastmod>2018-04-13T13:47:45+00:00</lastmod>
+        <lastmod>2018-04-20T14:09:48+00:00</lastmod>
       
     </url>
   
@@ -281,7 +281,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_deploying_otc_aws.html</loc>
       
-        <lastmod>2018-08-23T20:39:23+00:00</lastmod>
+        <lastmod>2018-09-25T14:35:55+00:00</lastmod>
       
     </url>
   
@@ -316,14 +316,14 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_getting_started_aws.html</loc>
       
-        <lastmod>2018-07-31T15:45:01+00:00</lastmod>
+        <lastmod>2018-09-20T18:20:59+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_getting_started_azure.html</loc>
       
-        <lastmod>2018-08-23T20:53:12+00:00</lastmod>
+        <lastmod>2018-09-20T18:20:59+00:00</lastmod>
       
     </url>
   
@@ -351,7 +351,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_installing_linux.html</loc>
       
-        <lastmod>2018-09-19T19:42:39+00:00</lastmod>
+        <lastmod>2018-09-20T18:20:59+00:00</lastmod>
       
     </url>
   
@@ -400,7 +400,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_managing_volume_view.html</loc>
       
-        <lastmod>2018-04-13T13:47:45+00:00</lastmod>
+        <lastmod>2018-04-20T14:09:48+00:00</lastmod>
       
     </url>
   
@@ -428,7 +428,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_provisioning_storage.html</loc>
       
-        <lastmod>2018-09-02T00:13:47+00:00</lastmod>
+        <lastmod>2018-09-20T18:20:59+00:00</lastmod>
       
     </url>
   
@@ -456,7 +456,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_renewing_cert.html</loc>
       
-        <lastmod>2018-04-13T13:47:45+00:00</lastmod>
+        <lastmod>2018-04-20T14:09:48+00:00</lastmod>
       
     </url>
   
@@ -498,7 +498,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_uninstalling.html</loc>
       
-        <lastmod>2018-04-13T13:47:45+00:00</lastmod>
+        <lastmod>2018-04-20T14:09:48+00:00</lastmod>
       
     </url>
   

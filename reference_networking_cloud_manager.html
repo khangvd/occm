@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>IBM Cloud networking requirements | NetApp Cloud Docs</title>
+  <title>Networking requirements for Cloud Manager | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,11 +16,11 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="If you want to install Cloud Manager in the IBM Cloud, then the environment must meet a few requirements.">
-  <meta name="keywords" content=" networking, network, requirements, connection, connections, IBM Cloud, internet, jump host">
+  <meta name="description" content="You must set up your networking so that Cloud Manager can deploy Cloud Volumes ONTAP systems in AWS or in Microsoft Azure. The most important step is ensurin...">
+  <meta name="keywords" content=" networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, proxy server, vpn, outbound, inbound, connections, jump host, URL, URLs, endpoints, endpoint, ports">
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
 
@@ -28,39 +28,39 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/occm/us-en/common/css/esb.min.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/doc.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/doc-components.css">
+  <link rel="stylesheet" href="/occm/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/occm/us-en/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/occm/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/occm/us-en/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/occm/us-en/js/na-search.js'></script>
+    <script src='/occm/js/na-search.js'></script>
   
 
-  <script src='/occm/us-en/js/clouddocs.js'></script>
-  <script src='/occm/us-en/js/s_code_impl.js'></script>
-  <script src="/occm/us-en/js/jquery.navgoco.min.js"></script>
+  <script src='/occm/js/clouddocs.js'></script>
+  <script src='/occm/js/s_code_impl.js'></script>
+  <script src="/occm/js/jquery.navgoco.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
-  <script src="/occm/us-en/js/toc.js"></script>
-  <script src="/occm/us-en/js/customscripts.js"></script>
+  <script src="/occm/js/toc.js"></script>
+  <script src="/occm/js/customscripts.js"></script>
 
   <script>
       $(document).ready(function() {
@@ -145,7 +145,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/zz/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -186,19 +186,19 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/zz/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -218,7 +218,7 @@
             <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
               <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe"></use>
+                <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
               </svg>
             </a>
           </li>
@@ -248,7 +248,7 @@
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: us-en
+            <p>Current Language: zz
             </p>
           </div>
         </div>
@@ -346,15 +346,15 @@
         
 
   
-    <li><a href="reference_networking_aws.html">AWS networking requirements</a></li>
+    <li class="active"><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Azure networking requirements</a></li>
+    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li class="active"><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
+    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
   
 
 
@@ -734,47 +734,252 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">IBM Cloud networking requirements
+  <h1 class="n-doc__component-detail-heading">Networking requirements for Cloud Manager
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_networking_ibm.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[IBM Cloud networking requirements](https://docs.netapp.com/us-en/occm/reference_networking_ibm.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_networking_cloud_manager.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Networking requirements for Cloud Manager](https://docs.netapp.com/zz/occm/reference_networking_cloud_manager.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
 </div>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>If you want to install Cloud Manager in the IBM Cloud, then the environment must meet a few requirements.</p>
+<p>You must set up your networking so that Cloud Manager can deploy Cloud Volumes ONTAP systems in AWS or in Microsoft Azure. The most important step is ensuring outbound internet access to various endpoints.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-While you can install Cloud Manager in the IBM Cloud, Cloud Volumes ONTAP is not supported in the IBM Cloud.
+If your network uses a proxy server for all communication to the internet, Cloud Manager prompts you to specify the proxy during setup. You can also specify the proxy server from the Settings page. Refer to <a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a>.
 </td>
 </tr>
 </table>
 </div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#connection-to-target-networks">Connection to target networks</a></li>
+<li><a href="#outbound-internet-access">Outbound internet access</a></li>
+<li><a href="#ports-and-security-groups">Ports and security groups</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="connection-to-target-networks">Connection to target networks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager requires a network connection to the AWS VPCs and Azure VNets in which you want to deploy Cloud Volumes ONTAP.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you install Cloud Manager in your corporate network, then you must set up a VPN connection to the AWS VPC or Azure VNet in which you launch Cloud Volumes ONTAP.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="outbound-internet-access">Outbound internet access</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager requires outbound internet access to deploy and manage Cloud Volumes ONTAP. Outbound internet access is also required when accessing Cloud Manager from your web browser and when running the Cloud Manager installer on a Linux host.</p>
+</div>
+<div class="paragraph">
+<p>The following sections identify the specific endpoints.</p>
+</div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Outbound internet access</dt>
+<dt class="hdlist1">Outbound internet access to manage Cloud Volumes ONTAP in AWS</dt>
 <dd>
-<p>Cloud Manager needs outbound internet access to communicate with AWS and Azure services when deploying Cloud Volumes ONTAP, to access software images for upgrades, and to enable technical support from NetApp.</p>
-<div class="paragraph">
-<p>For details about the specific endpoints, see <a href="reference_networking_aws.html">AWS networking requirements</a> and <a href="reference_networking_azure.html">Azure networking requirements</a>.</p>
+<p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing Cloud Volumes ONTAP in AWS:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 43%;">
+<col style="width: 57.0%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoints</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AWS services (amazonaws.com):</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>CloudFormation</p>
+</li>
+<li>
+<p>Elastic Compute Cloud (EC2)</p>
+</li>
+<li>
+<p>Key Management Service (KMS)</p>
+</li>
+<li>
+<p>Security Token Service (STS)</p>
+</li>
+<li>
+<p>Simple Storage Service (S3)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The exact endpoint depends on the region in which you deploy Cloud Volumes ONTAP. <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html" target="_blank" rel="noopener">Refer to AWS documentation for details.</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage Cloud Volumes ONTAP in AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">api.services.cloud.netapp.com:443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requests to NetApp Cloud Central.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloud.support.netapp.com.s3.us-west-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides access to software images, manifests, and templates.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cognito-idp.us-east-1.amazonaws.com<br>
+cognito-identity.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to access and download manifests, templates, and Cloud Volumes ONTAP upgrade images.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kinesis.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables NetApp to stream data from audit records.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp Cloud Central for centralized user authentication.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://mysupport.netapp.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp AutoSupport.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.netapp.com/svcgw<br>
+https://support.netapp.com/ServiceGW/entitlement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp for licensing and support registration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Various third-party locations, for example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>https://repo1.maven.org/maven2</p>
+</li>
+<li>
+<p>https://oss.sonatype.org/content/repositories</p>
+</li>
+<li>
+<p>https://repo.typesafe.org</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Third-party locations are subject to change.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">During upgrades, Cloud Manager downloads the latest packages for third-party dependencies.</p></td>
+</tr>
+</tbody>
+</table>
 </dd>
-<dt class="hdlist1">Connection between Cloud Manager and target subnets</dt>
+<dt class="hdlist1">Outbound internet access to manage Cloud Volumes ONTAP in Azure</dt>
 <dd>
-<p>Cloud Manager requires a network connection to the AWS VPCs and Azure VNets in which you want to deploy Cloud Volumes ONTAP.</p>
+<p>Cloud Manager requires outbound internet access to contact the following endpoints when deploying and managing Cloud Volumes ONTAP in Microsoft Azure:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 43%;">
+<col style="width: 57.0%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoints</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://management.azure.com<br>
+https://login.microsoftonline.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage Cloud Volumes ONTAP in most Azure regions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://management.microsoftazure.de<br>
+https://login.microsoftonline.de</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage Cloud Volumes ONTAP in the Azure Germany regions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://management.usgovcloudapi.net<br>
+https://login.microsoftonline.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to deploy and manage Cloud Volumes ONTAP in the Azure US Gov regions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">api.services.cloud.netapp.com:443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requests to NetApp Cloud Central.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloud.support.netapp.com.s3.us-west-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides access to software images, manifests, and templates.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cognito-idp.us-east-1.amazonaws.com<br>
+cognito-identity.us-east-1.amazonaws.com<br>
+sts.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Manager to access and download manifests, templates, and Cloud Volumes ONTAP upgrade images.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kinesis.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables NetApp to stream data from audit records.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp Cloud Central for centralized user authentication.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://mysupport.netapp.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp AutoSupport.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.netapp.com/svcgw<br>
+https://support.netapp.com/ServiceGW/entitlement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp for licensing and support registration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Various third-party locations, for example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>https://repo1.maven.org/maven2</p>
+</li>
+<li>
+<p>https://oss.sonatype.org/content/repositories</p>
+</li>
+<li>
+<p>https://repo.typesafe.org</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Third-party locations are subject to change.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">During upgrades, Cloud Manager downloads the latest packages for third-party dependencies.</p></td>
+</tr>
+</tbody>
+</table>
 </dd>
-<dt class="hdlist1">Connection to the Cloud Manager web console</dt>
+<dt class="hdlist1">Outbound internet access from your web browser</dt>
 <dd>
-<p>Users must access Cloud Manager from a web browser. A web browser must have connections to the following endpoints:</p>
+<p>Users must access Cloud Manager from a web browser. The machine running the web browser must have connections to the following endpoints:</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 43%;">
@@ -793,12 +998,12 @@ While you can install Cloud Manager in the IBM Cloud, Cloud Volumes ONTAP is not
 <p>You must enter the host&#8217;s IP address from a web browser to load the Cloud Manager console.</p>
 </div>
 <div class="paragraph">
-<p>The easiest way to provide access is by allocating a public IP address. However, if you want to use a private IP address instead, users can access the console through either of the following:</p>
+<p>If you deploy Cloud Manager in AWS, the easiest way to provide access is by allocating a public IP address. However, if you want to use a private IP address instead, users can access the console through either of the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A jump host that has a connection to Cloud Manager</p>
+<p>A jump host in the VPC that has a connection to Cloud Manager</p>
 </li>
 <li>
 <p>A host in your network that has a VPN connection to the private IP address</p>
@@ -815,7 +1020,51 @@ https://services.cloud.netapp.com</p></td>
 </tbody>
 </table>
 </dd>
+<dt class="hdlist1">Outbound internet access to install Cloud Manager on a Linux host</dt>
+<dd>
+<p>The Cloud Manager installer must access the following URLs during the installation process:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</p>
+</li>
+<li>
+<p>https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</p>
+</li>
+<li>
+<p>https://s3.amazonaws.com/aws-cli/awscli-bundle.zip</p>
+</li>
+</ul>
+</div>
+</dd>
 </dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ports-and-security-groups">Ports and security groups</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>If you deploy Cloud Manager from Cloud Central or from the marketplace images, refer to the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="reference_security_groups.html#rules-for-cloud-manager">Security group rules for Cloud Manager in AWS</a></p>
+</li>
+<li>
+<p><a href="reference_security_groups_azure.html#rules-for-cloud-manager">Security group rules for Cloud Manager in Azure</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If you install Cloud Manager on an existing Linux host, see <a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 
         </article>
@@ -846,7 +1095,7 @@ https://services.cloud.netapp.com</p></td>
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -855,7 +1104,7 @@ https://services.cloud.netapp.com</p></td>
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -865,7 +1114,7 @@ https://services.cloud.netapp.com</p></td>
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -874,7 +1123,7 @@ https://services.cloud.netapp.com</p></td>
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -893,15 +1142,15 @@ https://services.cloud.netapp.com</p></td>
 
     </div>
 
-    <script src="/occm/us-en/common/js/components.js"></script>
-    <script src="/occm/us-en/common/js/doc-components.js"></script>
+    <script src="/occm/common/js/components.js"></script>
+    <script src="/occm/common/js/doc-components.js"></script>
 
     <!-- i18n script -->
-    <script type="text/javascript" src="/occm/us-en/js/responsive.js"></script>
+    <script type="text/javascript" src="/occm/js/responsive.js"></script>
 
     <!-- Elasticsearch JS -->
     
-    <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
+    <script type="text/javascript" src='/occm/js/bundle.js'></script>
     
   </body>
 

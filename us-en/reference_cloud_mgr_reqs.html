@@ -346,15 +346,15 @@
         
 
   
-    <li><a href="reference_networking_aws.html">AWS networking requirements</a></li>
+    <li><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Azure networking requirements</a></li>
+    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
   
 
   
-    <li><a href="reference_networking_ibm.html">IBM Cloud networking requirements</a></li>
+    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
   
 
 
@@ -807,23 +807,7 @@
 </dd>
 <dt class="hdlist1">Outbound internet access</dt>
 <dd>
-<p>The Cloud Manager installer must have access to the following URLs during the installation process:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</p>
-</li>
-<li>
-<p>https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</p>
-</li>
-<li>
-<p>https://s3.amazonaws.com/aws-cli/awscli-bundle.zip</p>
-<div class="paragraph">
-<p>Cloud Manager accesses additional endpoints when it deploys Cloud Volumes ONTAP in AWS or in Azure. Refer to <a href="reference_networking_aws.html">networking requirements for AWS</a> and <a href="reference_networking_azure.html">networking requirements for Azure</a>.</p>
-</div>
-</li>
-</ul>
-</div>
+<p>Outbound internet access is required when installing Cloud Manager and when using Cloud Manager to deploy Cloud Volumes ONTAP. For a list of endpoints, see <a href="reference_networking_cloud_manager.html">Networking requirements for Cloud Manager</a>.</p>
 </dd>
 <dt class="hdlist1">Ports</dt>
 <dd>
