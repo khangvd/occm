@@ -17,7 +17,7 @@
   
 
   <meta name="description" content="You can start creating Cloud Volumes ONTAP systems right after you deploy Cloud Manager. However, you might want to perform additional setup first by setting...">
-  <meta name="keywords" content=" https certificate, certificate, security, users, adding, creating, tenants, linking, netapp support site account, nss, encryption, key managers, CA, key manager, requirements, safenet, vormetric, kms, key management service, cmk, billing, s3 bucket, cost, accounts, aws accounts, trust relationship, csr">
+  <meta name="keywords" content=" https certificate, certificate, security, users, adding, creating, tenants, linking, netapp support site account, nss, encryption, kms, key management service, cmk, billing, s3 bucket, cost, accounts, aws accounts, multiple, subscription, azure, select">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -752,6 +752,7 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#adding-additional-azure-subscriptions-to-cloud-manager">Adding additional Azure subscriptions to Cloud Manager</a></li>
 <li><a href="#adding-additional-aws-accounts-to-cloud-manager">Adding additional AWS accounts to Cloud Manager</a></li>
 <li><a href="#setting-up-the-aws-kms">Setting up the AWS KMS</a></li>
 <li><a href="#installing-an-https-certificate-for-secure-access">Installing an HTTPS certificate for secure access</a></li>
@@ -759,6 +760,64 @@
 <li><a href="#linking-tenants-to-a-netapp-support-site-account">Linking tenants to a NetApp Support Site account</a></li>
 <li><a href="#setting-up-aws-billing-and-cost-management-for-cloud-manager">Setting up AWS billing and cost management for Cloud Manager</a></li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="adding-additional-azure-subscriptions-to-cloud-manager">Adding additional Azure subscriptions to Cloud Manager</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to deploy Cloud Volumes ONTAP systems in multiple Azure subscriptions, then you must add permissions for those subscriptions.</p>
+</div>
+<div class="paragraph">
+<div class="title">About this task</div>
+<p>The following steps apply if you deployed Cloud Manager from NetApp Cloud Central. When you deployed Cloud Manager, Cloud Central created the OnCommand Cloud Manager Operator role and assigned it to the Cloud Manager virtual machine.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Azure portal.</p>
+</li>
+<li>
+<p>Open the <strong>Subscriptions</strong> service and then select the subscription in which you want to deploy Cloud Volumes ONTAP systems.</p>
+</li>
+<li>
+<p>Click <strong>Access control (IAM)</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong> and then add the permissions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
+</li>
+<li>
+<p>Assign access to a <strong>Virtual Machine</strong>.</p>
+</li>
+<li>
+<p>Select the subscription in which the Cloud Manager virtual machine was created.</p>
+</li>
+<li>
+<p>Select the Cloud Manager virtual machine.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Repeat these steps for additional subscriptions.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>When you create a new working environment, you should now have the ability to select from multiple Azure subscriptions.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_subscriptions.gif" alt="Shows the Details and Credentials page in the create new working environment wizard. A link is available to select a different Azure subscription."></span></p>
 </div>
 </div>
 </div>
