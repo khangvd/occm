@@ -16,8 +16,8 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="Getting started with Cloud Volumes ONTAP (formerly ONTAP Cloud) includes verifying your networking, granting Azure permissions, deploying Cloud Manager, and ...">
-  <meta name="keywords" content=" microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, vpn, multi-cloud, custom role, role, json, active directory, ad, managed service identity, msi, permissions, virtual machine">
+  <meta name="description" content="You can get started with Cloud Volumes ONTAP in Azure by completing a few quick steps.">
+  <meta name="keywords" content=" microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, custom role, role, json, permissions, virtual machine, video">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
@@ -749,319 +749,82 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Getting started with Cloud Volumes ONTAP (formerly ONTAP Cloud) includes verifying your networking, granting Azure permissions, deploying Cloud Manager, and then launching Cloud Volumes ONTAP using Cloud Manager.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The steps to deploy Cloud Manager in an Azure US Gov region or in an Azure Germany region are different than the steps on this page. Refer to instructions for <a href="task_installing_azure_gov.html">US Gov regions</a> or for <a href="task_installing_azure_germany.html">Azure Germany regions</a> instead.
-</td>
-</tr>
-</table>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle" class="title">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#verifying-your-networking">Verifying your networking</a></li>
-<li><a href="#granting-azure-permissions">Granting Azure permissions</a></li>
-<li><a href="#deploying-cloud-manager-in-azure">Deploying Cloud Manager in Azure</a></li>
-<li><a href="#deploying-cloud-volumes-ontap-in-azure">Deploying Cloud Volumes ONTAP in Azure</a></li>
-</ul>
+<p>You can get started with Cloud Volumes ONTAP in Azure by completing a few quick steps. Separate instructions are available to deploy Cloud Manager in <a href="task_installing_azure_gov.html">US Gov regions</a> and in <a href="task_installing_azure_germany.html">Azure Germany regions</a>.</p>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="verifying-your-networking">Verifying your networking</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You must choose the Azure VNet and subnets in which you want to deploy Cloud Manager and Cloud Volumes ONTAP. At a minimum, your networking must meet the following requirements:</p>
+<div class="sect2">
+<h3 id="set-up-your-networking"><span class="image"><img src="./media/number1.png" alt="The number 1"></span> Set up your networking</h3>
+<div class="paragraph quick-margin-para">
+<p>Enable outbound internet access from the target VNet so Cloud Manager and Cloud Volumes ONTAP can contact several endpoints.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Outbound internet access</p>
-<div class="paragraph">
-<p>The target VNet must have one or more subnets that have outbound internet access so Cloud Manager and Cloud Volumes ONTAP can contact several endpoints. To review the list of endpoints, see <a href="reference_networking_cloud_manager.html">Networking requirements for Cloud Manager</a> and <a href="reference_networking_azure.html">Networking requirements for Cloud Volumes ONTAP for Azure</a>.</p>
-</div>
-</li>
-<li>
-<p>Connections between networks</p>
-<div class="ulist">
-<ul>
-<li>
-<p>To deploy Cloud Volumes ONTAP in subnets or networks separate from Cloud Manager, connections between those networks must be in place.</p>
-</li>
-<li>
-<p>To replicate data across a hybrid cloud or multi-cloud environment, VPN connections between networks must be in place. For details, refer to <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal" target="_blank" rel="noopener">Microsoft Azure Documentation: Create a Site-to-Site connection in the Azure portal</a>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For additional networking information, see <a href="reference_networking_azure.html">Networking requirements for Cloud Volumes ONTAP for Azure</a>.</p>
+<div class="paragraph quick-margin-para">
+<p>This step is important because Cloud Manager cannot deploy Cloud Volumes ONTAP without outbound internet access. If you need to limit outbound connectivity, refer to the list of endpoints for <a href="reference_networking_cloud_manager.html#outbound-internet-access">Cloud Manager</a> and <a href="reference_networking_azure.html">Cloud Volumes ONTAP</a>.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="provide-the-required-azure-permissions"><span class="image"><img src="./media/number2.png" alt="The number 2"></span> Provide the required Azure permissions</h3>
+<div class="paragraph quick-margin-para">
+<p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an Azure account that has permissions to deploy the Cloud Manager virtual machine.</p>
 </div>
-<div class="sect1">
-<h2 id="granting-azure-permissions">Granting Azure permissions</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When you deploy Cloud Manager from NetApp Cloud Central, you must use an Azure account that has permissions to deploy the Cloud Manager virtual machine on your behalf.</p>
-</div>
-<div class="paragraph">
-<div class="title">About this task</div>
-<p>This task grants an Azure user with the permissions required to deploy Cloud Manager.</p>
-</div>
-<div class="paragraph">
-<p>When deploying Cloud Manager, Cloud Central grants Cloud Manager with the permissions that it needs to deploy and manage Cloud Volumes ONTAP in Azure. The permissions are granted by enabling a Managed Service Identity on the Cloud Manager virtual machine. To review the list of those permissions, see <a href="reference_permissions.html#what-cloud-manager-does-with-azure-permissions">What Cloud Manager does with Azure permissions</a>.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Create a custom role using the Cloud Central policy:</p>
-<div class="olist loweralpha">
+<div class="olist loweralpha quick-margin-list">
 <ol class="loweralpha" type="a">
 <li>
-<p>Download the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service_Azure.json" target="_blank" rel="noopener">Cloud Central policy for Azure</a>.</p>
+<p>Download the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service_Azure.json" target="_blank" rel="noopener">NetApp-provided JSON file</a>.</p>
 </li>
 <li>
-<p>Modify the JSON file by adding your Azure subscription ID to the assignable scope.</p>
+<p>Modify the JSON file by adding your Azure subscription ID to the "AssignableScopes" field.</p>
+</li>
+<li>
+<p>Use the JSON file to create a custom role in Azure named <em>Azure SetupAsService</em>.</p>
 <div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="paragraph">
-<p>"AssignableScopes": [<br>
-"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",<br>
-],</p>
+<p>Example: <strong>az role definition create --role-definition C:\Policy_for_Setup_As_Service_Azure.json</strong></p>
 </div>
 </li>
 <li>
-<p>Use the JSON file to create a custom role in Azure.</p>
-<div class="paragraph">
-<p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
-</div>
-<div class="paragraph">
-<p><strong>az role definition create --role-definition C:\Policy_for_Setup_As_Service_Azure.json</strong></p>
-</div>
-<div class="paragraph">
-<p>You should now have a custom role called Azure SetupAsService.</p>
-</div>
+<p>From the Azure portal, assign the custom role to the user who will deploy Cloud Manager from Cloud Central.</p>
 </li>
 </ol>
 </div>
-</li>
-<li>
-<p>Assign the role to the user who will deploy Cloud Manager from Cloud Central:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Open the <strong>Subscriptions</strong> service and select the user&#8217;s subscription.</p>
-</li>
-<li>
-<p>Click <strong>Access control (IAM)</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Add</strong> and then add the permissions:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Select the <strong>Azure SetupAsService</strong> role.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Azure SetupAsService is the default name provided in the <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html">Cloud Central policy</a>. If you chose a different name for the role, then select that name instead.
-</td>
-</tr>
-</table>
 </div>
-</li>
-<li>
-<p>Assign access to an <strong>Azure AD user, group, or application</strong>.</p>
-</li>
-<li>
-<p>Select the user account.</p>
-</li>
-<li>
-<p>Click <strong>Save</strong>.</p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="launch-cloud-manager-from-netapp-cloud-central"><span class="image"><img src="./media/number3.png" alt="The number 3"></span> Launch Cloud Manager from NetApp Cloud Central</h3>
+<div class="paragraph quick-margin-para">
+<p>Cloud Manager software is required to deploy and manage Cloud Volumes ONTAP. It takes just a few minutes to launch a Cloud Manager instance from <a href="https://cloud.netapp.com" target="_blank" rel="noopener">Cloud Central</a>.</p>
 </div>
-</li>
-</ol>
 </div>
-</li>
-</ol>
+<div class="sect2">
+<h3 id="launch-cloud-volumes-ontap-using-cloud-manager"><span class="image"><img src="./media/number4.png" alt="The number 4"></span> Launch Cloud Volumes ONTAP using Cloud Manager</h3>
+<div class="paragraph quick-margin-para">
+<p>Once Cloud Manager is ready, just click Create, select the type of system that you would like to deploy, and complete the steps in the wizard. After 25 minutes, your first Cloud Volumes ONTAP system should be up and running.</p>
 </div>
 <div class="paragraph">
-<div class="title">Result</div>
-<p>The Azure user now has the permissions required to deploy Cloud Manager from NetApp Cloud Central.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="deploying-cloud-manager-in-azure">Deploying Cloud Manager in Azure</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You need to install and set up Cloud Manager so you can use it to deploy Cloud Volumes ONTAP in Azure.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Go to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a> and sign up or log in.</p>
-</li>
-<li>
-<p>Under <strong>Cloud Volumes ONTAP</strong>, click <strong>Start Free Trial</strong>.</p>
-</li>
-<li>
-<p>Select <strong>Microsoft Azure</strong>.</p>
-</li>
-<li>
-<p>When prompted, accept the permissions request from Microsoft.</p>
-<div class="paragraph">
-<p>The form is owned and hosted by Microsoft. Your credentials are not provided to NetApp.</p>
-</div>
-</li>
-<li>
-<p>Follow the prompts to deploy the Cloud Manager virtual machine and software in Azure.</p>
-<div class="paragraph">
-<p>You should keep the page open until the deployment is complete. The portal redirects you to the Cloud Manager system when it is available.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a proxy server is required for internet connectivity in the subnet, Cloud Manager prompts you to add the proxy details.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>If you want to deploy Cloud Volumes ONTAP systems in multiple Azure subscriptions, provide permissions for those subscriptions:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Open the <strong>Subscriptions</strong> service and then select the subscription in which you want to deploy Cloud Volumes ONTAP systems.</p>
-</li>
-<li>
-<p>Click <strong>Access control (IAM)</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Add</strong> and then add the permissions:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
-</li>
-<li>
-<p>Assign access to a <strong>Virtual Machine</strong>.</p>
-</li>
-<li>
-<p>Select the subscription in which the Cloud Manager virtual machine was created.</p>
-</li>
-<li>
-<p>Select the Cloud Manager virtual machine.</p>
-</li>
-<li>
-<p>Click <strong>Save</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Repeat these steps for additional subscriptions.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<div class="title">Result</div>
-<p>Cloud Manager is now installed and set up so users can deploy Cloud Volumes ONTAP instances.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="deploying-cloud-volumes-ontap-in-azure">Deploying Cloud Volumes ONTAP in Azure</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You can deploy Cloud Volumes ONTAP in Azure to provide enterprise-class features for your cloud storage.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>On the Working Environments page in Cloud Manager, click <strong>Create</strong>.</p>
-</li>
-<li>
-<p>Under Create, select <strong>Cloud Volumes ONTAP for Azure</strong>.</p>
-</li>
-<li>
-<p>Complete the steps in the wizard to launch the system.</p>
-<div class="paragraph">
-<p>Note the following as you complete the wizard:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The predefined network security group includes the rules that Cloud Volumes ONTAP needs to operate successfully. If you need to use your own, refer to <a href="reference_security_groups_azure.html">Security group rules</a>.</p>
-</li>
-<li>
-<p>The underlying Azure disk type is for the initial Cloud Volumes ONTAP volume. You can choose a different disk type for subsequent volumes.</p>
-</li>
-<li>
-<p>The performance of Azure Premium Storage is tied to the disk size. Larger disks provide higher IOPS and throughput.</p>
-</li>
-<li>
-<p>The disk size is the default size for all disks on the system.</p>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-If you need a different size later, you can use the <strong>Advanced allocation</strong> option to create an aggregate that uses disks of a specific size.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following video shows how to deploy Cloud Volumes ONTAP in Azure.</p>
+<p>Watch the following video for a walk through of these steps:</p>
 </div>
 <div class="videoblock">
 <div class="content">
-<video src="./media/video_launch_otc_azure.mp4" width="848" height="480" controls>
-Your browser does not support the video tag.
-</video>
+<iframe width="848" height="480" src="https://www.youtube.com/embed/S2gP6ii9LAU?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
+<div class="ulist">
+<div class="title">Related links</div>
+<ul>
+<li>
+<p><a href="reference_networking_cloud_manager.html">Networking requirements for Cloud Manager</a></p>
+</li>
+<li>
+<p><a href="reference_networking_azure.html">Networking requirements for Cloud Volumes ONTAP in Azure</a></p>
+</li>
+<li>
+<p><a href="reference_security_groups_azure.html">Security group rules for Azure</a></p>
+</li>
+<li>
+<p><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></p>
+</li>
+<li>
+<p><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></p>
 </li>
 </ul>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<div class="title">Result</div>
-<p>Cloud Manager deploys the Cloud Volumes ONTAP system. You can track the progress in the timeline.</p>
-</div>
 </div>
 </div>
 
