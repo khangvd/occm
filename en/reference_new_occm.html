@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>What&#8217;s new in Cloud Manager 3.5 | NetApp Cloud Docs</title>
+  <title>What&#8217;s new in Cloud Manager 3.6 | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -274,7 +274,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.5 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.6 docs</a></li>
   
 
   
@@ -537,6 +537,10 @@
   
 
   
+    <li><a href="task_connecting_kubernetes.html">Using Cloud Volumes ONTAP as persistent storage</a></li>
+  
+
+  
     <li><a href="task_managing_storage.html">Managing existing storage</a></li>
   
 
@@ -605,15 +609,15 @@
   
 
   
-    <li><a href="task_updating_ontap_cloud.html">Updating Cloud Volumes ONTAP software</a></li>
+    <li><a href="task_updating_ontap_cloud.html">Updating software</a></li>
   
 
   
-    <li><a href="task_modifying_ontap_cloud.html">Modifying Cloud Volumes ONTAP systems</a></li>
+    <li><a href="task_modifying_ontap_cloud.html">Modifying system configurations</a></li>
   
 
   
-    <li><a href="task_managing_state.html">Managing the state of Cloud Volumes ONTAP</a></li>
+    <li><a href="task_managing_state.html">Stopping and starting systems</a></li>
   
 
   
@@ -621,11 +625,11 @@
   
 
   
-    <li><a href="task_adding_ontap_cloud.html">Adding existing Cloud Volumes ONTAP systems</a></li>
+    <li><a href="task_adding_ontap_cloud.html">Adding existing systems</a></li>
   
 
   
-    <li><a href="task_deleting_working_env.html">Deleting Cloud Volumes ONTAP systems</a></li>
+    <li><a href="task_deleting_working_env.html">Deleting systems</a></li>
   
 
 
@@ -649,7 +653,7 @@
   
 
   
-    <li><a href="task_removing.html">Removing Cloud Volumes ONTAP working environments</a></li>
+    <li><a href="task_removing.html">Removing working environments</a></li>
   
 
   
@@ -657,7 +661,7 @@
   
 
   
-    <li><a href="task_configuring_proxy.html">Configuring Cloud Manager to use a proxy server</a></li>
+    <li><a href="task_configuring_proxy.html">Configuring proxy settings</a></li>
   
 
   
@@ -733,6 +737,10 @@
     <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
   
 
+  
+    <li><a href="reference_legal_notices.html">Legal notices</a></li>
+  
+
 
 </ul>
 
@@ -748,11 +756,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">What&#8217;s new in Cloud Manager 3.5
+  <h1 class="n-doc__component-detail-heading">What&#8217;s new in Cloud Manager 3.6
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_new_occm.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[What&#8217;s new in Cloud Manager 3.5](https://docs.netapp.com/en/occm/reference_new_occm.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[What&#8217;s new in Cloud Manager 3.6](https://docs.netapp.com/en/occm/reference_new_occm.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -763,341 +771,35 @@
 <div class="paragraph lead">
 <p>OnCommand Cloud Manager typically introduces a new release every month to bring you new features, enhancements, and bug fixes.</p>
 </div>
-<div id="toc" class="toc">
-<div id="toctitle" class="title">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#cloud-manager-3-5-3-2-sept-2018">Cloud Manager 3.5.3 (2 Sept 2018)</a></li>
-<li><a href="#cloud-manager-3-5-2-1-aug-2018">Cloud Manager 3.5.2 (1 Aug 2018)</a></li>
-<li><a href="#cloud-manager-3-5-1-2-july-2018">Cloud Manager 3.5.1 (2 July 2018)</a></li>
-<li><a href="#cloud-manager-3-5-3-june-2018">Cloud Manager 3.5 (3 June 2018)</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-5-3-2-sept-2018">Cloud Manager 3.5.3 (2 Sept 2018)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager 3.5.3 includes a few enhancements.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#creation-of-svm-management-lif-for-ha-systems-in-multiple-azs">Creation of SVM management LIF for HA systems in multiple AZs</a></p>
-</li>
-<li>
-<p><a href="#ability-to-break-smbcifs-locks">Ability to break SMB/CIFS locks</a></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="creation-of-svm-management-lif-for-ha-systems-in-multiple-azs">Creation of SVM management LIF for HA systems in multiple AZs</h3>
-<div class="paragraph">
-<p>When deploying Cloud Volumes ONTAP HA systems in multiple Availability Zones, you can now specify the floating IP address for an SVM management network interface (LIF). The SVM management LIF enables you to use SnapCenter or SnapDrive for Windows with the HA system.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_svm_lif.gif" alt="Shows the Floating IPs page in the Create a New Working Environment wizard. The fourth text box enables you to specify a floating IP address for the SVM management LIF."></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ability-to-break-smbcifs-locks">Ability to break SMB/CIFS locks</h3>
-<div class="paragraph">
-<p>In previous releases, upgrading or modifying the instance type and license type for a Cloud Volumes ONTAP HA system could fail if locks were present on SMB/CIFS files. Starting in this release, Cloud Manager can detect and break the locks before it proceeds with the operation. You simply need to confirm when prompted.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-5-2-1-aug-2018">Cloud Manager 3.5.2 (1 Aug 2018)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager 3.5.2 includes new features and enhancements.</p>
-</div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Changes in this release require a new Azure permission for Cloud Manager. Read the changes below.
+Looking for a previous release?<br>
+<a href="https://docs.netapp.com/us-en/occm35/reference_new_occm.html" target="_blank" rel="noopener">What&#8217;s new in 3.5</a><br>
+<a href="https://docs.netapp.com/us-en/occm34/reference_new_occm.html" target="_blank" rel="noopener">What&#8217;s new in 3.4</a>
 </td>
 </tr>
 </table>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#support-for-worm-storage">Support for WORM storage</a></p>
-</li>
-<li>
-<p><a href="#support-for-the-auto-tiering-policy-with-cloud-volumes-ontap-standard">Support for the auto tiering policy with Cloud Volumes ONTAP Standard</a></p>
-</li>
-<li>
-<p><a href="#cloud-manager-deployment-in-azure-from-netapp-cloud-central">Cloud Manager deployment in Azure from NetApp Cloud Central</a></p>
-</li>
-<li>
-<p><a href="#animation-added-to-used-capacity-charts">Animation added to used capacity charts</a></p>
-</li>
-<li>
-<p><a href="#locks-on-azure-disks">Locks on Azure disks</a></p>
-</li>
-<li>
-<p><a href="#tags-on-aws-cloudformation-stacks">Tags on AWS CloudFormation stacks</a></p>
-</li>
-<li>
-<p><a href="#deprecation-of-cloud-volumes-ontap-encryption-in-aws">Deprecation of Cloud Volumes ONTAP encryption in AWS</a></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="support-for-worm-storage">Support for WORM storage</h3>
-<div class="paragraph">
-<p>You can now activate WORM storage on new Cloud Volumes ONTAP systems. Write once, read many (WORM) storage enables you to retain critical files in unmodified form for regulatory and governance purposes and to protect from malware attacks. WORM files are protected at the file level.</p>
-</div>
-<div class="paragraph">
-<p><a href="concept_worm.html">Learn more about WORM storage</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="support-for-the-auto-tiering-policy-with-cloud-volumes-ontap-standard">Support for the auto tiering policy with Cloud Volumes ONTAP Standard</h3>
-<div class="paragraph">
-<p>The <em>auto</em> volume tiering policy is now supported with the pay-as-you-go Standard license for Cloud Volumes ONTAP. You can select the auto tiering policy when creating, modifying, or replicating a volume. Data tiering enables automated tiering of cold data to low-cost object storage.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Auto is the default policy when creating new volumes for Cloud Volumes ONTAP Standard, Premium, and BYOL.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><a href="concept_storage.html#data-tiering-overview">Learn more about data tiering</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="cloud-manager-deployment-in-azure-from-netapp-cloud-central">Cloud Manager deployment in Azure from NetApp Cloud Central</h3>
-<div class="paragraph">
-<p>You can now deploy new Cloud Manager systems in Microsoft Azure directly from <a href="https://cloud.netapp.com">NetApp Cloud Central</a>. Cloud Central simplifies the deployment experience and provides a single location to view and manage multiple Cloud Manager systems. Providing your Azure credentials is secure and private because they are entered in an Azure pop-up window.</p>
-</div>
-<div class="paragraph">
-<p><a href="concept_cloud_central.html">Learn more about Cloud Central</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="animation-added-to-used-capacity-charts">Animation added to used capacity charts</h3>
-<div class="paragraph">
-<p>An animation now shows you the amount of used capacity when you view volumes or aggregates.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_used_capacity_animation.gif" alt="An animated screenshot that shows an aggregate and its used capacity."></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locks-on-azure-disks">Locks on Azure disks</h3>
-<div class="paragraph">
-<p>Cloud Manager can now add locks to the Azure disks that it allocates to Cloud Volumes ONTAP. The locks help to ensure that the disks are not accidently deleted. This change requires a new permission so Cloud Manager can add, delete, and query the locks:</p>
-</div>
-<div class="paragraph">
-<p>"Microsoft.Authorization/locks/*"</p>
-</div>
-<div class="paragraph">
-<p>You should add this permission to the custom role that provides Cloud Manager with the required permissions.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="tags-on-aws-cloudformation-stacks">Tags on AWS CloudFormation stacks</h3>
-<div class="paragraph">
-<p>Cloud Manager now adds user tags to the AWS CloudFormation stacks that it creates. The tags can help to ensure that the stacks are not deleted by automated processes.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deprecation-of-cloud-volumes-ontap-encryption-in-aws">Deprecation of Cloud Volumes ONTAP encryption in AWS</h3>
-<div class="paragraph">
-<p>Data-at-rest encryption of aggregates using external key managers is no longer supported when launching new Cloud Volumes ONTAP systems in AWS. Existing systems that use this feature are still supported; however, Cloud Volumes ONTAP encryption will be deprecated in the 9.5 release. NetApp will contact you to discuss how to upgrade those systems to the 9.5 release and how to implement a replacement encryption feature.</p>
-</div>
-<div class="paragraph">
-<p>You can still enable data encryption on new systems by using the AWS Key Management Service (KMS).</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="cloud-manager-3-5-1-2-july-2018">Cloud Manager 3.5.1 (2 July 2018)</h2>
+<h2 id="cloud-manager-3-6-4-nov-2018">Cloud Manager 3.6 (4 Nov 2018)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Manager 3.5.1 includes new features and enhancements.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#support-for-pay-as-you-go-in-the-aws-govcloud-us-region">Support for pay-as-you-go in the AWS GovCloud (US) region</a></p>
-</li>
-<li>
-<p><a href="#tiering-levels-for-cold-data">Tiering levels for cold data</a></p>
-</li>
-<li>
-<p><a href="#providing-azure-permissions-using-a-managed-service-identity">Providing Azure permissions using a Managed Service Identity</a></p>
-</li>
-<li>
-<p><a href="#new-used-capacity-charts">New used capacity charts</a></p>
-</li>
-</ul>
+<p>Cloud Manager 3.6 includes a new feature.</p>
 </div>
 <div class="sect2">
-<h3 id="support-for-pay-as-you-go-in-the-aws-govcloud-us-region">Support for pay-as-you-go in the AWS GovCloud (US) region</h3>
+<h3 id="using-cloud-volumes-ontap-as-persistent-storage-for-a-kubernetes-cluster">Using Cloud Volumes ONTAP as persistent storage for a Kubernetes cluster</h3>
 <div class="paragraph">
-<p>The pay-as-you-go version of Cloud Volumes ONTAP is now supported in the AWS GovCloud (US) region. This is in addition to supporting Cloud Volumes ONTAP BYOL in the GovCloud (US) region.</p>
-</div>
-<div class="paragraph">
-<p>You can deploy Cloud Volumes ONTAP in the GovCloud (US) region just like any other region. Go to NetApp Cloud Central and launch Cloud Manager in GovCloud (US). Then launch Cloud Volumes ONTAP PAYGO or BYOL by creating a new working environment in Cloud Manager.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="tiering-levels-for-cold-data">Tiering levels for cold data</h3>
-<div class="paragraph">
-<p>After you deploy Cloud Volumes ONTAP, you can change the Amazon S3 storage class or the Azure Blob storage tier in which you want to store cold data. Changing the tiering level can reduce your storage costs, if you do not plan to access the data. The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level.</p>
+<p>Cloud Manager can now automate the deployment of <a href="https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html" target="_blank" rel="noopener">NetApp Trident</a> on a single Kubernetes cluster so you can use Cloud Volumes ONTAP as persistent storage for containers. Users can then request and manage Persistent Volumes using native Kubernetes interfaces and constructs, while taking advantage of ONTAP&#8217;s advanced data management features without having to know anything about it.</p>
 </div>
 <div class="paragraph">
-<p>The tiering level is system wide&#8212;&#8203;it is not per volume. For details about changing the tiering level, see <a href="task_tiering.html">Tiering cold data to low-cost object storage</a>.</p>
-</div>
-<div class="sect3">
-<h4 id="aws-tiering-levels">AWS tiering levels</h4>
-<div class="paragraph">
-<p>In AWS, Cloud Volumes ONTAP uses <strong>Standard</strong> as the default storage class for data tiering to Amazon S3. You can change the storage class to either <strong>Standard-Infrequent Access</strong> or <strong>One Zone-Infrequent Access</strong>. When you change the tiering level, cold data starts in the <strong>Standard</strong> storage class and moves to the storage class that you selected, if the data is not accessed after 30 days. For details about S3 storage classes, refer to <a href="https://aws.amazon.com/s3/storage-classes" target="_blank" rel="noopener">AWS documentation</a>.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_tiering_level_s3.gif" alt="A screenshot that shows the three S3 storage classes."></span></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="azure-tiering-levels">Azure tiering levels</h4>
-<div class="paragraph">
-<p>In Azure, Cloud Volumes ONTAP uses the Azure <strong>hot</strong> storage tier as the default for data tiering to Blob storage. You can change to the Azure <strong>cool</strong> storage tier. When you change the tiering level, cold data starts in the <strong>hot</strong> storage tier and moves to the <strong>cool</strong> storage tier, if the data is not accessed after 30 days. For details about Azure Blob storage tiers, refer to <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">Azure documentation</a>.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_tiering_level_blob.gif" alt="A screenshot that shows the two Blob storage tiers."></span></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="providing-azure-permissions-using-a-managed-service-identity">Providing Azure permissions using a Managed Service Identity</h3>
-<div class="paragraph">
-<p>You can now provide Azure permissions to Cloud Manager by using a Managed Service Identity. A Managed Service Identity allows a Cloud Manager virtual machine in Azure to identify itself to Azure Active Directory without providing any credentials. This method is simpler than manually setting up an Azure service principal and providing the credentials to Cloud Manager.</p>
-</div>
-<div class="paragraph">
-<p>To use a Managed Service Identity with Cloud Manager, follow <a href="task_getting_started_azure.html">instructions for new Cloud Manager virtual machines</a> or <a href="task_enabling_msi.html">instructions for existing Cloud Manager virtual machines</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Managed Service Identities are not supported in the Azure US Gov regions and in the Germany regions. You must <a href="task_creating_service_principal.html">grant Azure permissions to Cloud Manager using a service principal and credentials</a>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>For more information about Managed Service Identities, refer to <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview" target="_blank" rel="noopener">Azure documentation</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="new-used-capacity-charts">New used capacity charts</h3>
-<div class="paragraph">
-<p>Cloud Manager now provides a graphical representation of used capacity when viewing volumes and aggregates.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_used_capacity.gif" alt="A screenshot that shows a volume and its used capacity."></span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-5-3-june-2018">Cloud Manager 3.5 (3 June 2018)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager 3.5 includes new features and enhancements.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#support-for-cloud-volumes-ontap-9-4">Support for Cloud Volumes ONTAP 9.4</a></p>
-</li>
-<li>
-<p><a href="#new-permissions-required-for-cloud-volumes-ontap-9-4">New permissions required for Cloud Volumes ONTAP 9.4</a></p>
-</li>
-<li>
-<p><a href="#cloud-manager-integration-with-netapp-cloud-central">Cloud Manager integration with NetApp Cloud Central</a></p>
-</li>
-<li>
-<p><a href="#support-for-the-m4-large-instance-type">Support for the m4.large instance type</a></p>
-</li>
-<li>
-<p><a href="#marketplace-image-now-based-on-rhel-7-4">Marketplace image now based on RHEL 7.4</a></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="support-for-cloud-volumes-ontap-9-4">Support for Cloud Volumes ONTAP 9.4</h3>
-<div class="paragraph">
-<p>You can now deploy new Cloud Volumes ONTAP 9.4 systems from Cloud Manager and upgrade your existing systems to the 9.4 release. Cloud Manager also provides support for <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_94.html" target="_blank" rel="noopener">the new features introduced in Cloud Volumes ONTAP 9.4</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="new-permissions-required-for-cloud-volumes-ontap-9-4">New permissions required for Cloud Volumes ONTAP 9.4</h3>
-<div class="paragraph">
-<p>Cloud Manager requires new permissions for key features in the Cloud Volumes ONTAP 9.4 release. To ensure that your Cloud Manager systems can deploy and manage Cloud Volumes ONTAP 9.4 systems, you must update your Cloud Manager policy by adding the following permissions:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>For AWS: "ec2:DescribeInstanceAttribute",</p>
-<div class="paragraph">
-<p>Cloud Manager uses this permission to verify that enhanced networking is enabled for supported instance types.</p>
-</div>
-</li>
-<li>
-<p>For Azure: "Microsoft.Network/virtualNetworks/subnets/write",</p>
-<div class="paragraph">
-<p>Cloud Manager uses this permission to enable VNet service endpoints for data tiering.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>You can find the entire list of required permissions in <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">the latest policies provided by NetApp</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="cloud-manager-integration-with-netapp-cloud-central">Cloud Manager integration with NetApp Cloud Central</h3>
-<div class="paragraph">
-<p>When upgrading to Cloud Manager 3.5, NetApp will choose specific Cloud Manager systems to integrate with NetApp Cloud Central, if they are not already integrated. During this process, NetApp migrates all local user accounts in your Cloud Manager system to the centralized user authentication available in Cloud Central. After the upgrade is complete, you simply need to log in.</p>
-</div>
-<div class="paragraph">
-<p>If you have questions, refer to <a href="reference_integration_faq.html">this FAQ</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="support-for-the-m4-large-instance-type">Support for the m4.large instance type</h3>
-<div class="paragraph">
-<p>Cloud Manager is now supported with the m4.large EC2 instance type. m3.large is no longer supported.</p>
-</div>
-<div class="paragraph">
-<p>For a list of supported Cloud Manager configurations, see <a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="marketplace-image-now-based-on-rhel-7-4">Marketplace image now based on RHEL 7.4</h3>
-<div class="paragraph">
-<p>The operating system for the Cloud Manager marketplace image in AWS and Azure is now Red Hat Enterprise Linux 7.4.</p>
+<p><a href="task_connecting_kubernetes.html">Learn how to connect Cloud Volumes ONTAP systems to a Kubernetes cluster</a></p>
 </div>
 </div>
 </div>
