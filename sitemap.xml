@@ -15,7 +15,14 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/concept_cloud_central.html</loc>
       
-        <lastmod>2018-05-03T16:12:52+00:00</lastmod>
+        <lastmod>2018-05-07T21:35:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/zz/occm/concept_evaluating.html</loc>
+      
+        <lastmod>2018-11-09T14:06:21+00:00</lastmod>
       
     </url>
   
@@ -29,7 +36,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/concept_licensing.html</loc>
       
-        <lastmod>2018-08-23T20:38:15+00:00</lastmod>
+        <lastmod>2018-11-09T14:06:21+00:00</lastmod>
       
     </url>
   
@@ -71,7 +78,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/concept_storage_management.html</loc>
       
-        <lastmod>2018-09-02T00:13:07+00:00</lastmod>
+        <lastmod>2018-11-09T14:07:05+00:00</lastmod>
       
     </url>
   
@@ -127,7 +134,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/reference_deployment_overview.html</loc>
       
-        <lastmod>2018-06-20T17:22:08+00:00</lastmod>
+        <lastmod>2018-11-09T14:06:21+00:00</lastmod>
       
     </url>
   
@@ -232,7 +239,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm//search.html</loc>
       
-        <lastmod>2018-11-04T09:56:52+00:00</lastmod>
+        <lastmod>2018-11-09T14:30:13+00:00</lastmod>
       
     </url>
   
@@ -246,7 +253,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_backing_up_restoring.html</loc>
       
-        <lastmod>2018-05-03T16:12:52+00:00</lastmod>
+        <lastmod>2018-05-07T21:35:57+00:00</lastmod>
       
     </url>
   
@@ -330,14 +337,14 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_getting_started_aws.html</loc>
       
-        <lastmod>2018-10-31T11:34:06+00:00</lastmod>
+        <lastmod>2018-11-09T14:06:21+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_getting_started_azure.html</loc>
       
-        <lastmod>2018-10-31T11:34:06+00:00</lastmod>
+        <lastmod>2018-11-09T14:06:21+00:00</lastmod>
       
     </url>
   
@@ -414,7 +421,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_managing_volume_view.html</loc>
       
-        <lastmod>2018-05-03T16:12:52+00:00</lastmod>
+        <lastmod>2018-05-07T21:35:57+00:00</lastmod>
       
     </url>
   
@@ -470,7 +477,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_renewing_cert.html</loc>
       
-        <lastmod>2018-05-03T16:12:52+00:00</lastmod>
+        <lastmod>2018-05-07T21:35:57+00:00</lastmod>
       
     </url>
   
@@ -512,7 +519,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_uninstalling.html</loc>
       
-        <lastmod>2018-05-03T16:12:52+00:00</lastmod>
+        <lastmod>2018-05-07T21:35:57+00:00</lastmod>
       
     </url>
   

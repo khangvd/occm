@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Managing encryption settings for Cloud Volumes ONTAP | NetApp Cloud Docs</title>
+  <title>Free trials and evaluation licenses | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,8 +16,8 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="You might need to periodically manage Cloud Manager encryption settings to ensure that Cloud Volumes ONTAP systems in AWS can communicate with key managers.">
-  <meta name="keywords" content=" encryption, managing, settings, certificate, CA, expire, renew, intermediate, CSR, key managers">
+  <meta name="description" content="You can evaluate Cloud Volumes ONTAP before you pay for the software. If you intend to pay hourly, then you should use a free trial. If you intend to purchas...">
+  <meta name="keywords" content=" free trial, evaluation, license, evaluate">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -361,7 +361,7 @@
   
 
   
-    <li><a href="concept_evaluating.html">Free trials and evaluations</a></li>
+    <li class="active"><a href="concept_evaluating.html">Free trials and evaluations</a></li>
   
 
   
@@ -681,7 +681,7 @@
   
 
   
-    <li class="active"><a href="task_managing_encryption.html">Managing encryption settings</a></li>
+    <li><a href="task_managing_encryption.html">Managing encryption settings</a></li>
   
 
   
@@ -772,11 +772,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Managing encryption settings for Cloud Volumes ONTAP
+  <h1 class="n-doc__component-detail-heading">Free trials and evaluation licenses
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_managing_encryption.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Managing encryption settings for Cloud Volumes ONTAP](https://docs.netapp.com/zz/occm/task_managing_encryption.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_evaluating.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Free trials and evaluation licenses](https://docs.netapp.com/zz/occm/concept_evaluating.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -785,161 +785,39 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You might need to periodically manage Cloud Manager encryption settings to ensure that Cloud Volumes ONTAP systems in AWS can communicate with key managers.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Data-at-rest encryption provided by Cloud Volumes ONTAP is no longer supported when launching new Cloud Volumes ONTAP systems in AWS. Existing systems that use this feature are still supported. See <a href="reference_new_occm.html">What&#8217;s new in Cloud Manager</a> for more details.
-</td>
-</tr>
-</table>
+<p>You can evaluate Cloud Volumes ONTAP before you pay for the software. If you intend to pay hourly, then you should use a free trial. If you intend to purchase a license, then you should start with an evaluation license.</p>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#renewing-the-cloud-manager-intermediate-ca-certificate">Renewing the Cloud Manager intermediate CA certificate</a></li>
-<li><a href="#managing-available-key-managers-and-ca-certificates">Managing available key managers and CA certificates</a></li>
+<li><a href="#free-trials">Free trials</a></li>
+<li><a href="#evaluation-licenses">Evaluation licenses</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="renewing-the-cloud-manager-intermediate-ca-certificate">Renewing the Cloud Manager intermediate CA certificate</h2>
+<h2 id="free-trials">Free trials</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must renew the Cloud Manager certificate before it expires; otherwise, Cloud Manager cannot sign client certificates for Cloud Volumes ONTAP.</p>
+<p>A free trial is a good choice if you plan to pay for Cloud Volumes ONTAP as you go. You can start a 30-day free trial of a single-node Cloud Volumes ONTAP system from <a href="https://cloud.netapp.com">NetApp Cloud Central</a>.</p>
 </div>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>If you renew the Cloud Manager intermediate CA certificate, Cloud Manager uses the renewed certificate to generate client certificates for <em>new</em> Cloud Volumes ONTAP systems. You can renew client certificates for <em>existing</em> Cloud Volumes ONTAP systems from the working environment.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the upper-right corner of the Cloud Manager console, click the task drop-down list, and then click <strong>Encryption Setup</strong>.</p>
-</li>
-<li>
-<p>In the Intermediate CA tab, click <strong>Renew Intermediate CA</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Generate CSR</strong>.</p>
-</li>
-<li>
-<p>Use the CSR to submit a certificate request to a CA.</p>
-<div class="paragraph">
-<p>The intermediate CA certificate must use the Privacy Enhanced Mail (PEM) Base-64 encoded X. 509 format.</p>
-</div>
-</li>
-<li>
-<p>Copy the contents of the signed certificate and paste it in the Cloud Manager certificate field.</p>
-</li>
-<li>
-<p>Click <strong>Install Cloud Manager Certificate</strong>.</p>
-</li>
-</ol>
+<p>There are no hourly software charges for that instance, but AWS infrastructure charges still apply. A free trial automatically converts to a paid hourly subscription when it expires.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="managing-available-key-managers-and-ca-certificates">Managing available key managers and CA certificates</h2>
+<h2 id="evaluation-licenses">Evaluation licenses</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can modify the key managers and key manager CA certificates that Cloud Manager users can use with their Cloud Volumes ONTAP systems. For example, you can add a new key manager that is available in your environment and you can add a new CA certificate, if a previous certificate expired.</p>
+<p>An evaluation license is available for customers who expect to pay for Cloud Volumes ONTAP with a license. You can obtain an evaluation license from your account team or from a Sales Engineer.</p>
 </div>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>The changes that you make from the Encryption Setup page affect only new Cloud Volumes ONTAP systems. Changes to existing Cloud Volumes ONTAP systems must be made from the working environment.</p>
+<p>If you do not provide Cloud Manager with a regular license before the evaluation license expires, the Cloud Volumes ONTAP system shuts itself down until you enter a valid license. Data is not deleted from the system.</p>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the upper-right corner of the Cloud Manager console, click the task drop-down list, and then click <strong>Encryption Setup</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Key Manager</strong>.</p>
-</li>
-<li>
-<p>Manage your key managers as necessary:</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Action</th>
-<th class="tableblock halign-left valign-top">Steps</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Change the KMIP port for communicating with key managers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modify the port and then click <strong>Save</strong>.<br>
-<br>
-The port change affects only new Cloud Volumes ONTAP systems.<br>
-<br>
-To change the port for an existing Cloud Volumes ONTAP system, connect to the CLI and then run the security key-manager setup command.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new key manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Click Add, enter details about the key manager, and then click Add again.<br>
-<br>
-This action does not add the key manager to existing Cloud Volumes ONTAP systems. You must add the key manager from the working environment, if necessary.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit the details for a key manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the key manager, click Edit, modify the details, and then click Save.<br>
-<br>
-Any changes affect only new Cloud Volumes ONTAP systems that will use this key manager. To apply this change to existing Cloud Volumes ONTAP systems, go to the working environment, remove the key manager, and then add it back.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete an existing key manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the key manager, click <strong>Delete</strong>, and then click <strong>Delete</strong> again.<br>
-<br>
-If you delete a key manager, you cannot configure Cloud Volumes ONTAP systems to use it. Existing systems that are using this key manager can continue to use it.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Manage the key managers' CA certificates as necessary:</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Action</th>
-<th class="tableblock halign-left valign-top">Steps</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Click <strong>Add</strong>, paste the certificate, and then click <strong>Add</strong> again.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View a certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the key manager and click <strong>View</strong>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select the menu icon next to the certificate, click <strong>Delete</strong>, and then click <strong>Delete</strong> again.<br>
-<br>
-If you delete a certificate, you cannot configure Cloud Volumes ONTAP systems to use it. Existing systems that are using the certificate can continue to use it.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ol>
+<div class="paragraph">
+<p><a href="concept_licensing.html">Learn more about licensing</a></p>
 </div>
 </div>
 </div>
