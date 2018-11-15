@@ -1,9 +1,9 @@
 /* Needs to be moved to clouddocs once no longer a feature flag */
 @media screen and (min-width: 1024px) {
   .n-doc__component-detail-content {
-    max-width: 800px;
+    max-width: 2400px;
     width: auto;
-    margin-right: 200px;
+    margin-right: 214px;
   }
 }
 
@@ -16,6 +16,9 @@
   .page-nav-container {
     display: block;
     float: right;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 75vh;
   }
 }
 
@@ -26,14 +29,30 @@
   max-width: 240px;
 }
 
-.page-nav-inner {
-  width: 181px;
-  top: 118px;
+.page-nav-title {
   position: fixed;
-  padding-top: 16px;
+  width: 214px;
+  top: 165px;
+  right: 0px;
+  color: #0067C5;
+  display: block;
+  padding: 4px 8px;
+  line-height: 1.5;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* top was previously 118px */
+.page-nav-inner {
+  width: 214px;
+  top: 190px;
+  bottom: 80px;
+  right: 0px;
+  position: fixed;
   list-style: none;
   margin: 0;
-  padding: 24px;
+  padding-left: 16px;
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 75vh;
@@ -57,7 +76,11 @@
   text-indent: 0;
   text-shadow: none;
   text-transform: none;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+.page-nav__sublink {
+  margin-left: 12px;
 }
 
 .page-nav__link--active {

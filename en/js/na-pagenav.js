@@ -1,11 +1,12 @@
 $(document).ready(function() {
   const MASTHEAD_OFFSET = 165;
-  const SECTIONS = $("main h2");
+  const SECTIONS = $("main h2, main h3");
   // PAGE NAV - Init
   for (var i = 0; i < SECTIONS.length; i++) {
     var sectionId = $(SECTIONS[i]).attr('id');
     var sectionName = $(SECTIONS[i]).text();
-    $("#page-menu").append('<li class="page-nav-item"><a href="#'+sectionId+'" class="page-nav__link">'+sectionName+'</a></li>');
+    var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+    $("#page-menu").append('<li class="page-nav-item"><a href="#'+sectionId+'" class="page-nav__link'+subClass+'">'+sectionName+'</a></li>');
   }
   $(".page-nav__link").first().addClass('page-nav__link--active');
 
