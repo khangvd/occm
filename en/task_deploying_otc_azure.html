@@ -17,7 +17,7 @@
   
 
   <meta name="description" content="You can launch a single Cloud Volumes ONTAP system in Azure by creating a Cloud Volumes ONTAP working environment in Cloud Manager.">
-  <meta name="keywords" content=" Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, azure, BYOL, license key, serial number, tags, azure tags, location, license, preconfigured packages, programmatic deployments, disk size, write speed, access control, volume protection, usage profile, register, CIFS share, quota, qtree">
+  <meta name="keywords" content=" Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, azure, BYOL, license key, serial number, tags, azure tags, location, license, preconfigured packages, programmatic deployments, disk size, write speed, access control, volume protection, usage profile, register, CIFS share, quota, qtree, HA, HA pair">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
@@ -60,6 +60,9 @@
   <link rel='stylesheet' href='/occm/en/css/na-pagenav.css' type='text/css' id="pagenav-css">
   <script src='/occm/en/js/na-pagenav.js'></script>
   
+
+  <link rel='stylesheet' href='/occm/en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/en/css/prism-netapp.css' type='text/css'>
 
   <script src='/occm/en/js/clouddocs.js'></script>
   <script src='/occm/en/js/s_code_impl.js'></script>
@@ -338,6 +341,10 @@
   
 
   
+    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Storage</a>
@@ -346,6 +353,10 @@
 
   
     <li><a href="concept_storage.html">Overview</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
   
 
   
@@ -410,26 +421,50 @@
   
 
   
-    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Setting up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Setting up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Detailed networking requirements</a>
+      <a href="#">Networking requirements</a>
       <ul>
         
 
   
-    <li><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
   
 
 
@@ -466,30 +501,6 @@
 
   
     <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional ways to provide permissions</a>
-      <ul>
-        
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
-  
-
-  
-    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
   
 
 
@@ -714,7 +725,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -788,7 +799,7 @@
 </div>
 
 <div class="paragraph lead">
-<p>You can launch a single Cloud Volumes ONTAP system in Azure by creating a Cloud Volumes ONTAP working environment in Cloud Manager.</p>
+<p>You can launch a single node system or an HA pair in Azure by creating a Cloud Volumes ONTAP working environment in Cloud Manager.</p>
 </div>
 <div class="ulist">
 <div class="title">Before you begin</div>
@@ -803,7 +814,7 @@
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>When Cloud Manager creates a Cloud Volumes ONTAP system in Azure, it creates a resource group that includes the security group, network interfaces, and two storage accounts: one for Azure Standard Storage and one for Premium Storage.</p>
+<p>When Cloud Manager creates a Cloud Volumes ONTAP system in Azure, it creates several Azure objects, such as a resource group, network interfaces, and storage accounts. You can review a summary of the resources at the end of the wizard.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -812,10 +823,10 @@
 <p>On the Working Environments page, click <strong>Add Working Environment</strong></p>
 </li>
 <li>
-<p>Under Create, select <strong>Cloud Volumes ONTAP</strong>.</p>
+<p>Under Create, select a single node system in Azure or an HA pair in Azure.</p>
 </li>
 <li>
-<p>On the Details and Credentials page, optionally change the Azure subscription, specify a cluster name and resource group name, add tags if needed, and then specify credentials.</p>
+<p>On the Details and Credentials page, optionally change the Azure account or subscription, specify a cluster name and resource group name, add tags if needed, and then specify credentials.</p>
 <div class="paragraph">
 <p>The following table describes fields for which you might need guidance:</p>
 </div>
@@ -832,8 +843,8 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Subscription</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different Azure subscription if you provided permissions through multiple subscriptions. If you are using a Managed Service Identity, see <a href="task_enabling_msi.html">Enabling a Managed Service Identity on an existing Cloud Manager virtual machine</a>. If you are using a service principal with credentials, see <a href="task_creating_service_principal.html#assigning-the-cloud-manager-operator-role-to-the-service-principal">Assigning the Cloud Manager Operator role to the service principal</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch Account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different account or subscription if you <a href="task_adding_cloud_accounts.html#setting-up-and-adding-azure-accounts-to-cloud-manager">added additional Cloud Provider Accounts</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Working Environment Name</p></td>
@@ -857,21 +868,9 @@ For information about tags, refer to <a href="https://azure.microsoft.com/docume
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If Azure credentials were not specified for your Cloud Manager account, you are prompted to enter them after you click Continue. You need to enter them before you can proceed.
-</td>
-</tr>
-</table>
-</div>
 </li>
 <li>
-<p>On the Location page, enter the network information that you recorded in the worksheet, select the checkbox to confirm network connectivity, and then click <strong>Continue</strong>.</p>
+<p>On the Location page, select a location and security group, select the checkbox to confirm network connectivity, and then click <strong>Continue</strong>.</p>
 </li>
 <li>
 <p>On the BYOL License page, specify whether you have a license for this Cloud Volumes ONTAP system.</p>
@@ -897,7 +896,7 @@ If Azure credentials were not specified for your Cloud Manager account, you are 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.4 RC1 and 9.4 GA is available. The update does not occur from one release to another—for example, from 9.2 to 9.3.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.5 RC1 and 9.5 GA is available. The update does not occur from one release to another—for example, from 9.4 to 9.5.
 </td>
 </tr>
 </table>
@@ -913,19 +912,31 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>On the Underlying Storage Resources page, choose either <strong>Premium Storage</strong> (SSD) or <strong>Standard Storage</strong> (HDD) and select a disk size.</p>
+<p>On the Underlying Storage Resources page, choose a disk type and select a disk size.</p>
 <div class="paragraph">
-<p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes. For help choosing a disk type, see <a href="task_planning_your_config.html#choosing-an-azure-disk-type">Choosing an Azure disk type</a>.</p>
+<p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
 </div>
 <div class="paragraph">
 <p>The disk size is for all disks in the initial aggregate and for any additional aggregates that Cloud Manager creates when you use the simple provisioning option. You can create aggregates that use a different disk size by using the advanced allocation option.</p>
 </div>
 <div class="paragraph">
-<p>For help choosing a size, see <a href="task_planning_your_config.html#choosing-a-disk-size">Choosing a disk size</a>.</p>
+<p>For help choosing a disk type and size, see <a href="task_planning_your_config.html#sizing-your-system-in-azure">Sizing your system in Azure</a>.</p>
 </div>
 </li>
 <li>
 <p>On the Write Speed &amp; WORM page, choose <strong>Normal</strong> or <strong>High</strong> write speed, and activate write once, read many (WORM) storage, if desired.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Choosing a write speed is supported with single node systems only.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><a href="task_planning_your_config.html#choosing-a-write-speed">Learn more about write speed</a>.</p>
 </div>
@@ -1022,8 +1033,20 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </li>
 <li>
 <p>On the Usage Profile, Disk Type, and Tiering Policy page, choose whether you want to enable storage efficiency features and change the tiering policy, if needed.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Storage tiering is supported with single node systems only.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_storage.html#data-tiering-overview">Data tiering overview</a>.</p>
+<p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
 </div>
 </li>
 <li>
@@ -1052,7 +1075,7 @@ The listed DNS servers must contain the service location records (SRV) needed to
 <p>Cloud Manager deploys the Cloud Volumes ONTAP system. You can track the progress in the timeline.</p>
 </div>
 <div class="paragraph">
-<p>If you experience any issues deploying the Cloud Volumes ONTAP system, review the failure message. You can also select the working environment and click Re-create environment.</p>
+<p>If you experience any issues deploying the Cloud Volumes ONTAP system, review the failure message. You can also select the working environment and click <strong>Re-create environment</strong>.</p>
 </div>
 <div class="paragraph">
 <p>For additional help, go to <a href="https://mysupport.netapp.com/cloudontap" target="_blank" rel="noopener">NetApp Cloud Volumes ONTAP Support</a>.</p>
@@ -1176,6 +1199,10 @@ The listed DNS servers must contain the service location records (SRV) needed to
     
     <script type="text/javascript" src='/occm/en/js/bundle.js'></script>
     
+
+    <script type="text/javascript" src='/occm/en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/en/js/prism-curl.js'></script>
+
   </body>
 
   

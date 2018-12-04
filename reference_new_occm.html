@@ -61,6 +61,9 @@
   <script src='/occm/js/na-pagenav.js'></script>
   
 
+  <link rel='stylesheet' href='/occm/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/prism-netapp.css' type='text/css'>
+
   <script src='/occm/js/clouddocs.js'></script>
   <script src='/occm/js/s_code_impl.js'></script>
   <script src='/occm/js/jquery.navgoco.min.js'></script>
@@ -338,6 +341,10 @@
   
 
   
+    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Storage</a>
@@ -346,6 +353,10 @@
 
   
     <li><a href="concept_storage.html">Overview</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
   
 
   
@@ -410,26 +421,50 @@
   
 
   
-    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Setting up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Setting up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Detailed networking requirements</a>
+      <a href="#">Networking requirements</a>
       <ul>
         
 
   
-    <li><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
   
 
 
@@ -466,30 +501,6 @@
 
   
     <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional ways to provide permissions</a>
-      <ul>
-        
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
-  
-
-  
-    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
   
 
 
@@ -714,7 +725,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -805,6 +816,159 @@ Looking for a previous release?<br>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-6-1-4-dec-2018">Cloud Manager 3.6.1 (4 Dec 2018)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.6.1 includes new features and enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#support-for-cloud-volumes-ontap-9-5-in-azure">Support for Cloud Volumes ONTAP 9.5 in Azure</a></p>
+</li>
+<li>
+<p><a href="#cloud-provider-accounts">Cloud Provider Accounts</a></p>
+</li>
+<li>
+<p><a href="#enhancements-to-the-aws-cost-report">Enhancements to the AWS Cost report</a></p>
+</li>
+<li>
+<p><a href="#support-for-new-azure-regions">Support for new Azure regions</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="support-for-cloud-volumes-ontap-9-5-in-azure">Support for Cloud Volumes ONTAP 9.5 in Azure</h3>
+<div class="paragraph">
+<p>Cloud Manager now supports the Cloud Volumes ONTAP 9.5 release in Microsoft Azure, which includes a  preview of high-availability (HA) pairs. You can request a preview license for an Azure HA pair by contacting us at <a href="mailto:ng-Cloud-Volume-ONTAP-preview@netapp.com">ng-Cloud-Volume-ONTAP-preview@netapp.com</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more details about the 9.5 release, see the <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_95.html" target="_blank" rel="noopener">Cloud Volumes ONTAP 9.5 Release Notes</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="new-azure-permissions-required-for-cloud-volumes-ontap-9-5">New Azure permissions required for Cloud Volumes ONTAP 9.5</h4>
+<div class="paragraph">
+<p>Cloud Manager requires new Azure permissions for key features in the Cloud Volumes ONTAP 9.5 release. To ensure that Cloud Manager can deploy and manage Cloud Volumes ONTAP 9.5 systems, you should update your Cloud Manager policy by adding the following permissions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>"Microsoft.Network/loadBalancers/read",
+"Microsoft.Network/loadBalancers/write",
+"Microsoft.Network/loadBalancers/delete",
+"Microsoft.Network/loadBalancers/backendAddressPools/read",
+"Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+"Microsoft.Network/loadBalancers/frontendIPConfigurations/read",
+"Microsoft.Network/loadBalancers/loadBalancingRules/read",
+"Microsoft.Network/loadBalancers/probes/read",
+"Microsoft.Network/loadBalancers/probes/join/action",
+"Microsoft.Network/routeTables/join/action"
+"Microsoft.Authorization/roleDefinitions/write",
+"Microsoft.Authorization/roleAssignments/write",
+"Microsoft.Web/sites/*"
+"Microsoft.Storage/storageAccounts/delete",
+"Microsoft.Storage/usages/read",</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can find the entire list of required permissions in the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_cloud_Manager_Azure_3.6.1.json" target="_blank" rel="noopener">latest Azure policy for Cloud Manager</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="reference_permissions.html">Learn how Cloud Manager uses these permissions</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-provider-accounts">Cloud Provider Accounts</h3>
+<div class="paragraph">
+<p>It&#8217;s now easier to manage multiple AWS and Azure accounts in Cloud Manager by using Cloud Provider Accounts.</p>
+</div>
+<div class="paragraph">
+<p>In previous releases, you needed to specify cloud provider permissions for each Cloud Manager user account. The permissions are now managed at the Cloud Manager system level by using Cloud Provider Accounts.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_cloud_provider_accounts.gif" alt="A screenshot that shows the Cloud Provider Account Settings page" width="from which you can add new AWS and Azure accounts to Cloud Manager."></span></p>
+</div>
+<div class="paragraph">
+<p>When you create a new working environment, you simply select the account in which you want to deploy the Cloud Volumes ONTAP system:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_accounts_select_aws.gif" alt="A screenshot that shows the Switch Account option in the Details &amp; Credentials page."></span></p>
+</div>
+<div class="paragraph">
+<p>When you upgrade to 3.6.1, Cloud Manager automatically creates Cloud Provider Accounts for you, based on your current configuration. If you have scripts, backwards compatibility is in place so nothing breaks.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="concept_accounts_and_permissions.html">Learn how Cloud Provider Accounts and permissions work</a></p>
+</li>
+<li>
+<p><a href="task_adding_cloud_accounts.html">Learn how to set up and add Cloud Provider Accounts to Cloud Manager</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancements-to-the-aws-cost-report">Enhancements to the AWS Cost report</h3>
+<div class="paragraph">
+<p>The AWS Cost report now provides more information and is easier to set up.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The report breaks down the monthly resource costs associated with running Cloud Volumes ONTAP in AWS. You can view monthly costs for compute, EBS storage (including EBS snapshots), S3 storage, and data transfers.</p>
+</li>
+<li>
+<p>The report now shows cost savings when you tier cold data to S3.</p>
+</li>
+<li>
+<p>We also simplified how Cloud Manager obtains cost data from AWS.</p>
+<div class="paragraph">
+<p>Cloud Manager no longer needs access to billing reports that you store in an S3 bucket. Instead, Cloud Manager uses the Cost Explorer API. You just need to ensure that the IAM policy that provides Cloud Manager with permissions includes the following actions:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>"ce:GetReservationUtilization",
+"ce:GetDimensionValues",
+"ce:GetCostAndUsage",
+"ce:GetTags"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These actions are included in the latest <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Cloud_Manager_3.6.1.json" target="_blank" rel="noopener">NetApp-provided policy</a>. New systems deployed from NetApp Cloud Central automatically include these permissions.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_cost.gif" alt="Screen shot: Shows the costs per month for a Cloud Volumes ONTAP instance."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-new-azure-regions">Support for new Azure regions</h3>
+<div class="paragraph">
+<p>You can now deploy Cloud Manager and Cloud Volumes ONTAP in the following Azure regions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Australia Central</p>
+</li>
+<li>
+<p>Australia Central 2</p>
+</li>
+<li>
+<p>France South</p>
+</li>
+<li>
+<p>France Central</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -924,6 +1088,10 @@ Looking for a previous release?<br>
     
     <script type="text/javascript" src='/occm/js/bundle.js'></script>
     
+
+    <script type="text/javascript" src='/occm/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/js/prism-curl.js'></script>
+
   </body>
 
   

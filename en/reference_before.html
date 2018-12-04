@@ -61,6 +61,9 @@
   <script src='/occm/en/js/na-pagenav.js'></script>
   
 
+  <link rel='stylesheet' href='/occm/en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/en/css/prism-netapp.css' type='text/css'>
+
   <script src='/occm/en/js/clouddocs.js'></script>
   <script src='/occm/en/js/s_code_impl.js'></script>
   <script src='/occm/en/js/jquery.navgoco.min.js'></script>
@@ -338,6 +341,10 @@
   
 
   
+    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Storage</a>
@@ -346,6 +353,10 @@
 
   
     <li><a href="concept_storage.html">Overview</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
   
 
   
@@ -410,26 +421,50 @@
   
 
   
-    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Setting up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Setting up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Detailed networking requirements</a>
+      <a href="#">Networking requirements</a>
       <ul>
         
 
   
-    <li><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
   
 
 
@@ -466,30 +501,6 @@
 
   
     <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional ways to provide permissions</a>
-      <ul>
-        
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
-  
-
-  
-    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
   
 
 
@@ -714,7 +725,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -791,7 +802,7 @@
 <p>Before you use Cloud Manager to create and manage Cloud Volumes ONTAP systems, your Cloud Manager administrator should have prepared networking and installed and set up Cloud Manager.</p>
 </div>
 <div class="paragraph">
-<p>Your administrator should have followed instructions to get up and running <a href="task_getting_started_aws.html">in AWS</a> or <a href="task_getting_started_azure.html">in Azure</a>, and optionally <a href="task_setting_up_cloud_manager.html">set up Cloud Manager</a>.</p>
+<p>Your administrator should have followed instructions to get up and running <a href="task_getting_started_aws.html">in AWS</a> or <a href="task_getting_started_azure.html">in Azure</a>, and optionally <a href="task_adding_cloud_accounts.html">set up Cloud Manager</a>.</p>
 </div>
 <div class="paragraph">
 <p>The following conditions should exist before you start deploying Cloud Volumes ONTAP:</p>
@@ -917,6 +928,10 @@
     
     <script type="text/javascript" src='/occm/en/js/bundle.js'></script>
     
+
+    <script type="text/javascript" src='/occm/en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/en/js/prism-curl.js'></script>
+
   </body>
 
   

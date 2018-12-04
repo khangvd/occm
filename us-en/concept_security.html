@@ -61,6 +61,9 @@
   <script src='/occm/us-en/js/na-pagenav.js'></script>
   
 
+  <link rel='stylesheet' href='/occm/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/prism-netapp.css' type='text/css'>
+
   <script src='/occm/us-en/js/clouddocs.js'></script>
   <script src='/occm/us-en/js/s_code_impl.js'></script>
   <script src='/occm/us-en/js/jquery.navgoco.min.js'></script>
@@ -338,6 +341,10 @@
   
 
   
+    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Storage</a>
@@ -346,6 +353,10 @@
 
   
     <li><a href="concept_storage.html">Overview</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
   
 
   
@@ -410,26 +421,50 @@
   
 
   
-    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Setting up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Setting up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Detailed networking requirements</a>
+      <a href="#">Networking requirements</a>
       <ul>
         
 
   
-    <li><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
   
 
 
@@ -466,30 +501,6 @@
 
   
     <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional ways to provide permissions</a>
-      <ul>
-        
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
-  
-
-  
-    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
   
 
 
@@ -714,7 +725,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -792,14 +803,6 @@
 <div class="paragraph lead">
 <p>Cloud Volumes ONTAP supports data encryption and provides protection against viruses.</p>
 </div>
-<div id="toc" class="toc">
-<div id="toctitle" class="title">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#data-encryption-in-azure">Data encryption in Azure</a></li>
-<li><a href="#data-encryption-in-aws">Data encryption in AWS</a></li>
-<li><a href="#ontap-virus-scanning">ONTAP virus scanning</a></li>
-</ul>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -829,7 +832,7 @@ Customer-managed keys are not supported with Cloud Volumes ONTAP.
 <p>Data encryption is supported in AWS using the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/overview.html" target="_blank" rel="noopener">AWS Key Management Service (KMS)</a>. Cloud Manager requests data keys using a customer master key (CMK).</p>
 </div>
 <div class="paragraph">
-<p>If you want to use this encryption option, then you must ensure that the AWS KMS is set up appropriately. For details, see <a href="task_setting_up_cloud_manager.html#setting-up-the-aws-kms">Setting up the AWS KMS</a>.</p>
+<p>If you want to use this encryption option, then you must ensure that the AWS KMS is set up appropriately. For details, see <a href="task_setting_up_kms.html">Setting up the AWS KMS</a>.</p>
 </div>
 </div>
 </div>
@@ -949,6 +952,10 @@ Customer-managed keys are not supported with Cloud Volumes ONTAP.
     
     <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
     
+
+    <script type="text/javascript" src='/occm/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/prism-curl.js'></script>
+
   </body>
 
   

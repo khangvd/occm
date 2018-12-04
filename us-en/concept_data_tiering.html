@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Granting permissions when Cloud Manager is not launched from Cloud Central | NetApp Cloud Docs</title>
+  <title>Data tiering overview | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,11 +16,11 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="If you cannot launch Cloud Manager in AWS from NetApp Cloud Central, then you must provide Cloud Manager with the permissions that it needs if you want to la...">
-  <meta name="keywords" content=" permissions, aws, policy, iam, instance, iam role, role, granting, policy, iam policy, iam user, iam group, access keys, custom launch">
+  <meta name="description" content="You can reduce your storage costs by enabling automated tiering of cold data to low-cost object storage.">
+  <meta name="keywords" content=" storage tiering, tier, tiering, data tiering, s3, s3 tiering, capacity, performance, s3 endpoint, fabric pool, fabricpool, s3 bucket, requirement, vpc endpoint, policy, policies, tiering policies, auto, snapshot only, backup, none, cooling period, volume tiering policies, blob, standard, infrequent access, hot, cool, tiering level, storage tier, storage class">
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
 
@@ -28,23 +28,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/occm/common/css/esb.min.css">
-  <link rel="stylesheet" href="/occm/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/occm/common/css/doc.css">
-  <link rel="stylesheet" href="/occm/common/css/doc-components.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/occm/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/occm/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/occm/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/us-en/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
 
   
 
@@ -53,21 +53,24 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/occm/js/na-search.js'></script>
+    <script src='/occm/us-en/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/occm/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/occm/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/occm/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/us-en/js/na-pagenav.js'></script>
   
 
-  <script src='/occm/js/clouddocs.js'></script>
-  <script src='/occm/js/s_code_impl.js'></script>
-  <script src='/occm/js/jquery.navgoco.min.js'></script>
+  <link rel='stylesheet' href='/occm/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/prism-netapp.css' type='text/css'>
+
+  <script src='/occm/us-en/js/clouddocs.js'></script>
+  <script src='/occm/us-en/js/s_code_impl.js'></script>
+  <script src='/occm/us-en/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
-  <script src='/occm/js/toc.js'></script>
-  <script src='/occm/js/customscripts.js'></script>
+  <script src='/occm/us-en/js/toc.js'></script>
+  <script src='/occm/us-en/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -152,7 +155,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="https://docs.netapp.com/zz/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -193,19 +196,19 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="https://docs.netapp.com/zz/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -225,7 +228,7 @@
             <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
               <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
+                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe"></use>
               </svg>
             </a>
           </li>
@@ -255,7 +258,7 @@
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: zz
+            <p>Current Language: us-en
             </p>
           </div>
         </div>
@@ -338,6 +341,10 @@
   
 
   
+    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Storage</a>
@@ -346,6 +353,10 @@
 
   
     <li><a href="concept_storage.html">Overview</a></li>
+  
+
+  
+    <li class="active"><a href="concept_data_tiering.html">Data tiering</a></li>
   
 
   
@@ -410,26 +421,50 @@
   
 
   
-    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Setting up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Setting up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Detailed networking requirements</a>
+      <a href="#">Networking requirements</a>
       <ul>
         
 
   
-    <li><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
   
 
 
@@ -466,30 +501,6 @@
 
   
     <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional ways to provide permissions</a>
-      <ul>
-        
-
-  
-    <li class="active"><a href="task_granting_aws_permissions.html">Granting AWS permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
-  
-
-  
-    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
   
 
 
@@ -714,7 +725,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -777,87 +788,202 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Granting permissions when Cloud Manager is not launched from Cloud Central
+  <h1 class="n-doc__component-detail-heading">Data tiering overview
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_granting_aws_permissions.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Granting permissions when Cloud Manager is not launched from Cloud Central](https://docs.netapp.com/zz/occm/task_granting_aws_permissions.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_data_tiering.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Data tiering overview](https://docs.netapp.com/us-en/occm/concept_data_tiering.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
 </div>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>If you cannot launch Cloud Manager in AWS from <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a>, then you must provide Cloud Manager with the permissions that it needs if you want to launch and manage Cloud Volumes ONTAP in AWS.</p>
+<p>You can reduce your storage costs by enabling automated tiering of cold data to low-cost object storage. Active data remains in high-performance SSDs or HDDs (the performance tier), while inactive data is tiered to low-cost object storage (the capacity tier). This enables you to reclaim space on your primary storage and shrink secondary storage.</p>
 </div>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>The Cloud Manager IAM policy defines the AWS actions and resources that Cloud Manager is allowed to use. You can grant the permissions defined in the IAM policy in one of two ways:</p>
+<p>Cloud Volumes ONTAP supports data tiering in AWS and in Microsoft Azure. Data tiering is powered by FabricPool technology.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>You can attach an IAM role to the Cloud Manager instance in AWS.</p>
-</li>
-<li>
-<p>You can attach the IAM policy to IAM users or groups.</p>
-<div class="paragraph">
-<p>You would then specify the AWS access keys for those users in Cloud Manager.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Download the Cloud Manager IAM policy from the following location:</p>
-<div class="paragraph">
-<p><a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">NetApp OnCommand Cloud Manager: AWS and Azure Policies</a></p>
-</div>
-</li>
-<li>
-<p>From the IAM console, create your own policy by copying and pasting the text from the Cloud Manager IAM policy.</p>
-</li>
-<li>
-<p>Grant permissions to the Cloud Manager instance or to IAM users:</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<thead>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You do not need to install a feature license to enable data tiering.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Grant permissions to the Cloud Manager instance</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Create an IAM role with the role type Amazon EC2 and attach the policy that you created in the previous step to the role.</p>
-</li>
-<li>
-<p>Attach the IAM role to Cloud Manager when you launch it from the AWS Marketplace (choose <strong>Custom Launch</strong>) or by modifying an existing instance from the EC2 console.</p>
-</li>
-</ol>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Grant permissions to IAM users</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attach the policy to IAM users or groups. For instructions, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html" target="_blank" rel="noopener">AWS Documentation: Managing IAM Policies</a>.</p></td>
-</tr>
-</tbody>
 </table>
-</li>
-</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-data-tiering-works-in-aws">How data tiering works in AWS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you enable data tiering in AWS, Cloud Volumes ONTAP uses EBS as a performance tier for hot data and AWS S3 as a capacity tier for cold data:</p>
 </div>
 <div class="paragraph">
-<div class="title">Result</div>
-<p>Cloud Manager now has the permissions that it needs. If you attached the policy to IAM users, you must specify the AWS access keys for those IAM users when you set up user accounts in Cloud Manager.</p>
+<p><span class="image"><img src="./media/diagram_storage_tiering.png" alt="This is a conceptual image that shows hot data going to EBS storage and cold data going to S3 storage."></span></p>
+</div>
+<div class="sect2">
+<h3 id="performance-tier-in-aws">Performance tier in AWS</h3>
+<div class="paragraph">
+<p>The performance tier can be General Purpose SSDs, Provisioned IOPS SSDs, or Throughput Optimized HDDs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacity-tier-in-aws">Capacity tier in AWS</h3>
+<div class="paragraph">
+<p>By default, Cloud Volumes ONTAP tiers cold data to the S3 <em>Standard</em> storage class. Standard is ideal for frequently accessed data stored across multiple Availability Zones.</p>
+</div>
+<div class="paragraph">
+<p>If you do not plan to access the cold data, you can reduce your storage costs by changing a system&#8217;s tiering level to either of the following, after you deploy Cloud Volumes ONTAP:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Standard-Infrequent Access</dt>
+<dd>
+<p>For infrequently accessed data stored across multiple Availability Zones.</p>
+</dd>
+<dt class="hdlist1">One Zone-Infrequent Access</dt>
+<dd>
+<p>For infrequently accessed data stored in a single Availability Zone.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level. For more details about S3 storage classes, refer to <a href="https://aws.amazon.com/s3/storage-classes" target="_blank" rel="noopener">AWS documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>When you change the tiering level, cold data starts in the Standard storage class and moves to the storage class that you selected, if the data is not accessed after 30 days. For details about changing the tiering level, see <a href="task_tiering.html">Tiering cold data to low-cost object storage</a>.</p>
+</div>
+<div class="paragraph">
+<p>The tiering level is system wide&#8212;&#8203;it is not per volume.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A Cloud Volumes ONTAP working environment uses an S3 bucket for all tiered data from the system. A different S3 bucket is not used for each volume. This includes an HA working environment. Cloud Manager creates an S3 bucket and names it fabric-pool-<em>cluster unique identifier</em>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-data-tiering-works-in-microsoft-azure">How data tiering works in Microsoft Azure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you enable data tiering in Azure, Cloud Volumes ONTAP uses Azure managed disks as a performance tier for hot data and Azure Blob storage as a capacity tier for cold data:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_storage_tiering_azure.png" alt="This is a conceptual image that shows hot data going to Azure managed disks and cold data going to Azure Blob storage."></span></p>
+</div>
+<div class="sect2">
+<h3 id="performance-tier-in-azure">Performance tier in Azure</h3>
+<div class="paragraph">
+<p>The performance tier can be either Premium Storage (SSD) or Standard Storage (HDD).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacity-tier-in-azure">Capacity tier in Azure</h3>
+<div class="paragraph">
+<p>By default, Cloud Volumes ONTAP tiers cold data to the Azure <em>hot</em> storage tier, which is ideal for frequently accessed data.</p>
+</div>
+<div class="paragraph">
+<p>If you do not plan to access the cold data, you can reduce your storage costs by changing a system&#8217;s tiering level to the Azure <em>cool</em> storage tier after you deploy Cloud Volumes ONTAP. The cool tier is ideal for infrequently accessed data that will reside in the tier for at least 30 days.</p>
+</div>
+<div class="paragraph">
+<p>The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level. For more details about Azure Blob storage tiers, refer to <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">Azure documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>When you change the tiering level, cold data starts in the hot storage tier and moves to the cool storage tier, if the data is not accessed after 30 days. For details about changing the tiering level, see <a href="task_tiering.html">Tiering cold data to low-cost object storage</a>.</p>
+</div>
+<div class="paragraph">
+<p>The tiering level is system wide&#8212;&#8203;it is not per volume.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A Cloud Volumes ONTAP working environment uses an Azure Blob container for all tiered data from the system. A different container is not used for each volume. Cloud Manager creates a new storage account with a container for each Cloud Volumes ONTAP system. The name of the storage account is random.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-data-tiering-affects-capacity-limits">How data tiering affects capacity limits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you enable data tiering, a system&#8217;s capacity limit stays the same. The limit is spread across the performance tier and the capacity tier.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="volume-tiering-policies">Volume tiering policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable data tiering, you must select a volume tiering policy when you create, modify, or replicate a volume. You can select a different policy for each volume.</p>
+</div>
+<div class="paragraph">
+<p>Some tiering policies have an associated minimum cooling period, which sets the time that user data in a volume must remain inactive for the data to be considered "cold" and moved to the capacity tier.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Volumes ONTAP supports the following tiering policies:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Snapshot Only</dt>
+<dd>
+<p>After an aggregate has reached 50% capacity, Cloud Volumes ONTAP tiers cold user data of Snapshot copies that are not associated with the active file system to the capacity tier. The cooling period is approximately 2 days.</p>
+<div class="paragraph">
+<p>If read, cold data blocks on the capacity tier become hot and are moved to the performance tier.</p>
+</div>
+</dd>
+<dt class="hdlist1">Auto</dt>
+<dd>
+<p>After an aggregate has reached 50% capacity, Cloud Volumes ONTAP tiers cold data blocks in a volume to a capacity tier. The cold data includes not just Snapshot copies but also cold user data from the active file system. The cooling period is approximately 31 days.</p>
+<div class="paragraph">
+<p>This policy is supported starting with Cloud Volumes ONTAP 9.4.</p>
+</div>
+<div class="paragraph">
+<p>If read by random reads, the cold data blocks in the capacity tier become hot and move to the performance tier. If read by sequential reads, such as those associated with index and antivirus scans, the cold data blocks stay cold and do not move to the performance tier.</p>
+</div>
+</dd>
+<dt class="hdlist1">Backup</dt>
+<dd>
+<p>When you replicate a volume for disaster recovery or long-term retention, data for the destination volume starts in the capacity tier. If you activate the destination volume, the data gradually moves to the performance tier as it is read.</p>
+</dd>
+<dt class="hdlist1">None</dt>
+<dd>
+<p>Keeps data of a volume in the performance tier, preventing it from being moved to the capacity tier.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up-data-tiering">Setting up data tiering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For instructions and a list of supported configurations, see <a href="task_tiering.html">Tiering cold data to low-cost object storage</a>.</p>
+</div>
+</div>
 </div>
 
         </article>
@@ -901,7 +1027,7 @@
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -910,7 +1036,7 @@
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -920,7 +1046,7 @@
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -929,7 +1055,7 @@
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -948,16 +1074,20 @@
 
     </div>
 
-    <script src="/occm/common/js/components.js"></script>
-    <script src="/occm/common/js/doc-components.js"></script>
+    <script src="/occm/us-en/common/js/components.js"></script>
+    <script src="/occm/us-en/common/js/doc-components.js"></script>
 
     <!-- i18n script -->
-    <script type="text/javascript" src="/occm/js/responsive.js"></script>
+    <script type="text/javascript" src="/occm/us-en/js/responsive.js"></script>
 
     <!-- Elasticsearch JS -->
     
-    <script type="text/javascript" src='/occm/js/bundle.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
     
+
+    <script type="text/javascript" src='/occm/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/prism-curl.js'></script>
+
   </body>
 
   

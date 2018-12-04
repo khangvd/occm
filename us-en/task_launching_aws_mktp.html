@@ -61,6 +61,9 @@
   <script src='/occm/us-en/js/na-pagenav.js'></script>
   
 
+  <link rel='stylesheet' href='/occm/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/prism-netapp.css' type='text/css'>
+
   <script src='/occm/us-en/js/clouddocs.js'></script>
   <script src='/occm/us-en/js/s_code_impl.js'></script>
   <script src='/occm/us-en/js/jquery.navgoco.min.js'></script>
@@ -338,6 +341,10 @@
   
 
   
+    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Storage</a>
@@ -346,6 +353,10 @@
 
   
     <li><a href="concept_storage.html">Overview</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
   
 
   
@@ -410,26 +421,50 @@
   
 
   
-    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Setting up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Setting up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Detailed networking requirements</a>
+      <a href="#">Networking requirements</a>
       <ul>
         
 
   
-    <li><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
   
 
 
@@ -466,30 +501,6 @@
 
   
     <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional ways to provide permissions</a>
-      <ul>
-        
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
-  
-
-  
-    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
   
 
 
@@ -714,7 +725,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -803,19 +814,29 @@ If you launch Cloud Manager from the AWS Marketplace, Cloud Manager is still int
 </table>
 </div>
 <div class="paragraph">
-<div class="title">Before you begin</div>
-<p>If you want to assign a public IP address to the Cloud Manager instance and use the AWS 1-Click Launch option, the public subnet must be already enabled to automatically assign public IP addresses. Otherwise, you must use the Manual Launch option to assign a public IP address to the instance.</p>
-</div>
-<div class="paragraph">
-<p>For details, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html" target="_blank" rel="noopener">AWS Documentation: IP Addressing in Your VPC</a>.</p>
+<div class="title">About this task</div>
+<p>The following steps describe how to launch the instance from the EC2 Console because the console enables you to attach an IAM role to the Cloud Manager instance. This is not possible using the 1-Click option.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Set up an IAM role that includes the required permissions.</p>
+<p>Create an IAM policy and role for the EC2 instance:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the Cloud Manager IAM policy from the following location:</p>
 <div class="paragraph">
-<p><a href="task_granting_aws_permissions.html">Granting permissions when Cloud Manager is not launched from Cloud Central</a></p>
+<p><a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">NetApp OnCommand Cloud Manager: AWS and Azure Policies</a></p>
+</div>
+</li>
+<li>
+<p>From the IAM console, create your own policy by copying and pasting the text from the Cloud Manager IAM policy.</p>
+</li>
+<li>
+<p>Create an IAM role with the role type Amazon EC2 and attach the policy that you created in the previous step to the role.</p>
+</li>
+</ol>
 </div>
 </li>
 <li>
@@ -825,26 +846,9 @@ If you launch Cloud Manager from the AWS Marketplace, Cloud Manager is still int
 <p>Click <strong>Continue</strong>.</p>
 </li>
 <li>
-<p>Launch the instance from the 1-Click Launch tab or the Custom Launch tab, depending on how you want to grant AWS permissions to Cloud Manager:</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Choice</th>
-<th class="tableblock halign-left valign-top">Steps</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You want to associate the instance with an IAM role.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<p>On the Custom Launch tab, click <strong>Launch with EC2 Console</strong> for your region, and then make your selections:</p>
+<div class="olist loweralpha">
 <ol class="loweralpha" type="a">
-<li>
-<p>On the Custom Launch tab, click <strong>Launch with EC2 Console</strong> for your region.</p>
-</li>
 <li>
 <p>Choose the t2.medium or m4.large instance type.</p>
 </li>
@@ -864,33 +868,7 @@ If you launch Cloud Manager from the AWS Marketplace, Cloud Manager is still int
 <p>Click <strong>Launch</strong>.</p>
 </li>
 </ol>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You do not want to associate the instance with an IAM role. You want to specify AWS keys for each Cloud Manager user account.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>On the 1-Click Launch tab, specify settings for the instance. Note the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The t2.medium and m4.large instance types are supported.</p>
-</li>
-<li>
-<p>Under security group, select <strong>Create new based on seller settings</strong> to create a pre-defined security group that includes the rules required by Cloud Manager.</p>
-</li>
-</ul>
 </div>
-</li>
-<li>
-<p>Click <strong>Accept Terms and Launch with 1-Click</strong>.</p>
-</li>
-</ol>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 </li>
 </ol>
 </div>
@@ -1001,6 +979,10 @@ If you launch Cloud Manager from the AWS Marketplace, Cloud Manager is still int
     
     <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
     
+
+    <script type="text/javascript" src='/occm/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/prism-curl.js'></script>
+
   </body>
 
   

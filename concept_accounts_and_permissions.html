@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Granting Azure permissions to Cloud Manager using a service principal and credentials | NetApp Cloud Docs</title>
+  <title>Cloud Provider Accounts and permissions | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,11 +16,11 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="Cloud Manager needs permissions to perform actions in Azure. You can grant the required permissions by creating and setting up a service principal in Azure A...">
-  <meta name="keywords" content=" microsoft, azure, permissions, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role">
+  <meta name="description" content="Cloud Manager enables you to choose the Cloud Provider Account in which you want to deploy a Cloud Volumes ONTAP system. You should understand requirements f...">
+  <meta name="keywords" content=" cloud provider accounts, aws, azure, aws account, azure account, keys, service principal, multiple, permissions, policy, policies, json, subscriptions">
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
 
@@ -28,23 +28,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/occm/en/common/css/esb.min.css">
-  <link rel="stylesheet" href="/occm/en/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/occm/en/common/css/doc.css">
-  <link rel="stylesheet" href="/occm/en/common/css/doc-components.css">
+  <link rel="stylesheet" href="/occm/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/occm/en/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/en/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/en/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/occm/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/en/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/occm/en/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/en/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/en/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
 
   
 
@@ -53,21 +53,24 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/occm/en/js/na-search.js'></script>
+    <script src='/occm/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/occm/en/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/occm/en/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/occm/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/js/na-pagenav.js'></script>
   
 
-  <script src='/occm/en/js/clouddocs.js'></script>
-  <script src='/occm/en/js/s_code_impl.js'></script>
-  <script src='/occm/en/js/jquery.navgoco.min.js'></script>
+  <link rel='stylesheet' href='/occm/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/prism-netapp.css' type='text/css'>
+
+  <script src='/occm/js/clouddocs.js'></script>
+  <script src='/occm/js/s_code_impl.js'></script>
+  <script src='/occm/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
-  <script src='/occm/en/js/toc.js'></script>
-  <script src='/occm/en/js/customscripts.js'></script>
+  <script src='/occm/js/toc.js'></script>
+  <script src='/occm/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -152,7 +155,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="https://docs.netapp.com/en/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/zz/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -193,19 +196,19 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/en/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="https://docs.netapp.com/en/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/zz/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -225,7 +228,7 @@
             <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
               <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/en/common/svg/sprite.svg#globe"></use>
+                <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
               </svg>
             </a>
           </li>
@@ -255,7 +258,7 @@
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: en
+            <p>Current Language: zz
             </p>
           </div>
         </div>
@@ -338,6 +341,10 @@
   
 
   
+    <li class="active"><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Storage</a>
@@ -346,6 +353,10 @@
 
   
     <li><a href="concept_storage.html">Overview</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
   
 
   
@@ -410,26 +421,50 @@
   
 
   
-    <li><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Setting up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Setting up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Detailed networking requirements</a>
+      <a href="#">Networking requirements</a>
       <ul>
         
 
   
-    <li><a href="reference_networking_cloud_manager.html">Requirements for Cloud Manager</a></li>
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
   
 
   
-    <li><a href="reference_networking_aws.html">Requirements for Cloud Volumes ONTAP in AWS</a></li>
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
   
 
   
-    <li><a href="reference_networking_azure.html">Requirements for Cloud Volumes ONTAP in Azure</a></li>
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
   
 
 
@@ -466,30 +501,6 @@
 
   
     <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Additional ways to provide permissions</a>
-      <ul>
-        
-
-  
-    <li><a href="task_granting_aws_permissions.html">Granting AWS permissions when Cloud Manager is not launched from Cloud Central</a></li>
-  
-
-  
-    <li class="active"><a href="task_creating_service_principal.html">Granting Azure permissions using a service principal and credentials</a></li>
-  
-
-  
-    <li><a href="task_enabling_msi.html">Changing to a Managed Service Identity</a></li>
   
 
 
@@ -714,7 +725,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_94.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -777,11 +788,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Granting Azure permissions to Cloud Manager using a service principal and credentials
+  <h1 class="n-doc__component-detail-heading">Cloud Provider Accounts and permissions
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_creating_service_principal.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Granting Azure permissions to Cloud Manager using a service principal and credentials](https://docs.netapp.com/en/occm/task_creating_service_principal.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_accounts_and_permissions.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Cloud Provider Accounts and permissions](https://docs.netapp.com/zz/occm/concept_accounts_and_permissions.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -789,246 +800,116 @@
 
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager needs permissions to perform actions in Azure. You can grant the required permissions by creating and setting up a service principal in Azure Active Directory and by obtaining the Azure credentials that Cloud Manager needs.</p>
-</div>
-<div class="paragraph">
-<div class="title">Before you begin</div>
-<p>Using a service principal and credentials is an alternative to using a Managed Service Identity, which is simpler and does not require credentials. To use a Managed Service Identity with Cloud Manager instead, follow <a href="task_getting_started_azure.html">instructions for new Cloud Manager virtual machines</a> or <a href="task_enabling_msi.html">instructions for existing Cloud Manager virtual machines</a>.</p>
-</div>
-<div class="paragraph">
-<div class="title">About this task</div>
-<p>The following image depicts how Cloud Manager obtains permissions to perform operations in Azure. A service principal object, which is tied to one or more Azure subscriptions, represents Cloud Manager in Azure Active Directory and is assigned to a custom role that allows the required permissions.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/diagram_azure_authentication.png" alt="Conceptual image that shows Cloud Manager obtaining authentication and authorization from Azure Active Directory before it can make an API call. In Active Directory" width="the Cloud Manager Operator role defines permissions. It is tied to one or more Azure subscriptions and a service principal object that represents the Cloud Manger application."></span></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The following steps use the new Azure portal. If you experience any issues, you should use the Azure classic portal.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p><a href="#creating-a-custom-role-with-the-required-cloud-manager-permissions">Create a custom role with the required Cloud Manager permissions</a>.</p>
-</li>
-<li>
-<p><a href="#creating-an-active-directory-service-principal">Create an Active Directory service principal</a>.</p>
-</li>
-<li>
-<p><a href="#assigning-the-cloud-manager-operator-role-to-the-service-principal">Assign the custom Cloud Manager Operator role to the service principal</a>.</p>
-</li>
-</ol>
+<div class="paragraph lead">
+<p>Cloud Manager enables you to choose the <em>Cloud Provider Account</em> in which you want to deploy a Cloud Volumes ONTAP system. You should understand the permissions requirements before you add the accounts to Cloud Manager.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="creating-a-custom-role-with-the-required-cloud-manager-permissions">Creating a custom role with the required Cloud Manager permissions</h2>
+<h2 id="aws-accounts-and-permissions">AWS accounts and permissions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A custom role is required to provide Cloud Manager with the permissions that it needs to launch and manage Cloud Volumes ONTAP in Azure.</p>
+<p>You can deploy all of your Cloud Volumes ONTAP systems in the initial AWS account, or you can set up additional accounts.</p>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Download the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager Azure policy</a>.</p>
-</li>
-<li>
-<p>Modify the JSON file by adding Azure subscription IDs to the assignable scope.</p>
+<div class="sect2">
+<h3 id="the-initial-aws-account">The initial AWS account</h3>
 <div class="paragraph">
-<p>You should add the ID for each Azure subscription from which users will create Cloud Volumes ONTAP systems.</p>
+<p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an AWS account that has permissions to launch the Cloud Manager instance. The required permissions are listed in the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service.json" target="_blank" rel="noopener">Cloud Central policy for AWS</a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example</strong></p>
+<p>When Cloud Central launches the Cloud Manager instance in AWS, it creates an IAM role and an instance profile for the instance. It also attaches a policy that provides Cloud Manager with permissions to deploy and manage Cloud Volumes ONTAP in that AWS account.</p>
 </div>
 <div class="paragraph">
-<p>"AssignableScopes": [<br>
-"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",<br>
-"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",<br>
-"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</p>
-</div>
-</li>
-<li>
-<p>Use the JSON file to create a custom role in Azure.</p>
-<div class="paragraph">
-<p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
+<p><span class="image"><img src="./media/diagram_permissions_initial_aws.png" alt="A conceptual image that shows Cloud Central deploying Cloud Manager in an AWS account. An IAM policy is assigned to an IAM role" width="which is attached to the Cloud Manager instance."></span></p>
 </div>
 <div class="paragraph">
-<p><strong>az role definition create --role-definition C:\Policy_for_Cloud_Manager_Azure_3_5_2.json</strong></p>
-</div>
-</li>
-</ol>
+<p>Cloud Manager selects this Cloud Provider Account by default when you create a new working environment:</p>
 </div>
 <div class="paragraph">
-<div class="title">Result</div>
-<p>You should now have a custom role called OnCommand Cloud Manager Operator.</p>
+<p><span class="image"><img src="./media/screenshot_accounts_select_aws.gif" alt="A screenshot that shows the Switch Account option in the Details &amp; Credentials page."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="additional-aws-accounts">Additional AWS accounts</h3>
+<div class="paragraph">
+<p>If you want to launch Cloud Volumes ONTAP in different AWS accounts, then you can either <a href="task_adding_cloud_accounts.html#setting-up-and-adding-aws-accounts-to-cloud-manager">provide AWS keys for an IAM user or the ARN of a role in a trusted account</a>. The following image shows two additional accounts, one providing permissions through an IAM role in a trusted account and another through the AWS keys of an IAM user:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_permissions_multiple_aws.png" alt="A conceptual image that shows two additional accounts. Each has an IAM policy" width="one is attached to IAM user and the other is attached to an IAM role."></span></p>
+</div>
+<div class="paragraph">
+<p>You would then <a href="task_adding_cloud_accounts.html#adding-aws-accounts-to-cloud-manager">add the Cloud Provider Accounts to Cloud Manager</a> by specifying the Amazon Resource Name (ARN) of the IAM role, or the AWS keys for the IAM user.</p>
+</div>
+<div class="paragraph">
+<p>After you add another account, you can switch to it when creating a new working environment:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_accounts_switch_aws.gif" alt="A screenshot that shows selecting between Cloud Provider Accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="creating-an-active-directory-service-principal">Creating an Active Directory service principal</h2>
+<h2 id="azure-accounts-and-permissions">Azure accounts and permissions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must create an Active Directory service principal so Cloud Manager can authenticate with Azure Active Directory.</p>
+<p>You can deploy all of your Cloud Volumes ONTAP systems in the initial Azure account, or you can set up additional accounts.</p>
+</div>
+<div class="sect2">
+<h3 id="the-initial-azure-account">The initial Azure account</h3>
+<div class="paragraph">
+<p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an Azure account that has permissions to deploy the Cloud Manager virtual machine. The required permissions are listed in the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service_Azure.json" target="_blank" rel="noopener">Cloud Central policy for Azure</a>.</p>
 </div>
 <div class="paragraph">
-<div class="title">Before you begin</div>
-<p>You must have the appropriate permissions in Azure to create an Active Directory application and to assign the application to a role. For details, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/" target="_blank" rel="noopener">Microsoft Azure Documentation: Use portal to create Active Directory application and service principal that can access resources</a></p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>From the Azure portal, open the <strong>Azure Active Directory</strong> service.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad.gif" alt="Shows the Active Directory service in Microsoft Azure."></span></p>
-</div>
-</li>
-<li>
-<p>In the menu, click <strong>App registrations</strong>.</p>
-</li>
-<li>
-<p>Create the service principal:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Click <strong>New application registration</strong>.</p>
-</li>
-<li>
-<p>Enter a name for the application, keep <strong>Web app / API</strong> selected, and then enter any URL—for example, <a href="http://url" class="bare">http://url</a></p>
-</li>
-<li>
-<p>Click <strong>Create</strong>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Modify the application to add the required permissions:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Select the created application.</p>
-</li>
-<li>
-<p>Under Settings, click <strong>Required permissions</strong> and then click <strong>Add</strong>.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad_permissions.gif" alt="Shows the settings for an Active Directory application in Microsoft Azure and highlights the option to add required permissions for API access."></span></p>
-</div>
-</li>
-<li>
-<p>Click <strong>Select an API</strong>, select <strong>Windows Azure Service Management API</strong>, and then click <strong>Select</strong>.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad_api.gif" alt="Shows the API to select in Microsoft Azure when adding API access to the Active Directory application. The API is the Windows Azure Service Management API."></span></p>
-</div>
-</li>
-<li>
-<p>Click <strong>Access Azure Service Management as organization users</strong>, click <strong>Select</strong> and then click <strong>Done</strong>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Create a key for the service principal:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Under Settings, click <strong>Keys</strong>.</p>
-</li>
-<li>
-<p>Enter a description, select a duration, and then click <strong>Save</strong>.</p>
-</li>
-<li>
-<p>Copy the key value.</p>
-<div class="paragraph">
-<p>You need to enter the key value in Cloud Manager when you create user accounts for this subscription.</p>
-</div>
-</li>
-<li>
-<p>Click <strong>Properties</strong> and then copy the application ID for the service principal.</p>
-<div class="paragraph">
-<p>Similar to the key value, you need to enter the application ID in Cloud Manager when you create user accounts for this subscription.</p>
+<p>When Cloud Central deploys the Cloud Manager virtual machine in Azure, it enables a Managed Service Identity on the Cloud Manager virtual machine, creates a custom role, and assigns it to the virtual machine. The role provides Cloud Manager with permissions to deploy and manage Cloud Volumes ONTAP in that Azure subscription.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad_app_id.gif" alt="Shows the application ID for an Azure Active Directory service principal."></span></p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Obtain the Active Directory tenant ID for your organization:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>In the Active Directory menu, click <strong>Properties</strong>.</p>
-</li>
-<li>
-<p>Copy the Directory ID.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_azure_ad_id.gif" alt="Shows the Active Directory properties in the Azure portal and the Directory ID that you need to copy."></span></p>
+<p><span class="image"><img src="./media/diagram_permissions_initial_azure.png" alt="A conceptual image that shows Cloud Central deploying Cloud Manager in an Azure account and subscription. A Managed Service Identity is enabled and a custom role is assigned to the Cloud Manager virtual machine."></span></p>
 </div>
 <div class="paragraph">
-<p>Just like the application ID and application key, you must enter the Active Directory tenant ID when you create Cloud Manager user accounts.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
+<p>Cloud Manager selects this Cloud Provider Account by default when you create a new working environment:</p>
 </div>
 <div class="paragraph">
-<div class="title">Result</div>
-<p>You should now have an Active Directory service principal and you should have copied the application ID, the application key, and the Active Directory tenant ID. You need to enter this information in Cloud Manager when you set up user accounts.</p>
+<p><span class="image"><img src="./media/screenshot_accounts_select_azure.gif" alt="A screenshot that shows the Switch Account option in the Details &amp; Credentials page."></span></p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="assigning-the-cloud-manager-operator-role-to-the-service-principal">Assigning the Cloud Manager Operator role to the service principal</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="additional-azure-subscriptions-for-the-initial-account">Additional Azure subscriptions for the initial account</h3>
 <div class="paragraph">
-<p>You must bind the service principal to one or more Azure subscriptions and assign it the Cloud Manager Operator role so Cloud Manager has permissions in Azure.</p>
+<p>The Managed Service Identity is associated with the subscription in which you launched Cloud Manager. If you want to select a different Azure subscription, then you need to <a href="task_adding_cloud_accounts.html#associating-additional-azure-subscriptions-with-a-managed-service-identity">associate the Managed Service Identity with those subscriptions</a>.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="additional-azure-accounts">Additional Azure accounts</h3>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>If you want to deploy Cloud Volumes ONTAP from multiple Azure subscriptions, then you must bind the service principal to each of those subscriptions. Cloud Manager enables you to select the subscription that you want to use when deploying Cloud Volumes ONTAP.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>From the Azure portal, select <strong>Subscriptions</strong> in the left pane.</p>
-</li>
-<li>
-<p>Select the subscription.</p>
-</li>
-<li>
-<p>Click <strong>Access control (IAM)</strong> and then click <strong>Add</strong>.</p>
-</li>
-<li>
-<p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
-</li>
-<li>
-<p>Search for the name of the application (you cannot find it in the list by scrolling).</p>
-</li>
-<li>
-<p>Select the application, click <strong>Select</strong>, and then click <strong>OK</strong>.</p>
-</li>
-</ol>
+<p>If you want to deploy Cloud Volumes ONTAP in different Azure accounts, then you must grant the required permissions by <a href="task_adding_cloud_accounts.html#setting-up-and-adding-azure-accounts-to-cloud-manager">creating and setting up a service principal in Azure Active Directory</a> for each Azure account. The following image shows two additional accounts, each set up with a service principal and custom role that provides permissions:</p>
 </div>
 <div class="paragraph">
-<div class="title">Result</div>
-<p>The service principal for Cloud Manager now has the required Azure permissions.</p>
+<p><span class="image"><img src="./media/diagram_permissions_multiple_azure.png" alt="A conceptual image that shows the initial Azure account" width="which receives permissions through a custom role and managed service identity" height="and two additional accounts that receive permissions through a custom role and service principal."></span></p>
+</div>
+<div class="paragraph">
+<p>You would then <a href="task_adding_cloud_accounts.html#adding-azure-accounts-to-cloud-manager">add the Cloud Provider Accounts to Cloud Manager</a> by providing details about the AD service principal.</p>
+</div>
+<div class="paragraph">
+<p>After you add another account, you can switch to it when creating a new working environment:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_accounts_switch_azure.gif" alt="A screenshot that shows selecting between Cloud Provider Accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">What about Marketplace deployments and on-prem deployments?</div>
+<div class="paragraph">
+<p>The sections above describe the recommended deployment method from NetApp Cloud Central. You can also deploy Cloud Manager from the AWS or Azure Marketplaces and you can install Cloud Manager on-premises.</p>
+</div>
+<div class="paragraph">
+<p>If you use either of the Marketplaces, permissions are provided in the same way. You just need to manually create and set up the IAM role or Managed Service Identity for Cloud Manager, and then provide permissions for any additional accounts.</p>
+</div>
+<div class="paragraph">
+<p>For on-premises deployments, you can&#8217;t set up an IAM role or Managed Service Identity for the Cloud Manager system, but you can provide permissions just like you would for additional accounts.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1074,7 +955,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -1083,7 +964,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -1093,7 +974,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -1102,7 +983,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -1121,16 +1002,20 @@ The following steps use the new Azure portal. If you experience any issues, you 
 
     </div>
 
-    <script src="/occm/en/common/js/components.js"></script>
-    <script src="/occm/en/common/js/doc-components.js"></script>
+    <script src="/occm/common/js/components.js"></script>
+    <script src="/occm/common/js/doc-components.js"></script>
 
     <!-- i18n script -->
-    <script type="text/javascript" src="/occm/en/js/responsive.js"></script>
+    <script type="text/javascript" src="/occm/js/responsive.js"></script>
 
     <!-- Elasticsearch JS -->
     
-    <script type="text/javascript" src='/occm/en/js/bundle.js'></script>
+    <script type="text/javascript" src='/occm/js/bundle.js'></script>
     
+
+    <script type="text/javascript" src='/occm/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/js/prism-curl.js'></script>
+
   </body>
 
   
