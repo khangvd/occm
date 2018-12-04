@@ -373,7 +373,23 @@
   
 
   
-    <li><a href="concept_ha.html">High-availability pairs</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">High-availability pairs</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_ha.html">HA pairs in AWS</a></li>
+  
+
+  
+    <li><a href="concept_ha_azure.html">HA pairs in Azure</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -570,6 +586,10 @@
 
   
     <li><a href="task_connecting_kubernetes.html">Using Cloud Volumes ONTAP as persistent storage</a></li>
+  
+
+  
+    <li><a href="task_encrypting_volumes.html">Encrypting volumes with NetApp Volume Encryption</a></li>
   
 
   
@@ -1062,7 +1082,7 @@ You should not change the password for the admin account through System Manager 
 <h2 id="changing-route-tables-associated-with-ha-pairs-in-multiple-aws-azs">Changing route tables associated with HA pairs in multiple AWS AZs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can modify the route tables that include routes to the floating IP addresses for an HA pair. You might do this if new NFS or CIFS clients need to access the HA pair.</p>
+<p>You can modify the AWS route tables that include routes to the floating IP addresses for an HA pair. You might do this if new NFS or CIFS clients need to access an HA pair in AWS.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>

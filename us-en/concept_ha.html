@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>High-availability pairs | NetApp Cloud Docs</title>
+  <title>High-availability pairs in AWS | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
     <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
 
-  <meta name="description" content="A Cloud Volumes ONTAP high availability (HA) configuration provides nondisruptive operations and fault tolerance. HA pairs are supported in AWS only.">
+  <meta name="description" content="A Cloud Volumes ONTAP high availability (HA) configuration provides nondisruptive operations and fault tolerance. In AWS, data is synchronously mirrored betw...">
   <meta name="keywords" content=" high availability, HA, mediator, concepts, understanding, overview, availability zones, AZs, takeover, giveback, rpo, rto, floating ip, nondisruptive, ha pairs, node, nodes, synchronous, resync, recovery point objective, recovery time objective, nas, nfs, cifs, floating ip address, route tables, iscsi, mpio, alua, failover, mount, remount, failure, data access, access, ip address, performance">
 
   <!-- Icons -->
@@ -373,7 +373,23 @@
   
 
   
-    <li class="active"><a href="concept_ha.html">High-availability pairs</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">High-availability pairs</a>
+      <ul>
+        
+
+  
+    <li class="active"><a href="concept_ha.html">HA pairs in AWS</a></li>
+  
+
+  
+    <li><a href="concept_ha_azure.html">HA pairs in Azure</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -570,6 +586,10 @@
 
   
     <li><a href="task_connecting_kubernetes.html">Using Cloud Volumes ONTAP as persistent storage</a></li>
+  
+
+  
+    <li><a href="task_encrypting_volumes.html">Encrypting volumes with NetApp Volume Encryption</a></li>
   
 
   
@@ -788,11 +808,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">High-availability pairs
+  <h1 class="n-doc__component-detail-heading">High-availability pairs in AWS
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_ha.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[High-availability pairs](https://docs.netapp.com/us-en/occm/concept_ha.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[High-availability pairs in AWS](https://docs.netapp.com/us-en/occm/concept_ha.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -801,7 +821,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>A Cloud Volumes ONTAP high availability (HA) configuration provides nondisruptive operations and fault tolerance. HA pairs are supported in AWS only.</p>
+<p>A Cloud Volumes ONTAP high availability (HA) configuration provides nondisruptive operations and fault tolerance. In AWS, data is synchronously mirrored between the two nodes.</p>
 </div>
 </div>
 </div>
@@ -809,7 +829,7 @@
 <h2 id="overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Volumes ONTAP HA configurations include the following components:</p>
+<p>In AWS, Cloud Volumes ONTAP HA configurations include the following components:</p>
 </div>
 <div class="ulist">
 <ul>

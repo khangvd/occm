@@ -17,7 +17,7 @@
   
 
   <meta name="description" content="Cloud Volumes ONTAP supports data encryption and provides protection against viruses.">
-  <meta name="keywords" content=" security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, aws, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority">
+  <meta name="keywords" content=" security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, aws, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, key manager">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -373,7 +373,23 @@
   
 
   
-    <li><a href="concept_ha.html">High-availability pairs</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">High-availability pairs</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_ha.html">HA pairs in AWS</a></li>
+  
+
+  
+    <li><a href="concept_ha_azure.html">HA pairs in Azure</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -570,6 +586,10 @@
 
   
     <li><a href="task_connecting_kubernetes.html">Using Cloud Volumes ONTAP as persistent storage</a></li>
+  
+
+  
+    <li><a href="task_encrypting_volumes.html">Encrypting volumes with NetApp Volume Encryption</a></li>
   
 
   
@@ -806,10 +826,52 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="data-encryption-in-azure">Data encryption in Azure</h2>
+<h2 id="encryption-of-data-at-rest">Encryption of data at rest</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/" target="_blank" rel="noopener">Azure Storage Service Encryption</a> for data at rest is enabled by default for Cloud Volumes ONTAP data in Azure.</p>
+<p>Cloud Volumes ONTAP supports the following encryption technologies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>NetApp Volume Encryption (starting with Cloud Volumes ONTAP 9.5)</p>
+</li>
+<li>
+<p>AWS Key Management Service</p>
+</li>
+<li>
+<p>Azure Storage Service Encryption</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can use NetApp Volume Encryption with native AWS and Azure encryption, which encrypt data at the hypervisor level.</p>
+</div>
+<div class="sect2">
+<h3 id="netapp-volume-encryption">NetApp Volume Encryption</h3>
+<div class="paragraph">
+<p>NetApp Volume Encryption (NVE) is a software-based technology for encrypting data at rest one volume at a time. Data, Snapshot copies, and metadata are encrypted. Access to the data is given by a unique XTS-AES-256 key, one per volume.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Volumes ONTAP supports NetApp Volume Encryption with an external key management server. An Onboard Key Manager is not supported.</p>
+</div>
+<div class="paragraph">
+<p>You can enable NetApp Volume Encryption on a new or existing volume by using the CLI or System Manager. Cloud Manager does not support NetApp Volume Encryption. For instructions, see <a href="task_encrypting_volumes.html">Encrypting volumes with NetApp Volume Encryption</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aws-key-management-service">AWS Key Management Service</h3>
+<div class="paragraph">
+<p>When you launch a Cloud Volumes ONTAP system in AWS, you can enable data encryption using the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/overview.html" target="_blank" rel="noopener">AWS Key Management Service (KMS)</a>. Cloud Manager requests data keys using a customer master key (CMK).</p>
+</div>
+<div class="paragraph">
+<p>If you want to use this encryption option, then you must ensure that the AWS KMS is set up appropriately. For details, see <a href="task_setting_up_kms.html">Setting up the AWS KMS</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="azure-storage-service-encryption">Azure Storage Service Encryption</h3>
+<div class="paragraph">
+<p><a href="https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/" target="_blank" rel="noopener">Azure Storage Service Encryption</a> for data at rest is enabled by default for Cloud Volumes ONTAP data in Azure. No setup is required.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -823,16 +885,6 @@ Customer-managed keys are not supported with Cloud Volumes ONTAP.
 </tr>
 </table>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="data-encryption-in-aws">Data encryption in AWS</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Data encryption is supported in AWS using the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/overview.html" target="_blank" rel="noopener">AWS Key Management Service (KMS)</a>. Cloud Manager requests data keys using a customer master key (CMK).</p>
-</div>
-<div class="paragraph">
-<p>If you want to use this encryption option, then you must ensure that the AWS KMS is set up appropriately. For details, see <a href="task_setting_up_kms.html">Setting up the AWS KMS</a>.</p>
 </div>
 </div>
 </div>
