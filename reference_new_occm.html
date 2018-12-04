@@ -68,7 +68,6 @@
   <script src='/occm/js/s_code_impl.js'></script>
   <script src='/occm/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
   <script src='/occm/js/toc.js'></script>
   <script src='/occm/js/customscripts.js'></script>
 
@@ -950,12 +949,12 @@ Looking for a previous release?<br>
 <div class="paragraph">
 <p>Cloud Manager no longer needs access to billing reports that you store in an S3 bucket. Instead, Cloud Manager uses the Cost Explorer API. You just need to ensure that the IAM policy that provides Cloud Manager with permissions includes the following actions:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>"ce:GetReservationUtilization",
-"ce:GetDimensionValues",
-"ce:GetCostAndUsage",
-"ce:GetTags"</pre>
+<pre> "ce:GetReservationUtilization",
+ "ce:GetDimensionValues",
+ "ce:GetCostAndUsage",
+ "ce:GetTags"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -971,23 +970,7 @@ Looking for a previous release?<br>
 <div class="sect2">
 <h3 id="support-for-new-azure-regions">Support for new Azure regions</h3>
 <div class="paragraph">
-<p>You can now deploy Cloud Manager and Cloud Volumes ONTAP in the following Azure regions:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Australia Central</p>
-</li>
-<li>
-<p>Australia Central 2</p>
-</li>
-<li>
-<p>France South</p>
-</li>
-<li>
-<p>France Central</p>
-</li>
-</ul>
+<p>You can now deploy Cloud Manager and Cloud Volumes ONTAP in the France Central region.</p>
 </div>
 </div>
 </div>
