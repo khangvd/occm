@@ -904,9 +904,11 @@
 <div class="paragraph">
 <p>You do not need to set up a connection between the performance tier and the capacity tier as long as Cloud Manager has the required permissions. Cloud Manager enables a VNet service endpoint for you if the Cloud Manager policy has the appropriate permission:</p>
 </div>
-<div class="paragraph">
-<p>"Microsoft.Network/virtualNetworks/subnets/write",<br>
-"Microsoft.Network/routeTables/join/action",</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"Microsoft.Network/virtualNetworks/subnets/write",
+"Microsoft.Network/routeTables/join/action",</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>These permissions are included in the latest <a href="https://mysupport.netapp.com/cloudontap/iampolicies">Cloud Manager policy</a>.</p>

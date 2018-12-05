@@ -823,7 +823,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up-and-adding-aws-accounts-to-cloud-manager">Setting up and adding AWS accounts to Cloud Manager</h2>
+<h2 id="aws">Setting up and adding AWS accounts to Cloud Manager</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you want to deploy Cloud Volumes ONTAP in different AWS accounts, then you need to provide the required permissions to those accounts and then add the details to Cloud Manager. How you provide the permissions depends on whether you want to provide Cloud Manager with AWS keys or the ARN of a role in a trusted account.</p>
@@ -916,14 +916,14 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
+<pre class="highlight"><code class="language-json" data-lang="json">{
  "Version": "2012-10-17",
  "Statement": {
    "Effect": "Allow",
    "Action": "sts:AssumeRole",
    "Resource": "arn:aws:iam::ACCOUNT-B-ID:role/ACCOUNT-B-ROLENAME"
 }
-}</pre>
+}</code></pre>
 </div>
 </div>
 </li>
@@ -970,7 +970,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up-and-adding-azure-accounts-to-cloud-manager">Setting up and adding Azure accounts to Cloud Manager</h2>
+<h2 id="azure">Setting up and adding Azure accounts to Cloud Manager</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you want to deploy Cloud Volumes ONTAP in different Azure accounts, then you need to provide the required permissions to those accounts and then add details about the accounts to Cloud Manager.</p>
@@ -1042,11 +1042,13 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
-<div class="paragraph">
-<p>"AssignableScopes": [<br>
-"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",<br>
-"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",<br>
-"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"AssignableScopes": [
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</code></pre>
+</div>
 </div>
 </li>
 <li>
