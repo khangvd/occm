@@ -1065,7 +1065,7 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost/occm/api/aws/ha/working-environments -X POST --header "Content-Type:application/json" --header "Authorization:$token" --data "{\"name\": \"Ha1\",\"tenantId\": \"$tenantId\",\"region\": \"$haRegion\",\"vsaMetadata\": {\"ontapVersion\": \"ONTAP.ENG-9.4.T1.ha\",\"licenseType\": \"ha-cot-standard-paygo\",\"instanceType\": \"m4.2xlarge\"},\"svmPassword\": \"$svmPassword\",\"vpcId\": \"$haVpcId\",\"cloudProviderAccount\": \"$awsAccountId\",\"dataEncryptionType\": \"NONE\",\"ontapEncryptionParameters\": null,\"ebsVolumeType\": \"gp2\",\"ebsVolumeSize\": {\"size\": 1,\"unit\": \"TB\"},\"haParams\": {\"node2SubnetId\": \"$haSubnetId2\",\"failoverMode\":\"FloatingIP\",\"mediatorSubnetId\": \"$haSubnetId3\",\"mediatorKeyPairName\": \"$keyPair\",\"clusterFloatingIP\": \"$floatingIp4\",\"dataFloatingIP\": \"$floatingIp5\",\"dataFloatingIP2\": \"$floatingIp6\",\"node1SubnetId\": \"$haSubnetId1\",\"routeTableIds\": [\"$routeTableId1\"]},\"awsTags\": []}" | jq .</pre>
+<pre>curl http://localhost/occm/api/aws/ha/working-environments -X POST --header "Content-Type:application/json" --header "Authorization:$token" --data "{\"name\": \"Ha1\",\"tenantId\": \"$tenantId\",\"region\": \"$haRegion\",\"vsaMetadata\": {\"ontapVersion\": \"ONTAP.ENG-9.4.T1.ha\",\"licenseType\": \"ha-cot-standard-paygo\",\"instanceType\": \"m4.2xlarge\"},\"svmPassword\": \"$svmPassword\",\"vpcId\": \"$haVpcId\",\"volume\": {\"exportPolicyInfo\": {\"policyType\": \"custom\",\"ips\": [\"10.0.0.0/24\"]},\"snapshotPolicyName\": \"default\",\"name\": \"newVol1\",\"enableThinProvisioning\": true,\"enableDeduplication\": true,\"enableCompression\": true,\"size\": {\"size\": 50,\"unit\": \"GB\"}},\"cloudProviderAccount\": \"$awsAccountId\",\"dataEncryptionType\": \"NONE\",\"ontapEncryptionParameters\": null,\"ebsVolumeType\": \"gp2\",\"ebsVolumeSize\": {\"size\": 1,\"unit\": \"TB\"},\"haParams\": {\"node2SubnetId\": \"$haSubnetId2\",\"failoverMode\":\"FloatingIP\",\"mediatorSubnetId\": \"$haSubnetId3\",\"mediatorKeyPairName\": \"$keyPair\",\"clusterFloatingIP\": \"$floatingIp4\",\"dataFloatingIP\": \"$floatingIp5\",\"dataFloatingIP2\": \"$floatingIp6\",\"node1SubnetId\": \"$haSubnetId1\",\"routeTableIds\": [\"$routeTableId1\"]},\"awsTags\": []}" | jq .</pre>
 </div>
 </div>
 </div>
@@ -1095,9 +1095,10 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost/occm/api/vsa/working-environments -X GET --header "Content-Type:application/json" --header "Authorization:$token" &gt; getHA.txt
-cat getHA.txt| jq -r .[3].publicId &gt; haId.txt
-cat getHA.txt| jq -r .[3].svmName &gt; svmName.txt
+<pre>sleep 60
+curl http://localhost/occm/api/vsa/working-environments -X GET --header "Content-Type:application/json" --header "Authorization:$token" &gt; getHA.txt
+cat getHA.txt| jq -r .[0].publicId &gt; haId.txt
+cat getHA.txt| jq -r .[0].svmName &gt; svmName.txt
 haid=`cat haId.txt`
 svm=`cat svmName.txt`</pre>
 </div>
@@ -1110,7 +1111,7 @@ svm=`cat svmName.txt`</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost/occm/api/aws/ha/aggregates -X POST --header "Content-Type:application/json" --header "Authorization:$token" --data "{\"name\": \"aggr2\",\"workingEnvironmentId\": \"%haid%\",\"numberOfDisks\": \"2\",\"diskSize\": {\"size\": \"500\",\"unit\": \"GB\"},\"homeNode\": \"Ha2-01\", \"providerVolumeType\": \"gp2\"}"</pre>
+<pre>curl http://localhost/occm/api/aws/ha/aggregates -X POST --header "Content-Type:application/json" --header "Authorization:$token" --data "{\"name\": \"aggr2\",\"workingEnvironmentId\": \"$haid\",\"numberOfDisks\": \"2\",\"diskSize\": {\"size\": \"500\",\"unit\": \"GB\"},\"homeNode\": \"Ha1-01\", \"providerVolumeType\": \"gp2\"}"</pre>
 </div>
 </div>
 </div>
