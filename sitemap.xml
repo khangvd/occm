@@ -22,7 +22,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/concept_cloud_central.html</loc>
       
-        <lastmod>2018-06-14T12:42:34+00:00</lastmod>
+        <lastmod>2018-06-15T14:46:56+00:00</lastmod>
       
     </url>
   
@@ -127,7 +127,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/reference_apis.html</loc>
       
-        <lastmod>2018-06-14T12:42:34+00:00</lastmod>
+        <lastmod>2018-06-15T14:46:56+00:00</lastmod>
       
     </url>
   
@@ -218,7 +218,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/reference_new_occm.html</loc>
       
-        <lastmod>2019-01-02T16:09:19+00:00</lastmod>
+        <lastmod>2019-01-02T20:43:06+00:00</lastmod>
       
     </url>
   
@@ -253,14 +253,14 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/reference_user_roles.html</loc>
       
-        <lastmod>2018-11-19T02:36:18+00:00</lastmod>
+        <lastmod>2018-11-20T21:55:20+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/zz/occm//search.html</loc>
       
-        <lastmod>2019-01-02T19:44:30+00:00</lastmod>
+        <lastmod>2019-01-02T21:02:18+00:00</lastmod>
       
     </url>
   
@@ -274,7 +274,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_adding_ontap_cloud.html</loc>
       
-        <lastmod>2018-07-25T19:35:16+00:00</lastmod>
+        <lastmod>2018-07-26T15:09:33+00:00</lastmod>
       
     </url>
   
@@ -344,7 +344,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_editing_users.html</loc>
       
-        <lastmod>2018-11-19T02:36:18+00:00</lastmod>
+        <lastmod>2018-11-20T21:55:20+00:00</lastmod>
       
     </url>
   
@@ -468,6 +468,13 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/zz/occm/task_protecting_ransomware.html</loc>
+      
+        <lastmod>2019-01-02T20:42:39+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/zz/occm/task_provisioning_storage.html</loc>
       
         <lastmod>2018-12-03T19:37:27+00:00</lastmod>
@@ -498,7 +505,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_renewing_cert.html</loc>
       
-        <lastmod>2018-06-14T12:42:34+00:00</lastmod>
+        <lastmod>2018-06-15T14:46:56+00:00</lastmod>
       
     </url>
   
@@ -554,7 +561,7 @@
     <url>
       <loc>https://docs.netapp.com/zz/occm/task_uninstalling.html</loc>
       
-        <lastmod>2018-06-14T12:42:34+00:00</lastmod>
+        <lastmod>2018-06-15T14:46:56+00:00</lastmod>
       
     </url>
   
