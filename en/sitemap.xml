@@ -22,7 +22,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/concept_cloud_central.html</loc>
       
-        <lastmod>2018-06-14T04:47:56+00:00</lastmod>
+        <lastmod>2018-06-14T05:37:32+00:00</lastmod>
       
     </url>
   
@@ -43,7 +43,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/concept_ha.html</loc>
       
-        <lastmod>2018-12-04T02:18:55+00:00</lastmod>
+        <lastmod>2019-01-02T16:10:21+00:00</lastmod>
       
     </url>
   
@@ -127,7 +127,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/reference_apis.html</loc>
       
-        <lastmod>2018-06-14T04:47:56+00:00</lastmod>
+        <lastmod>2018-06-14T05:37:32+00:00</lastmod>
       
     </url>
   
@@ -218,21 +218,21 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/reference_new_occm.html</loc>
       
-        <lastmod>2018-12-05T15:34:17+00:00</lastmod>
+        <lastmod>2019-01-02T16:09:19+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/en/occm/reference_permissions.html</loc>
       
-        <lastmod>2018-11-29T21:14:29+00:00</lastmod>
+        <lastmod>2019-01-02T16:12:18+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/en/occm/reference_regions.html</loc>
       
-        <lastmod>2018-12-04T14:26:06+00:00</lastmod>
+        <lastmod>2019-01-02T16:17:32+00:00</lastmod>
       
     </url>
   
@@ -253,14 +253,14 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/reference_user_roles.html</loc>
       
-        <lastmod>2018-11-19T02:25:32+00:00</lastmod>
+        <lastmod>2018-11-19T02:25:41+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/en/occm//search.html</loc>
       
-        <lastmod>2019-01-02T15:42:09+00:00</lastmod>
+        <lastmod>2019-01-02T16:31:38+00:00</lastmod>
       
     </url>
   
@@ -274,7 +274,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/task_adding_ontap_cloud.html</loc>
       
-        <lastmod>2018-07-25T19:34:53+00:00</lastmod>
+        <lastmod>2018-07-25T19:35:07+00:00</lastmod>
       
     </url>
   
@@ -344,7 +344,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/task_editing_users.html</loc>
       
-        <lastmod>2018-11-19T02:25:32+00:00</lastmod>
+        <lastmod>2018-11-19T02:25:41+00:00</lastmod>
       
     </url>
   
@@ -379,7 +379,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/task_installing_azure_gov.html</loc>
       
-        <lastmod>2018-12-03T19:37:27+00:00</lastmod>
+        <lastmod>2019-01-02T16:22:23+00:00</lastmod>
       
     </url>
   
@@ -498,7 +498,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/task_renewing_cert.html</loc>
       
-        <lastmod>2018-06-14T04:47:56+00:00</lastmod>
+        <lastmod>2018-06-14T05:37:32+00:00</lastmod>
       
     </url>
   
@@ -554,7 +554,7 @@
     <url>
       <loc>https://docs.netapp.com/en/occm/task_uninstalling.html</loc>
       
-        <lastmod>2018-06-14T04:47:56+00:00</lastmod>
+        <lastmod>2018-06-14T05:37:32+00:00</lastmod>
       
     </url>
   

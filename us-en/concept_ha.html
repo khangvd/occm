@@ -743,7 +743,7 @@
   
 
   
-    <li><a href="reference_regions.html">Supported regions</a></li>
+    <li><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank">Supported regions</a></li>
   
 
   
@@ -887,6 +887,18 @@ In the event of an outage, data should be available in 60 seconds or less.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Deploying an HA configuration in multiple Availability Zones (AZs) ensures high availability of your data if a failure occurs with an AZ or an instance that runs a Cloud Volumes ONTAP node. You should understand how NAS IP addresses impact data access and storage failover.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager launches the two HA nodes and the mediator in an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a>. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="nfs-and-cifs-data-access-for-clients-within-the-vpc">NFS and CIFS data access for clients within the VPC</h3>
