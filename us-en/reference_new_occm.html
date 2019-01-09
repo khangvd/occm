@@ -864,6 +864,18 @@ Looking for a previous release?<br>
 <div class="paragraph">
 <p>When you deploy Cloud Volumes ONTAP HA in a single AWS Availability Zone, Cloud Manager now launches the two HA nodes and the mediator in an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a>. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature improves redundancy from a compute perspective and not from disk failure perspective.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Cloud Manager requires new permissions for this feature. Ensure that the IAM policy that provides Cloud Manager with permissions includes the following actions:</p>
 </div>
