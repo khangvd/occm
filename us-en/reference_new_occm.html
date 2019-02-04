@@ -817,7 +817,7 @@
 </div>
 
 
-<p class="page-details">Updated <time datetime="2019-01-09 16:47:53 +0000">01/09/2019</time></p>
+<p class="page-details">Updated <time datetime="2019-02-04 15:31:49 +0000">02/04/2019</time></p>
 
 
 <div id="preamble">
@@ -838,6 +838,76 @@ Looking for a previous release?<br>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-6-3-4-feb-2019">Cloud Manager 3.6.3 (4 Feb 2019)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.6.3 includes the following enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#368-tb-capacity-limit-for-all-premium-and-byol-configurations">368 TB capacity limit for all Premium and BYOL configurations</a></p>
+</li>
+<li>
+<p><a href="#support-for-new-aws-regions">Support for new AWS regions</a></p>
+</li>
+<li>
+<p><a href="#ability-to-disable-data-tiering-on-the-initial-aggregate">Ability to disable data tiering on the initial aggregate</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="368-tb-capacity-limit-for-all-premium-and-byol-configurations">368 TB capacity limit for all Premium and BYOL configurations</h3>
+<div class="paragraph">
+<p>The system capacity limit for Cloud Volumes ONTAP Premium and BYOL is now 368 TB across all configurations: single node and HA in both AWS and Azure. This change applies to Cloud Volumes ONTAP 9.5, 9.4, and 9.3 (AWS only with 9.3).</p>
+</div>
+<div class="paragraph">
+<p>For some configurations, disk limits prevent you from reaching the 368 TB capacity limit by using disks alone. In those cases, you can reach the 368 TB capacity limit by <a href="https://docs.netapp.com/us-en/occm/concept_data_tiering.html" target="_blank" rel="noopener">tiering inactive data to object storage</a>. For example, a single node system in Azure could have 252 TB of disk-based capacity, which would allow up to 116 TB of inactive data in Azure Blob storage.</p>
+</div>
+<div class="paragraph">
+<p>For information about disk limits, refer to storage limits in the <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank" rel="noopener">Cloud Volumes ONTAP Release Notes</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-new-aws-regions">Support for new AWS regions</h3>
+<div class="paragraph">
+<p>Cloud Manager and Cloud Volumes ONTAP are now supported in the following AWS regions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Europe (Stockholm)</p>
+<div class="paragraph">
+<p>Single node systems only. HA pairs are not supported at this time.</p>
+</div>
+</li>
+<li>
+<p>GovCloud (US-East)</p>
+<div class="paragraph">
+<p>This is in addition to support for the AWS GovCloud (US-West) region.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">See the full list of supported regions</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ability-to-disable-data-tiering-on-the-initial-aggregate">Ability to disable data tiering on the initial aggregate</h3>
+<div class="paragraph">
+<p>In previous releases, Cloud Manager automatically enabled data tiering on the initial Cloud Volumes ONTAP aggregate. You can now choose to disable data tiering on this initial aggregate. (You can enable or disable data tiering on subsequent aggregates, as well.)</p>
+</div>
+<div class="paragraph">
+<p>This new option is available when choosing the underlying storage resources. The following image shows an example when launching a system in AWS:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_s3_tiering_initial_aggr.gif" alt="A screenshot that shows the S3 Tiering Edit option when choosing an underlying disk."></span></p>
+</div>
 </div>
 </div>
 </div>
@@ -1071,7 +1141,7 @@ This feature improves redundancy from a compute perspective and not from disk fa
 <p>The report breaks down the monthly resource costs associated with running Cloud Volumes ONTAP in AWS. You can view monthly costs for compute, EBS storage (including EBS snapshots), S3 storage, and data transfers.</p>
 </li>
 <li>
-<p>The report now shows cost savings when you tier cold data to S3.</p>
+<p>The report now shows cost savings when you tier inactive data to S3.</p>
 </li>
 <li>
 <p>We also simplified how Cloud Manager obtains cost data from AWS.</p>

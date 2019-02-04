@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Tiering cold data to low-cost object storage | NetApp Cloud Docs</title>
+  <title>Tiering inactive data to low-cost object storage | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,8 +16,8 @@
     <meta http-equiv="nss-product" content="OnCommand"/>
   
 
-  <meta name="description" content="You can reduce storage costs in AWS and Azure by combining an SSD or HDD performance tier for hot data with an object storage capacity tier for cold data.">
-  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, azure tiering, blob tiering, azure blob, container">
+  <meta name="description" content="You can reduce storage costs in AWS and Azure by combining an SSD or HDD performance tier for hot data with an object storage capacity tier for inactive data.">
+  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, azure tiering, blob tiering, azure blob, container, inactive">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -806,24 +806,24 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Tiering cold data to low-cost object storage
+  <h1 class="n-doc__component-detail-heading">Tiering inactive data to low-cost object storage
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_tiering.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Tiering cold data to low-cost object storage](https://docs.netapp.com/zz/occm/task_tiering.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Tiering inactive data to low-cost object storage](https://docs.netapp.com/zz/occm/task_tiering.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
 </div>
 
 
-<p class="page-details">Updated <time datetime="2018-12-05 15:34:17 +0000">12/05/2018</time></p>
+<p class="page-details">Updated <time datetime="2019-02-04 14:25:34 +0000">02/04/2019</time></p>
 
 
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can reduce storage costs in AWS and Azure by combining an SSD or HDD performance tier for "hot" data with an object storage capacity tier for "cold" data. For a high-level overview, see <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
+<p>You can reduce storage costs in AWS and Azure by combining an SSD or HDD performance tier for hot data with an object storage capacity tier for inactive data. For a high-level overview, see <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
 </div>
 <div class="paragraph">
 <p>To set up data tiering, you simply need to do the following:</p>
@@ -927,7 +927,7 @@
 <h2 id="tiering-data-on-read-write-volumes">Tiering data on read-write volumes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Volumes ONTAP can tier cold data on read-write volumes to cost-effective object storage, freeing up the performance tier for hot data.</p>
+<p>Cloud Volumes ONTAP can tier inactive data on read-write volumes to cost-effective object storage, freeing up the performance tier for hot data.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1020,17 +1020,17 @@ If you prefer to create aggregates yourself, you can enable data tiering on aggr
 <h2 id="changing-the-tiering-level">Changing the tiering level</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you enable data tiering, Cloud Volumes ONTAP tiers cold data to the S3 <em>Standard</em> storage class in AWS or to the <em>hot</em> storage tier in Azure. After you deploy Cloud Volumes ONTAP, you can reduce your storage costs by changing the tiering level for cold data that has not been accessed for 30 days. The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level.</p>
+<p>When you enable data tiering, Cloud Volumes ONTAP tiers inactive data to the S3 <em>Standard</em> storage class in AWS or to the <em>hot</em> storage tier in Azure. After you deploy Cloud Volumes ONTAP, you can reduce your storage costs by changing the tiering level for inactive data that has not been accessed for 30 days. The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
 <p>The tiering level is system wide—​it is not per volume.</p>
 </div>
 <div class="paragraph">
-<p>In AWS, you can change the tiering level so cold data moves to the  <em>Standard-Infrequent Access</em> storage class or to the <em>One Zone-Infrequent Access</em> storage class after 30 days of inactivity.</p>
+<p>In AWS, you can change the tiering level so inactive data moves to the  <em>Standard-Infrequent Access</em> storage class or to the <em>One Zone-Infrequent Access</em> storage class after 30 days of inactivity.</p>
 </div>
 <div class="paragraph">
-<p>In Azure, you can change the tiering level so cold data moves to the  <em>cool</em> storage tier after 30 days of inactivity.</p>
+<p>In Azure, you can change the tiering level so inactive data moves to the  <em>cool</em> storage tier after 30 days of inactivity.</p>
 </div>
 <div class="paragraph">
 <p>For more information about how tiering levels work, see <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
