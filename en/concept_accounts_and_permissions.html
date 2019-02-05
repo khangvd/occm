@@ -817,7 +817,7 @@
 </div>
 
 
-<p class="page-details">Updated <time datetime="2018-12-03 19:37:27 +0000">12/03/2018</time></p>
+<p class="page-details">Updated <time datetime="2019-02-05 15:17:51 +0000">02/05/2019</time></p>
 
 
 <div id="preamble">
@@ -836,7 +836,7 @@
 <div class="sect2">
 <h3 id="the-initial-aws-account">The initial AWS account</h3>
 <div class="paragraph">
-<p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an AWS account that has permissions to launch the Cloud Manager instance. The required permissions are listed in the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service.json" target="_blank" rel="noopener">Cloud Central policy for AWS</a>.</p>
+<p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an AWS account that has permissions to launch the Cloud Manager instance. The required permissions are listed in the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service.json" target="_blank" rel="noopener">Cloud Central policy for AWS</a>. <a href="reference_permissions.html#what-cloud-manager-does-with-aws-permissions">Review how Cloud Manager uses the permissions</a>.</p>
 </div>
 <div class="paragraph">
 <p>When Cloud Central launches the Cloud Manager instance in AWS, it creates an IAM role and an instance profile for the instance. It also attaches a policy that provides Cloud Manager with permissions to deploy and manage Cloud Volumes ONTAP in that AWS account.</p>
@@ -880,7 +880,7 @@
 <div class="sect2">
 <h3 id="the-initial-azure-account">The initial Azure account</h3>
 <div class="paragraph">
-<p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an Azure account that has permissions to deploy the Cloud Manager virtual machine. The required permissions are listed in the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service_Azure.json" target="_blank" rel="noopener">Cloud Central policy for Azure</a>.</p>
+<p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an Azure account that has permissions to deploy the Cloud Manager virtual machine. The required permissions are listed in the <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service_Azure.json" target="_blank" rel="noopener">Cloud Central policy for Azure</a>. <a href="reference_permissions.html#what-cloud-manager-does-with-azure-permissions">Review how Cloud Manager uses the permissions</a>.</p>
 </div>
 <div class="paragraph">
 <p>When Cloud Central deploys the Cloud Manager virtual machine in Azure, it enables a Managed Service Identity on the Cloud Manager virtual machine, creates a custom role, and assigns it to the virtual machine. The role provides Cloud Manager with permissions to deploy and manage Cloud Volumes ONTAP in that Azure subscription.</p>
