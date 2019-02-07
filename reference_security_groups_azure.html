@@ -817,7 +817,7 @@
 </div>
 
 
-<p class="page-details">Updated <time datetime="2018-11-29 21:14:29 +0000">11/29/2018</time></p>
+<p class="page-details">Updated <time datetime="2019-02-07 17:20:28 +0000">02/07/2019</time></p>
 
 
 <div id="preamble">
@@ -1031,143 +1031,391 @@ The source IP address is the Cloud Manager host.
 <p>The security group for Cloud Volumes ONTAP requires both inbound and outbound rules.</p>
 </div>
 <div class="sect2">
-<h3 id="inbound-rules-for-cloud-volumes-ontap">Inbound rules for Cloud Volumes ONTAP</h3>
-<div class="paragraph">
-<p>The source for inbound rules in the predefined security group is 0.0.0.0/0.</p>
-</div>
+<h3 id="inbound-rules-for-single-node-systems">Inbound rules for single node systems</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 80%;">
+<col style="width: 8.1632%;">
+<col style="width: 13.2653%;">
+<col style="width: 8.1632%;">
+<col style="width: 8.1632%;">
+<col style="width: 13.2653%;">
+<col style="width: 13.2653%;">
+<col style="width: 8.1632%;">
+<col style="width: 27.5513%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">Name</th>
 <th class="tableblock halign-left valign-top">Port</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All ICMP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pinging the instance</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP access to the System Manager web console using the IP address of the cluster management LIF</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS access to the System Manager web console using the IP address of the cluster management LIF</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_ssh</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SSH access to the IP address of the cluster management LIF or a node management LIF</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_http</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP access to the System Manager web console using the IP address of the cluster management LIF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_111_tcp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remote procedure call for NFS</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_111_udp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote procedure call for NFS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_139</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS service session for CIFS</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1005</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_161-162 _tcp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Simple network management protocol</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1006</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_161-162 _udp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple network management protocol</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1007</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS access to the System Manager web console using the IP address of the cluster management LIF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1008</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_445</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft SMB/CIFS over TCP with NetBIOS framing</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1009</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_635_tcp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NFS mount</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_635_udp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS mount</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1011</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_749</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1012</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_2049_tcp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NFS server daemon</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1013</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_2049_udp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS server daemon</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1014</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_3260</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3260</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">iSCSI access through the iSCSI data LIF</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1015</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_4045-4046_tcp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4045-4046</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4045</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS lock daemon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS lock daemon and network status monitor</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4046</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Network status monitor for NFS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1016</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_4045-4046_udp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4045-4046</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS lock daemon and network status monitor</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_10000</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Backup using NDMP</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_11104-11105</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11104-11105</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11104</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Management of intercluster communication sessions for SnapMirror</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror data transfer</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_deny _all_tcp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11105</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror data transfer using intercluster LIFs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deny</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Block all other TCP inbound traffic</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_deny _all_udp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deny</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Block all other UDP inbound traffic</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AllowVnetInBound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualNetwork</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualNetwork</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inbound traffic from within the VNet</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AllowAzureLoad BalancerInBound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AzureLoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data traffic from the Azure Standard Load Balancer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DenyAllInBound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deny</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Block all other inbound traffic</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="inbound-rules-for-ha-systems">Inbound rules for HA systems</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+HA systems have less inbound rules than single node systems because inbound data traffic goes through the Azure Standard Load Balancer. Because of this, traffic from the Load Balancer should be open, as shown in the "AllowAzureLoadBalancerInBound" rule.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 8.1632%;">
+<col style="width: 13.2653%;">
+<col style="width: 8.1632%;">
+<col style="width: 8.1632%;">
+<col style="width: 13.2653%;">
+<col style="width: 13.2653%;">
+<col style="width: 8.1632%;">
+<col style="width: 27.5513%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Port</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS access to the System Manager web console using the IP address of the cluster management LIF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">101</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_111_tcp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remote procedure call for NFS</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Simple network management protocol</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS mount</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">102</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_2049_tcp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NFS server daemon</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4045</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS lock daemon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_ssh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH access to the IP address of the cluster management LIF or a node management LIF</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4046</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Network status monitor for NFS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">121</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inbound_53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS and CIFS</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4049</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS rquotad protocol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AllowVnetInBound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualNetwork</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualNetwork</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inbound traffic from within the VNet</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AllowAzureLoad BalancerInBound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AzureLoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data traffic from the Azure Standard Load Balancer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DenyAllInBound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deny</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Block all other inbound traffic</p></td>
 </tr>
 </tbody>
 </table>
@@ -1196,11 +1444,6 @@ The source IP address is the Cloud Manager host.
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All ICMP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound traffic</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
