@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Managing encryption settings for Cloud Volumes ONTAP | NetApp Cloud Docs</title>
+  <title>Managing encryption of aggregates using external key managers in AWS | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
     <meta http-equiv="nss-product" content="OnCommand"/>
   
 
-  <meta name="description" content="You might need to periodically manage Cloud Manager encryption settings to ensure that Cloud Volumes ONTAP systems in AWS can communicate with key managers.">
+  <meta name="description" content="If you enabled aggregate-level encryption using external key managers, you might need to periodically manage encryption settings to ensure that Cloud Volumes...">
   <meta name="keywords" content=" encryption, managing, settings, certificate, CA, expire, renew, intermediate, CSR, key managers">
 
   <!-- Icons -->
@@ -806,24 +806,24 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Managing encryption settings for Cloud Volumes ONTAP
+  <h1 class="n-doc__component-detail-heading">Managing encryption of aggregates using external key managers in AWS
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_managing_encryption.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Managing encryption settings for Cloud Volumes ONTAP](https://docs.netapp.com/zz/occm/task_managing_encryption.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Managing encryption of aggregates using external key managers in AWS](https://docs.netapp.com/zz/occm/task_managing_encryption.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
 </div>
 
 
-<p class="page-details">Updated <time datetime="2018-11-29 21:14:29 +0000">11/29/2018</time></p>
+<p class="page-details">Updated <time datetime="2019-02-14 00:01:37 +0000">02/14/2019</time></p>
 
 
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You might need to periodically manage Cloud Manager encryption settings to ensure that Cloud Volumes ONTAP systems in AWS can communicate with key managers.</p>
+<p>If you enabled aggregate-level encryption using external key managers, you might need to periodically manage settings to ensure that Cloud Volumes ONTAP systems can communicate with those key managers.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -832,7 +832,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Data-at-rest encryption provided by Cloud Volumes ONTAP is no longer supported when launching new Cloud Volumes ONTAP systems in AWS. Existing systems that use this feature are still supported. See <a href="reference_new_occm.html">What&#8217;s new in Cloud Manager</a> for more details.
+Data-at-rest encryption of aggregates using external key managers is no longer supported with new Cloud Volumes ONTAP systems. Existing systems that use this feature are still supported. Other encryption options are available in AWS: NetApp Volume Encryption and the AWS Key Management Service (KMS). <a href="concept_security.html">Click here for details</a>.
 </td>
 </tr>
 </table>
