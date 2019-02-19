@@ -402,10 +402,6 @@
     <li><a href="concept_performance.html">Performance</a></li>
   
 
-  
-    <li><a href="concept_storage_automation.html">Cloud Storage Automation</a></li>
-  
-
 
       </ul>
     </li>
@@ -575,7 +571,7 @@
   
 
   
-    <li><a href="task_tiering.html">Tiering cold data to object storage</a></li>
+    <li><a href="task_tiering.html">Tiering inactive data to object storage</a></li>
   
 
   
@@ -817,7 +813,7 @@
 </div>
 
 
-<p class="page-details">Updated <time datetime="2019-02-04 14:25:34 +0000">02/04/2019</time></p>
+<p class="page-details">Updated <time datetime="2019-02-19 21:16:40 +0000">02/19/2019</time></p>
 
 
 <div id="preamble">
@@ -863,17 +859,21 @@ You do not need to install a feature license to enable data tiering.
 <p>By default, Cloud Volumes ONTAP tiers inactive data to the S3 <em>Standard</em> storage class. Standard is ideal for frequently accessed data stored across multiple Availability Zones.</p>
 </div>
 <div class="paragraph">
-<p>If you do not plan to access the inactive data, you can reduce your storage costs by changing a system&#8217;s tiering level to either of the following, after you deploy Cloud Volumes ONTAP:</p>
+<p>If you do not plan to access the inactive data, you can reduce your storage costs by changing a system&#8217;s tiering level to one of the following, after you deploy Cloud Volumes ONTAP:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Standard-Infrequent Access</dt>
+<dt class="hdlist1">Intelligent Tiering</dt>
 <dd>
-<p>For infrequently accessed data stored across multiple Availability Zones.</p>
+<p>Optimizes storage costs by moving data between two tiers as data access patterns change. One tier is for frequent access and the other is for infrequent access.</p>
 </dd>
 <dt class="hdlist1">One Zone-Infrequent Access</dt>
 <dd>
 <p>For infrequently accessed data stored in a single Availability Zone.</p>
+</dd>
+<dt class="hdlist1">Standard-Infrequent Access</dt>
+<dd>
+<p>For infrequently accessed data stored across multiple Availability Zones.</p>
 </dd>
 </dl>
 </div>

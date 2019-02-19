@@ -402,10 +402,6 @@
     <li><a href="concept_performance.html">Performance</a></li>
   
 
-  
-    <li><a href="concept_storage_automation.html">Cloud Storage Automation</a></li>
-  
-
 
       </ul>
     </li>
@@ -575,7 +571,7 @@
   
 
   
-    <li class="active"><a href="task_tiering.html">Tiering cold data to object storage</a></li>
+    <li class="active"><a href="task_tiering.html">Tiering inactive data to object storage</a></li>
   
 
   
@@ -817,7 +813,7 @@
 </div>
 
 
-<p class="page-details">Updated <time datetime="2019-02-04 14:25:34 +0000">02/04/2019</time></p>
+<p class="page-details">Updated <time datetime="2019-02-19 21:16:40 +0000">02/19/2019</time></p>
 
 
 <div id="preamble">
@@ -1027,7 +1023,20 @@ If you prefer to create aggregates yourself, you can enable data tiering on aggr
 <p>The tiering level is system wide—​it is not per volume.</p>
 </div>
 <div class="paragraph">
-<p>In AWS, you can change the tiering level so inactive data moves to the  <em>Standard-Infrequent Access</em> storage class or to the <em>One Zone-Infrequent Access</em> storage class after 30 days of inactivity.</p>
+<p>In AWS, you can change the tiering level so inactive data moves to one of the following storage classes after 30 days of inactivity:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Intelligent Tiering</p>
+</li>
+<li>
+<p>Standard-Infrequent Access</p>
+</li>
+<li>
+<p>One Zone-Infrequent Access</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>In Azure, you can change the tiering level so inactive data moves to the  <em>cool</em> storage tier after 30 days of inactivity.</p>

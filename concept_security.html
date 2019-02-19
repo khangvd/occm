@@ -16,8 +16,8 @@
     <meta http-equiv="nss-product" content="OnCommand"/>
   
 
-  <meta name="description" content="Cloud Volumes ONTAP supports data encryption and provides protection against viruses.">
-  <meta name="keywords" content=" security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, aws, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, key manager">
+  <meta name="description" content="Cloud Volumes ONTAP supports data encryption and provides protection against viruses and ransomware.">
+  <meta name="keywords" content=" security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, aws, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -402,10 +402,6 @@
     <li><a href="concept_performance.html">Performance</a></li>
   
 
-  
-    <li><a href="concept_storage_automation.html">Cloud Storage Automation</a></li>
-  
-
 
       </ul>
     </li>
@@ -575,7 +571,7 @@
   
 
   
-    <li><a href="task_tiering.html">Tiering cold data to object storage</a></li>
+    <li><a href="task_tiering.html">Tiering inactive data to object storage</a></li>
   
 
   
@@ -817,13 +813,13 @@
 </div>
 
 
-<p class="page-details">Updated <time datetime="2018-12-18 15:00:32 +0000">12/18/2018</time></p>
+<p class="page-details">Updated <time datetime="2019-02-19 21:18:29 +0000">02/19/2019</time></p>
 
 
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Volumes ONTAP supports data encryption and provides protection against viruses.</p>
+<p>Cloud Volumes ONTAP supports data encryption and provides protection against viruses and ransomware.</p>
 </div>
 </div>
 </div>
@@ -904,6 +900,33 @@ Customer-managed keys are not supported with Cloud Volumes ONTAP.
 </div>
 <div class="paragraph">
 <p>For information about how to configure and manage the antivirus functionality on ONTAP systems, see the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-acg/home.html" target="_blank" rel="noopener">ONTAP 9 Antivirus Configuration Guide</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ransomware-protection">Ransomware protection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ransomware attacks can cost a business time, resources, and reputation. Cloud Manager enables you to implement the NetApp solution for ransomware, which provides effective tools for visibility, detection, and remediation.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager identifies volumes that are not protected by a Snapshot policy and enables you to activate the default Snapshot policy on those volumes.</p>
+<div class="paragraph">
+<p>Snapshot copies are read-only, which prevents ransomware corruption. They can also provide the granularity to create images of a single file copy or a complete disaster recovery solution.</p>
+</div>
+</li>
+<li>
+<p>Cloud Manager also enables you to block common ransomware file extensions by enabling ONTAP&#8217;s FPolicy solution.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_ransomware_protection.gif" alt="A screenshot that shows the Ransomware Protection page that is available from within a working environment. The screen shows the number of volumes without a Snapshot Policy and the ability to block ransomware file extensions."></span></p>
+</div>
+<div class="paragraph">
+<p><a href="task_protecting_ransomware.html">Learn how to implement the NetApp solution for ransomware</a>.</p>
 </div>
 </div>
 </div>
