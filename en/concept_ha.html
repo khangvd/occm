@@ -814,7 +814,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-01-09 16:47:17 +0000">01/09/2019</time>
+<time datetime="2019-02-20 19:39:45 +0000">02/20/2019</time>
 
 
 <span>Contributors
@@ -985,7 +985,7 @@ For information about which specific host configurations support ALUA, see the <
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Cloud Manager launches the two HA nodes and the mediator in an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a>. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware. This feature improves redundancy from a compute perspective and not from disk failure perspective.
+Cloud Manager creates an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a> and launches the two HA nodes and the mediator in that placement group. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware. This feature improves redundancy from a compute perspective and not from disk failure perspective.
 </td>
 </tr>
 </table>

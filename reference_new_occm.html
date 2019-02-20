@@ -814,7 +814,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-02-19 21:19:31 +0000">02/19/2019</time>
+<time datetime="2019-02-20 19:39:45 +0000">02/20/2019</time>
 
 
 <span>Contributors
@@ -989,7 +989,7 @@ Looking for a previous release?<br>
 <div class="sect2">
 <h3 id="aws-spread-placement-group-for-cloud-volumes-ontap-ha-in-a-single-az">AWS spread placement group for Cloud Volumes ONTAP HA in a single AZ</h3>
 <div class="paragraph">
-<p>When you deploy Cloud Volumes ONTAP HA in a single AWS Availability Zone, Cloud Manager now launches the two HA nodes and the mediator in an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a>. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware.</p>
+<p>When you deploy Cloud Volumes ONTAP HA in a single AWS Availability Zone, Cloud Manager now creates an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a> and launches the two HA nodes and the mediator in that placement group. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1008,7 +1008,7 @@ This feature improves redundancy from a compute perspective and not from disk fa
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">"ec2:CreatePlacement",
+<pre class="highlight"><code class="language-json" data-lang="json">"ec2:CreatePlacementGroup",
 "ec2:DeletePlacementGroup"</code></pre>
 </div>
 </div>
