@@ -814,7 +814,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-02-20 19:39:45 +0000">02/20/2019</time>
+<time datetime="2019-02-28 15:01:45 +0000">02/28/2019</time>
 
 
 <span>Contributors
@@ -849,6 +849,69 @@ Looking for a previous release?<br>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-6-4-3-mar-2019">Cloud Manager 3.6.4 (3 Mar 2019)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.6.4 includes the following enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#aws-managed-encryption-with-a-key-from-another-account">AWS-managed encryption with a key from another account</a></p>
+</li>
+<li>
+<p><a href="#recovery-of-failed-disks">Recovery of failed disks</a></p>
+</li>
+<li>
+<p><a href="#azure-storage-accounts-enabled-for-https-when-data-tiering-to-blob-containers">Azure storage accounts enabled for HTTPS when data tiering to Blob containers</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="aws-managed-encryption-with-a-key-from-another-account">AWS-managed encryption with a key from another account</h3>
+<div class="paragraph">
+<p>When launching a Cloud Volumes ONTAP system in AWS, you can now enable <a href="http://docs.aws.amazon.com/kms/latest/developerguide/overview.html" target="_blank" rel="noopener">AWS-managed encryption</a> using a Customer Master Key (CMK) from another AWS user account.</p>
+</div>
+<div class="paragraph">
+<p>The following images show how to select the option when creating a new working environment:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_aws_encryption_cmk.gif" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="concept_security.html">Learn more about supported encryption technologies</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="recovery-of-failed-disks">Recovery of failed disks</h3>
+<div class="paragraph">
+<p>Cloud Manager now tries to recover failed disks from Cloud Volumes ONTAP systems. Successful attempts are noted in email notification reports. Here&#8217;s a sample notification:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_notification_failed_disk.png" alt="A screenshot that shows a message from the daily notification report. The message states that Cloud Manager successfully recovered a failed disk."></span></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can enable notification reports by editing your user account.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="azure-storage-accounts-enabled-for-https-when-data-tiering-to-blob-containers">Azure storage accounts enabled for HTTPS when data tiering to Blob containers</h3>
+<div class="paragraph">
+<p>When you set up a Cloud Volumes ONTAP system to tier inactive data to an Azure Blob container, Cloud Manager creates an Azure storage account for that container. Starting in this release, Cloud Manager now enables new storage accounts with secure transfer (HTTPS). Existing storage accounts continue to use HTTP.</p>
+</div>
 </div>
 </div>
 </div>
