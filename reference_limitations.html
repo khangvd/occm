@@ -814,7 +814,7 @@
 
 <p class="page-details">
 
-<time datetime="2018-11-29 21:14:29 +0000">11/29/2018</time>
+<time datetime="2019-03-08 19:00:54 +0000">03/08/2019</time>
 
 
 <span>Contributors
@@ -835,6 +835,14 @@
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-does-not-support-flexgroup-volumes">Cloud Manager does not support FlexGroup volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While Cloud Volumes ONTAP supports FlexGroup volumes, Cloud Manager does not. If you create a FlexGroup volume from System Manager or from the CLI, then you should set Cloud Manager&#8217;s Capacity Management mode to Manual. Automatic mode might not work properly with FlexGroup volumes.</p>
 </div>
 </div>
 </div>
@@ -876,14 +884,6 @@
 <p>Cloud Manager does not launch Cloud Volumes ONTAP BYOL instances in the Volume View.</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-does-not-verify-ip-addresses-of-key-managers">Cloud Manager does not verify IP addresses of key managers</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When you add a key manager to Cloud Manager, it does not verify the IP address that you entered because Cloud Manager does not communicate with key managers. If the IP address is incorrect, you are notified later when you try to create a Cloud Volumes ONTAP working environment. Be sure to verify key manager IP addresses after you enter them.</p>
 </div>
 </div>
 </div>
