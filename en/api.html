@@ -254,6 +254,7 @@ if (document.location.hostname.search("netapp.com") !== -1) {
 <li><a href="#_extendedmanagedhaparameters">ExtendedManagedHaParameters</a></li>
 <li><a href="#_extendedmanagedhavolumecreaterequest">ExtendedManagedHaVolumeCreateRequest</a></li>
 <li><a href="#_extendedmanagedvolumecreaterequest">ExtendedManagedVolumeCreateRequest</a></li>
+<li><a href="#_extendedobjectstoreconfiginfo">ExtendedObjectStoreConfigInfo</a></li>
 <li><a href="#_failurecauses">FailureCauses</a></li>
 <li><a href="#_featureflag">FeatureFlag</a></li>
 <li><a href="#_floatingips">FloatingIps</a></li>
@@ -1246,99 +1247,14 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </div>
 </div>
 <div class="sect3">
-<h4 id="_creates_azure_account">Creates Azure account.</h4>
-<div class="listingblock">
-<div class="content">
-<pre>POST /accounts/azure</pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_parameters_2">Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 16.6666%;">
-<col style="width: 16.6666%;">
-<col style="width: 16.6666%;">
-<col style="width: 16.6666%;">
-<col style="width: 16.667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BodyParameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_azureaccountrequest">AzureAccountRequest</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_responses_2">Responses</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">HTTP Code</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">success</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_azureaccountresponse">AzureAccountResponse</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_consumes_2">Consumes</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>application/json</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_produces_2">Produces</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>application/json</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_deletes_an_existing_cloud_provider_account_it_is_not_possible_to_delete_an_account_that_has_working_environments_are_attached_to_it">Deletes an existing Cloud Provider account. It is not possible to delete an account that has working environments are attached to it.</h4>
+<h4 id="_deletes_an_existing_cloud_provider_account_it_is_not_possible_to_delete_an_account_that_has_working_environments_attached_to_it">Deletes an existing Cloud Provider account. It is not possible to delete an account that has working environments attached to it.</h4>
 <div class="listingblock">
 <div class="content">
 <pre>DELETE /accounts/{cloudProviderAccountId}</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_parameters_3">Parameters</h5>
+<h5 id="_parameters_2">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1371,7 +1287,7 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </table>
 </div>
 <div class="sect4">
-<h5 id="_responses_3">Responses</h5>
+<h5 id="_responses_2">Responses</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1390,6 +1306,91 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Account with the given account id does not exist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_consumes_2">Consumes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>application/json</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_produces_2">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>application/json</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creates_azure_account">Creates Azure account.</h4>
+<div class="listingblock">
+<div class="content">
+<pre>POST /accounts/azure</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_3">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Required</th>
+<th class="tableblock halign-left valign-top">Schema</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BodyParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_azureaccountrequest">AzureAccountRequest</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_3">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">HTTP Code</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">success</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_azureaccountresponse">AzureAccountResponse</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -39934,7 +39935,14 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kmsKeyId</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kmsKeyArn</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -43332,7 +43340,7 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name of the cost domain (compute, disk/blob storage, object storage, data transfer,</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the cost domain (compute, disk/blob storage, object storage, data transfer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -43376,35 +43384,35 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cost period for month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cost period start date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cost period for year</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cost period end date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">estimated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">is the cost estimated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Is the cost estimated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">is the cost estimated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total money saved</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_money">Money</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">costByService</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">month cost details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month cost and usage details</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_costbyservice">CostByService</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -43441,7 +43449,7 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cost</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">saving for that breakdown element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saving for that breakdown element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_money">Money</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -45884,6 +45892,43 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </table>
 </div>
 <div class="sect2">
+<h3 id="_extendedobjectstoreconfiginfo">ExtendedObjectStoreConfigInfo</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Required</th>
+<th class="tableblock halign-left valign-top">Schema</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">objectStoreConfig</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_objectstoreconfiginfo">ObjectStoreConfigInfo</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tierLevel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_failurecauses">FailureCauses</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -45980,21 +46025,21 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">clusterFloatingIP</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dataFloatingIP</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dataFloatingIP2</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -47168,14 +47213,14 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">connected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">main</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">main</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">connected</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
@@ -49200,6 +49245,34 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">objectStoreName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usedCapacity</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_capacity">Capacity</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">objectStoreAttachEligible</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inactiveDataReportingEnabled</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -49224,10 +49297,38 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">objectStoreConfig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">objectStoreConfigExtended</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_objectstoreconfiginfo">ObjectStoreConfigInfo</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_extendedobjectstoreconfiginfo">ExtendedObjectStoreConfigInfo</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">performanceTierUsedCapacity</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_capacity">Capacity</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inactiveUserData</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_capacity">Capacity</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rawCapacity</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_capacity">Capacity</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fiveYearSavings</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number (double)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -49306,7 +49407,7 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <td class="tableblock halign-left valign-top"><p class="tableblock">location</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">enum (ON_PREM,  AZURE,  AWS,  SOFTLAYER,  GOOGLE)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum (ON_PREM, AZURE, AWS, SOFTLAYER, GOOGLE, CLOUD_TIERING)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -49786,6 +49887,13 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_onpremcapacityfeatures">OnPremCapacityFeatures</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aff</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -52290,14 +52398,14 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name of saving element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of saving element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">monthlySaving</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">savings for that element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Savings for that element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_money">Money</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -56941,14 +57049,14 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hasPermissions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cost period for month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Has permissions to view cost and usage details</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">costByTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">working environment cost and usage details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working environment cost and usage details</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_costbytime">CostByTime</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -57246,7 +57354,7 @@ Support telephone: +1 (888) 463-8277</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>February 2019</p>
+<p>March 2019</p>
 </div>
 </div>
 </div>
