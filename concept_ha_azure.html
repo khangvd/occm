@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>High-availability pairs in Azure (Preview) | NetApp Cloud Docs</title>
+  <title>High-availability pairs in Azure | NetApp Cloud Docs</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -470,6 +470,10 @@
   
 
   
+    <li><a href="task_setting_up_transit_gateway.html">Setting up an AWS transit gateway</a></li>
+  
+
+  
     <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
   
 
@@ -798,11 +802,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">High-availability pairs in Azure (Preview)
+  <h1 class="n-doc__component-detail-heading">High-availability pairs in Azure
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_ha_azure.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[High-availability pairs in Azure (Preview)](https://docs.netapp.com/zz/occm/concept_ha_azure.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[High-availability pairs in Azure](https://docs.netapp.com/zz/occm/concept_ha_azure.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -810,7 +814,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-03-01 14:57:15 +0000">03/01/2019</time>
+<time datetime="2019-03-18 19:12:04 +0000">03/18/2019</time>
 
 
 <span>Contributors
@@ -831,18 +835,6 @@
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>A Cloud Volumes ONTAP high availability (HA) pair provides enterprise reliability and continuous operations in case of failures in your cloud environment. In Azure, storage is shared between the two nodes.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-HA pairs in Azure are available as a preview. You can request a preview license by contacting us at <a href="mailto:ng-Cloud-Volume-ONTAP-preview@netapp.com">ng-Cloud-Volume-ONTAP-preview@netapp.com</a>.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -959,7 +951,10 @@ For information about which specific host configurations support ALUA, see the <
 <p>NFSv4 is not supported. NFSv3 is supported.</p>
 </li>
 <li>
-<p>HA pairs are not supported in US Gov regions and in Germany regions.</p>
+<p>HA pairs are not supported in some regions.</p>
+<div class="paragraph">
+<p><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">See the list of supported Azure regions</a>.</p>
+</div>
 </li>
 </ul>
 </div>
