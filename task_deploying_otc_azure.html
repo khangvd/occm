@@ -443,7 +443,11 @@
         
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts</a></li>
   
 
   
@@ -823,7 +827,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-03-01 14:57:04 +0000">03/01/2019</time>
+<time datetime="2019-03-28 20:36:46 +0000">03/28/2019</time>
 
 
 <span>Contributors
@@ -856,7 +860,7 @@
 <p>You should have chose a configuration and obtained Azure networking information from your administrator. For details, see <a href="task_planning_your_config.html">Planning your Cloud Volumes ONTAP configuration</a>.</p>
 </li>
 <li>
-<p>To deploy a BYOL system, you need the 20-digit serial number (license key) and credentials for a NetApp Support Site account, if the tenant is not already linked with an account.</p>
+<p>To deploy a BYOL system, you need the 20-digit serial number (license key) for each node.</p>
 </li>
 </ul>
 </div>
@@ -921,9 +925,12 @@ For information about tags, refer to <a href="https://azure.microsoft.com/docume
 <p>On the Location page, select a location and security group, select the checkbox to confirm network connectivity, and then click <strong>Continue</strong>.</p>
 </li>
 <li>
-<p>On the BYOL License page, specify whether you have a license for this Cloud Volumes ONTAP system.</p>
+<p>On the License and Support Site Account page, specify whether you want to use pay-as-you-go or BYOL, and then specify a NetApp Support Site account.</p>
 <div class="paragraph">
 <p>To understand how licenses work, see <a href="concept_licensing.html">Licensing</a>.</p>
+</div>
+<div class="paragraph">
+<p>A NetApp Support Site Account is optional for pay-as-you-go, but required for BYOL systems. <a href="task_adding_nss_accounts.html">Learn how to add NetApp Support Site accounts</a>.</p>
 </div>
 </li>
 <li>
@@ -952,12 +959,6 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </li>
 <li>
 <p>On the Azure Marketplace page, follow the steps if Cloud Manager could not enable programmatic deployments of Cloud Volumes ONTAP.</p>
-</li>
-<li>
-<p>If the NetApp Support Site credentials page is displayed, enter your NetApp Support Site credentials.</p>
-<div class="paragraph">
-<p>Credentials are required for BYOL instances. For details, see <a href="concept_storage_management.html#why-you-should-link-a-tenant-to-your-netapp-support-site-account">Why you should link a tenant to your NetApp Support Site account</a>.</p>
-</div>
 </li>
 <li>
 <p>On the Underlying Storage Resources page, choose settings for the initial aggregate: a disk type, a size for each disk, and whether data tiering should be enabled.</p>
@@ -1131,12 +1132,6 @@ Storage tiering is supported with single node systems only.
 <div class="ulist">
 <div class="title">After you finish</div>
 <ul>
-<li>
-<p>If you deployed a pay-as-you-go system and the tenant is not linked to a NetApp Support Site account, manually register the system with NetApp to enable support. For instructions, see <a href="task_registering.html">Registering Cloud Volumes ONTAP</a>.</p>
-<div class="paragraph">
-<p>Support from NetApp is included with your Cloud Volumes ONTAP system. To activate support, you must first register the system with NetApp.</p>
-</div>
-</li>
 <li>
 <p>If you provisioned a CIFS share, give users or groups permissions to the files and folders and verify that those users can access the share and create a file.</p>
 </li>

@@ -2,9 +2,9 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Adding Cloud Provider Accounts to Cloud Manager | NetApp Cloud Docs</title>
+  <title>Adding cloud provider accounts to Cloud Manager | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Adding Cloud Provider Accounts to Cloud Manager | NetApp Cloud Docs" />
+  <meta property="og:title" content="Adding cloud provider accounts to Cloud Manager | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/task_adding_cloud_accounts.html" />
 	<meta property="og:description" content="If you want to deploy Cloud Volumes ONTAP in different cloud accounts, then you need to provide the required permissions to those accounts and then add the d..." />
@@ -443,7 +443,11 @@
         
 
   
-    <li class="active"><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+    <li class="active"><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts</a></li>
   
 
   
@@ -811,11 +815,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Adding Cloud Provider Accounts to Cloud Manager
+  <h1 class="n-doc__component-detail-heading">Adding cloud provider accounts to Cloud Manager
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_adding_cloud_accounts.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Adding Cloud Provider Accounts to Cloud Manager](https://docs.netapp.com/en/occm/task_adding_cloud_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Adding cloud provider accounts to Cloud Manager](https://docs.netapp.com/en/occm/task_adding_cloud_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -823,7 +827,7 @@
 
 <p class="page-details">
 
-<time datetime="2018-12-05 15:34:17 +0000">12/05/2018</time>
+<time datetime="2019-03-28 20:37:10 +0000">03/28/2019</time>
 
 
 <span>Contributors
@@ -846,7 +850,7 @@
 <p>If you want to deploy Cloud Volumes ONTAP in different cloud accounts, then you need to provide the required permissions to those accounts and then add the details to Cloud Manager.</p>
 </div>
 <div class="paragraph">
-<p>When you deploy Cloud Manager from Cloud Central, Cloud Manager automatically adds a <a href="concept_accounts_and_permissions.html">Cloud Provider Account</a> for the account in which you deployed Cloud Manager. An initial Cloud Provider Account is not added if you manually installed the Cloud Manager software on an existing system.</p>
+<p>When you deploy Cloud Manager from Cloud Central, Cloud Manager automatically adds a <a href="concept_accounts_and_permissions.html">cloud provider account</a> for the account in which you deployed Cloud Manager. An initial cloud provider account is not added if you manually installed the Cloud Manager software on an existing system.</p>
 </div>
 </div>
 </div>
@@ -974,16 +978,16 @@
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>In the upper right of the Cloud Manager console, click the task drop-down list, and then select <strong>Cloud Provider Accounts</strong>.</p>
+<p>In the upper right of the Cloud Manager console, click the task drop-down list, and then select <strong>Account Settings</strong>.</p>
 </li>
 <li>
-<p>Select <strong>AWS</strong>.</p>
+<p>Click <strong>Add New Account</strong> and select <strong>AWS</strong>.</p>
 </li>
 <li>
 <p>Choose whether you want to provide AWS keys or the ARN of a trusted IAM role.</p>
 </li>
 <li>
-<p>Confirm that the policy requirements have been met and then click <strong>Add Account</strong>.</p>
+<p>Confirm that the policy requirements have been met and then click <strong>Create Account</strong>.</p>
 </li>
 </ol>
 </div>
@@ -992,7 +996,7 @@
 <p>You can now switch to another account from the Details and Credentials page when creating a new working environment:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_accounts_switch_aws.gif" alt="A screenshot that shows selecting between Cloud Provider Accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
+<p><span class="image"><img src="./media/screenshot_accounts_switch_aws.gif" alt="A screenshot that shows selecting between cloud provider accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
 </div>
 </div>
 </div>
@@ -1170,13 +1174,13 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <li>
 <p>Copy the key value.</p>
 <div class="paragraph">
-<p>You need to enter the key value when you add a Cloud Provider Account to Cloud Manager.</p>
+<p>You need to enter the key value when you add a cloud provider account to Cloud Manager.</p>
 </div>
 </li>
 <li>
 <p>Click <strong>Properties</strong> and then copy the application ID for the service principal.</p>
 <div class="paragraph">
-<p>Similar to the key value, you need to enter the application ID in Cloud Manager when you add a Cloud Provider Account to Cloud Manager.</p>
+<p>Similar to the key value, you need to enter the application ID in Cloud Manager when you add a cloud provider account to Cloud Manager.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_azure_ad_app_id.gif" alt="Shows the application ID for an Azure Active Directory service principal."></span></p>
@@ -1198,7 +1202,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <p><span class="image"><img src="./media/screenshot_azure_ad_id.gif" alt="Shows the Active Directory properties in the Azure portal and the Directory ID that you need to copy."></span></p>
 </div>
 <div class="paragraph">
-<p>Just like the application ID and application key, you must enter the Active Directory tenant ID when you add a Cloud Provider Account to Cloud Manager.</p>
+<p>Just like the application ID and application key, you must enter the Active Directory tenant ID when you add a cloud provider account to Cloud Manager.</p>
 </div>
 </li>
 </ol>
@@ -1208,7 +1212,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>You should now have an Active Directory service principal and you should have copied the application ID, the application key, and the Active Directory tenant ID. You need to enter this information in Cloud Manager when you add a Cloud Provider Account.</p>
+<p>You should now have an Active Directory service principal and you should have copied the application ID, the application key, and the Active Directory tenant ID. You need to enter this information in Cloud Manager when you add a cloud provider account.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1258,16 +1262,16 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>In the upper right of the Cloud Manager console, click the task drop-down list, and then select <strong>Cloud Provider Accounts</strong>.</p>
+<p>In the upper right of the Cloud Manager console, click the task drop-down list, and then select <strong>Account Settings</strong>.</p>
 </li>
 <li>
-<p>Select <strong>Azure</strong>.</p>
+<p>Click <strong>Add New Account</strong> and select <strong>Microsoft Azure</strong>.</p>
 </li>
 <li>
 <p>Enter information about the Azure Active Directory service principal that grants the required permissions.</p>
 </li>
 <li>
-<p>Confirm that the policy requirements have been met and then click <strong>Add Account</strong>.</p>
+<p>Confirm that the policy requirements have been met and then click <strong>Create Account</strong>.</p>
 </li>
 </ol>
 </div>
@@ -1276,7 +1280,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 <p>You can now switch to another account from the Details and Credentials page when creating a new working environment:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_accounts_switch_azure.gif" alt="A screenshot that shows selecting between Cloud Provider Accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
+<p><span class="image"><img src="./media/screenshot_accounts_switch_azure.gif" alt="A screenshot that shows selecting between cloud provider accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
 </div>
 </div>
 </div>
@@ -1289,7 +1293,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>A Managed Service Identity is the initial <a href="concept_accounts_and_permissions.html">Cloud Provider Account</a> when you deploy Cloud Manager from NetApp Cloud Central. When you deployed Cloud Manager, Cloud Central created the OnCommand Cloud Manager Operator role and assigned it to the Cloud Manager virtual machine.</p>
+<p>A Managed Service Identity is the initial <a href="concept_accounts_and_permissions.html">cloud provider account</a> when you deploy Cloud Manager from NetApp Cloud Central. When you deployed Cloud Manager, Cloud Central created the OnCommand Cloud Manager Operator role and assigned it to the Cloud Manager virtual machine.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>

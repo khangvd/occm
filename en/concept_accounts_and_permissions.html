@@ -2,12 +2,12 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Cloud Provider Accounts and permissions | NetApp Cloud Docs</title>
+  <title>Cloud provider accounts and permissions | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Cloud Provider Accounts and permissions | NetApp Cloud Docs" />
+  <meta property="og:title" content="Cloud provider accounts and permissions | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/concept_accounts_and_permissions.html" />
-	<meta property="og:description" content="Cloud Manager enables you to choose the Cloud Provider Account in which you want to deploy a Cloud Volumes ONTAP system. You should understand requirements f..." />
+	<meta property="og:description" content="Cloud Manager enables you to choose the cloud provider account in which you want to deploy a Cloud Volumes ONTAP system. You should understand requirements f..." />
   <meta property="og:image" content="https://docs.netapp.com/occm/en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="Cloud Manager enables you to choose the Cloud Provider Account in which you want to deploy a Cloud Volumes ONTAP system. You should understand requirements f...">
+  <meta name="description" content="Cloud Manager enables you to choose the cloud provider account in which you want to deploy a Cloud Volumes ONTAP system. You should understand requirements f...">
   <meta name="keywords" content=" cloud provider accounts, aws, azure, aws account, azure account, keys, service principal, multiple, permissions, policy, policies, json, subscriptions">
 
   <!-- Icons -->
@@ -443,7 +443,11 @@
         
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts</a></li>
   
 
   
@@ -811,11 +815,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Cloud Provider Accounts and permissions
+  <h1 class="n-doc__component-detail-heading">Cloud provider accounts and permissions
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_accounts_and_permissions.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Cloud Provider Accounts and permissions](https://docs.netapp.com/en/occm/concept_accounts_and_permissions.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Cloud provider accounts and permissions](https://docs.netapp.com/en/occm/concept_accounts_and_permissions.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -823,7 +827,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-02-28 16:36:20 +0000">02/28/2019</time>
+<time datetime="2019-03-28 20:34:37 +0000">03/28/2019</time>
 
 
 <span>Contributors
@@ -843,7 +847,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Manager enables you to choose the <em>Cloud Provider Account</em> in which you want to deploy a Cloud Volumes ONTAP system. You should understand the permissions requirements before you add the accounts to Cloud Manager.</p>
+<p>Cloud Manager enables you to choose the <em>cloud provider account</em> in which you want to deploy a Cloud Volumes ONTAP system. You should understand the permissions requirements before you add the accounts to Cloud Manager.</p>
 </div>
 </div>
 </div>
@@ -865,7 +869,7 @@
 <p><span class="image"><img src="./media/diagram_permissions_initial_aws.png" alt="A conceptual image that shows Cloud Central deploying Cloud Manager in an AWS account. An IAM policy is assigned to an IAM role" width="which is attached to the Cloud Manager instance."></span></p>
 </div>
 <div class="paragraph">
-<p>Cloud Manager selects this Cloud Provider Account by default when you create a new working environment:</p>
+<p>Cloud Manager selects this cloud provider account by default when you create a new working environment:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_accounts_select_aws.gif" alt="A screenshot that shows the Switch Account option in the Details &amp; Credentials page."></span></p>
@@ -880,13 +884,13 @@
 <p><span class="image"><img src="./media/diagram_permissions_multiple_aws.png" alt="A conceptual image that shows two additional accounts. Each has an IAM policy" width="one is attached to IAM user and the other is attached to an IAM role."></span></p>
 </div>
 <div class="paragraph">
-<p>You would then <a href="task_adding_cloud_accounts.html#adding-aws-accounts-to-cloud-manager">add the Cloud Provider Accounts to Cloud Manager</a> by specifying the Amazon Resource Name (ARN) of the IAM role, or the AWS keys for the IAM user.</p>
+<p>You would then <a href="task_adding_cloud_accounts.html#adding-aws-accounts-to-cloud-manager">add the cloud provider accounts to Cloud Manager</a> by specifying the Amazon Resource Name (ARN) of the IAM role, or the AWS keys for the IAM user.</p>
 </div>
 <div class="paragraph">
 <p>After you add another account, you can switch to it when creating a new working environment:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_accounts_switch_aws.gif" alt="A screenshot that shows selecting between Cloud Provider Accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
+<p><span class="image"><img src="./media/screenshot_accounts_switch_aws.gif" alt="A screenshot that shows selecting between cloud provider accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
 </div>
 </div>
 </div>
@@ -909,7 +913,7 @@
 <p><span class="image"><img src="./media/diagram_permissions_initial_azure.png" alt="A conceptual image that shows Cloud Central deploying Cloud Manager in an Azure account and subscription. A Managed Service Identity is enabled and a custom role is assigned to the Cloud Manager virtual machine."></span></p>
 </div>
 <div class="paragraph">
-<p>Cloud Manager selects this Cloud Provider Account by default when you create a new working environment:</p>
+<p>Cloud Manager selects this cloud provider account by default when you create a new working environment:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_accounts_select_azure.gif" alt="A screenshot that shows the Switch Account option in the Details &amp; Credentials page."></span></p>
@@ -930,13 +934,13 @@
 <p><span class="image"><img src="./media/diagram_permissions_multiple_azure.png" alt="A conceptual image that shows the initial Azure account" width="which receives permissions through a custom role and managed service identity" height="and two additional accounts that receive permissions through a custom role and service principal."></span></p>
 </div>
 <div class="paragraph">
-<p>You would then <a href="task_adding_cloud_accounts.html#adding-azure-accounts-to-cloud-manager">add the Cloud Provider Accounts to Cloud Manager</a> by providing details about the AD service principal.</p>
+<p>You would then <a href="task_adding_cloud_accounts.html#adding-azure-accounts-to-cloud-manager">add the cloud provider accounts to Cloud Manager</a> by providing details about the AD service principal.</p>
 </div>
 <div class="paragraph">
 <p>After you add another account, you can switch to it when creating a new working environment:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_accounts_switch_azure.gif" alt="A screenshot that shows selecting between Cloud Provider Accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
+<p><span class="image"><img src="./media/screenshot_accounts_switch_azure.gif" alt="A screenshot that shows selecting between cloud provider accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
 </div>
 <div class="sidebarblock">
 <div class="content">

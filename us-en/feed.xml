@@ -8,15 +8,15 @@
     <language>en-us</language>
     <ttl>60</ttl>
     <atom:link href="https://docs.netapp.com/occm/us-en/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Mar 2019 16:19:27 +0000</pubDate>
-    <lastBuildDate>Wed, 20 Mar 2019 16:19:27 +0000</lastBuildDate>
+    <pubDate>Tue, 02 Apr 2019 14:54:29 +0000</pubDate>
+    <lastBuildDate>Tue, 02 Apr 2019 14:54:29 +0000</lastBuildDate>
     
     
     
     <item>
       <title>What&amp;#8217;s new in Cloud Manager 3.6</title>
       <description>OnCommand Cloud Manager typically introduces a new release every month to bring you new features, enhancements, and bug fixes.</description>
-      <pubDate>Mon, 18 Mar 2019 19:12:04 +0000</pubDate>
+      <pubDate>Tue, 02 Apr 2019 14:27:19 +0000</pubDate>
       <link>https://docs.netapp.com/us-en/occm/reference_new_occm.html</link>
     </item>
     

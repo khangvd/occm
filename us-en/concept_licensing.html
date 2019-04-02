@@ -21,7 +21,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="Each Cloud Volumes ONTAP BYOL system must have a license installed with an active subscription. Cloud Manager simplifies the licensing process by managing li...">
-  <meta name="keywords" content=" licenses, licensing, byol, license, subscription, renewal, expire, tenant, netapp support site, account, credentials, file, license file, upload, nlf">
+  <meta name="keywords" content=" licenses, licensing, byol, license, subscription, renewal, expire, netapp support site, account, credentials, file, license file, upload, nlf">
 
   <!-- Icons -->
   <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
@@ -443,7 +443,11 @@
         
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts</a></li>
   
 
   
@@ -823,7 +827,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-01-02 19:30:54 +0000">01/02/2019</time>
+<time datetime="2019-03-28 20:36:46 +0000">03/28/2019</time>
 
 
 <span>Contributors
@@ -845,13 +849,10 @@
 </div>
 <h3 id="license-management-for-a-new-system" class="discrete">License management for a new system</h3>
 <div class="paragraph">
-<p>A tenant must be linked to a NetApp Support Site account so Cloud Manager can obtain licenses for Cloud Volumes ONTAP BYOL systems. If the credentials are not present, Cloud Manager prompts you to enter them when you create a new Cloud Volumes ONTAP BYOL working environment.</p>
+<p>When you create a BYOL system, Cloud Manager prompts you for a NetApp Support Site account. Cloud Manager uses the account to download the license file from NetApp and to install it on the Cloud Volumes ONTAP system.</p>
 </div>
 <div class="paragraph">
-<p>For instructions, see <a href="task_setting_up_users_tenants.html#linking-tenants-to-a-netapp-support-site-account">Linking tenants to a NetApp Support Site account</a>.</p>
-</div>
-<div class="paragraph">
-<p>Each time you launch a BYOL system, Cloud Manager automatically downloads the license from NetApp and installs it on the Cloud Volumes ONTAP system.</p>
+<p><a href="task_adding_nss_accounts.html">Learn how to add NetApp Support Site accounts to Cloud Manager</a>.</p>
 </div>
 <div class="paragraph">
 <p>If Cloud Manager cannot access the license file over the secure internet connection, you can obtain the file yourself and then manually upload the file to Cloud Manager. For instructions, see <a href="task_modifying_ontap_cloud.html#installing-license-files-on-cloud-volumes-ontap-byol-systems">Installing license files on Cloud Volumes ONTAP BYOL systems</a>.</p>

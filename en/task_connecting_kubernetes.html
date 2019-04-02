@@ -7,7 +7,7 @@
   <meta property="og:title" content="Using Cloud Volumes ONTAP as persistent storage for Kubernetes | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/task_connecting_kubernetes.html" />
-	<meta property="og:description" content="Cloud Manager can automate the deployment of NetApp Trident on a single Kubernetes cluster so you can use Cloud Volumes ONTAP as persistent storage for conta..." />
+	<meta property="og:description" content="Cloud Manager can automate the deployment of NetApp Trident on a Kubernetes cluster so you can use Cloud Volumes ONTAP as persistent storage for containers. ..." />
   <meta property="og:image" content="https://docs.netapp.com/occm/en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="Cloud Manager can automate the deployment of NetApp Trident on a single Kubernetes cluster so you can use Cloud Volumes ONTAP as persistent storage for conta...">
+  <meta name="description" content="Cloud Manager can automate the deployment of NetApp Trident on a Kubernetes cluster so you can use Cloud Volumes ONTAP as persistent storage for containers. ...">
   <meta name="keywords" content=" kubernetes, persistent volumes, containers, persistent storage, kubeconfig, trident, kubernetes cluster, storage classes, classes, cvo-single, cvo-ha, thick provisioning, trident_trident, connect, disconnect, provision">
 
   <!-- Icons -->
@@ -440,7 +440,11 @@
         
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts</a></li>
   
 
   
@@ -820,7 +824,7 @@
 
 <p class="page-details">
 
-<time datetime="2018-11-30 16:59:08 +0000">11/30/2018</time>
+<time datetime="2019-03-28 15:06:06 +0000">03/28/2019</time>
 
 
 <span>Contributors
@@ -840,7 +844,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Manager can automate the deployment of <a href="https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html" target="_blank" rel="noopener">NetApp Trident</a> on a single Kubernetes cluster so you can use Cloud Volumes ONTAP as persistent storage for containers. Getting started includes a few quick steps.</p>
+<p>Cloud Manager can automate the deployment of <a href="https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html" target="_blank" rel="noopener">NetApp Trident</a> on a Kubernetes cluster so you can use Cloud Volumes ONTAP as persistent storage for containers. Getting started includes a few steps.</p>
 </div>
 </div>
 </div>
@@ -849,7 +853,7 @@
 <div class="olist loweralpha quick-margin-list">
 <ol class="loweralpha" type="a">
 <li>
-<p>A network connection must be available between Cloud Manager and the Kubernetes cluster, and between Cloud Volumes ONTAP systems and the Kubernetes cluster. (A connection to only one Kubernetes cluster is supported.)</p>
+<p>A network connection must be available between Cloud Manager and the Kubernetes clusters, and between Cloud Volumes ONTAP systems and the Kubernetes clusters.</p>
 </li>
 <li>
 <p>Cloud Manager needs an outbound internet connection to access the following endpoints when installing Trident:</p>
@@ -862,16 +866,25 @@ https://github.com/NetApp/trident/releases/download/</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="upload-the-kubernetes-configuration-file-to-cloud-manager"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Upload the Kubernetes configuration file to Cloud Manager</h3>
+<h3 id="upload-kubernetes-configuration-files-to-cloud-manager"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Upload Kubernetes configuration files to Cloud Manager</h3>
 <div class="paragraph quick-margin-para">
-<p>The Cloud Manager Admin needs to upload a configuration file (kubeconfig) that is in YAML format. After you upload the file, Cloud Manager installs Trident on the Kubernetes cluster.</p>
+<p>For each Kubernetes cluster, the Cloud Manager Admin needs to upload a configuration file (kubeconfig) that is in YAML format. After you upload the file, Cloud Manager installs Trident on the Kubernetes cluster.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>Click <strong>Kubernetes Clusters &gt; Discover &gt; Upload File</strong> and select the kubeconfig file.</p>
 </div>
 <div class="paragraph quick-margin-para">
 <p><span class="image"><img src="./media/screenshot_kubernetes_setup.gif" alt="sdf"></span></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="connect-your-working-environments-to-the-kubernetes-cluster"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Connect your working environments to the Kubernetes cluster</h3>
+<h3 id="connect-your-working-environments-to-kubernetes-clusters"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Connect your working environments to Kubernetes clusters</h3>
+<div class="paragraph quick-margin-para">
+<p>From the working environment, click the Kubernetes icon and follow the prompts.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>You have the option to set Cloud Volumes ONTAP as the default storage class for the Kubernetes cluster. When a user creates a persistent volume, the Kubernetes cluster can use Cloud Volumes ONTAP as the backend storage by default.</p>
+</div>
 <div class="paragraph quick-margin-para">
 <p><span class="image"><img src="./media/screenshot_kubernetes_connect.gif" alt="sdf"></span></p>
 </div>
@@ -884,10 +897,10 @@ https://github.com/NetApp/trident/releases/download/</p>
 <div class="ulist quick-margin-list">
 <ul>
 <li>
-<p><strong>cvo-single</strong>: for binding a Persistent Volume to a single-node Cloud Volumes ONTAP system</p>
+<p><strong>netapp-file</strong>: for binding a Persistent Volume to a single-node Cloud Volumes ONTAP system</p>
 </li>
 <li>
-<p><strong>cvo-ha</strong>: for binding a Persistent Volume to a Cloud Volumes ONTAP HA pair</p>
+<p><strong>netapp-file-redundant</strong>: for binding a Persistent Volume to a Cloud Volumes ONTAP HA pair</p>
 </li>
 </ul>
 </div>
@@ -899,9 +912,9 @@ https://github.com/NetApp/trident/releases/download/</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="title">What is the trident_trident volume?</div>
+<div class="title">What are the trident_trident volumes?</div>
 <div class="paragraph">
-<p>Cloud Manager creates a volume on the first Cloud Volumes ONTAP system that you connect to the Kubernetes cluster. The volume is named "trident_trident." Cloud Volumes ONTAP systems use this volume to connect to the Kubernetes cluster. You should not delete this volume.</p>
+<p>Cloud Manager creates a volume on the first Cloud Volumes ONTAP system that you connect to a Kubernetes cluster. The name of the volume is appended with "_trident_trident." Cloud Volumes ONTAP systems use this volume to connect to the Kubernetes cluster. You should not delete these volumes.</p>
 </div>
 </div>
 </div>
@@ -909,10 +922,14 @@ https://github.com/NetApp/trident/releases/download/</p>
 <div class="content">
 <div class="title">What happens when you disconnect or remove a Kubernetes cluster?</div>
 <div class="paragraph">
-<p>Cloud Manager enables you to disconnect individual Cloud Volumes ONTAP systems from the Kubernetes cluster. When you disconnect a system, you can no longer use that Cloud Volumes ONTAP system as persistent storage for containers. Existing Persistent Volumes are not deleted.</p>
+<p>Cloud Manager enables you to disconnect individual Cloud Volumes ONTAP systems from a Kubernetes cluster. When you disconnect a system, you can no longer use that Cloud Volumes ONTAP system as persistent storage for containers. Existing Persistent Volumes are not deleted.</p>
 </div>
 <div class="paragraph">
-<p>You can also remove the entire Kubernetes configuration from Cloud Manager. If you remove the configuration, connections to the Kubernetes cluster are lost. Existing Persistent Volumes are not deleted.</p>
+<p>You can also remove an entire Kubernetes configuration from Cloud Manager. If you remove the configuration, connections to the Kubernetes cluster are lost. Existing Persistent Volumes are not deleted.</p>
+</div>
+<div class="paragraph">
+<p>Both of these actions are available through APIs only. We plan to add the actions to the interface in a future release.<br>
+<a href="api.html#_kubernetes">Click here for details about the APIs</a>.</p>
 </div>
 </div>
 </div>

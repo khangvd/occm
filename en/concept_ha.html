@@ -443,7 +443,11 @@
         
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts</a></li>
   
 
   
@@ -823,7 +827,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-03-18 21:40:48 +0000">03/18/2019</time>
+<time datetime="2019-04-02 13:50:07 +0000">04/02/2019</time>
 
 
 <span>Contributors
@@ -917,24 +921,18 @@ In the event of an outage, data should be available in 60 seconds or less.</p>
 <p>Deploying an HA configuration in multiple Availability Zones (AZs) ensures high availability of your data if a failure occurs with an AZ or an instance that runs a Cloud Volumes ONTAP node. You should understand how NAS IP addresses impact data access and storage failover.</p>
 </div>
 <div class="sect2">
-<h3 id="nfs-and-cifs-data-access-for-clients-within-the-vpc">NFS and CIFS data access for clients within the VPC</h3>
+<h3 id="nfs-and-cifs-data-access">NFS and CIFS data access</h3>
 <div class="paragraph">
-<p>When an HA configuration is spread across multiple Availability Zones, floating IP addresses are required for NAS data access from within the VPC. The floating IP addresses, which must be outside of the CIDR blocks for all VPCs in the region, can migrate between nodes when failures occur.</p>
+<p>When an HA configuration is spread across multiple Availability Zones, <em>floating IP addresses</em> enable NAS client access. The floating IP addresses, which must be outside of the CIDR blocks for all VPCs in the region, can migrate between nodes when failures occur. They aren&#8217;t natively accessible to clients that are outside of the VPC, unless you <a href="task_setting_up_transit_gateway.html">set up an AWS transit gateway</a>.</p>
 </div>
 <div class="paragraph">
-<p>These floating IP addresses are not natively accessible to clients that are outside of the VPC, unless you <a href="task_setting_up_transit_gateway.html">set up an AWS transit gateway</a> after you deploy the HA system.</p>
+<p>If you can&#8217;t set up a transit gateway, private IP addresses are available for NAS clients that are outside the VPC. However, these IP addresses are static—they can&#8217;t failover between nodes.</p>
 </div>
 <div class="paragraph">
-<p>You should review requirements for floating IP addresses and route tables before you deploy an HA configuration across multiple Availability Zones. You must specify the floating IP addresses when you deploy the configuration.</p>
+<p>You should review requirements for floating IP addresses and route tables before you deploy an HA configuration across multiple Availability Zones. You must specify the floating IP addresses when you deploy the configuration. The private IP addresses are automatically created by Cloud Manager.</p>
 </div>
 <div class="paragraph">
 <p>For details, see <a href="reference_networking_aws.html#aws-networking-requirements-for-cloud-volumes-ontap-ha-in-multiple-azs">AWS networking requirements for Cloud Volumes ONTAP HA in multiple AZs</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="nfs-and-cifs-data-access-for-clients-outside-the-vpc">NFS and CIFS data access for clients outside the VPC</h3>
-<div class="paragraph">
-<p>When deployed in multiple AZs, Cloud Volumes ONTAP HA includes a separate set of IP addresses for NAS clients that are outside of the VPC. These IP addresses are static—they cannot migrate between nodes.</p>
 </div>
 </div>
 <div class="sect2">
@@ -994,7 +992,7 @@ For information about which specific host configurations support ALUA, see the <
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Cloud Manager creates an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a> and launches the two HA nodes and the mediator in that placement group. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware. This feature improves redundancy from a compute perspective and not from disk failure perspective.
+Cloud Manager creates an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a> and launches the two HA nodes in that placement group. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware. This feature improves redundancy from a compute perspective and not from disk failure perspective.
 </td>
 </tr>
 </table>

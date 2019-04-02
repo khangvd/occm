@@ -443,7 +443,11 @@
         
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts</a></li>
+    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts</a></li>
   
 
   
@@ -823,7 +827,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-03-18 19:12:04 +0000">03/18/2019</time>
+<time datetime="2019-04-02 14:27:19 +0000">04/02/2019</time>
 
 
 <span>Contributors
@@ -860,6 +864,146 @@ Looking for a previous release?<br>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-6-5-2-apr-2019">Cloud Manager 3.6.5 (2 Apr 2019)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager 3.6.5 includes the following enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#kubernetes-enhancements">Kubernetes enhancements</a></p>
+</li>
+<li>
+<p><a href="#netapp-support-site-accounts-are-now-managed-at-the-system-level">NetApp Support Site accounts are now managed at the system level</a></p>
+</li>
+<li>
+<p><a href="#aws-transit-gateways-can-enable-access-to-floating-ip-addresses">AWS transit gateways can enable access to floating IP addresses</a></p>
+</li>
+<li>
+<p><a href="#azure-resource-groups-are-now-locked">Azure resource groups are now locked</a></p>
+</li>
+<li>
+<p><a href="#nfs-4-and-nfs-4-1-are-now-enabled-by-default">NFS 4 and NFS 4.1 are now enabled by default</a></p>
+</li>
+<li>
+<p><a href="#a-new-api-enables-you-to-delete-ontap-snapshot-copies">A new API enables you to delete ONTAP Snapshot copies</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="kubernetes-enhancements">Kubernetes enhancements</h3>
+<div class="paragraph">
+<p>We made a few enhancements that make it easier for you to use Cloud Volumes ONTAP as persistent storage for containers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can now add multiple Kubernetes clusters to Cloud Manager.</p>
+<div class="paragraph">
+<p>This enables you to connect different clusters to different Cloud Volumes ONTAP systems and multiple clusters to the same Cloud Volumes ONTAP system.</p>
+</div>
+</li>
+<li>
+<p>When you connect a cluster, you can now set Cloud Volumes ONTAP as the default storage class for the Kubernetes cluster.</p>
+<div class="paragraph">
+<p>When a user creates a persistent volume, the Kubernetes cluster can use Cloud Volumes ONTAP as the backend storage by default:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_storage_class.gif" alt="This screenshot shows the &quot;Set as default storage class&quot; option that is available when connecting a Kubernetes cluster to a Cloud Volumes ONTAP system."></span></p>
+</div>
+</li>
+<li>
+<p>We changed how Cloud Manager names the Kubernetes storage classes so they are more easily identifiable:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>netapp-file</strong>: for binding a Persistent Volume to a single-node Cloud Volumes ONTAP system</p>
+</li>
+<li>
+<p><strong>netapp-file-redundant</strong>: for binding a Persistent Volume to a Cloud Volumes ONTAP HA pair</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The version of NetApp Trident that Cloud Manager installs was updated to the latest version.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="task_connecting_kubernetes.html">Learn how to use Cloud Volumes ONTAP as persistent storage for Kubernetes</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="netapp-support-site-accounts-are-now-managed-at-the-system-level">NetApp Support Site accounts are now managed at the system level</h3>
+<div class="paragraph">
+<p>It&#8217;s now easier to manage NetApp Support Site accounts in Cloud Manager.</p>
+</div>
+<div class="paragraph">
+<p>In previous releases, you needed to link a NetApp Support Site account to a specific tenant. The accounts are now managed at the Cloud Manager system level in the same place that you manage cloud provider accounts. This change gives you the flexibility to choose between multiple NetApp Support Site accounts when registering your Cloud Volumes ONTAP systems.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_accounts.gif" alt="A screenshot that shows the add a new account option available from the Account Settings page."></span></p>
+</div>
+<div class="paragraph">
+<p>When you create a new working environment, you simply select the NetApp Support Site account to register the Cloud Volumes ONTAP system with:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_accounts_select_nss.gif" alt="A screenshot that shows the option to select a NetApp Support Site account from the create a working environment wizard."></span></p>
+</div>
+<div class="paragraph">
+<p>When Cloud Manager updates to 3.6.5, it automatically adds NetApp Support Site accounts for you, if you had previously linked tenants with an account.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_adding_nss_accounts.html">Learn how to add NetApp Support Site accounts to Cloud Manager</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aws-transit-gateways-can-enable-access-to-floating-ip-addresses">AWS transit gateways can enable access to floating IP addresses</h3>
+<div class="paragraph">
+<p>An HA pair in multiple AWS Availability Zones uses <em>floating IP addresses</em> for NAS data access and for management interfaces. Until now, those floating IP addresses haven&#8217;t been accessible from outside the VPC where the HA pair resides.</p>
+</div>
+<div class="paragraph">
+<p>We verified that you can use an <a href="https://aws.amazon.com/transit-gateway/" target="_blank" rel="noopener">AWS transit gateway</a> to enable access to the floating IP addresses from outside the VPC. That means NetApp management tools and NAS clients that are outside the VPC can access the floating IPs and take advantage of automatic failover.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_setting_up_transit_gateway.html">Learn how to set up an AWS transit gateway for HA pairs in multiple AZs</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="azure-resource-groups-are-now-locked">Azure resource groups are now locked</h3>
+<div class="paragraph">
+<p>Cloud Manager now locks Cloud Volumes ONTAP resource groups in Azure when it creates them. Locking resource groups prevents users from accidentally deleting or modifying critical resources.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nfs-4-and-nfs-4-1-are-now-enabled-by-default">NFS 4 and NFS 4.1 are now enabled by default</h3>
+<div class="paragraph">
+<p>Cloud Manager now enables the NFS 4 and NFS 4.1 protocols on every new Cloud Volumes ONTAP system that it creates. This change saves you time because you no longer need to manually enable those protocols yourself.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="a-new-api-enables-you-to-delete-ontap-snapshot-copies">A new API enables you to delete ONTAP Snapshot copies</h3>
+<div class="paragraph">
+<p>You can now delete Snapshot copies of read-write volumes by using a Cloud Manager API call.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of the API call for an HA system in AWS:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_delete_snapshot_api.gif" alt="A screenshot that shows the DELETE API call for Cloud Manager: /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot"></span></p>
+</div>
+<div class="paragraph">
+<p>Similar API calls are available for single-node systems in AWS and for single-node and HA systems in Azure.</p>
+</div>
+<div class="paragraph">
+<p><a href="api.html" target="_blank" rel="noopener">OnCommand Cloud Manager API Developer Guide</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -1074,7 +1218,7 @@ You can enable notification reports by editing your user account.
 <div class="sect2">
 <h3 id="aws-spread-placement-group-for-cloud-volumes-ontap-ha-in-a-single-az">AWS spread placement group for Cloud Volumes ONTAP HA in a single AZ</h3>
 <div class="paragraph">
-<p>When you deploy Cloud Volumes ONTAP HA in a single AWS Availability Zone, Cloud Manager now creates an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a> and launches the two HA nodes and the mediator in that placement group. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware.</p>
+<p>When you deploy Cloud Volumes ONTAP HA in a single AWS Availability Zone, Cloud Manager now creates an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank" rel="noopener">AWS spread placement group</a> and launches the two HA nodes in that placement group. The placement group reduces the risk of simultaneous failures by spreading the instances across distinct underlying hardware.</p>
 </div>
 <div class="admonitionblock note">
 <table>
