@@ -827,7 +827,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-16 19:19:26 +0000">04/16/2019</time>
+<time datetime="2019-04-16 20:06:17 +0000">04/16/2019</time>
 
 
 <span>Contributors
@@ -870,9 +870,8 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Upgrades of HA pairs are nondisruptive&#8212;&#8203;HA pairs continue to serve data during the upgrade process.<br>
-Cloud Manager might upgrade the HA mediator as part of this process.<br>
-Downtime is required for single node systems.
+Upgrades of HA pairs are nondisruptive&#8212;&#8203;HA pairs continue to serve data during the upgrade process. Cloud Manager might upgrade the HA mediator as part of this process.<br>
+Meanwhile, the upgrade of a single-node system takes the system offline for up to 25 minutes, during which I/O is interrupted.
 </td>
 </tr>
 </table>
@@ -913,7 +912,10 @@ Downtime is required for single node systems.
 <div class="sect2">
 <h3 id="reviewing-version-requirements">Reviewing version requirements</h3>
 <div class="paragraph">
-<p>The version of ONTAP that you can upgrade or downgrade to varies based on the version of ONTAP currently running on your system. To understand version requirements, refer to <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-dot-upgrade/GUID-AC0EB781-583F-4C90-A4C4-BC7B14CEFD39.html" target="_blank" rel="noopener">ONTAP 9 Documentation: Cluster update requirements</a>.</p>
+<p>The version of ONTAP that you can upgrade or downgrade to varies based on the version of ONTAP currently running on your system.</p>
+</div>
+<div class="paragraph">
+<p>To understand version requirements, refer to <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-dot-upgrade/GUID-AC0EB781-583F-4C90-A4C4-BC7B14CEFD39.html" target="_blank" rel="noopener">ONTAP 9 Documentation: Cluster update requirements</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -992,9 +994,16 @@ Downtime is required for single node systems.
 <div class="title">Before you begin</div>
 <p>Cloud Manager operations such as volume or aggregate creation must not be in progress for the Cloud Volumes ONTAP system.</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
 <div class="title">About this task</div>
-<p>The upgrade process takes up to 25 minutes for a single Cloud Volumes ONTAP system and up to 90 minutes for an HA pair. Upgrades of HA pairs are nondisruptive. HA pairs continue to serve data during the upgrade process. Downtime is required for single node systems.</p>
+<ul>
+<li>
+<p>When you upgrade a single-node system, the upgrade process takes the system offline for up to 25 minutes, during which I/O is interrupted.</p>
+</li>
+<li>
+<p>Upgrades of HA pairs are nondisruptive. A nondisruptive upgrade upgrades both nodes in an HA pair concurrently while maintaining service to clients.</p>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1041,9 +1050,16 @@ Downtime is required for single node systems.
 <div class="paragraph">
 <p>You can place the Cloud Volumes ONTAP software image on an HTTP or FTP server and then initiate the software update from Cloud Manager. You might use this option if Cloud Manager cannot access the S3 bucket to upgrade the software or if you want to downgrade the software.</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
 <div class="title">About this task</div>
-<p>This upgrade or downgrade process takes up to 25 minutes for a single Cloud Volumes ONTAP system and up to 90 minutes for an HA pair. Upgrades and downgrades of HA pairs are nondisruptive. HA pairs continue to serve data during the process. Downtime is required for single node systems.</p>
+<ul>
+<li>
+<p>When you upgrade a single-node system, the upgrade process takes the system offline for up to 25 minutes, during which I/O is interrupted.</p>
+</li>
+<li>
+<p>Upgrades of HA pairs are nondisruptive. A nondisruptive upgrade upgrades both nodes in an HA pair concurrently while maintaining service to clients.</p>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
