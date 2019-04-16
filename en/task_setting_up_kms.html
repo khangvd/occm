@@ -7,7 +7,7 @@
   <meta property="og:title" content="Setting up the AWS KMS | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/task_setting_up_kms.html" />
-	<meta property="og:description" content="If you want to use Amazon encryption with Cloud Volumes ONTAP, then you must set up the AWS Key Management Service." />
+	<meta property="og:description" content="If you want to use Amazon encryption with Cloud Volumes ONTAP, then you need to set up the AWS Key Management Service." />
   <meta property="og:image" content="https://docs.netapp.com/occm/en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="If you want to use Amazon encryption with Cloud Volumes ONTAP, then you must set up the AWS Key Management Service.">
+  <meta name="description" content="If you want to use Amazon encryption with Cloud Volumes ONTAP, then you need to set up the AWS Key Management Service.">
   <meta name="keywords" content=" encryption, kms, key management service, cmk, customer master key, master key, key, permissions">
 
   <!-- Icons -->
@@ -827,7 +827,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-10 16:26:44 +0000">04/10/2019</time>
+<time datetime="2019-04-15 17:41:12 +0000">04/15/2019</time>
 
 
 <span>Contributors
@@ -845,33 +845,113 @@
 </p>
 
 <div class="paragraph lead">
-<p>If you want to use Amazon encryption with Cloud Volumes ONTAP, then you must set up the AWS Key Management Service (KMS).</p>
+<p>If you want to use Amazon encryption with Cloud Volumes ONTAP, then you need to set up the AWS Key Management Service (KMS).</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Ensure that an active Customer Master Key (CMK) exists in your account or in another AWS account.</p>
+<p>Ensure that an active Customer Master Key (CMK) exists.</p>
 <div class="paragraph">
-<p>The CMK can be an AWS-managed CMK or a customer-managed CMK.</p>
+<p>The CMK can be an AWS-managed CMK or a customer-managed CMK. It can be in the same AWS account as Cloud Manager and Cloud Volumes ONTAP or in a different AWS account.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys" target="_blank" rel="noopener">AWS Documentation: Customer Master Keys (CMKs)</a></p>
 </div>
 </li>
 <li>
-<p>Add the IAM role associated with the Cloud Manager instance to the list of key users for a CMK.</p>
+<p>Modify the key policy for each CMK by adding the IAM role that provides permissions to Cloud Manager as a <em>key user</em>.</p>
 <div class="paragraph">
-<p>This gives Cloud Manager permissions to use the CMK with Cloud Volumes ONTAP.</p>
+<p>Adding the IAM role as a key user gives Cloud Manager permissions to use the CMK with Cloud Volumes ONTAP.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://docs.aws.amazon.com/kms/latest/developerguide/editing-keys.html" target="_blank" rel="noopener">AWS Documentation: Editing Keys</a></p>
 </div>
 </li>
 <li>
-<p>If the CMK is in an AWS account separate from the account where you plan to deploy Cloud Volumes ONTAP, then you need to obtain the ARN of that key.</p>
+<p>If the CMK is in a different AWS account, complete the following steps:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Go to the KMS console from the account where the CMK resides.</p>
+</li>
+<li>
+<p>Select the key.</p>
+</li>
+<li>
+<p>In the <strong>General configuration</strong> pane, copy the ARN of the key.</p>
 <div class="paragraph">
 <p>You&#8217;ll need to provide the ARN to Cloud Manager when you create the Cloud Volumes ONTAP system.</p>
+</div>
+</li>
+<li>
+<p>In the <strong>Other AWS accounts</strong> pane, add the AWS account that provides Cloud Manager with permissions.</p>
+<div class="paragraph">
+<p>In most cases, this is the account where Cloud Manager resides. If Cloud Manager wasn&#8217;t installed in AWS, it would be the account for which you provided AWS access keys to Cloud Manager.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_cmk_add_accounts.gif" alt="This screenshot shows the &quot;Add other AWS accounts&quot; button from the AWS KMS console."></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_cmk_add_accounts_dialog.gif" alt="This screenshot shows the &quot;Other AWS accounts&quot; dialog box from the AWS KMS console."></span></p>
+</div>
+</li>
+<li>
+<p>Now switch to the AWS account that provides Cloud Manager with permissions and open the IAM console.</p>
+</li>
+<li>
+<p>Create an IAM policy that includes the permissions listed below.</p>
+</li>
+<li>
+<p>Attach the policy to the IAM role or IAM user that provides permissions to Cloud Manager.</p>
+<div class="paragraph">
+<p>The following policy provides the permissions that Cloud Manager needs to use the CMK from the external AWS account. Be sure to modify the region and account ID in the "Resource" sections.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowUseOfTheKey",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+                "kms:DescribeKey"
+            ],
+            "Resource": [
+                "arn:aws:kms:us-east-1:externalaccountid:key/externalkeyid"
+            ]
+        },
+        {
+            "Sid": "AllowAttachmentOfPersistentResources",
+            "Effect": "Allow",
+            "Action": [
+                "kms:CreateGrant",
+                "kms:ListGrants",
+                "kms:RevokeGrant"
+            ],
+            "Resource": [
+                "arn:aws:kms:us-east-1:externalaccountid:key/externalaccountid"
+            ],
+            "Condition": {
+                "Bool": {
+                    "kms:GrantIsForAWSResource": true
+                }
+            }
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For additional details about this process, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts" target="_blank" rel="noopener">AWS Documentation: Allowing External AWS Accounts to Access a CMK</a>.</p>
+</div>
+</li>
+</ol>
 </div>
 </li>
 </ol>
