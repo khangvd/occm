@@ -556,6 +556,10 @@
   
 
   
+    <li><a href="task_enabling_flash_cache.html">Enabling Flash Cache on Cloud Volumes ONTAP in AWS</a></li>
+  
+
+  
     <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
   
 
@@ -827,7 +831,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-16 20:06:17 +0000">04/16/2019</time>
+<time datetime="2019-04-17 12:45:47 +0000">04/17/2019</time>
 
 
 <span>Contributors
@@ -861,7 +865,7 @@
 <p><span class="image"><img src="./media/screenshot_cot_upgrade.gif" alt="Screen shot: Shows the New version available notification which displays in the Working Environments page after you select a working environment."></span></p>
 </div>
 <div class="paragraph">
-<p>You can start the upgrade process from this notification, which automates the process by obtaining the software image from an S3 bucket, installing the image, and then restarting the system.</p>
+<p>You can start the upgrade process from this notification, which automates the process by obtaining the software image from an S3 bucket, installing the image, and then restarting the system. For details, see <a href="#upgrading-cloud-volumes-ontap-to-the-latest-version">Upgrading Cloud Volumes ONTAP to the latest version</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -870,8 +874,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Upgrades of HA pairs are nondisruptive&#8212;&#8203;HA pairs continue to serve data during the upgrade process. Cloud Manager might upgrade the HA mediator as part of this process.<br>
-Meanwhile, the upgrade of a single-node system takes the system offline for up to 25 minutes, during which I/O is interrupted.
+For HA systems, Cloud Manager might upgrade the HA mediator as part of the upgrade process.
 </td>
 </tr>
 </table>
@@ -888,17 +891,20 @@ Meanwhile, the upgrade of a single-node system takes the system offline for up t
 <div class="paragraph">
 <p>This option is helpful if Cloud Manager cannot access the S3 bucket to upgrade the software, if you were provided with a patch, or if you want to downgrade the software to a specific version.</p>
 </div>
+<div class="paragraph">
+<p>For details, see <a href="#upgrading-or-downgrading-cloud-volumes-ontap-by-using-an-http-or-ftp-server">Upgrading or downgrading Cloud Volumes ONTAP by using an HTTP or FTP server</a>.</p>
+</div>
 </li>
 <li>
 <p>Software updates using the alternate image on the system</p>
 <div class="paragraph">
 <p>You can use this option to downgrade to the previous version by making the alternate software image the default image. This option is not available for HA pairs.</p>
 </div>
+<div class="paragraph">
+<p>For details, see <a href="#downgrading-cloud-volumes-ontap-by-using-a-local-image">Downgrading Cloud Volumes ONTAP by using a local image</a>.</p>
+</div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Transitioning Cloud Volumes ONTAP to an earlier release in the same release family (for example, 9.3 to 9.2) is referred to as a downgrade. You can downgrade without assistance when downgrading new or test clusters, but you should contact technical support if you want to downgrade a production cluster.</p>
 </div>
 </div>
 </div>
@@ -908,6 +914,31 @@ Meanwhile, the upgrade of a single-node system takes the system offline for up t
 <div class="sectionbody">
 <div class="paragraph">
 <p>Before performing an upgrade or downgrade, you must verify that your systems are ready and make any required configuration changes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#planning-for-downtime">Planning for downtime</a></p>
+</li>
+<li>
+<p><a href="#reviewing-version-requirements">Reviewing version requirements</a></p>
+</li>
+<li>
+<p><a href="#suspending-snapmirror-transfers">Suspending SnapMirror transfers</a></p>
+</li>
+<li>
+<p><a href="#verifying-that-aggregates-are-online">Verifying that aggregates are online</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="planning-for-downtime">Planning for downtime</h3>
+<div class="paragraph">
+<p>When you upgrade a single-node system, the upgrade process takes the system offline for up to 25 minutes, during which I/O is interrupted.</p>
+</div>
+<div class="paragraph">
+<p>Upgrades of HA pairs are nondisruptive. A nondisruptive upgrade upgrades both nodes in an HA pair concurrently while maintaining service to clients.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="reviewing-version-requirements">Reviewing version requirements</h3>
@@ -1086,7 +1117,7 @@ The predefined Cloud Volumes ONTAP security group allows outbound HTTP and FTP c
 </div>
 </li>
 <li>
-<p>Obtain the software image from <a href="http://mysupport.netapp.com/NOW/cgi-bin/software" target="_blank" rel="noopener">NetApp Downloads: Software</a>.</p>
+<p>Obtain the software image from <a href="https://mysupport.netapp.com/products/p/cloud_ontap.html" target="_blank" rel="noopener">the NetApp Support Site</a>.</p>
 </li>
 <li>
 <p>Copy the software image to the directory on the HTTP or FTP server from which the file will be served.</p>
@@ -1115,6 +1146,9 @@ The predefined Cloud Volumes ONTAP security group allows outbound HTTP and FTP c
 <div class="sect1">
 <h2 id="downgrading-cloud-volumes-ontap-by-using-a-local-image">Downgrading Cloud Volumes ONTAP by using a local image</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Transitioning Cloud Volumes ONTAP to an earlier release in the same release family (for example, 9.5 to 9.4) is referred to as a downgrade. You can downgrade without assistance when downgrading new or test clusters, but you should contact technical support if you want to downgrade a production cluster.</p>
+</div>
 <div class="paragraph">
 <p>Each Cloud Volumes ONTAP system can hold two software images: the current image that is running, and an alternate image that you can boot. Cloud Manager can change the alternate image to be the default image. You can use this option to downgrade to the previous version of Cloud Volumes ONTAP, if you are experiencing issues with the current image.</p>
 </div>

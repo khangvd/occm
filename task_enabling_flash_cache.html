@@ -2,13 +2,13 @@
 <!--[if IE 9]>         <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
   <head>
-  <title>Known limitations | NetApp Cloud Docs</title>
+  <title>Enabling Flash Cache on Cloud Volumes ONTAP in AWS | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Known limitations | NetApp Cloud Docs" />
+  <meta property="og:title" content="Enabling Flash Cache on Cloud Volumes ONTAP in AWS | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/reference_limitations.html" />
-	<meta property="og:description" content="Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with..." />
-  <meta property="og:image" content="https://docs.netapp.com/occm/us-en/images/logo-tophat-social.png" />
+	<meta property="og:url" content="https://docs.netapp.com/occm/task_enabling_flash_cache.html" />
+	<meta property="og:description" content="Some EC2 instance types include local NVMe storage, which Cloud Volumes ONTAP uses as Flash Cache. Flash Cache speeds access to data through real-time intell..." />
+  <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -20,15 +20,15 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with...">
-  <meta name="keywords" content=" limitations, active directory, ad, iscsi, key managers, ip address, volume view, govcloud, cloud manager, Cloud Volumes ONTAP">
+  <meta name="description" content="Some EC2 instance types include local NVMe storage, which Cloud Volumes ONTAP uses as Flash Cache. Flash Cache speeds access to data through real-time intell...">
+  <meta name="keywords" content=" cloud volumes ontap, aws, ec2, flash cache, read-intensive, read, random, databases, email, file services, c5d.4xlarge, c5d.9xlarge, r5d.2xlarge, compression, performance">
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed -->
   
-  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/us-en/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/feed.xml">
   
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -37,23 +37,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/occm/us-en/common/css/esb.min.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/doc.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/doc-components.css">
+  <link rel="stylesheet" href="/occm/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/occm/us-en/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/occm/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/occm/us-en/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
 
   
 
@@ -62,23 +62,23 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/occm/us-en/js/na-search.js'></script>
+    <script src='/occm/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/occm/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/occm/us-en/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/occm/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/js/na-pagenav.js'></script>
   
 
-  <link rel='stylesheet' href='/occm/us-en/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/prism-netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/prism-netapp.css' type='text/css'>
 
-  <script src='/occm/us-en/js/clouddocs.js'></script>
-  <script src='/occm/us-en/js/s_code_impl.js'></script>
-  <script src='/occm/us-en/js/jquery.navgoco.min.js'></script>
+  <script src='/occm/js/clouddocs.js'></script>
+  <script src='/occm/js/s_code_impl.js'></script>
+  <script src='/occm/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/occm/us-en/js/toc.js'></script>
-  <script src='/occm/us-en/js/customscripts.js'></script>
+  <script src='/occm/js/toc.js'></script>
+  <script src='/occm/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -163,7 +163,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/zz/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -204,19 +204,19 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/zz/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -236,7 +236,7 @@
             <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
               <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe"></use>
+                <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
               </svg>
             </a>
           </li>
@@ -261,7 +261,7 @@
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: us-en
+            <p>Current Language: zz
             </p>
           </div>
         </div>
@@ -311,7 +311,7 @@
   
 
   
-    <li class="active"><a href="reference_limitations.html">Known limitations</a></li>
+    <li><a href="reference_limitations.html">Known limitations</a></li>
   
 
 
@@ -556,7 +556,7 @@
   
 
   
-    <li><a href="task_enabling_flash_cache.html">Enabling Flash Cache on Cloud Volumes ONTAP in AWS</a></li>
+    <li class="active"><a href="task_enabling_flash_cache.html">Enabling Flash Cache on Cloud Volumes ONTAP in AWS</a></li>
   
 
   
@@ -819,11 +819,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Known limitations
+  <h1 class="n-doc__component-detail-heading">Enabling Flash Cache on Cloud Volumes ONTAP in AWS
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_limitations.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Known limitations](https://docs.netapp.com/us-en/occm/reference_limitations.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_enabling_flash_cache.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Enabling Flash Cache on Cloud Volumes ONTAP in AWS](https://docs.netapp.com/zz/occm/task_enabling_flash_cache.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -831,7 +831,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-03-08 19:00:54 +0000">03/08/2019</time>
+<time datetime="2019-04-17 11:57:34 +0000">04/17/2019</time>
 
 
 <span>Contributors
@@ -848,80 +848,47 @@
 
 </p>
 
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph lead">
-<p>Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.</p>
+<p>Some EC2 instance types include local NVMe storage, which Cloud Volumes ONTAP uses as <em>Flash Cache</em>. Flash Cache speeds access to data through real-time intelligent caching of recently read user data and NetApp metadata. It is effective for random read-intensive workloads, including databases, email, and file services.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cache rewarming after a reboot is not supported with Cloud Volumes ONTAP.
+</td>
+</tr>
+</table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-does-not-support-flexgroup-volumes">Cloud Manager does not support FlexGroup volumes</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>While Cloud Volumes ONTAP supports FlexGroup volumes, Cloud Manager does not. If you create a FlexGroup volume from System Manager or from the CLI, then you should set Cloud Manager&#8217;s Capacity Management mode to Manual. Automatic mode might not work properly with FlexGroup volumes.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="active-directory-not-supported-by-default-with-new-installations-of-cloud-manager">Active Directory not supported by default with new installations of Cloud Manager</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Starting with version 3.4, new installations of Cloud Manager do not support using your organization&#8217;s Active Directory authentication for user management. If needed, NetApp can help you set up Active Directory with Cloud Manager. Click the chat icon in the lower right of Cloud Manager to get assistance.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="limitations-with-the-aws-govcloud-us-region">Limitations with the AWS GovCloud (US) region</h2>
-<div class="sectionbody">
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Select one of the following EC2 instance types, which are available with the Premium and BYOL licenses:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Manager must be deployed in the AWS GovCloud (US) region if you want to launch Cloud Volumes ONTAP instances in the AWS GovCloud (US) region.</p>
+<p>c5d.4xlarge</p>
 </li>
 <li>
-<p>When deployed in the AWS GovCloud (US) region, Cloud Manager cannot discover ONTAP clusters in a NetApp Private Storage for Microsoft Azure configuration or a NetApp Private Storage for SoftLayer configuration.</p>
+<p>c5d.9xlarge</p>
+</li>
+<li>
+<p>r5d.2xlarge</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="volume-view-limitations">Volume View limitations</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>The Volume View is not supported in the AWS GovCloud (US) region, in the AWS Commercial Cloud Services environment, and in Microsoft Azure.</p>
 </li>
 <li>
-<p>The Volume View enables you to create NFS volumes only.</p>
+<p>Disable compression on all volumes.</p>
+<div class="paragraph">
+<p>Compression must be disabled on all volumes to take advantage of the Flash Cache performance improvements. You can choose no storage efficiency when creating a volume from Cloud Manager, or you can create a volume and then <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html" target="_blank" rel="noopener">disable data compression by using the CLI</a>.</p>
+</div>
 </li>
-<li>
-<p>Cloud Manager does not launch Cloud Volumes ONTAP BYOL instances in the Volume View.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-does-not-set-up-iscsi-volumes">Cloud Manager does not set up iSCSI volumes</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When you create a volume in Cloud Manager using the Storage System View, you can choose the NFS or CIFS protocol. You must use OnCommand System Manager to create a volume for iSCSI.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="storage-virtual-machine-svm-limitation">Storage Virtual Machine (SVM) limitation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP supports one data-serving SVM and one or more SVMs used for disaster recovery.</p>
-</div>
-<div class="paragraph">
-<p>Cloud Manager does not provide any setup or orchestration support for SVM disaster recovery. It also does not support storage-related tasks on any additional SVMs. You must use System Manager or the CLI for SVM disaster recovery.</p>
-</div>
-</div>
+</ol>
 </div>
 
         </article>
@@ -965,7 +932,7 @@
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -974,7 +941,7 @@
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -984,7 +951,7 @@
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -993,7 +960,7 @@
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -1002,7 +969,7 @@
             </div>
             <div class="n-footer__bottom-right">
               <div class="n-footer__copyright">
-                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+                <a href="https://docs.netapp.com/zz/contribute/" class="n-footer__copyright-link">Contribute</a>
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
@@ -1014,15 +981,15 @@
 
     </div>
 
-    <script src="/occm/us-en/common/js/components.js"></script>
-    <script src="/occm/us-en/common/js/doc-components.js"></script>
+    <script src="/occm/common/js/components.js"></script>
+    <script src="/occm/common/js/doc-components.js"></script>
 
     <!-- Elasticsearch JS -->
-    <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
+    <script type="text/javascript" src='/occm/js/bundle.js'></script>
 
     <!-- Syntax Highlighting -->
-    <script type="text/javascript" src='/occm/us-en/js/prism.js'></script>
-    <script type="text/javascript" src='/occm/us-en/js/prism-curl.js'></script>
+    <script type="text/javascript" src='/occm/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/js/prism-curl.js'></script>
 
   </body>
 
