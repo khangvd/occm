@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 9]>         <html class="ie9"> <![endif]-->
-<!--[if gt IE 9]><!--> <html>         <!--<![endif]-->
+<html lang="en">
   <head>
   <title>Getting started with Cloud Volumes ONTAP in AWS | NetApp Cloud Docs</title>
   <meta charset="utf-8">
@@ -15,13 +14,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="encoding" content="utf-8">
-  <meta http-equiv="nss-type" content="Product Documentation">
-  <meta http-equiv="nss-subtype" content="User Guide">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="You can get started with Cloud Volumes ONTAP in AWS by completing a few quick steps.">
   <meta name="keywords" content=" amazon web services, aws, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, vpc, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, get started, network, vpn, multi-cloud, tier, tiering, storage tier, data tier, vpc endpoint, endpoint, S3, subscribe, subscribing, marketplace, granting, permissions, policy, iam policy, ec2 console, ami, mediator, connectivity, internet, outbound, endpoint, connection, networks, replicating, ec2 service, policies, attach, iam user, access key, secret key, keys, sign up, cloud manager, cloud volumes ontap, cloud ontap, create">
+  
 
   <!-- Icons -->
   <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
@@ -110,11 +110,6 @@
 
   </script>
   <script>
-      $(function () {
-          $('[data-toggle="tooltip"]').tooltip()
-      })
-  </script>
-  <script>
       $(document).ready(function() {
           $("#tg-sb-link").click(function() {
               $("#tg-sb-sidebar").toggle();
@@ -129,10 +124,6 @@
   <!-- Controls the i18n Browser Redirection -->
   <script>
     var siteLocales = [];
-    
-      siteLocales.push("zz");
-    
-      siteLocales.push("en");
     
       siteLocales.push("us-en");
     
@@ -211,7 +202,7 @@
               <title>netapp-mark</title>
               <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
-            <svg viewBox="0 0 1008 181.537" class="n-property-bar__logo-svg" aria-labelledby="title">
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
               <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
@@ -231,11 +222,11 @@
         <ul class="n-property-navigation-bar__utils-list">
           <li class="n-property-navigation-bar__utils-list-item">
             <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
-              <svg class="n-icon-globe n-globe__icon" aria-labelledby="title">
-                <title>globe</title>
-                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe"></use>
-              </svg>
+              <span>globe</span>
             </a>
+            <svg class="n-icon-globe n-globe__icon" aria-labelledby="title" style="pointer-events: none;">
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe"></use>
+            </svg>
           </li>
         </ul>
       </div>
@@ -254,6 +245,7 @@
                 <li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="/occm/us-en/" class="n-menu__header-text">English</a>
                 </li>
+                
               </ul>
             </li>
           </ul>
@@ -744,6 +736,26 @@
   
     <!-- Check Container -->
     <li class="subfolders">
+      <a href="#">APIs and automation</a>
+      <ul>
+        
+
+  
+    <li><a href="https://docs.netapp.com/us-en/occm/api.html" target="_blank">API Developer Guide</a></li>
+  
+
+  
+    <li><a href="reference_infrastructure_as_code.html">Automation samples</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
       <a href="#">Reference</a>
       <ul>
         
@@ -766,10 +778,6 @@
 
   
     <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
-  
-
-  
-    <li><a href="reference_apis.html">REST APIs</a></li>
   
 
   
