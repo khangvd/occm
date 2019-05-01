@@ -839,7 +839,7 @@
 
 <p class="page-details">
 
-<time datetime="2018-12-04 02:23:54 +0000">12/04/2018</time>
+<time datetime="2019-05-01 15:43:03 +0000">05/01/2019</time>
 
 
 <span>Contributors
@@ -873,9 +873,28 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Synchronize the system time using NTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP needs a Network Time Protocol (NTP) server to synchronize the time with clients and peered clusters. Problems can occur when the time is inaccurate.<br>
-<br>
-You can configure the NTP server using System Manager or the CLI. For instructions, see the System Manager Help or the <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html" target="_blank" rel="noopener">ONTAP 9 System Administration Reference</a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifying an NTP server synchronizes the time between the systems in your network, which can help prevent issues due to time differences.</p>
+</div>
+<div class="paragraph">
+<p>Specify an NTP server using the Cloud Manager API or from the user interface when you set up a CIFS server.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="task_managing_storage.html#modifying-the-cifs-server">Modifying the CIFS server</a></p>
+</li>
+<li>
+<p><a href="api.html" target="_blank" rel="noopener">Cloud Manager API Developer Guide</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, here&#8217;s the API for a single-node system in AWS:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_ntp_server_api.gif" alt="A screenshot of the Swagger interface that shows the NTP API call."></span></p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional: Configure AutoSupport</p></td>

@@ -839,7 +839,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-24 20:09:41 +0000">04/24/2019</time>
+<time datetime="2019-05-01 15:50:38 +0000">05/01/2019</time>
 
 
 <span>Contributors
@@ -884,6 +884,103 @@ Looking for a previous release?<br>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-6-6-1-may-2019">Cloud Manager 3.6.6 (1 May 2019)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#support-for-6-tb-disks-in-aws">Support for 6 TB disks in AWS</a></p>
+</li>
+<li>
+<p><a href="#support-for-new-disk-sizes-with-single-node-systems-in-azure">Support for new disk sizes with single node systems in Azure</a></p>
+</li>
+<li>
+<p><a href="#support-for-standard-ssds-with-single-node-systems-in-azure">Support for Standard SSDs with single node systems in Azure</a></p>
+</li>
+<li>
+<p><a href="#automatic-discovery-of-kubernetes-clusters-created-with-the-netapp-kubernetes-service">Automatic discovery of Kubernetes clusters created with the NetApp Kubernetes Service</a></p>
+</li>
+<li>
+<p><a href="#ability-to-configure-an-ntp-server">Ability to configure an NTP server</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="support-for-6-tb-disks-in-aws">Support for 6 TB disks in AWS</h3>
+<div class="paragraph">
+<p>You can now choose an EBS disk size of 6 TB with Cloud Volumes ONTAP for AWS. With the recent <a href="https://aws.amazon.com/about-aws/whats-new/2018/12/amazon-ebs-increases-performance-of-general-purpose-ssd-gp2-volumes/" target="_blank" rel="noopener">increased performance of General Purpose SSDs</a>, a 6 TB disk is now the best choice for maximum performance.</p>
+</div>
+<div class="paragraph">
+<p>This change is supported with Cloud Volumes ONTAP 9.5, 9.4, and 9.3.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-new-disk-sizes-with-single-node-systems-in-azure">Support for new disk sizes with single node systems in Azure</h3>
+<div class="paragraph">
+<p>You can now use 8 TB, 16 TB, and 32 TB disks with single node systems in Azure. The increased disk sizes enable you to reach up to 368 TB of system capacity with disks alone when using the Premium or BYOL licenses.</p>
+</div>
+<div class="paragraph">
+<p>This change is supported with Cloud Volumes ONTAP 9.5, 9.4, and 9.3.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-standard-ssds-with-single-node-systems-in-azure">Support for Standard SSDs with single node systems in Azure</h3>
+<div class="paragraph">
+<p>Standard SSD Managed Disks are now supported with single node systems in Azure. These disks provide a level of performance in between Premium SSDs and Standard HDDs.</p>
+</div>
+<div class="paragraph">
+<p>This change is supported with Cloud Volumes ONTAP 9.5, 9.4, and 9.3.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://azure.microsoft.com/en-us/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/" target="_blank" rel="noopener">Learn more about Standard SSDs</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatic-discovery-of-kubernetes-clusters-created-with-the-netapp-kubernetes-service">Automatic discovery of Kubernetes clusters created with the NetApp Kubernetes Service</h3>
+<div class="paragraph">
+<p>Cloud Manager can now automatically discover the Kubernetes clusters that you deploy using the NetApp Kubernetes Service. This enables you to connect the Kubernetes clusters to your Cloud Volumes ONTAP systems so you can use them as persistent storage for your containers.</p>
+</div>
+<div class="paragraph">
+<p>The following image shows an automatically discovered Kubernetes cluster. The "Go to NKS" link brings you directly to the NetApp Kubernetes Service.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_kubernetes_nks.gif" alt="This screenshot shows a Kubernetes cluster in Cloud Manager&#8217;s Kubernetes Clusters page."></span></p>
+</div>
+<div class="paragraph">
+<p><a href="task_connecting_kubernetes.html">Learn how to connect your working environments to Kubernetes clusters</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ability-to-configure-an-ntp-server">Ability to configure an NTP server</h3>
+<div class="paragraph">
+<p>You can now configure Cloud Volumes ONTAP to use a Network Time Protocol (NTP) server. Specifying an NTP server synchronizes the time between the systems in your network, which can help prevent issues due to time differences.</p>
+</div>
+<div class="paragraph">
+<p>Specify an NTP server using the Cloud Manager API or from the user interface when you set up a CIFS server:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <a href="api.html" target="_blank" rel="noopener">Cloud Manager APIs</a> enable you to specify any address for the NTP server. Here&#8217;s the API for a single-node system in AWS:</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_ntp_server_api.gif" alt="A screenshot of the Swagger interface that shows the NTP API call."></span></p>
+</div>
+</li>
+<li>
+<p>When configuring a CIFS server, the Cloud Manager user interface enables you to specify an NTP server that uses the Active Directory domain. If you need to use a different address, then you should use the API.</p>
+<div class="paragraph">
+<p>The following image shows the NTP Server field, which is available when setting up CIFS.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_configure_cifs.gif" alt="A screenshot that shows the CIFS Setup screen" width="which includes the NTP Server field."></span></p>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
