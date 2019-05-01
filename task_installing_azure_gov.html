@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Installing Cloud Manager in an Azure US Gov region | NetApp Cloud Docs</title>
+  <title>Deploying Cloud Manager in an Azure US Government region | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Installing Cloud Manager in an Azure US Gov region | NetApp Cloud Docs" />
+  <meta property="og:title" content="Deploying Cloud Manager in an Azure US Government region | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/task_installing_azure_gov.html" />
-	<meta property="og:description" content="To deploy Cloud Manager in an Azure US Gov region, you must download the Cloud Manager installer from the NetApp Support Site and install it on an existing C..." />
+	<meta property="og:description" content="Deploy Cloud Manager from the Azure Government Marketplace and then provide the permissions that Cloud Manager needs to deploy Cloud Volumes ONTAP systems." />
   <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +19,8 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="To deploy Cloud Manager in an Azure US Gov region, you must download the Cloud Manager installer from the NetApp Support Site and install it on an existing C...">
-  <meta name="keywords" content=" install, installation, installing, software, azure, us gov, gov">
+  <meta name="description" content="Deploy Cloud Manager from the Azure Government Marketplace and then provide the permissions that Cloud Manager needs to deploy Cloud Volumes ONTAP systems.">
+  <meta name="keywords" content=" software, azure, us gov, gov, marketplace, deploy">
   
 
   <!-- Icons -->
@@ -513,11 +513,11 @@
   
 
   
-    <li class="active"><a href="task_installing_azure_gov.html">Intalling Cloud Manager in Azure Gov</a></li>
+    <li class="active"><a href="task_installing_azure_gov.html">Deploying Cloud Manager in an Azure Gov region</a></li>
   
 
   
-    <li><a href="task_installing_azure_germany.html">Installing Cloud Manager in Azure Germany</a></li>
+    <li><a href="task_installing_azure_germany.html">Deploying Cloud Manager in the Azure Germany region</a></li>
   
 
 
@@ -829,11 +829,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Installing Cloud Manager in an Azure US Gov region
+  <h1 class="n-doc__component-detail-heading">Deploying Cloud Manager in an Azure US Government region
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_installing_azure_gov.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Installing Cloud Manager in an Azure US Gov region](https://docs.netapp.com/us-en/occm/task_installing_azure_gov.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Deploying Cloud Manager in an Azure US Government region](https://docs.netapp.com/us-en/occm/task_installing_azure_gov.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -841,7 +841,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-30 21:46:48 +0000">04/30/2019</time>
+<time datetime="2019-05-01 21:00:23 +0000">05/01/2019</time>
 
 
 <span>Contributors
@@ -858,30 +858,151 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>To deploy Cloud Manager in an Azure US Gov region, you must download the Cloud Manager installer from the NetApp Support Site and install it on an existing CentOS 7.3 host.</p>
+<p>To get Cloud Manager up and running in a US Government region, first deploy Cloud Manager from the Azure Government Marketplace. Then provide the permissions that Cloud Manager needs to deploy and manage Cloud Volumes ONTAP systems.</p>
 </div>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>For a list of supported Azure US Gov regions, see <a href="https://cloud.netapp.com/cloud-volumes-global-regions">Cloud Volumes Global Regions</a>.</p>
+<p>For a list of supported Azure US Government regions, see <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">Cloud Volumes Global Regions</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploying-cloud-manager-from-the-azure-us-government-marketplace">Deploying Cloud Manager from the Azure US Government Marketplace</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager is available as an image in the Azure US Government Marketplace.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p><a href="reference_networking_azure.html">Review networking requirements for Azure</a>.</p>
+<p>Search for OnCommand Cloud Manager in the Azure US Government portal.</p>
 </li>
 <li>
-<p>Create a CentOS 7.3 virtual machine from the Azure Marketplace.</p>
+<p>Click <strong>Create</strong> and follow the steps to configure the virtual machine.</p>
 <div class="paragraph">
-<p>While Cloud Manager supports other operating systems, it only supports CentOS 7.3 in the Azure US Gov regions.</p>
+<p>Note the following as you configure the virtual machine:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager can perform optimally with either HDD or SSD disks.</p>
+</li>
+<li>
+<p>You should choose one of the recommended virtual machine sizes: A2, D2 v2, or D2 v3 (based on availability).</p>
+</li>
+<li>
+<p>For the network security group, it is best to choose <strong>Advanced</strong>.</p>
+<div class="paragraph">
+<p>The <strong>Advanced</strong> option creates a new security group that includes the required inbound rules for Cloud Manager. If you choose Basic, refer to <a href="reference_security_groups_azure.html">Security group rules</a> for the list of required rules.</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 <li>
-<p><a href="task_installing_linux.html">Download and install Cloud Manager</a>.</p>
+<p>On the summary page, review your selections and click <strong>Create</strong> to start the deployment.</p>
+<div class="paragraph">
+<p>Azure deploys the virtual machine with the specified settings. The virtual machine and Cloud Manager software should be running in approximately five minutes.</p>
+</div>
 </li>
 <li>
-<p><a href="task_adding_cloud_accounts.html#setting-up-and-adding-azure-accounts-to-cloud-manager">Grant Azure permissions to Cloud Manager using a service principal</a>.</p>
+<p>Open a web browser from a host that has a connection to the Cloud Manager virtual machine and enter the following URL:</p>
+<div class="paragraph">
+<p>http://<em>ipaddress</em>:80</p>
+</div>
+<div class="paragraph">
+<p>When you log in, Cloud Manager automatically adds your user account as the administrator for this system.</p>
+</div>
+</li>
+<li>
+<p>After you log in, enter a name for the Cloud Manager system.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>Cloud Manager is now installed and set up. You must grant Azure permissions before users can deploy Cloud Volumes ONTAP in Azure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="granting-azure-permissions-to-cloud-manager-using-a-managed-identity">Granting Azure permissions to Cloud Manager using a managed identity</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The easiest way to provide permissions is by enabling a managed identity on the Cloud Manager virtual machine and then by assigning the required permissions to the virtual machine. If preferred, an alternative way is to <a href="task_adding_cloud_accounts.html#granting-azure-permissions-using-a-service-principal">grant Azure permissions using a service principal</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enable a managed identity on the Cloud Manager virtual machine:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Navigate to the Cloud Manager virtual machine and select <strong>Identity</strong>.</p>
+</li>
+<li>
+<p>Under <strong>System Assigned</strong>, click <strong>On</strong> and then click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create a custom role using the Cloud Manager policy:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager Azure policy</a>.</p>
+</li>
+<li>
+<p>Modify the JSON file by adding Azure subscription IDs to the assignable scope.</p>
+<div class="paragraph">
+<p>You should add the ID for each Azure subscription from which users will create Cloud Volumes ONTAP systems.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>"AssignableScopes": [<br>
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",<br>
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",<br>
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</p>
+</div>
+</li>
+<li>
+<p>Use the JSON file to create a custom role in Azure.</p>
+<div class="paragraph">
+<p>The following example shows how to create a custom role using the Azure CLI 2.0:</p>
+</div>
+<div class="paragraph">
+<p><strong>az role definition create --role-definition C:\Policy_for_cloud_Manager_Azure_3.6.1.json</strong></p>
+</div>
+<div class="paragraph">
+<p>You should now have a custom role called OnCommand Cloud Manager Operator that you can assign to the Cloud Manager virtual machine.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Assign the role to the Cloud Manager virtual machine for one or more subscriptions:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open the <strong>Subscriptions</strong> service and then select the subscription in which you want to deploy Cloud Volumes ONTAP systems.</p>
+</li>
+<li>
+<p>Click <strong>Access control (IAM)</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong>, click <strong>Add role assignment</strong>, and then add the permissions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -889,17 +1010,40 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Managed Service Identities are not supported in the US Gov regions.
+OnCommand Cloud Manager Operator is the default name provided in the <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html">Cloud Manager policy</a>. If you chose a different name for the role, then select that name instead.
 </td>
 </tr>
 </table>
 </div>
 </li>
+<li>
+<p>Assign access to a <strong>Virtual Machine</strong>.</p>
+</li>
+<li>
+<p>Select the subscription in which the Cloud Manager virtual machine was created.</p>
+</li>
+<li>
+<p>Type the name of the virtual machine and then select it.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If you want to deploy Cloud Volumes ONTAP from additional subscriptions, switch to that subscription and then repeat these steps.</p>
+</li>
+</ol>
+</div>
+</li>
 </ol>
 </div>
 <div class="paragraph">
-<div class="title">After you finish</div>
-<p>Cloud Manager is now ready to deploy Cloud Volumes ONTAP in an Azure US Gov region, just like any other region. However, you might want to perform additional setup first.</p>
+<div class="title">Result</div>
+<p>Cloud Manager now has the permissions that it needs to deploy and manage Cloud Volumes ONTAP in Azure.</p>
+</div>
+</div>
 </div>
 
         </article>
