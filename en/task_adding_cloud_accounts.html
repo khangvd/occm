@@ -20,7 +20,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="If you want to deploy Cloud Volumes ONTAP in different cloud accounts, then you need to provide the required permissions to those accounts and then add the d...">
-  <meta name="keywords" content=" permissions, aws, policy, iam, iam role, role, granting, policy, iam policy, iam user, access keys, arn, cloud provider accounts, aws, cloud provider profile, microsoft, azure, permissions, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role, managed service identity, iam, operator, role, virtual machine">
+  <meta name="keywords" content=" permissions, aws, policy, iam, iam role, role, granting, policy, iam policy, iam user, access keys, arn, cloud provider accounts, aws, cloud provider profile, microsoft, azure, permissions, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role, managed identity, iam, operator, role, virtual machine">
   
 
   <!-- Icons -->
@@ -841,7 +841,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-03-28 20:37:10 +0000">03/28/2019</time>
+<time datetime="2019-05-02 14:28:28 +0000">05/02/2019</time>
 
 
 <span>Contributors
@@ -1300,14 +1300,14 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </div>
 </div>
 <div class="sect1">
-<h2 id="associating-additional-azure-subscriptions-with-a-managed-service-identity">Associating additional Azure subscriptions with a Managed Service Identity</h2>
+<h2 id="associating-additional-azure-subscriptions-with-a-managed-identity">Associating additional Azure subscriptions with a managed identity</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Manager enables you to choose the Azure account and subscription in which you want to deploy Cloud Volumes ONTAP. You can&#8217;t select a different Azure subscription for the Managed Service Identity profile unless you associate the Managed Service Identity with those subscriptions.</p>
+<p>Cloud Manager enables you to choose the Azure account and subscription in which you want to deploy Cloud Volumes ONTAP. You can&#8217;t select a different Azure subscription for the managed identity profile unless you associate the <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview" target="_blank" rel="noopener">managed identity</a> with those subscriptions.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>A Managed Service Identity is the initial <a href="concept_accounts_and_permissions.html">cloud provider account</a> when you deploy Cloud Manager from NetApp Cloud Central. When you deployed Cloud Manager, Cloud Central created the OnCommand Cloud Manager Operator role and assigned it to the Cloud Manager virtual machine.</p>
+<p>A managed identity is the initial <a href="concept_accounts_and_permissions.html">cloud provider account</a> when you deploy Cloud Manager from NetApp Cloud Central. When you deployed Cloud Manager, Cloud Central created the OnCommand Cloud Manager Operator role and assigned it to the Cloud Manager virtual machine.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1320,13 +1320,26 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </li>
 <li>
 <p>Click <strong>Access control (IAM)</strong>.</p>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>Click <strong>Add</strong> and then add the permissions:</p>
+<p>Click <strong>Add</strong> &gt; <strong>Add role assignment</strong> and then add the permissions:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Select the <strong>OnCommand Cloud Manager Operator</strong> role.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+OnCommand Cloud Manager Operator is the default name provided in the <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html">Cloud Manager policy</a>. If you chose a different name for the role, then select that name instead.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Assign access to a <strong>Virtual Machine</strong>.</p>
@@ -1343,6 +1356,9 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </ul>
 </div>
 </li>
+</ol>
+</div>
+</li>
 <li>
 <p>Repeat these steps for additional subscriptions.</p>
 </li>
@@ -1350,7 +1366,7 @@ The following steps use the new Azure portal. If you experience any issues, you 
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>When you create a new working environment, you should now have the ability to select from multiple Azure subscriptions for the Managed Service Identity profile.</p>
+<p>When you create a new working environment, you should now have the ability to select from multiple Azure subscriptions for the managed identity profile.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_accounts_switch_azure_subscription.gif" alt="A screenshot that shows the ability to select multiple Azure subscriptions when selecting a Microsoft Azure Provider Account."></span></p>

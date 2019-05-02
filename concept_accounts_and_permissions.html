@@ -841,7 +841,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-03-28 20:34:37 +0000">03/28/2019</time>
+<time datetime="2019-05-02 14:28:28 +0000">05/02/2019</time>
 
 
 <span>Contributors
@@ -921,10 +921,10 @@
 <p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an Azure account that has permissions to deploy the Cloud Manager virtual machine. The required permissions are listed in the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">NetApp Cloud Central policy for Azure</a>.</p>
 </div>
 <div class="paragraph">
-<p>When Cloud Central deploys the Cloud Manager virtual machine in Azure, it enables a Managed Service Identity on the Cloud Manager virtual machine, creates a custom role, and assigns it to the virtual machine. The role provides Cloud Manager with permissions to deploy and manage Cloud Volumes ONTAP in that Azure subscription. <a href="reference_permissions.html#what-cloud-manager-does-with-azure-permissions">Review how Cloud Manager uses the permissions</a>.</p>
+<p>When Cloud Central deploys the Cloud Manager virtual machine in Azure, it enables a <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview" target="_blank" rel="noopener">system-assigned managed identity</a> on the Cloud Manager virtual machine, creates a custom role, and assigns it to the virtual machine. The role provides Cloud Manager with permissions to deploy and manage Cloud Volumes ONTAP in that Azure subscription. <a href="reference_permissions.html#what-cloud-manager-does-with-azure-permissions">Review how Cloud Manager uses the permissions</a>.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_permissions_initial_azure.png" alt="A conceptual image that shows Cloud Central deploying Cloud Manager in an Azure account and subscription. A Managed Service Identity is enabled and a custom role is assigned to the Cloud Manager virtual machine."></span></p>
+<p><span class="image"><img src="./media/diagram_permissions_initial_azure.png" alt="A conceptual image that shows Cloud Central deploying Cloud Manager in an Azure account and subscription. A system-assigned managed identity is enabled and a custom role is assigned to the Cloud Manager virtual machine."></span></p>
 </div>
 <div class="paragraph">
 <p>Cloud Manager selects this cloud provider account by default when you create a new working environment:</p>
@@ -936,7 +936,7 @@
 <div class="sect2">
 <h3 id="additional-azure-subscriptions-for-the-initial-account">Additional Azure subscriptions for the initial account</h3>
 <div class="paragraph">
-<p>The Managed Service Identity is associated with the subscription in which you launched Cloud Manager. If you want to select a different Azure subscription, then you need to <a href="task_adding_cloud_accounts.html#associating-additional-azure-subscriptions-with-a-managed-service-identity">associate the Managed Service Identity with those subscriptions</a>.</p>
+<p>The managed identity is associated with the subscription in which you launched Cloud Manager. If you want to select a different Azure subscription, then you need to <a href="task_adding_cloud_accounts.html#associating-additional-azure-subscriptions-with-a-managed-identity">associate the managed identity with those subscriptions</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -945,7 +945,7 @@
 <p>If you want to deploy Cloud Volumes ONTAP in different Azure accounts, then you must grant the required permissions by <a href="task_adding_cloud_accounts.html#setting-up-and-adding-azure-accounts-to-cloud-manager">creating and setting up a service principal in Azure Active Directory</a> for each Azure account. The following image shows two additional accounts, each set up with a service principal and custom role that provides permissions:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_permissions_multiple_azure.png" alt="A conceptual image that shows the initial Azure account" width="which receives permissions through a custom role and managed service identity" height="and two additional accounts that receive permissions through a custom role and service principal."></span></p>
+<p><span class="image"><img src="./media/diagram_permissions_multiple_azure.png" alt="A conceptual image that shows the initial Azure account" width="which receives permissions through a custom role and managed identity" height="and two additional accounts that receive permissions through a custom role and service principal."></span></p>
 </div>
 <div class="paragraph">
 <p>You would then <a href="task_adding_cloud_accounts.html#adding-azure-accounts-to-cloud-manager">add the cloud provider accounts to Cloud Manager</a> by providing details about the AD service principal.</p>
@@ -963,10 +963,10 @@
 <p>The sections above describe the recommended deployment method from NetApp Cloud Central. You can also deploy Cloud Manager from the <a href="task_launching_aws_mktp.html">AWS Marketplace</a>, the <a href="task_launching_azure_mktp.html">Azure Marketplace</a>, and you can <a href="task_installing_linux.html">install Cloud Manager on-premises</a>.</p>
 </div>
 <div class="paragraph">
-<p>If you use either of the Marketplaces, permissions are provided in the same way. You just need to manually create and set up the IAM role or Managed Service Identity for Cloud Manager, and then provide permissions for any additional accounts.</p>
+<p>If you use either of the Marketplaces, permissions are provided in the same way. You just need to manually create and set up the IAM role or managed identity for Cloud Manager, and then provide permissions for any additional accounts.</p>
 </div>
 <div class="paragraph">
-<p>For on-premises deployments, you can&#8217;t set up an IAM role or Managed Service Identity for the Cloud Manager system, but you can provide permissions just like you would for additional accounts.</p>
+<p>For on-premises deployments, you can&#8217;t set up an IAM role or managed identity for the Cloud Manager system, but you can provide permissions just like you would for additional accounts.</p>
 </div>
 </div>
 </div>

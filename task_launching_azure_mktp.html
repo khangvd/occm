@@ -841,7 +841,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-05-01 21:00:44 +0000">05/01/2019</time>
+<time datetime="2019-05-02 14:29:21 +0000">05/02/2019</time>
 
 
 <span>Contributors
@@ -898,7 +898,7 @@ If you deploy Cloud Manager from the Azure Marketplace, Cloud Manager is still i
 <li>
 <p>From the Azure portal, click <strong>Create</strong> and follow the steps to configure the virtual machine.</p>
 <div class="paragraph">
-<p>Note the following as you configure the virtual machine:</p>
+<p>Note the following as you configure the VM:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -906,25 +906,25 @@ If you deploy Cloud Manager from the Azure Marketplace, Cloud Manager is still i
 <p>Cloud Manager can perform optimally with either HDD or SSD disks.</p>
 </li>
 <li>
-<p>You should choose one of the recommended virtual machine sizes: A2, D2 v2, or D2 v3 (based on availability).</p>
+<p>Choose one of the recommended virtual machine sizes: A2, D2 v2, or D2 v3 (based on availability).</p>
 </li>
 <li>
-<p>For the network security group, it is best to choose <strong>Advanced</strong>.</p>
+<p>For the network security group, Cloud Manager requires inbound connections using SSH, HTTP, and HTTPS.</p>
 <div class="paragraph">
-<p>The <strong>Advanced</strong> option creates a new security group that includes the required inbound rules for Cloud Manager. If you choose Basic, refer to <a href="reference_security_groups_azure.html">Security group rules</a> for the list of required rules.</p>
+<p><a href="reference_security_groups_azure.html">Learn more about security group rules for Cloud Manager</a>.</p>
 </div>
 </li>
 <li>
-<p>Under the settings, enable <strong>Managed Service Identity</strong> for Cloud Manager by selecting <strong>Yes</strong>.</p>
+<p>Under <strong>Management</strong>, enable <strong>System assigned managed identity</strong> for Cloud Manager by selecting <strong>On</strong>.</p>
 <div class="paragraph">
-<p>This setting is important because a Managed Service Identity allows a Cloud Manager virtual machine to identify itself to Azure Active Directory without providing any credentials. For more information about Managed Service Identities, refer to <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview" target="_blank" rel="noopener">Azure documentation</a>.</p>
+<p>This setting is important because a managed identity allows the Cloud Manager virtual machine to identify itself to Azure Active Directory without providing any credentials. <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview" target="_blank" rel="noopener">Learn more about managed identities for Azure resources</a>.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>On the summary page, review your selections and click <strong>Create</strong> to start the deployment.</p>
+<p>On the <strong>Review + create</strong> page, review your selections and click <strong>Create</strong> to start the deployment.</p>
 <div class="paragraph">
 <p>Azure deploys the virtual machine with the specified settings. The virtual machine and Cloud Manager software should be running in approximately five minutes.</p>
 </div>
@@ -953,7 +953,7 @@ If you deploy Cloud Manager from the Azure Marketplace, Cloud Manager is still i
 <h2 id="granting-azure-permissions-to-cloud-manager">Granting Azure permissions to Cloud Manager</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you deployed Cloud Manager in Azure, you should have enabled a Managed Service Identity. You must now grant the required Azure permissions by creating a custom role and then by assigning the role to the Cloud Manager virtual machine for one or more subscriptions.</p>
+<p>When you deployed Cloud Manager in Azure, you should have enabled a <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview" target="_blank" rel="noopener">system-assigned managed identity</a>. You must now grant the required Azure permissions by creating a custom role and then by assigning the role to the Cloud Manager virtual machine for one or more subscriptions.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1006,7 +1006,7 @@ If you deploy Cloud Manager from the Azure Marketplace, Cloud Manager is still i
 <p>Click <strong>Access control (IAM)</strong>.</p>
 </li>
 <li>
-<p>Click <strong>Add</strong> and then add the permissions:</p>
+<p>Click <strong>Add</strong> &gt; <strong>Add role assignment</strong> and then add the permissions:</p>
 <div class="ulist">
 <ul>
 <li>
