@@ -216,7 +216,6 @@
         </a>
       </div>
 
-      <!-- NetApp Search Bar -->
       
       <div id="search-demo-container" class="n-property-bar__search">
         <div id="react-search"></div>
@@ -225,17 +224,17 @@
 
       <div id="ie-i18n-menu" class="n-property-bar__utils">
         <ul class="n-property-navigation-bar__utils-list">
-          <li class="n-property-navigation-bar__utils-list-item">
-            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
-              <span>globe</span>
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang"></span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/occm/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
             </a>
-            <svg class="n-icon-globe n-globe__icon" aria-labelledby="title" style="pointer-events: none;">
-              <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
-            </svg>
           </li>
         </ul>
       </div>
-      <!-- End NetApp Search Bar -->
     </div>
 
     <div class="n-property-bar__menus">
@@ -247,15 +246,22 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list">
+
+
+                
                 <li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="/occm/us-en/" class="n-menu__header-text">English</a>
+                  <a href="/occm/us-en/" class="n-menu__header-text"></a>
+                </li>
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/en/" class="n-menu__header-text"></a>
                 </li>
                 
               </ul>
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: us-en
+            <p>Current Language: 
             </p>
           </div>
         </div>
@@ -841,7 +847,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-27 13:52:20 +0000">04/27/2019</time>
+<time datetime="2019-05-09 18:29:03 +0000">05/09/2019</time>
 
 
 <span>Contributors
@@ -895,7 +901,10 @@ The total amount of storage purchased from AWS or Azure is the <em>raw capacity<
 <h2 id="aws-storage">AWS storage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In AWS, an aggregate can contain up to 6 disks, with a maximum disk size of 16 TB. The underlying EBS disk type can be either General Purpose SSD, Provisioned IOPS SSD, Throughput Optimized HDD, or Cold HDD. You can also pair an EBS disk with Amazon S3 for <a href="concept_data_tiering.html">data tiering</a>.</p>
+<p>In AWS, an aggregate can contain up to 6 disks that are all the same size. The maximum disk size is 16 TB.</p>
+</div>
+<div class="paragraph">
+<p>The underlying EBS disk type can be either General Purpose SSD, Provisioned IOPS SSD, Throughput Optimized HDD, or Cold HDD. You can also pair an EBS disk with Amazon S3 for <a href="concept_data_tiering.html">data tiering</a>.</p>
 </div>
 <div class="paragraph">
 <p>At a high level, the differences between EBS disk types are as follows:</p>
@@ -943,7 +952,7 @@ Cold HDD disks are not supported with HA configurations and with data tiering.
 <h2 id="azure-storage">Azure storage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In Azure, an aggregate can contain up to 12 disks. The disk type and maximum disk size depends on whether you use a single node system or an HA pair:</p>
+<p>In Azure, an aggregate can contain up to 12 disks that are all the same size. The disk type and maximum disk size depends on whether you use a single node system or an HA pair:</p>
 </div>
 <div class="dlist">
 <dl>

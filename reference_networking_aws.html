@@ -6,7 +6,7 @@
   <meta property="og:title" content="Networking requirements for Cloud Volumes ONTAP in AWS | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/reference_networking_aws.html" />
-	<meta property="og:description" content="You must set up your AWS networking so Cloud Volumes ONTAP systems can operate properly." />
+	<meta property="og:description" content="Set up your AWS networking so Cloud Volumes ONTAP systems can operate properly." />
   <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="You must set up your AWS networking so Cloud Volumes ONTAP systems can operate properly.">
+  <meta name="description" content="Set up your AWS networking so Cloud Volumes ONTAP systems can operate properly.">
   <meta name="keywords" content=" networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, autosupport, ha, ha pair, high availability">
   
 
@@ -216,7 +216,6 @@
         </a>
       </div>
 
-      <!-- NetApp Search Bar -->
       
       <div id="search-demo-container" class="n-property-bar__search">
         <div id="react-search"></div>
@@ -225,17 +224,17 @@
 
       <div id="ie-i18n-menu" class="n-property-bar__utils">
         <ul class="n-property-navigation-bar__utils-list">
-          <li class="n-property-navigation-bar__utils-list-item">
-            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle" data-menu-id="n-property-navigation-bar__menu--language-selector">
-              <span>globe</span>
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang"></span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/occm/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
             </a>
-            <svg class="n-icon-globe n-globe__icon" aria-labelledby="title" style="pointer-events: none;">
-              <use xlink:href="/occm/common/svg/sprite.svg#globe"></use>
-            </svg>
           </li>
         </ul>
       </div>
-      <!-- End NetApp Search Bar -->
     </div>
 
     <div class="n-property-bar__menus">
@@ -247,15 +246,22 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list">
+
+
+                
                 <li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="/occm/us-en/" class="n-menu__header-text">English</a>
+                  <a href="/occm/us-en/" class="n-menu__header-text"></a>
+                </li>
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/en/" class="n-menu__header-text"></a>
                 </li>
                 
               </ul>
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: us-en
+            <p>Current Language: 
             </p>
           </div>
         </div>
@@ -841,7 +847,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-25 17:28:44 +0000">04/25/2019</time>
+<time datetime="2019-05-09 18:30:12 +0000">05/09/2019</time>
 
 
 <span>Contributors
@@ -861,7 +867,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You must set up your AWS networking so Cloud Volumes ONTAP systems can operate properly.</p>
+<p>Set up your AWS networking so Cloud Volumes ONTAP systems can operate properly.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -954,11 +960,11 @@
 <dd>
 <p>This HA deployment model uses multiple AZs to ensure high availability of your data. You should use a dedicated AZ for each Cloud Volumes ONTAP instance and the mediator instance, which provides a communication channel between the HA pair.</p>
 </dd>
-<dt class="hdlist1">Floating IP addresses for NAS data access</dt>
+<dt class="hdlist1">Floating IP addresses for NAS data and cluster/SVM management</dt>
 <dd>
-<p>HA configurations in multiple AZs use floating IP addresses for NAS client access. These IP addresses can migrate between nodes when failures occur. They are not natively accessible to clients that are outside of the VPC, unless you <a href="task_setting_up_transit_gateway.html">set up an AWS transit gateway</a>.</p>
+<p>HA configurations in multiple AZs use floating IP addresses that migrate between nodes if failures occur. They are not natively accessible from outside the VPC, unless you <a href="task_setting_up_transit_gateway.html">set up an AWS transit gateway</a>.</p>
 <div class="paragraph">
-<p>You must specify three floating IP addresses that are outside of the CIDR blocks for all VPCs in the AWS region in which you deploy the HA configuration. You can think of the floating IP addresses as a logical subnet that is outside of the VPCs in your region.</p>
+<p>One floating IP address is for cluster management, one is for NFS/CIFS data on node 1, and one is for NFS/CIFS data on node 2. A fourth floating IP address for SVM management is optional.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -967,19 +973,22 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-One floating IP address is for cluster management, one is for NFS/CIFS data on node 1, and one is for NFS/CIFS data on node 2.
+A floating IP address is required for the SVM management LIF if you use SnapDrive for Windows or SnapCenter with the HA pair. If you don&#8217;t specify the IP address when you deploy the system, you can create the LIF later. For details, see <a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following example shows the relationship between floating IP addresses and the VPCs in an AWS region. While the floating IP addresses are outside the CIDR blocks for all VPCs, they are routable to subnets through route tables.</p>
+<p>You need to enter the floating IP addresses in Cloud Manager when you create a Cloud Volumes ONTAP HA working environment. Cloud Manager allocates the IP addresses to the HA pair when it launches the system.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_ha_floating_ips.png" alt="Conceptual image showing the CIDR blocks for five VPCs in an AWS region and three floating IP addresses that are outside the CIDR blocks of the VPCs."></span></p>
+<p>The floating IP addresses must be outside of the CIDR blocks for all VPCs in the AWS region in which you deploy the HA configuration. Think of the floating IP addresses as a logical subnet that&#8217;s outside of the VPCs in your region.</p>
 </div>
 <div class="paragraph">
-<p>You must manually enter the floating IP addresses in Cloud Manager when you create a Cloud Volumes ONTAP HA working environment. Cloud Manager allocates the IP addresses to the HA pair when it launches the system.</p>
+<p>The following example shows the relationship between floating IP addresses and the VPCs in an AWS region. While the floating IP addresses are outside the CIDR blocks for all VPCs, they&#8217;re routable to subnets through route tables.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_ha_floating_ips.png" alt="A conceptual image showing the CIDR blocks for five VPCs in an AWS region and three floating IP addresses that are outside the CIDR blocks of the VPCs."></span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -988,15 +997,11 @@ One floating IP address is for cluster management, one is for NFS/CIFS data on n
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Cloud Manager automatically creates static IP addresses for iSCSI access and for NAS access from clients outside the VPC. You do not need to meet any requirements for these types of IP addresses.
+Cloud Manager automatically creates static IP addresses for iSCSI access and for NAS access from clients outside the VPC. You don&#8217;t need to meet any requirements for these types of IP addresses.
 </td>
 </tr>
 </table>
 </div>
-</dd>
-<dt class="hdlist1">Floating IP address for SVM management</dt>
-<dd>
-<p>If you use SnapDrive for Windows or SnapCenter with an HA pair, a floating IP address is also required for the SVM management LIF. Cloud Manager prompts you to specify the IP address when you launch the HA pair. If you did not specify the IP address, you can create the SVM Management LIF later. For details, see <a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a>.</p>
 </dd>
 <dt class="hdlist1">Transit gateway to enable floating IP access from outside the VPC</dt>
 <dd>
@@ -1004,12 +1009,12 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 </dd>
 <dt class="hdlist1">Route tables</dt>
 <dd>
-<p>After you specify the floating IP addresses in Cloud Manager, you must select the route tables that should include routes to the floating IP addresses. This enables client access to the HA pair.</p>
+<p>After you specify the floating IP addresses in Cloud Manager, you need to select the route tables that should include routes to the floating IP addresses. This enables client access to the HA pair.</p>
 <div class="paragraph">
-<p>If you have just one route table for the subnets in your VPC (the main route table), then Cloud Manager automatically adds the floating IP addresses to that route table. If you have more than one route table, it is very important to select the correct route tables when launching the HA pair. Otherwise, some clients might not have access to Cloud Volumes ONTAP.</p>
+<p>If you have just one route table for the subnets in your VPC (the main route table), then Cloud Manager automatically adds the floating IP addresses to that route table. If you have more than one route table, it&#8217;s very important to select the correct route tables when launching the HA pair. Otherwise, some clients might not have access to Cloud Volumes ONTAP.</p>
 </div>
 <div class="paragraph">
-<p>For example, you might have two subnets that are associated with different route tables. If you select route table A, but not route table B, then clients in the subnet associated with route table A can access the HA pair, but clients in the subnet associated with route table B cannot access the HA pair.</p>
+<p>For example, you might have two subnets that are associated with different route tables. If you select route table A, but not route table B, then clients in the subnet associated with route table A can access the HA pair, but clients in the subnet associated with route table B can&#8217;t.</p>
 </div>
 <div class="paragraph">
 <p>For more information about route tables, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a>.</p>
@@ -1017,7 +1022,17 @@ Cloud Manager automatically creates static IP addresses for iSCSI access and for
 </dd>
 <dt class="hdlist1">Connection to NetApp management tools</dt>
 <dd>
-<p>When deployed in multiple AZs, Cloud Volumes ONTAP HA configurations use a floating IP address for the cluster management interface, which means external routing is not available. If you want to use NetApp management tools with HA configurations, they must be in the same VPC with similar routing configuration as NAS clients.</p>
+<p>To use NetApp management tools with HA configurations that are in multiple AZs, you have two connection options:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deploy the NetApp management tools in a different VPC and <a href="task_setting_up_transit_gateway.html">set up an AWS transit gateway</a>. The gateway enables access to the floating IP address for the cluster management interface from outside the VPC.</p>
+</li>
+<li>
+<p>Deploy the NetApp management tools in the same VPC with a similar routing configuration as NAS clients.</p>
+</li>
+</ol>
+</div>
 </dd>
 </dl>
 </div>
