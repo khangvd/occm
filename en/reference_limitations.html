@@ -20,7 +20,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with...">
-  <meta name="keywords" content=" limitations, active directory, ad, iscsi, key managers, ip address, volume view, govcloud, cloud manager, Cloud Volumes ONTAP">
+  <meta name="keywords" content=" limitations, active directory, ad, iscsi, key managers, ip address, govcloud, cloud manager, Cloud Volumes ONTAP">
   
 
   <!-- Icons -->
@@ -285,7 +285,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.6 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
   
 
   
@@ -344,7 +344,11 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
   
 
   
@@ -527,7 +531,7 @@
   
 
   
-    <li><a href="media/c2s.pdf">Getting started in the AWS C2S environment</a></li>
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Getting started in the AWS C2S environment</a></li>
   
 
 
@@ -611,30 +615,6 @@
     <li><a href="task_managing_storage.html">Managing existing storage</a></li>
   
 
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Provisioning NFS volumes from the Volume View</a>
-      <ul>
-        
-
-  
-    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
-  
-
-  
-    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
-  
-
-  
-    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
 
       </ul>
     </li>
@@ -643,7 +623,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing data across a hybrid cloud</a>
+      <a href="#">Replicating and protecting data</a>
       <ul>
         
 
@@ -657,6 +637,10 @@
 
   
     <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
   
 
 
@@ -851,7 +835,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-03-08 19:00:54 +0000">03/08/2019</time>
+<time datetime="2019-05-28 21:12:02 +0000">05/28/2019</time>
 
 
 <span>Contributors
@@ -901,24 +885,6 @@
 </li>
 <li>
 <p>When deployed in the AWS GovCloud (US) region, Cloud Manager cannot discover ONTAP clusters in a NetApp Private Storage for Microsoft Azure configuration or a NetApp Private Storage for SoftLayer configuration.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="volume-view-limitations">Volume View limitations</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>The Volume View is not supported in the AWS GovCloud (US) region, in the AWS Commercial Cloud Services environment, and in Microsoft Azure.</p>
-</li>
-<li>
-<p>The Volume View enables you to create NFS volumes only.</p>
-</li>
-<li>
-<p>Cloud Manager does not launch Cloud Volumes ONTAP BYOL instances in the Volume View.</p>
 </li>
 </ul>
 </div>

@@ -285,7 +285,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.6 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
   
 
   
@@ -344,7 +344,11 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
   
 
   
@@ -527,7 +531,7 @@
   
 
   
-    <li><a href="media/c2s.pdf">Getting started in the AWS C2S environment</a></li>
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Getting started in the AWS C2S environment</a></li>
   
 
 
@@ -611,30 +615,6 @@
     <li><a href="task_managing_storage.html">Managing existing storage</a></li>
   
 
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Provisioning NFS volumes from the Volume View</a>
-      <ul>
-        
-
-  
-    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
-  
-
-  
-    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
-  
-
-  
-    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
 
       </ul>
     </li>
@@ -643,7 +623,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing data across a hybrid cloud</a>
+      <a href="#">Replicating and protecting data</a>
       <ul>
         
 
@@ -657,6 +637,10 @@
 
   
     <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
   
 
 
@@ -851,7 +835,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-27 13:52:20 +0000">04/27/2019</time>
+<time datetime="2019-06-03 13:06:58 +0000">06/03/2019</time>
 
 
 <span>Contributors
@@ -884,8 +868,41 @@
 <div class="paragraph">
 <p>To set up data tiering, you simply need to do the following:</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/diagram_tiering.gif" alt="A diagram that shows the workflow for enabling tiering: choose a supported configuration" width="ensure that connectivity is available between tiers" height="and then choose a tiering policy when creating"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="choose-a-supported-configuration"><span class="image"><img src="./media/number1.png" alt="Number 1"></span> Choose a supported configuration</h4>
+<div class="paragraph quick-margin-para">
+<p>Most configurations are supported. If you have a Cloud Volumes ONTAP Standard, Premium, or BYOL system running the most recent version, then you should be good to go. <a href="task_tiering.html#configurations-that-support-data-tiering">Learn more</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ensure-that-connectivity-is-available-between-cloud-volumes-ontap-and-object-storage"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Ensure that connectivity is available between Cloud Volumes ONTAP and object storage</h4>
+<div class="ulist quick-margin-list">
+<ul>
+<li>
+<p>For AWS, you&#8217;ll need a VPC Endpoint to S3. <a href="task_tiering.html#requirements-for-tiering-data-in-aws">Learn more</a>.</p>
+</li>
+<li>
+<p>For Azure, you won&#8217;t need to do anything as long as Cloud Manager has the required permissions. <a href="task_tiering.html#requirements-for-tiering-data-in-microsoft-azure">Learn more</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="choose-a-tiering-policy-when-creating-modifying-or-replicating-a-volume"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Choose a tiering policy when creating, modifying, or replicating a volume</h4>
+<div class="paragraph quick-margin-para">
+<p>Cloud Manager prompts you to choose a tiering policy when you create, modify, or replicate a volume.</p>
+</div>
+<div class="ulist quick-margin-list">
+<ul>
+<li>
+<p><a href="task_tiering.html#tiering-data-from-read-write-volumes">Tiering data on read-write volumes</a></p>
+</li>
+<li>
+<p><a href="task_tiering.html#tiering-data-from-data-protection-volumes">Tiering data on data protection volumes</a></p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -898,17 +915,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>You do not need to install a feature license to enable data tiering.</p>
+<p>You don&#8217;t need to install a feature license to enable data tiering.</p>
 </li>
 <li>
-<p>You do not need to create the capacity tier (either an S3 bucket or an Azure Blob container). Cloud Manager does that for you.</p>
+<p>You don&#8217;t need to create the capacity tier (either an S3 bucket or an Azure Blob container). Cloud Manager does that for you.</p>
 </li>
 </ul>
 </div>
 </td>
 </tr>
 </table>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -980,7 +996,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="tiering-data-on-read-write-volumes">Tiering data on read-write volumes</h2>
+<h2 id="tiering-data-from-read-write-volumes">Tiering data from read-write volumes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Cloud Volumes ONTAP can tier inactive data on read-write volumes to cost-effective object storage, freeing up the performance tier for hot data.</p>
@@ -1045,7 +1061,7 @@ If you prefer to create aggregates yourself, you can enable data tiering on aggr
 </div>
 </div>
 <div class="sect1">
-<h2 id="tiering-data-on-data-protection-volumes">Tiering data on data protection volumes</h2>
+<h2 id="tiering-data-from-data-protection-volumes">Tiering data from data protection volumes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Cloud Volumes ONTAP can tier data from a data protection volume to a capacity tier. If you activate the destination volume, the data gradually moves to the performance tier as it is read.</p>

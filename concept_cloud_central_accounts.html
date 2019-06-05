@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Managing NFS volumes | NetApp Cloud Docs</title>
+  <title>Cloud Central accounts | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Managing NFS volumes | NetApp Cloud Docs" />
+  <meta property="og:title" content="Cloud Central accounts | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/occm/task_managing_volume_view.html" />
-	<meta property="og:description" content="You can manage NFS volumes by cloning them, managing data access, changing the underlying disk type, and more." />
+	<meta property="og:url" content="https://docs.netapp.com/occm/concept_cloud_central_accounts.html" />
+	<meta property="og:description" content="Each Cloud Manager system is associated with a NetApp Cloud Central account. A Cloud Central account is a container for your Cloud Manager systems and the wo..." />
   <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +19,8 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="You can manage NFS volumes by cloning them, managing data access, changing the underlying disk type, and more.">
-  <meta name="keywords" content=" NFS volumes, volume view, managing, cloning, clone, delete, deleting, access, disk">
+  <meta name="description" content="Each Cloud Manager system is associated with a NetApp Cloud Central account. A Cloud Central account is a container for your Cloud Manager systems and the wo...">
+  <meta name="keywords" content=" accounts, workspaces, service connector, users, cloud central, admin, account admin, workspace admin">
   
 
   <!-- Icons -->
@@ -285,7 +285,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.6 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
   
 
   
@@ -344,7 +344,11 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+    <li class="active"><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
   
 
   
@@ -527,7 +531,7 @@
   
 
   
-    <li><a href="media/c2s.pdf">Getting started in the AWS C2S environment</a></li>
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Getting started in the AWS C2S environment</a></li>
   
 
 
@@ -611,30 +615,6 @@
     <li><a href="task_managing_storage.html">Managing existing storage</a></li>
   
 
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Provisioning NFS volumes from the Volume View</a>
-      <ul>
-        
-
-  
-    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
-  
-
-  
-    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
-  
-
-  
-    <li class="active"><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
 
       </ul>
     </li>
@@ -643,7 +623,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing data across a hybrid cloud</a>
+      <a href="#">Replicating and protecting data</a>
       <ul>
         
 
@@ -657,6 +637,10 @@
 
   
     <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
   
 
 
@@ -839,11 +823,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Managing NFS volumes
+  <h1 class="n-doc__component-detail-heading">Cloud Central accounts
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_managing_volume_view.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Managing NFS volumes](https://docs.netapp.com/us-en/occm/task_managing_volume_view.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_cloud_central_accounts.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Cloud Central accounts](https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -851,7 +835,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-01-04 16:14:58 +0000">01/04/2019</time>
+<time datetime="2019-06-05 12:17:29 +0000">06/05/2019</time>
 
 
 <span>Contributors
@@ -871,120 +855,217 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can manage NFS volumes by cloning them, managing data access, changing the underlying disk type, and more.</p>
+<p>Each Cloud Manager system is associated with a <em>NetApp Cloud Central account</em>. A Cloud Central account is a container for your Cloud Manager systems and the <em>workspaces</em> in which users deploy Cloud Volumes ONTAP.</p>
+</div>
+<div class="paragraph">
+<p>A Cloud Central account enables multi-tenancy:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A single Cloud Central account can include multiple Cloud Manager systems that serve different business needs.</p>
+<div class="paragraph">
+<p>Because users are associated with the Cloud Central account, there&#8217;s no need to configure users for each individual Cloud Manager system.</p>
+</div>
+</li>
+<li>
+<p>Within each Cloud Manager system, multiple users can deploy and manage Cloud Volumes ONTAP systems in isolated environments called workspaces.</p>
+<div class="paragraph">
+<p>These workspaces are invisible to other users, unless they are shared.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When you deploy Cloud Manager, you select the Cloud Central account to associate with the system:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_account_selection.gif" alt="A screenshot of the Cloud Manager setup wizard that prompts you for the Cloud Central account in which you want to create Cloud Manager."></span></p>
+</div>
+<div class="paragraph">
+<p>Account Admins can then modify the settings for this account by managing users, workspaces, and service connectors:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_account_settings.gif" alt="A screenshot that shows the Account Settings widget from which you can manage users" width="workspaces" height="and service connectors."></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager needs access to <em>https://cloudmanager.cloud.netapp.com</em> in order to connect to the Cloud Central account service. Open this URL on your ﬁrewall to ensure that Cloud Manager can contact the service.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="cloning-volumes">Cloning volumes</h2>
+<h2 id="users-workspaces-and-service-connectors">Users, workspaces, and service connectors</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you need an instantaneous copy of your data without using a lot of disk space, you can create a clone of an existing volume.</p>
+<p>The Account Settings widget in Cloud Manager enables Account Admins to manage a Cloud Central account. If you just created your account, then you&#8217;ll start from scratch. But if you&#8217;ve already set up an account, then you&#8217;ll see <em>all</em> the users, workspaces, and service connectors that are associated with the account.</p>
 </div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Users</dt>
+<dd>
+<p>These are NetApp Cloud Central users that you associate with your Cloud Central account. Associating a user with an account and one or more workspaces in that account enables those users to create and manage working environments in Cloud Manager.</p>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>The cloned volume is a writable, point-in-time copy that is space-efficient because it uses a small amount of space for metadata, and then only consumes additional space as data is changed or added.</p>
+<p>When you associate a user, you assign them a role:</p>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>In the Volumes tab, place your mouse cursor over the volume, select the menu icon, and then click <strong>Clone</strong>.</p>
+<p><em>Account admin</em>: Can perform any action in Cloud Manager.</p>
 </li>
 <li>
-<p>Modify the name of the cloned volume, if needed, and then click <strong>Clone</strong>.</p>
+<p><em>Workspace admin</em>: Can create and manage resources in the assigned workspace.</p>
 </li>
-</ol>
+</ul>
 </div>
+</dd>
+<dt class="hdlist1">Workspaces</dt>
+<dd>
+<p>In Cloud Manager, a workspace isolates any number of <em>working environments</em> from other working environments. Workspace admins can&#8217;t access the working environments in a workspace unless the Account admin associates the admin with that workspace.</p>
 <div class="paragraph">
-<div class="title">Result</div>
-<p>Cloud Manager creates a new volume that is a clone of an existing volume.</p>
+<p>A working environment represents a storage system:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A single-node Cloud Volumes ONTAP system or an HA pair</p>
+</li>
+<li>
+<p>An on-premises ONTAP cluster in your network</p>
+</li>
+<li>
+<p>An ONTAP cluster in a NetApp Private Storage configuration</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Service connectors</dt>
+<dd>
+<p>A service connector is part of Cloud Manager. It runs much of the Cloud Manager software (like the user interface), except for a few Cloud Central services that it connects to (auth0 and Cloud Central accounts). The service connector runs on the virtual machine instance that was deployed in your cloud provider, or on an on-prem host that you configured.</p>
+<div class="paragraph">
+<p>You can use a service connector with more than one NetApp cloud data service. For example, if you already have a service connector for Cloud Manager, you can select it when you set up the Cloud Tiering service.</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="managing-data-access-to-volumes">Managing data access to volumes</h2>
+<h2 id="examples">Examples</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you create a volume, Cloud Manager makes the volume available to all EC2 instances in the VPC in which the volume was created. You can modify this default value if you need to restrict data access to the volume.</p>
+<p>The following example shows an account that uses two workspaces to create isolated environments for Cloud Volumes ONTAP systems. For example, one workspace might be for a staging environment, while the other is for a production environment.</p>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the Volumes tab, place your mouse cursor over the volume, select the menu icon, and then click <strong>Manage Access</strong>.</p>
-</li>
-<li>
-<p>Modify the volume access list, and then click <strong>Save</strong>.</p>
-</li>
-</ol>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager and the Cloud Volumes ONTAP systems don&#8217;t actually reside <em>in</em> the NetApp Cloud Central account&#8212;&#8203;they&#8217;re running in a cloud provider. This is a conceptual representation of the relationship between each component.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_central_accounts_one.png" alt="A diagram that shows a single Cloud Central account that contains two workspaces. Each workspace is associated with the same service connector and each has their own workspace admin."></span></p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s another example that shows the highest level of multi-tenancy by using two separate Cloud Central accounts. For example, a service provider might use Cloud Manager in one Cloud Central account to provide services for their customers, while using another account to provide disaster recovery for one of their business units.</p>
+</div>
+<div class="paragraph">
+<p>Note that account 2 includes two separate service connectors. This might happen if you have systems in separate regions or in separate cloud providers.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Again, Cloud Manager and the Cloud Volumes ONTAP systems don&#8217;t actually reside <em>in</em> the NetApp Cloud Central account&#8212;&#8203;they&#8217;re running in a cloud provider. This is a conceptual representation of the relationship between each component.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_central_accounts_two.png" alt="A diagram that shows two Cloud Central accounts" width="each with several workspaces and their associated workspace admins."></span></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="changing-the-underlying-aws-disk-for-a-volume">Changing the underlying AWS disk for a volume</h2>
+<h2 id="faq">FAQ for integration with Cloud Central accounts</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can change the underlying AWS disk that a volume uses to provide storage. For example, if higher performance is needed, you can change from a Throughput Optimized HDD to a General Purpose SSD.</p>
+<p>Some time after you upgrade to Cloud Manager 3.7, NetApp will choose specific Cloud Manager systems to integrate with Cloud Central accounts. This FAQ can answer questions that you might have about the process.</p>
+</div>
+<div class="sect2">
+<h3 id="how-long-does-the-process-take">How long does the process take?</h3>
+<div class="paragraph">
+<p>Just a few minutes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="will-cloud-manager-be-unavailable">Will Cloud Manager be unavailable?</h3>
+<div class="paragraph">
+<p>No, you can still access your Cloud Manager system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="what-about-cloud-volumes-ontap">What about Cloud Volumes ONTAP?</h3>
+<div class="paragraph">
+<p>There&#8217;s no disruption to your Cloud Volumes ONTAP systems.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="what-happens-during-this-process">What happens during this process?</h3>
+<div class="paragraph">
+<p>NetApp does the following during the integration process:</p>
 </div>
 <div class="olist arabic">
-<div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>In the Volumes tab, place your mouse cursor over the volume, select the menu icon, and then click <strong>Change Disk</strong>.</p>
+<p>Creates a new Cloud Central account and associates it with your Cloud Manager system.</p>
 </li>
 <li>
-<p>Select the AWS disk type and click <strong>Change</strong>.</p>
+<p>Assigns new roles to each existing user:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager Admins become Account Admins</p>
+</li>
+<li>
+<p>Tenant Admins and Working Environment Admins become Workspace Admins</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Creates workspaces that replace existing tenants.</p>
+</li>
+<li>
+<p>Places your working environments in those workspaces.</p>
+</li>
+<li>
+<p>Associates the service connector with all workspaces.</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect2">
+<h3 id="does-it-matter-where-i-installed-my-cloud-manager-system">Does it matter where I installed my Cloud Manager system?</h3>
 <div class="paragraph">
-<div class="title">Result</div>
-<p>Cloud Manager moves the volume to an existing aggregate that uses the selected disk type or it creates a new aggregate for the volume.</p>
+<p>No. NetApp will integrate systems with Cloud Central accounts no matter where they reside, whether that&#8217;s in AWS, Azure, or on your premises.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="viewing-and-modifying-aws-resources">Viewing and modifying AWS resources</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When you create a new volume, Cloud Manager allocates the AWS instances and EBS storage required for that volume. If required, you can view details about AWS instances and EBS storage, change instance types, and turn instances off and on.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Click <strong>AWS Resources</strong>.</p>
-<div class="paragraph">
-<p>The list of AWS instances displays. You can view details such as instance type, AWS location, and the volumes attached to the instance.</p>
-</div>
-</li>
-<li>
-<p>If required, select the menu icon next to the Status column, and then choose one of the available actions:</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_volume_view_resources.gif" alt="Screen shot that shows the available actions on the AWS Resources page in the Volume View."></span></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="deleting-volumes">Deleting volumes</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You can delete volumes that you no longer need.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the Volumes tab, place your mouse cursor over the volume, select the menu icon, and then click <strong>Delete</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Delete</strong> to confirm that you want to delete the volume.</p>
-</li>
-</ol>
 </div>
 </div>
 </div>

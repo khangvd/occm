@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Creating and mounting NFS volumes | NetApp Cloud Docs</title>
+  <title>Cloud Central accounts | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Creating and mounting NFS volumes | NetApp Cloud Docs" />
+  <meta property="og:title" content="Cloud Central accounts | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/occm/en/task_provisioning_volume_view.html" />
-	<meta property="og:description" content="You can use Cloud Manager to create NFS volumes that provide enterprise-class features on top of AWS storage." />
-  <meta property="og:image" content="https://docs.netapp.com/occm/en/images/logo-tophat-social.png" />
+	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/concept_cloud_central_accounts.html" />
+	<meta property="og:description" content="Each Cloud Manager system is associated with a NetApp Cloud Central account. A Cloud Central account is a container for your Cloud Manager systems and the wo..." />
+  <meta property="og:image" content="https://docs.netapp.com/occm/us-en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -19,16 +19,16 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="You can use Cloud Manager to create NFS volumes that provide enterprise-class features on top of AWS storage.">
-  <meta name="keywords" content=" NFS volumes, volume view, creating, mounting, provisioning, create, nfs volumes">
+  <meta name="description" content="Each Cloud Manager system is associated with a NetApp Cloud Central account. A Cloud Central account is a container for your Cloud Manager systems and the wo...">
+  <meta name="keywords" content=" accounts, workspaces, service connector, users, cloud central, admin, account admin, workspace admin">
   
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed -->
   
-  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/en/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/us-en/feed.xml">
   
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -37,23 +37,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/occm/en/common/css/esb.min.css">
-  <link rel="stylesheet" href="/occm/en/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/occm/en/common/css/doc.css">
-  <link rel="stylesheet" href="/occm/en/common/css/doc-components.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/occm/en/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/en/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/en/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/occm/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/en/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/occm/en/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/us-en/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/en/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/en/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
 
   
 
@@ -62,23 +62,23 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/occm/en/js/na-search.js'></script>
+    <script src='/occm/us-en/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/occm/en/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/occm/en/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/occm/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/us-en/js/na-pagenav.js'></script>
   
 
-  <link rel='stylesheet' href='/occm/en/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/en/css/prism-netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/prism-netapp.css' type='text/css'>
 
-  <script src='/occm/en/js/clouddocs.js'></script>
-  <script src='/occm/en/js/s_code_impl.js'></script>
-  <script src='/occm/en/js/jquery.navgoco.min.js'></script>
+  <script src='/occm/us-en/js/clouddocs.js'></script>
+  <script src='/occm/us-en/js/s_code_impl.js'></script>
+  <script src='/occm/us-en/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/occm/en/js/toc.js'></script>
-  <script src='/occm/en/js/customscripts.js'></script>
+  <script src='/occm/us-en/js/toc.js'></script>
+  <script src='/occm/us-en/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -156,7 +156,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="https://docs.netapp.com/en/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -197,19 +197,19 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/en/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="https://docs.netapp.com/en/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -229,7 +229,7 @@
               <span class="ie-i18n-lang"></span>
               <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
               </svg>
             </a>
           </li>
@@ -285,7 +285,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.6 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
   
 
   
@@ -344,7 +344,11 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+    <li class="active"><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
   
 
   
@@ -527,7 +531,7 @@
   
 
   
-    <li><a href="media/c2s.pdf">Getting started in the AWS C2S environment</a></li>
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Getting started in the AWS C2S environment</a></li>
   
 
 
@@ -611,30 +615,6 @@
     <li><a href="task_managing_storage.html">Managing existing storage</a></li>
   
 
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Provisioning NFS volumes from the Volume View</a>
-      <ul>
-        
-
-  
-    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
-  
-
-  
-    <li class="active"><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
-  
-
-  
-    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
 
       </ul>
     </li>
@@ -643,7 +623,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing data across a hybrid cloud</a>
+      <a href="#">Replicating and protecting data</a>
       <ul>
         
 
@@ -657,6 +637,10 @@
 
   
     <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
   
 
 
@@ -839,11 +823,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Creating and mounting NFS volumes
+  <h1 class="n-doc__component-detail-heading">Cloud Central accounts
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_provisioning_volume_view.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Creating and mounting NFS volumes](https://docs.netapp.com/en/occm/task_provisioning_volume_view.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_cloud_central_accounts.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Cloud Central accounts](https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -851,7 +835,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-01-04 16:14:58 +0000">01/04/2019</time>
+<time datetime="2019-06-05 12:17:29 +0000">06/05/2019</time>
 
 
 <span>Contributors
@@ -871,195 +855,217 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can use Cloud Manager to create NFS volumes that provide enterprise-class features on top of AWS storage.</p>
+<p>Each Cloud Manager system is associated with a <em>NetApp Cloud Central account</em>. A Cloud Central account is a container for your Cloud Manager systems and the <em>workspaces</em> in which users deploy Cloud Volumes ONTAP.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="creating-nfs-volumes">Creating NFS volumes</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>You can create a volume attached to a single AWS instance or to an instance that is mirrored to another instance to provide high availability.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the Volumes tab, click <strong>Create New Volume</strong>.</p>
-</li>
-<li>
-<p>On the Create New Volume page, select a volume type:</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 15%;">
-<col style="width: 85%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create Volume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a volume attached to a single AWS instance.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create HA volume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a volume attached to a single AWS instance and mirrored to another instance to provide high availability in case of failures. Click the Info icon to see additional details about the instances required for an HA volume.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>If you chose Create Volume, specify details for your first volume, and then click <strong>Create</strong>.</p>
-<div class="paragraph">
-<p>The following table describes fields for which you might need guidance:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 15%;">
-<col style="width: 85%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Size</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum size for the volume depends on the capacity available in existing storage systems.<br>
-Thin provisioning is automatically enabled on the volume, which enables you to create a volume that is bigger than the physical storage currently available to it. Instead of preallocating storage space, space is allocated to each volume as data is written.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Disk Type</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>You should choose the disk that meets your requirements for both performance and cost.</p>
+<p>A Cloud Central account enables multi-tenancy:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>General Purpose SSD disks balance cost and performance for a broad range of workloads. Performance is defined in terms of IOPS.</p>
+<p>A single Cloud Central account can include multiple Cloud Manager systems that serve different business needs.</p>
+<div class="paragraph">
+<p>Because users are associated with the Cloud Central account, there&#8217;s no need to configure users for each individual Cloud Manager system.</p>
+</div>
 </li>
 <li>
-<p>Throughput Optimized HDD disks are for frequently accessed workloads that require fast and consistent throughput at a lower price.</p>
-</li>
-<li>
-<p>Cold HDD disks are meant for backups, or infrequently accessed data, because the performance is very low. Like Throughput Optimized HDD disks, performance is defined in terms of throughput.</p>
+<p>Within each Cloud Manager system, multiple users can deploy and manage Cloud Volumes ONTAP systems in isolated environments called workspaces.</p>
+<div class="paragraph">
+<p>These workspaces are invisible to other users, unless they are shared.</p>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For more details, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: EBS Volume Types</a>.</p>
-</div></div></td>
+<p>When you deploy Cloud Manager, you select the Cloud Central account to associate with the system:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_account_selection.gif" alt="A screenshot of the Cloud Manager setup wizard that prompts you for the Cloud Central account in which you want to create Cloud Manager."></span></p>
+</div>
+<div class="paragraph">
+<p>Account Admins can then modify the settings for this account by managing users, workspaces, and service connectors:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_account_settings.gif" alt="A screenshot that shows the Account Settings widget from which you can manage users" width="workspaces" height="and service connectors."></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager needs access to <em>https://cloudmanager.cloud.netapp.com</em> in order to connect to the Cloud Central account service. Open this URL on your ﬁrewall to ensure that Cloud Manager can contact the service.
+</td>
 </tr>
-</tbody>
 </table>
-<div class="paragraph">
-<p>The following image shows the Create Volume page filled out:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_volume_view_create.gif" alt="Screen shot: Shows the Create New Volume page filled out."></span></p>
-</div>
-</li>
-<li>
-<p>If you chose Create HA volume, specify details for the volume, and then click <strong>Create</strong>.</p>
-<div class="paragraph">
-<p>The following table describes fields for which you might need guidance:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 15%;">
-<col style="width: 85%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Size</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum size for the volume depends on the capacity available in existing storage systems.<br>
-Thin provisioning is automatically enabled on the volume, which enables you to create a volume that is bigger than the physical storage currently available to it. Instead of preallocating storage space, space is allocated to each volume as data is written.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Disk Type</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>You should choose the disk that meets your requirements for both performance and cost.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>General Purpose SSD disks balance cost and performance for a broad range of workloads. Performance is defined in terms of IOPS.</p>
-</li>
-<li>
-<p>Throughput Optimized HDD disks are for frequently accessed workloads that require fast and consistent throughput.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For more details, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: EBS Volume Types</a>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You should choose a VPC that includes three subnets in three separate Availability Zones.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nodes and Mediator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If possible, Cloud Manager chooses separate Availability Zones for each instance because it is the supported and optimal configuration.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The IP addresses must be outside of the CIDR block for all VPCs in the region.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Route Table</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If you have more than one route table, it is very important to select the correct route tables. Otherwise, some clients might not have access to the HA pair.<br>
-<br>
-For more details, refer to  <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a>.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The following image shows the Nodes and Mediator page. Each instance is in a separate Availability Zone.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_volume_view_ha_network.gif" alt="Screen shot: Shows AWS networking selections for the two Cloud Volumes ONTAP nodes and the mediator. Each instance is in a separate Availability Zone and subnet."></span></p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<div class="title">Result</div>
-<p>Cloud Manager creates the volume on an existing system or on a new system. If a new system is required, creating the volume can take approximately 25 minutes.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mounting-volumes-to-linux-hosts">Mounting volumes to Linux hosts</h2>
+<h2 id="users-workspaces-and-service-connectors">Users, workspaces, and service connectors</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you create a volume, you should mount it to your hosts so that they can access the volume.</p>
+<p>The Account Settings widget in Cloud Manager enables Account Admins to manage a Cloud Central account. If you just created your account, then you&#8217;ll start from scratch. But if you&#8217;ve already set up an account, then you&#8217;ll see <em>all</em> the users, workspaces, and service connectors that are associated with the account.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Users</dt>
+<dd>
+<p>These are NetApp Cloud Central users that you associate with your Cloud Central account. Associating a user with an account and one or more workspaces in that account enables those users to create and manage working environments in Cloud Manager.</p>
+<div class="paragraph">
+<p>When you associate a user, you assign them a role:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Account admin</em>: Can perform any action in Cloud Manager.</p>
+</li>
+<li>
+<p><em>Workspace admin</em>: Can create and manage resources in the assigned workspace.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Workspaces</dt>
+<dd>
+<p>In Cloud Manager, a workspace isolates any number of <em>working environments</em> from other working environments. Workspace admins can&#8217;t access the working environments in a workspace unless the Account admin associates the admin with that workspace.</p>
+<div class="paragraph">
+<p>A working environment represents a storage system:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A single-node Cloud Volumes ONTAP system or an HA pair</p>
+</li>
+<li>
+<p>An on-premises ONTAP cluster in your network</p>
+</li>
+<li>
+<p>An ONTAP cluster in a NetApp Private Storage configuration</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Service connectors</dt>
+<dd>
+<p>A service connector is part of Cloud Manager. It runs much of the Cloud Manager software (like the user interface), except for a few Cloud Central services that it connects to (auth0 and Cloud Central accounts). The service connector runs on the virtual machine instance that was deployed in your cloud provider, or on an on-prem host that you configured.</p>
+<div class="paragraph">
+<p>You can use a service connector with more than one NetApp cloud data service. For example, if you already have a service connector for Cloud Manager, you can select it when you set up the Cloud Tiering service.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="examples">Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following example shows an account that uses two workspaces to create isolated environments for Cloud Volumes ONTAP systems. For example, one workspace might be for a staging environment, while the other is for a production environment.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager and the Cloud Volumes ONTAP systems don&#8217;t actually reside <em>in</em> the NetApp Cloud Central account&#8212;&#8203;they&#8217;re running in a cloud provider. This is a conceptual representation of the relationship between each component.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_central_accounts_one.png" alt="A diagram that shows a single Cloud Central account that contains two workspaces. Each workspace is associated with the same service connector and each has their own workspace admin."></span></p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s another example that shows the highest level of multi-tenancy by using two separate Cloud Central accounts. For example, a service provider might use Cloud Manager in one Cloud Central account to provide services for their customers, while using another account to provide disaster recovery for one of their business units.</p>
+</div>
+<div class="paragraph">
+<p>Note that account 2 includes two separate service connectors. This might happen if you have systems in separate regions or in separate cloud providers.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Again, Cloud Manager and the Cloud Volumes ONTAP systems don&#8217;t actually reside <em>in</em> the NetApp Cloud Central account&#8212;&#8203;they&#8217;re running in a cloud provider. This is a conceptual representation of the relationship between each component.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_central_accounts_two.png" alt="A diagram that shows two Cloud Central accounts" width="each with several workspaces and their associated workspace admins."></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq">FAQ for integration with Cloud Central accounts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some time after you upgrade to Cloud Manager 3.7, NetApp will choose specific Cloud Manager systems to integrate with Cloud Central accounts. This FAQ can answer questions that you might have about the process.</p>
+</div>
+<div class="sect2">
+<h3 id="how-long-does-the-process-take">How long does the process take?</h3>
+<div class="paragraph">
+<p>Just a few minutes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="will-cloud-manager-be-unavailable">Will Cloud Manager be unavailable?</h3>
+<div class="paragraph">
+<p>No, you can still access your Cloud Manager system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="what-about-cloud-volumes-ontap">What about Cloud Volumes ONTAP?</h3>
+<div class="paragraph">
+<p>There&#8217;s no disruption to your Cloud Volumes ONTAP systems.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="what-happens-during-this-process">What happens during this process?</h3>
+<div class="paragraph">
+<p>NetApp does the following during the integration process:</p>
 </div>
 <div class="olist arabic">
-<div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>In the Volumes tab, place your mouse cursor over the volume, select the menu icon, and then click <strong>Mount</strong>.</p>
+<p>Creates a new Cloud Central account and associates it with your Cloud Manager system.</p>
 </li>
 <li>
-<p>Click <strong>Copy</strong>.</p>
+<p>Assigns new roles to each existing user:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager Admins become Account Admins</p>
 </li>
 <li>
-<p>On your Linux hosts, modify the copied text by changing the destination directory, and then enter the command to mount the volume.</p>
+<p>Tenant Admins and Working Environment Admins become Workspace Admins</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Creates workspaces that replace existing tenants.</p>
+</li>
+<li>
+<p>Places your working environments in those workspaces.</p>
+</li>
+<li>
+<p>Associates the service connector with all workspaces.</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="does-it-matter-where-i-installed-my-cloud-manager-system">Does it matter where I installed my Cloud Manager system?</h3>
+<div class="paragraph">
+<p>No. NetApp will integrate systems with Cloud Central accounts no matter where they reside, whether that&#8217;s in AWS, Azure, or on your premises.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1105,7 +1111,7 @@ For more details, refer to  <a href="http://docs.aws.amazon.com/AmazonVPC/latest
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -1114,7 +1120,7 @@ For more details, refer to  <a href="http://docs.aws.amazon.com/AmazonVPC/latest
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -1124,7 +1130,7 @@ For more details, refer to  <a href="http://docs.aws.amazon.com/AmazonVPC/latest
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -1133,7 +1139,7 @@ For more details, refer to  <a href="http://docs.aws.amazon.com/AmazonVPC/latest
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -1142,7 +1148,7 @@ For more details, refer to  <a href="http://docs.aws.amazon.com/AmazonVPC/latest
             </div>
             <div class="n-footer__bottom-right">
               <div class="n-footer__copyright">
-                <a href="https://docs.netapp.com/en/contribute/" class="n-footer__copyright-link">Contribute</a>
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
@@ -1154,15 +1160,15 @@ For more details, refer to  <a href="http://docs.aws.amazon.com/AmazonVPC/latest
 
     </div>
 
-    <script src="/occm/en/common/js/components.js"></script>
-    <script src="/occm/en/common/js/doc-components.js"></script>
+    <script src="/occm/us-en/common/js/components.js"></script>
+    <script src="/occm/us-en/common/js/doc-components.js"></script>
 
     <!-- Elasticsearch JS -->
-    <script type="text/javascript" src='/occm/en/js/bundle.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
 
     <!-- Syntax Highlighting -->
-    <script type="text/javascript" src='/occm/en/js/prism.js'></script>
-    <script type="text/javascript" src='/occm/en/js/prism-curl.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/prism-curl.js'></script>
 
   </body>
 

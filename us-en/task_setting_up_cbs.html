@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Backing up and restoring data using the NetApp Cloud Backup Service in AWS | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Backing up and restoring data using the NetApp Cloud Backup Service in AWS | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/task_setting_up_cbs.html" />
+	<meta property="og:description" content="The NetApp Cloud Backup Service for Cloud Volumes ONTAP delivers fully-managed backup and restore capabilities for protection and long-term archive of your c..." />
+  <meta property="og:image" content="https://docs.netapp.com/occm/us-en/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta http-equiv="nss-product" content="OnCommand"/>
+  
+  <meta name="description" content="The NetApp Cloud Backup Service for Cloud Volumes ONTAP delivers fully-managed backup and restore capabilities for protection and long-term archive of your c...">
+  <meta name="keywords" content=" backing up, restoring, back up, backup, restore, cloud volumes ontap, cloud backup service, aws">
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/us-en/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/occm/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/occm/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/us-en/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/occm/us-en/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/occm/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/us-en/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/occm/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/prism-netapp.css' type='text/css'>
+
+  <script src='/occm/us-en/js/clouddocs.js'></script>
+  <script src='/occm/us-en/js/s_code_impl.js'></script>
+  <script src='/occm/us-en/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/occm/us-en/js/toc.js'></script>
+  <script src='/occm/us-en/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+      siteLocales.push("en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang"></span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+
+
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/us-en/" class="n-menu__header-text"></a>
+                </li>
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/en/" class="n-menu__header-text"></a>
+                </li>
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Release notes</a>
+      <ul>
+        
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new</a></li>
+  
+
+  
+    <li><a href="reference_issues.html">Known issues</a></li>
+  
+
+  
+    <li><a href="reference_limitations.html">Known limitations</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central.html">NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Storage</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_storage.html">Overview</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
+  
+
+  
+    <li><a href="concept_storage_management.html">Storage management</a></li>
+  
+
+  
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">High-availability pairs</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_ha.html">HA pairs in AWS</a></li>
+  
+
+  
+    <li><a href="concept_ha_azure.html">HA pairs in Azure</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="concept_evaluating.html">Evaluating</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Deployment overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Getting started in AWS</a></li>
+  
+
+  
+    <li><a href="task_getting_started_azure.html">Getting started in Azure</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Setting up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Setting up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Networking requirements</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
+  
+
+  
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
+  
+
+  
+    <li><a href="task_setting_up_transit_gateway.html">Setting up an AWS transit gateway</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional deployment options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Installing Cloud Manager on a Linux host</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Deploying Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_launching_azure_mktp.html">Deploying Cloud Manager from the Azure Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Deploying Cloud Manager in an Azure Gov region</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Deploying Cloud Manager in the Azure Germany region</a></li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Getting started in the AWS C2S environment</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploying Cloud Volumes ONTAP</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Logging in to Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_planning_your_config.html">Planning your configuration</a></li>
+  
+
+  
+    <li><a href="task_enabling_flash_cache.html">Enabling Flash Cache on Cloud Volumes ONTAP in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Setting up Cloud Volumes ONTAP</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provisioning storage</a>
+      <ul>
+        
+
+  
+    <li><a href="task_provisioning_storage.html">Creating volumes, aggregates, and LUNs</a></li>
+  
+
+  
+    <li><a href="task_tiering.html">Tiering inactive data to object storage</a></li>
+  
+
+  
+    <li><a href="task_connecting_kubernetes.html">Using Cloud Volumes ONTAP as persistent storage</a></li>
+  
+
+  
+    <li><a href="task_encrypting_volumes.html">Encrypting volumes with NetApp Volume Encryption</a></li>
+  
+
+  
+    <li><a href="task_managing_storage.html">Managing existing storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Replicating and protecting data</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discovering and managing ONTAP clusters</a></li>
+  
+
+  
+    <li><a href="task_replicating_data.html">Replicating data to and from the cloud</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+  
+    <li class="active"><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administering Cloud Volumes ONTAP</a>
+      <ul>
+        
+
+  
+    <li><a href="task_connecting_to_otc.html">Connecting to Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Updating software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modifying system configurations</a></li>
+  
+
+  
+    <li><a href="task_managing_state.html">Stopping and starting systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitoring AWS costs</a></li>
+  
+
+  
+    <li><a href="task_protecting_ransomware.html">Improving ransomware protection</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Adding existing systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Deleting systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administering Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Updating Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Removing working environments</a></li>
+  
+
+  
+    <li><a href="task_editing_users.html">Editing user accounts</a></li>
+  
+
+  
+    <li><a href="task_configuring_proxy.html">Configuring proxy settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renewing the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstalling Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">APIs and automation</a>
+      <ul>
+        
+
+  
+    <li><a href="https://docs.netapp.com/us-en/occm/api.html" target="_blank">API Developer Guide</a></li>
+  
+
+  
+    <li><a href="reference_infrastructure_as_code.html">Automation samples</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_integration_faq.html">FAQ for Cloud Central integration</a></li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank">Supported regions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules for AWS</a></li>
+  
+
+  
+    <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+  
+    <li><a href="reference_legal_notices.html">Legal notices</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Backing up and restoring data using the NetApp Cloud Backup Service in AWS
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_setting_up_cbs.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Backing up and restoring data using the NetApp Cloud Backup Service in AWS](https://docs.netapp.com/us-en/occm/task_setting_up_cbs.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-06-03 19:23:54 +0000">06/03/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/netapp-bcammett">
+    <img  class="avatar avatar-small"
+          alt="netapp-bcammett"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/18287750?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>The NetApp Cloud Backup Service for Cloud Volumes ONTAP delivers fully-managed backup and restore capabilities for protection and long-term archive of your cloud data. You can integrate the Cloud Backup Service with Cloud Volumes ONTAP for AWS. Backups created by the service are stored in AWS S3 object storage.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://cloud.netapp.com/cloud-backup-service" target="_blank" rel="noopener">Learn more about the Cloud Backup Service</a>.</p>
+</div>
+<div class="paragraph">
+<p>To get started, install and configure the backup agent and then run commands to start backup and restore operations. If you need help, we encourage you to contact us by using the chat icon in Cloud Manager.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contacting-netapp-to-use-the-cloud-backup-service">Contacting NetApp to use the Cloud Backup Service</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before you get started, send us your AWS account ID so that we can enable your account to use the Cloud Backup Service.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Step</div>
+<ol class="arabic">
+<li>
+<p>Send an email to <a href="mailto:ng-cloud-volume-ontap-preview@netapp.com">ng-cloud-volume-ontap-preview@netapp.com</a> that includes your AWS account ID.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="verifying-your-aws-permissions">Verifying your AWS permissions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To complete the steps on this page, your AWS account must have the following permissions:</p>
+</div>
+<div class="paragraph">
+<p>ec2:DescribeVpcEndpoints<br>
+ec2:CreateVpcEndpoint<br>
+ec2:ModifyVpcEndpoint</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installing-and-configuring-the-cloud-backup-service-agent">Installing and configuring the Cloud Backup Service agent</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We recommend that you install the backup agent on the Cloud Manager instance. An internet connection is required to download the agent package and a connection to Cloud Volumes ONTAP systems is required for backup and restore operations. The Cloud Manager instance should meet both of those requirements.</p>
+</div>
+<div class="sect2">
+<h3 id="downloading-the-agent-package">Downloading the agent package</h3>
+<div class="paragraph">
+<p>Download the agent package from an S3 bucket and uncompress the files to a directory on the instance.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>SSH to the Cloud Manager EC2 instance.</p>
+</li>
+<li>
+<p>Download the agent for the Cloud Backup Service:</p>
+<div class="paragraph">
+<p><code>wget <a href="https://s3.us-east-2.amazonaws.com/cbs-package-bucket/packages/cvo-cbs-agent-0.7.tar.gz" class="bare">https://s3.us-east-2.amazonaws.com/cbs-package-bucket/packages/cvo-cbs-agent-0.7.tar.gz</a></code></p>
+</div>
+</li>
+<li>
+<p>Untar the compressed files into another existing directory:</p>
+<div class="paragraph">
+<p><code>tar -xvf folder.tar -C /target/directory</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-vpc-interface-endpoints-to-the-cloud-backup-service">Creating VPC interface endpoints to the Cloud Backup Service</h3>
+<div class="paragraph">
+<p>Two VPC interface endpoints are required to communicate with the Cloud Backup Service.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>At the AWS CLI, run <code>aws configure</code> and provide your secret key and access key.</p>
+</li>
+<li>
+<p>Run the following command to create a VPC interface endpoint to the backup service:</p>
+<div class="paragraph">
+<p><code>aws --region &lt;region&gt; cloudformation create-stack --stack-name &lt;stack-name&gt; --template-body file://vpc_endpoint.json --parameters ParameterKey=VPCId,ParameterValue=&lt;vpc-id&gt; ParameterKey=ServiceCbs,ParameterValue=&lt;service-endpoint&gt;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <em>region</em> and <em>VPC ID</em> should correspond to the network location where your Cloud Volumes ONTAP systems are deployed.</p>
+</li>
+<li>
+<p>The <em>stack name</em> can be any string that identifies the purpose of the CFT.</p>
+</li>
+<li>
+<p>The <em>template body</em> specifies the location of the Cloud Formation Template that was included in the agent package that you downloaded and uncompressed to a directory.</p>
+</li>
+<li>
+<p>The <em>service endpoint</em> must point to the backup service endpoint in the eu-west-1 region or the us-east-1 region:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>eu-west-1: com.amazonaws.vpce.eu-west-1.vpce-svc-0cd9f6bf5706d5ec9</p>
+</li>
+<li>
+<p>us-east-1: com.amazonaws.vpce.us-east-1.vpce-svc-046e3104ac8604f7e</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Now run the following command to create a VPC interface endpoint to the restore service:</p>
+<div class="paragraph">
+<p><code>aws --region &lt;region&gt; cloudformation create-stack --stack-name &lt;stack-name&gt; --template-body file://vpc_endpoint.json --parameters ParameterKey=VPCId,ParameterValue=&lt;vpc-id&gt; ParameterKey=ServiceCbs,ParameterValue=&lt;service-endpoint&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>The only difference between this command and the previous command is the value of the <em>service endpoint</em>. The <em>service endpoint</em> must point to the restore service endpoint in the eu-west-1 region or the us-east-1 region:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>eu-west-1: com.amazonaws.vpce.eu-west-1.vpce-svc-04dd86976846bc84b</p>
+</li>
+<li>
+<p>us-east-1: com.amazonaws.vpce.us-east-1.vpce-svc-0343dd25489869199</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuring-the-subnets-for-the-vpc-interface-endpoints">Configuring the subnets for the VPC interface endpoints</h3>
+<div class="paragraph">
+<p>The VPC interface endpoints that you just created must be added to the subnets where the Cloud Volumes ONTAP systems reside.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Go to the AWS Console, select the VPC service, and click <strong>Endpoints</strong>.</p>
+</li>
+<li>
+<p>Select the VPC interface endpoint for the backup service.</p>
+</li>
+<li>
+<p>Click the <strong>Subnets</strong> tab and click <strong>Manage Subnets</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_aws_endpoint_ip_manage.gif" alt="A screenshot of the AWS VPC Console that shows the Manage Subnets button in the Subnets tab after you select and endpoint."></span></p>
+</div>
+</li>
+<li>
+<p>Choose the subnets where the Cloud Volumes ONTAP systems reside and click <strong>Modify Subnets</strong>.</p>
+</li>
+<li>
+<p>From the Subnets tab, copy the private IP address of the subnet where the Cloud Volumes ONTAP system resides.</p>
+<div class="paragraph">
+<p>You&#8217;ll need this IP address later when you configure the Cloud Backup Service agent by modifying the  <em>config.json</em> file.</p>
+</div>
+</li>
+<li>
+<p>Repeat these steps for the restore service endpoint.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="generating-a-user-token-for-authentication">Generating a user token for authentication</h3>
+<div class="paragraph">
+<p>Each backup and restore operation requires a user token for authentication.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><a href="https://services.cloud.netapp.com/developer-hub" target="_blank" rel="noopener">Go to the API Documentation for NetApp Cloud Central</a>.</p>
+</li>
+<li>
+<p>Click <strong>Learn how to authenticate</strong>.</p>
+</li>
+<li>
+<p>Follow the instructions to generate an access token using regular access or federated access, while making a few changes to the body so it works for the Cloud Backup Service.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>For regular access, use the following audience and client_id:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"audience": "https://cloudmanager.cloud.netapp.com",
+"client_id": "_CloudManagerClientID_"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Obtain the client ID for Cloud Manager by using the following API:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>GET /occm/system/support-services</pre>
+</div>
+</div>
+</li>
+<li>
+<p>For federated access, use the following audience:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"audience": "https://cloudmanager.cloud.netapp.com",</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://youtu.be/qXz4TSOAibo" target="_blank" rel="noopener">YouTube video: Using Rest APIs with Federated Access with Cloud Manager</a></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>After you receive the token, copy the value into the <em>user_token.json</em> file by overwriting the existing value.</p>
+<div class="paragraph">
+<p>You can find this file in the same directory where you uncompressed the agent package.</p>
+</div>
+<div class="paragraph">
+<p>NetApp Cloud Central uses the token to authenticate the user for all API calls between Cloud Volumes ONTAP and the Cloud Backup Service. If the token is invalid or expired, the API calls will fail and backup and restore operations will not start.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuring-the-cloud-backup-service-agent">Configuring the Cloud Backup Service agent</h3>
+<div class="paragraph">
+<p>Modify the agent&#8217;s configuration file by specifying the IP addresses of the network interfaces for the VPC endpoints. This enables the agent to contact the Cloud Backup Service.</p>
+</div>
+<div class="paragraph">
+<div class="title">About this task</div>
+<p>If you update this configuration file after you start the agent, you&#8217;ll need to kill the service and then restart it. See <a href="#updating-the-config-json-file">Updating the config.json file</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Go to the directory where you uncompressed the agent package.</p>
+</li>
+<li>
+<p>Edit the <em>config.json</em> file by specifying the IP addresses.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+          "LRSE_BACKUP_IP": "&lt;ENI private IP for backup&gt;",
+          "LRSE_RESTORE_IP": "&lt;ENI private IP for restore&gt;",
+          "CBS_ENDPOINT_IP" : "&lt;ENI private IP for backup&gt;",
+          "CBS_ENDPOINT_PORT" : "8088",
+          "SNAPMIRROR_POLICY_TRIES": 8,
+          "SNAPMIRROR_RETRY_COUNT": 10,
+          "SNAPMIRROR_POLL_INTERVAL":30
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LRSE_BACKUP_IP is the private IP address of the VPC interface endpoint that&#8217;s connected to the backup service. You can find the IP address in the AWS console. Go to the VPC service and select the VPC Endpoint. Click Subnets and find the IP address of the subnet where the Cloud Volumes ONTAP system resides.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_aws_endpoint_ip.gif" alt="A screenshot of the AWS VPC Console that shows the network interfaces for a VPC Endpoint."></span></p>
+</div>
+</li>
+<li>
+<p>LRSE_RESTORE_IP is the private IP address of the VPC interface endpoint that&#8217;s connected to the restore service. Follow the same instructions provided for LRSE_BACKUP_IP.</p>
+</li>
+<li>
+<p>CBS_ENDPOINT_IP should be the same as the LRSE_BACKUP_IP since we use the same VPC interface endpoint for making API calls.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">What if I&#8217;m backing multiple Cloud Volumes ONTAP systems?</div>
+<div class="paragraph">
+<p>It&#8217;s okay to use the same IP addresses for multiple Cloud Volumes ONTAP systems, as long as the subnets are in the same Availability Zone. If you need to back up multiple systems that are spread across Availability Zones, contact us using the in-product chat and we&#8217;ll help you with your setup.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="starting-the-cloud-backup-service-agent">Starting the Cloud Backup Service agent</h3>
+<div class="paragraph">
+<p>Now that you&#8217;ve installed and configured the agent, you need to start it.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Run the following commands:</p>
+<div class="paragraph">
+<p><code>chmod +x cvo-cbs-service</code><br>
+<code>chmod +x cvo-cbs-client</code><br>
+<code>./cvo-cbs-service &amp;</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="preparing-to-back-up-volumes">Preparing to back up volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you run a backup operation, you need to specify a JSON file that includes information about the volume. You can use a JSON template to prepare a JSON file for each volume.</p>
+</div>
+<div class="sect2">
+<h3 id="preparing-ad-hoc-backups">Preparing ad hoc backups</h3>
+<div class="paragraph">
+<p>An ad hoc backup is an immediate, one-time backup. Prepare a separate JSON file for each volume that you want to backup.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Create a copy of <em>adhoc_backup.json</em> and edit it by providing details about the volume.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+       "ownerId": "e7855e3e-006d-49f0-bd1e-2c0df8fec505",
+       "ontapIP": "10.193.78.9",
+       "username": "admin",
+       "password": "netapp1!",
+       "vserverName": "vs_seeni",
+       "volumeName": "backup",
+       "fileSystemId": "cf765c5f-84e6-4080-84a7-599ab8a31968",
+       "sourceSnapshot": "snap10",
+       "tag": ""
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ownerId: A unique identifier for all of the backup and restore operations associated with this Cloud Manager system. Run the "uuidgen" UNIX utility to generate an ID and use it in all JSON files for backup and restore operations.</p>
+</li>
+<li>
+<p>ontapIP: The cluster management IP of the Cloud Volumes ONTAP system where the volume is located. Get this value from Cloud Manager by selecting the system from the Working Environments page.</p>
+</li>
+<li>
+<p>username and password: The credentials for the Cloud Volumes ONTAP system.</p>
+</li>
+<li>
+<p>vserverName: The name of the storage virtual machine (SVM) that contains data volumes. Get this value from Cloud Manager by opening the working environment and selecting <strong>Information</strong>.</p>
+</li>
+<li>
+<p>volumeName: The name of the volume name that you want to backup.</p>
+</li>
+<li>
+<p>fileSystemId: The file system UUID for the volume&#8217;s backup copy. This value must be unique for every volume because it&#8217;s used by the Cloud Backup Service to identify a volume. Generate an ID by running the "uuidgen" UNIX utility.</p>
+</li>
+<li>
+<p>sourceSnapshot (optional): Specify the name of a Snapshot copy that you want to backup. If you omit this parameter, the Cloud Backup Service backs up the volume based on its existing state.</p>
+</li>
+<li>
+<p>tag (optional): Specify a tag for the backup so you can search for it more easily.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="preparing-scheduled-backups">Preparing scheduled backups</h3>
+<div class="paragraph">
+<p>A scheduled backup triggers incremental backups at a defined interval. Prepare a separate JSON file for each volume that you want to backup.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Create a copy of <em>scheduled_backup.json</em> and edit it by providing details about the volume.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+      "ownerId": "e7855e3e-006d-49f0-bd1e-2c0df8fec505",
+      "ontapIP": "10.193.78.9",
+      "username": "admin",
+      "password": "netapp1!",
+      "vserverName": "vs_seeni",
+      "volumeName": "backup",
+      "fileSystemId": "e2334e3e-226d-39f0-bd1e-1c0df6fec215",
+      "snapmirrorPolicy": {
+      "enabled": true,
+      "daily-schedule": {
+      "snapmirrorLabel": "sm_daily",
+      "snapshotsToKeep": 24
+      },
+      "weekly-schedule": {
+      "snapmirrorLabel": "sm_weekly",
+      "snapshotsToKeep": 4
+      },
+      "monthly-schedule": {
+      "snapmirrorLabel": "sm_monthly",
+      "snapshotsToKeep": 40
+     }
+}
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ownerId: A unique identifier for all of the backup and restore operations associated with this Cloud Manager system. Run the "uuidgen" UNIX utility to generate an ID and use it in all JSON files for backup and restore operations.</p>
+</li>
+<li>
+<p>ontapIP: The cluster management IP of the Cloud Volumes ONTAP system where the volume is located. Get this value from Cloud Manager by selecting the system from the Working Environments page.</p>
+</li>
+<li>
+<p>username and password: The credentials for the Cloud Volumes ONTAP system.</p>
+</li>
+<li>
+<p>vserverName: The name of the storage virtual machine (SVM) that contains data volumes. Get this value from Cloud Manager by opening the working environment and selecting <strong>Information</strong>.</p>
+</li>
+<li>
+<p>volumeName: The name of the volume name that you want to backup.</p>
+</li>
+<li>
+<p>fileSystemId: The file system UUID for the volume&#8217;s backup copy. This value must be unique for every volume because it&#8217;s used by Cloud Backup Service to identify a volume. Generate an ID by running the "uuidgen" UNIX utility.</p>
+</li>
+<li>
+<p>snapmirrorPolicy: Defines the SnapMirror policy for the scheduled backup.</p>
+</li>
+<li>
+<p>enabled: Enables the policy.</p>
+</li>
+<li>
+<p>daily-schedule: Defines daily scheduling information for the policy.</p>
+</li>
+<li>
+<p>weekly-schedule: Defines weekly scheduling information for the policy.</p>
+</li>
+<li>
+<p>monthly-schedule: Defines monthly scheduling information for the policy.</p>
+</li>
+<li>
+<p>snapmirrorLabel: A SnapMirror label for the rule.</p>
+</li>
+<li>
+<p>snapshotsToKeep: The number of Snapshot copies to keep.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create a Snapshot policy on the Cloud Volumes ONTAP system and modify the volume to use the Snapshot policy.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+For scheduled backups to work, a corresponding Snapshot policy must be configured on the Cloud Volumes ONTAP system and attached to the volume. The label for the Snapshot policy must match the value of the <em>snapmirrorLabel</em> that you specified in the JSON file.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p><code>cluster1::&gt; volume snapshot policy create -vserver vs0 -policy mysnappolicy -schedule1 hourly-count1 5 -prefix1 every_hour -snapmirror-label1 hrLabel</code></p>
+</div>
+<div class="paragraph">
+<p><code>cluster1::&gt; volume modify -vserver vs0 -volume backup -snapshot-policy mysnappolicy</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="preparing-to-restore-volumes">Preparing to restore volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you restore a volume, the Cloud Backup Service restores the contents of the volume to a data protection volume that you must create beforehand. To prepare for a restore, create the new data protection volume and set up a JSON file that specifies details about the volume restore. You&#8217;ll specify the JSON file when you run the restore operation.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Create the data protection volume to which you&#8217;ll restore the contents of the volume.</p>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p><code>cluster1::&gt; vol create -volume restoreVol -aggregate aggr1 -size 100GB -state online -policy default -type DP</code></p>
+</div>
+</li>
+<li>
+<p>Create a copy of <em>restore.json</em> and edit it by providing details about the volume.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+       "ownerId": "e7855e3e-006d-49f0-bd1e-2c0df8fec505",
+       "ontapIP": "10.193.78.9",
+       "username": "admin",
+       "password": "netapp1!",
+       "vserverName": "vs_seeni",
+       "fileSystemId": "cf765c5f-84e6-4080-84a7-599ab8a31967",
+       "destinationVolumeName": "retoreauth",
+       "restoreSnapshot": ""
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ownerId: A unique identifier for all of the backup and restore operations associated with this Cloud Manager system.</p>
+</li>
+<li>
+<p>ontapIP: The cluster management IP of the Cloud Volumes ONTAP system where the volume is located. Get this value from Cloud Manager by selecting the system from the Working Environments page.</p>
+</li>
+<li>
+<p>username/password: The credentials for the Cloud Volumes ONTAP system.</p>
+</li>
+<li>
+<p>vserverName: The name of the storage virtual machine (SVM) that contains data volumes. The value should match what you entered in the JSON file for the backup operation.</p>
+</li>
+<li>
+<p>fileSystemId: The file system UUID for the volume’s backup copy. The value should match what you entered in the JSON file for the backup operation.</p>
+</li>
+<li>
+<p>destinationVolumeName: Specify the name of the destination volume that you created in step 1. The volume must be a data protection (DP) volume.</p>
+</li>
+<li>
+<p>restoreSnapshot: Specify the name of a Snapshot copy that you want to restore. If you don&#8217;t want to specify a specific Snapshot copy, enter an empty value as shown above.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="backing-up-and-restoring-volumes">Backing up and restoring volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once you&#8217;re ready, start backing up and restoring your volumes.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Run the following command from the Cloud Manager instance:</p>
+<div class="paragraph">
+<p><code>./cvo-cbs-client</code></p>
+</div>
+</li>
+<li>
+<p>Select an action from the prompt:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">1) Backup a volume</dt>
+<dd>
+<p>Run a one-time backup. When prompted, specify the absolute path for the JSON file that corresponds to the volume that you want to backup.</p>
+</dd>
+<dt class="hdlist1">2) Scheduled backup</dt>
+<dd>
+<p>Use a scheduled backup to periodically trigger incremental backups. When prompted, specify the absolute path for the JSON file that corresponds to the volume that you want to backup.</p>
+</dd>
+<dt class="hdlist1">3) Restore to a DP volume</dt>
+<dd>
+<p>Restore a volume that you previously backed up. When prompted, specify the absolute path for the JSON file that corresponds to the volume that you want to restore.</p>
+</dd>
+<dt class="hdlist1">4) Job Status</dt>
+<dd>
+<p>Display the job status for backup and restore operations. Backup and restore operations are async operations, so you&#8217;ll get a job ID when you run an operation. Use that ID as input when this option prompts for the jobId.</p>
+</dd>
+<dt class="hdlist1">5) List Volume Backups</dt>
+<dd>
+<p>List all backups corresponding to a volume. The fileSystemId that you specified in the backup JSON template must be provided as input to this option.</p>
+</dd>
+<dt class="hdlist1">6) Exit</dt>
+<dd>
+<p>Exit the prompt.</p>
+</dd>
+</dl>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Example 1</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Choose a operation to be performed:1
+Enter backup volume details json file path:/home/ubuntu/cvo-cbs-agent/adhoc_backup.json
+Processing Backup request...
+Adhoc backup initiated successfully.
+Get Backup status using JobID 45</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 2</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Choose a operation to be performed:5
+Enter filesystem id to list backups: cf761c4f-84e6-4080-84a7-599ab8b31965
+Processing List backups for:  cf761c4f-84e6-4080-84a7-599ab8b31965
+Total Backups are: 1
+--------------------Backup 0 details--------------------
+backup Id = db682289-b896-d248-ac29-a13e4e8e1bbb
+backup Name = adhoc_2019-04-06_150037
+backup type = adhoc
+completion time = 2019-04-06T15:02:23.000Z
+creation time = 2019-04-06T15:00:51.000Z
+size =  1.2582912e+09
+status = Backup Complete</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 3</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Choose a operation to be performed:3
+Enter restore volume details json file path: /home/ubuntu/cvo-cbs-agent/restore.json
+Processing volume restore request ...
+Restore initiated successfully.
+Track Backup status using JobID 47</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mounting-a-restored-volume">Mounting a restored volume</h3>
+<div class="paragraph">
+<p>After you restore the volume, you&#8217;ll need to mount it to view the files that it contains.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><a href="task_connecting_to_otc.html#connecting-to-the-cloud-volumes-ontap-cli">Connect to the Cloud Volumes ONTAP CLI</a>.</p>
+</li>
+<li>
+<p>Add a junction path:</p>
+<div class="paragraph">
+<p><code>volume mount -vserver &lt;vserver_name&gt; -volume &lt;volume_name&gt; -junction-path /&lt;junction-path-name&gt;</code></p>
+</div>
+</li>
+<li>
+<p>Verify that the volume is in the desired mount state:</p>
+<div class="paragraph">
+<p><code>volume show -vserver &lt;vserver_name&gt; -volume &lt;volume_name&gt; -junction</code></p>
+</div>
+</li>
+<li>
+<p>Mount the volume to the client.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="administering">Administering</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#updating-the-config-json-file">Updating the config.json file</a></p>
+</li>
+<li>
+<p><a href="#troubleshooting-unauthorized-access">Troubleshooting unauthorized access</a></p>
+</li>
+<li>
+<p><a href="#troubleshooting-the-fail-to-open-database-error">Troubleshooting the fail to open database error</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="updating-the-config-json-file">Updating the config.json file</h3>
+<div class="paragraph">
+<p>If you need to update the <em>config.json</em> file after you start the agent, you&#8217;ll need to kill the service and then restart it.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Stop the Cloud Backup Service agent:</p>
+<div class="paragraph">
+<p><code>ps -ef | grep -i cvo-cbs-service</code><br>
+<code>kill -9 &lt;service PID&gt;</code></p>
+</div>
+</li>
+<li>
+<p><a href="#configuring-the-cloud-backup-service-agent">Update the configuration file</a>.</p>
+</li>
+<li>
+<p><a href="#starting-the-cloud-backup-service-agent">Start the agent</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="troubleshooting-unauthorized-access">Troubleshooting unauthorized access</h3>
+<div class="paragraph">
+<p>If there is a problem with the access token, you might receive the following error message:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Post to CVO api server returned status code =401 and error Unauthorized</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If this happens, generate a new token and update the <em>user_token.json</em> file. For details, see <a href="#generating-a-user-token-for-authentication">Generating a user token for authentication</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="troubleshooting-the-fail-to-open-database-error">Troubleshooting the fail to open database error</h3>
+<div class="paragraph">
+<p>If you receive the following database error, kill the previously running cvo-cbs-service.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Error setting up pending jobs db: timeout</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Stop the Cloud Backup Service agent:</p>
+<div class="paragraph">
+<p><code>ps -ef | grep -i cvo-cbs-service</code><br>
+<code>kill -9 &lt;service PID&gt;</code></p>
+</div>
+</li>
+<li>
+<p><a href="#starting-the-cloud-backup-service-agent">Start the agent</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2848669" class="n-footer__copyright-link">Notice</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/occm/us-en/common/js/components.js"></script>
+    <script src="/occm/us-en/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/occm/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>

@@ -285,7 +285,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.6 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
   
 
   
@@ -344,7 +344,11 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
   
 
   
@@ -527,7 +531,7 @@
   
 
   
-    <li><a href="media/c2s.pdf">Getting started in the AWS C2S environment</a></li>
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Getting started in the AWS C2S environment</a></li>
   
 
 
@@ -611,30 +615,6 @@
     <li><a href="task_managing_storage.html">Managing existing storage</a></li>
   
 
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Provisioning NFS volumes from the Volume View</a>
-      <ul>
-        
-
-  
-    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
-  
-
-  
-    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
-  
-
-  
-    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
 
       </ul>
     </li>
@@ -643,7 +623,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing data across a hybrid cloud</a>
+      <a href="#">Replicating and protecting data</a>
       <ul>
         
 
@@ -657,6 +637,10 @@
 
   
     <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
   
 
 
@@ -851,7 +835,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-01-04 16:14:58 +0000">01/04/2019</time>
+<time datetime="2019-06-03 13:05:31 +0000">06/03/2019</time>
 
 
 <span>Contributors
@@ -872,7 +856,7 @@
 <p>Before you use Cloud Manager to create and manage Cloud Volumes ONTAP systems, your Cloud Manager administrator should have prepared networking and installed and set up Cloud Manager.</p>
 </div>
 <div class="paragraph">
-<p>Your administrator should have followed instructions to get up and running <a href="task_getting_started_aws.html">in AWS</a> or <a href="task_getting_started_azure.html">in Azure</a>, and optionally <a href="task_adding_cloud_accounts.html">set up Cloud Manager</a>.</p>
+<p>Your administrator should have followed instructions to get up and running in AWS or in Azure, and optionally set up Cloud Manager.</p>
 </div>
 <div class="paragraph">
 <p>The following conditions should exist before you start deploying Cloud Volumes ONTAP:</p>
@@ -880,10 +864,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>AWS and Azure networking requirements were met for Cloud Manager and Cloud Volumes ONTAP.</p>
+<p>Networking requirements were met for Cloud Manager and Cloud Volumes ONTAP.</p>
 </li>
 <li>
-<p>Cloud Manager has permissions to perform operations in AWS and Azure on your behalf.</p>
+<p>Cloud Manager has permissions to perform operations in your chosen cloud provider.</p>
 </li>
 <li>
 <p>Each Cloud Volumes ONTAP product that users will deploy was subscribed to from the AWS Marketplace.</p>
@@ -891,11 +875,19 @@
 <li>
 <p>Cloud Manager was installed.</p>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Related links</div>
+<ul>
 <li>
-<p>(Optional) Additional tenants were defined.</p>
+<p><a href="task_getting_started_aws.html">Getting started in AWS</a></p>
 </li>
 <li>
-<p>(Optional) Additional user accounts were created, which can include Tenant Admins and Working Environment Admins.</p>
+<p><a href="task_getting_started_azure.html">Getting started in Azure</a></p>
+</li>
+<li>
+<p><a href="task_setting_up_cloud_manager.html">Setting up Cloud Manager</a></p>
 </li>
 </ul>
 </div>

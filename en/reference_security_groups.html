@@ -285,7 +285,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.6 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
   
 
   
@@ -344,7 +344,11 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Accounts and permissions</a></li>
+    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
   
 
   
@@ -527,7 +531,7 @@
   
 
   
-    <li><a href="media/c2s.pdf">Getting started in the AWS C2S environment</a></li>
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Getting started in the AWS C2S environment</a></li>
   
 
 
@@ -611,30 +615,6 @@
     <li><a href="task_managing_storage.html">Managing existing storage</a></li>
   
 
-  
-    <!-- Check Container -->
-    <li class="subfolders">
-      <a href="#">Provisioning NFS volumes from the Volume View</a>
-      <ul>
-        
-
-  
-    <li><a href="task_changing_volume_view.html">Changing to the Volume View</a></li>
-  
-
-  
-    <li><a href="task_provisioning_volume_view.html">Creating and mounting NFS volumes</a></li>
-  
-
-  
-    <li><a href="task_managing_volume_view.html">Managing NFS volumes</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
 
       </ul>
     </li>
@@ -643,7 +623,7 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing data across a hybrid cloud</a>
+      <a href="#">Replicating and protecting data</a>
       <ul>
         
 
@@ -657,6 +637,10 @@
 
   
     <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+  
+
+  
+    <li><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
   
 
 
@@ -851,7 +835,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-01-04 16:14:58 +0000">01/04/2019</time>
+<time datetime="2019-06-05 12:18:11 +0000">06/05/2019</time>
 
 
 <span>Contributors
@@ -1628,15 +1612,13 @@ The source is the interface (IP address) on the Cloud Volumes ONTAP system.
 </div>
 <table class="tableblock frame-all grid-all" style="width: 70%;">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 20%;">
-<col style="width: 50%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Service</th>
 <th class="tableblock halign-left valign-top">Protocol</th>
 <th class="tableblock halign-left valign-top">Port</th>
 <th class="tableblock halign-left valign-top">Destination</th>
@@ -1645,14 +1627,18 @@ The source is the interface (IP address) on the Cloud Volumes ONTAP system.
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager IP address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Download upgrades for the mediator</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS API services</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Assist with storage failover</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS API services</p></td>
@@ -1667,7 +1653,7 @@ The source is the interface (IP address) on the Cloud Volumes ONTAP system.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Rather than open these two ports, you can use a private endpoint instead.
+Rather than open ports 443 and 53, you can create an interface VPC endpoint from the target subnet to the AWS EC2 service.
 </td>
 </tr>
 </table>
