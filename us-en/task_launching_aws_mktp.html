@@ -447,6 +447,10 @@
         
 
   
+    <li><a href="task_setting_up_cloud_central_accounts.html">Setting up the Cloud Central account</a></li>
+  
+
+  
     <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
   
 
@@ -456,10 +460,6 @@
 
   
     <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
-  
-
-  
-    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
   
 
   
@@ -704,15 +704,11 @@
   
 
   
-    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+    <li><a href="task_managing_cloud_central_accounts.html">Managing the Cloud Central account</a></li>
   
 
   
     <li><a href="task_removing.html">Removing working environments</a></li>
-  
-
-  
-    <li><a href="task_editing_users.html">Editing user accounts</a></li>
   
 
   
@@ -835,7 +831,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-03 13:06:39 +0000">06/03/2019</time>
+<time datetime="2019-06-10 19:04:27 +0000">06/10/2019</time>
 
 
 <span>Contributors
@@ -920,6 +916,34 @@ If you launch Cloud Manager from the AWS Marketplace, Cloud Manager is still int
 </li>
 <li>
 <p>Click <strong>Launch</strong>.</p>
+<div class="paragraph">
+<p>AWS launches the software with the specified settings. The Cloud Manager instance and software should be running in approximately five minutes.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Open a web browser from a host that has a connection to the Cloud Manager virtual machine and enter the following URL:</p>
+<div class="paragraph">
+<p>http://<em>ipaddress</em>:80</p>
+</div>
+</li>
+<li>
+<p>After you log in, set up Cloud Manager:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Specify the Cloud Central account to associate with this Cloud Manager system.</p>
+<div class="paragraph">
+<p><a href="concept_cloud_central_accounts.html">Learn about Cloud Central accounts</a>.</p>
+</div>
+</li>
+<li>
+<p>Enter a name for the system.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_set_up_cloud_manager.gif" alt="A screenshot that shows the set up Cloud Manager screen that enables you to select a Cloud Central account and name the Cloud Manager system."></span></p>
+</div>
 </li>
 </ol>
 </div>
@@ -928,11 +952,7 @@ If you launch Cloud Manager from the AWS Marketplace, Cloud Manager is still int
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>AWS launches the software with the specified settings. The Cloud Manager instance and software should be running in approximately five minutes.</p>
-</div>
-<div class="paragraph">
-<div class="title">After you finish</div>
-<p>Log in to Cloud Manager by entering the public IP address or private IP address in a web browser and then complete the Setup wizard.</p>
+<p>Cloud Manager is now installed and set up.</p>
 </div>
 
         </article>

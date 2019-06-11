@@ -20,7 +20,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="Each Cloud Manager user account is assigned a role that defines permissions.">
-  <meta name="keywords" content=" user, role, task, permission, permissions, tasks, roles, admin, cloud manager admin, admin, tenant admin, working environment admin">
+  <meta name="keywords" content=" user, role, task, permission, permissions, tasks, roles, admin, Account Admin, Workspace Admin">
   
 
   <!-- Icons -->
@@ -447,6 +447,10 @@
         
 
   
+    <li><a href="task_setting_up_cloud_central_accounts.html">Setting up the Cloud Central account</a></li>
+  
+
+  
     <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
   
 
@@ -456,10 +460,6 @@
 
   
     <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
-  
-
-  
-    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
   
 
   
@@ -704,15 +704,11 @@
   
 
   
-    <li><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+    <li><a href="task_managing_cloud_central_accounts.html">Managing the Cloud Central account</a></li>
   
 
   
     <li><a href="task_removing.html">Removing working environments</a></li>
-  
-
-  
-    <li><a href="task_editing_users.html">Editing user accounts</a></li>
   
 
   
@@ -835,7 +831,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-06 16:59:41 +0000">06/06/2019</time>
+<time datetime="2019-06-11 16:03:38 +0000">06/11/2019</time>
 
 
 <span>Contributors
@@ -857,120 +853,86 @@
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 34%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Task</th>
-<th class="tableblock halign-left valign-top">Cloud Manager Admin</th>
-<th class="tableblock halign-left valign-top">Tenant Admin</th>
-<th class="tableblock halign-left valign-top">Working Environment Admin</th>
+<th class="tableblock halign-left valign-top">Account Admin</th>
+<th class="tableblock halign-left valign-top">Workspace Admin</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manage tenants</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Manage working environments</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for the assigned tenant</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for assigned working environments</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integrate a working environment with Cloud Sync</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for associated workspaces</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View data replication status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for the assigned tenant</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for assigned working environments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for associated workspaces</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View the timeline</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for associated workspaces</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create and delete user accounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete working environments</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for the assigned tenant</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modify user accounts</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for the assigned tenant</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for their own account</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manage account settings</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Setup Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connect Kubernetes clusters to Cloud Volumes ONTAP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modify settings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Receive the Cloud Volumes ONTAP report</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Cloud Central accounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage cloud provider accounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modify Cloud Manager settings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View and manage the Support Dashboard</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Back up and restore Cloud Manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove working environments from Cloud Manager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Remove a working environment</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update Cloud Manager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Install an HTTPS certificate</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set up Active Directory</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enable the Cloud Storage Automation Report</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 </tbody>

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Backing up and restoring Cloud Manager | NetApp Cloud Docs</title>
+  <title>Managing the Cloud Central account | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Backing up and restoring Cloud Manager | NetApp Cloud Docs" />
+  <meta property="og:title" content="Managing the Cloud Central account | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/task_backing_up_restoring.html" />
-	<meta property="og:description" content="Cloud Manager enables you to back up and restore its database to protect your configuration and troubleshoot issues." />
-  <meta property="og:image" content="https://docs.netapp.com/occm/us-en/images/logo-tophat-social.png" />
+	<meta property="og:url" content="https://docs.netapp.com/occm/task_managing_cloud_central_accounts.html" />
+	<meta property="og:description" content="After you perform initial setup, you might need to later manage users, workspaces, and service connectors." />
+  <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -19,16 +19,16 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="Cloud Manager enables you to back up and restore its database to protect your configuration and troubleshoot issues.">
-  <meta name="keywords" content=" backing up, back up, backup, restore, restoring">
+  <meta name="description" content="After you perform initial setup, you might need to later manage users, workspaces, and service connectors.">
+  <meta name="keywords" content=" account settings, workspaces, service connector, account admin, workspace admin, users, associate, disassociate">
   
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed -->
   
-  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/us-en/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/feed.xml">
   
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -37,23 +37,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/occm/us-en/common/css/esb.min.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/doc.css">
-  <link rel="stylesheet" href="/occm/us-en/common/css/doc-components.css">
+  <link rel="stylesheet" href="/occm/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/occm/us-en/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/occm/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/occm/us-en/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
 
   
 
@@ -62,23 +62,23 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/occm/us-en/js/na-search.js'></script>
+    <script src='/occm/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/occm/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/occm/us-en/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/occm/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/js/na-pagenav.js'></script>
   
 
-  <link rel='stylesheet' href='/occm/us-en/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/us-en/css/prism-netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/prism-netapp.css' type='text/css'>
 
-  <script src='/occm/us-en/js/clouddocs.js'></script>
-  <script src='/occm/us-en/js/s_code_impl.js'></script>
-  <script src='/occm/us-en/js/jquery.navgoco.min.js'></script>
+  <script src='/occm/js/clouddocs.js'></script>
+  <script src='/occm/js/s_code_impl.js'></script>
+  <script src='/occm/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/occm/us-en/js/toc.js'></script>
-  <script src='/occm/us-en/js/customscripts.js'></script>
+  <script src='/occm/js/toc.js'></script>
+  <script src='/occm/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -197,7 +197,7 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
@@ -205,11 +205,11 @@
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -229,7 +229,7 @@
               <span class="ie-i18n-lang"></span>
               <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
                 <title>globe</title>
-                <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                <use xlink:href="/occm/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
               </svg>
             </a>
           </li>
@@ -447,6 +447,10 @@
         
 
   
+    <li><a href="task_setting_up_cloud_central_accounts.html">Setting up the Cloud Central account</a></li>
+  
+
+  
     <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
   
 
@@ -456,10 +460,6 @@
 
   
     <li><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></li>
-  
-
-  
-    <li><a href="task_setting_up_users_tenants.html">Setting up users and tenants</a></li>
   
 
   
@@ -704,15 +704,11 @@
   
 
   
-    <li class="active"><a href="task_backing_up_restoring.html">Backing up and restoring</a></li>
+    <li class="active"><a href="task_managing_cloud_central_accounts.html">Managing the Cloud Central account</a></li>
   
 
   
     <li><a href="task_removing.html">Removing working environments</a></li>
-  
-
-  
-    <li><a href="task_editing_users.html">Editing user accounts</a></li>
   
 
   
@@ -823,11 +819,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Backing up and restoring Cloud Manager
+  <h1 class="n-doc__component-detail-heading">Managing the Cloud Central account
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_backing_up_restoring.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Backing up and restoring Cloud Manager](https://docs.netapp.com/us-en/occm/task_backing_up_restoring.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_managing_cloud_central_accounts.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Managing the Cloud Central account](https://docs.netapp.com/us-en/occm/task_managing_cloud_central_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -835,7 +831,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-01-09 16:57:10 +0000">01/09/2019</time>
+<time datetime="2019-06-08 09:59:51 +0000">06/08/2019</time>
 
 
 <span>Contributors
@@ -855,61 +851,188 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Manager enables you to back up and restore its database to protect your configuration and troubleshoot issues.</p>
+<p><a href="task_setting_up_cloud_central_accounts.html">After you perform initial setup</a>, you might need to later manage users, workspaces, and service connectors.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_cloud_central_accounts.html">Learn more about how Cloud Central accounts work</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="backing-up-cloud-manager">Backing up Cloud Manager</h2>
+<h2 id="associating-users-with-the-cloud-central-account">Associating users with the Cloud Central account</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>It is a good practice to back up the Cloud Manager database on a periodic basis. If you experience problems, you can restore Cloud Manager from a previous backup.</p>
+<p>Associate Cloud Central users with the Cloud Central account so those users can create and manage working environments in Cloud Manager.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>In the upper right of the Cloud Manager console, click the task drop-down list, and then select <strong>Tools</strong>.</p>
+<p>If the user has not already done so, ask the user to go to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a> and create an account.</p>
 </li>
 <li>
-<p>Click <strong>Backup</strong>.</p>
+<p>In Cloud Manager, click <strong>Account Settings</strong>.</p>
+</li>
+<li>
+<p>In the Users pane, click <strong>Associate User</strong>.</p>
+</li>
+<li>
+<p>Enter the user&#8217;s email address and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Select a role for the user:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Account Admin</strong>: Can perform any action in Cloud Manager.</p>
+</li>
+<li>
+<p><strong>Workspace Admin</strong>: Can create and manage resources in assigned workspaces.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If you selected Workspace Admin, select one or more workspaces to associate with that user.</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup.gif" alt="Screen shot: Shows the Backup button in the Tools page."></span></p>
+<p><span class="image"><img src="./media/screenshot_associate_user.gif" alt="A screenshot that shows how to associate a user by selecting a role and the associated workspaces."></span></p>
 </div>
 </li>
 <li>
-<p>When prompted, save the backup file to a secure location so that you can retrieve it when needed.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="restoring-cloud-manager-from-a-backup">Restoring Cloud Manager from a backup</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Restoring Cloud Manager from a backup replaces existing data with the data from the backup.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>In the upper-right hand corner of the Cloud Manager console, click the task drop-down list, and then select <strong>Tools</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Restore</strong>.</p>
-</li>
-<li>
-<p>Click <strong>OK</strong> to confirm.</p>
-</li>
-<li>
-<p>Select the backup.</p>
+<p>Click <strong>Associate User</strong>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Manager restores the database from the backup file.</p>
+<p>The user should receive an email from NetApp Cloud Central titled "Account Association." The email includes the information needed to access Cloud Manager.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="disassociating-users-from-a-cloud-central-account">Disassociating users from a Cloud Central account</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Disassociating a user makes it so they can no longer access the resources in a Cloud Central account.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Click <strong>Account Settings</strong>.</p>
+</li>
+<li>
+<p>Click the action menu in the row that corresponds to the user.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_associate_user_workspace.gif" alt="A screenshot that shows the action menu that is available when hovering over a user&#8217;s name in the Users table."></span></p>
+</div>
+</li>
+<li>
+<p>Click <strong>Disassociate User</strong> and click <strong>Disassociate</strong> to confirm.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>The user can no longer access the resources in this Cloud Central account.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="managing-a-workspace-admins-workspaces">Managing a Workspace Admin&#8217;s workspaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can associate and disassociate Workspace Admins with workspaces at any time. Associating the user enables them to create and view the working environments in that workspace.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Click <strong>Account Settings</strong>.</p>
+</li>
+<li>
+<p>Click the action menu in the row that corresponds to the user.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_associate_user_workspace.gif" alt="A screenshot that shows the action menu that is available when hovering over a user&#8217;s name in the Users table."></span></p>
+</div>
+</li>
+<li>
+<p>Click <strong>Manage Workspaces</strong>.</p>
+</li>
+<li>
+<p>Select the workspaces to associate with the user and click <strong>Apply</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>The user can now access those workspaces from Cloud Manager, as long as the service connector was also associated with the workspaces.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="managing-workspaces">Managing workspaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Manage your workspaces by creating, renaming, and deleting them. Note that you can&#8217;t delete a workspace if it contains any resources. It must be empty.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Click <strong>Account Settings</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Workspaces</strong>.</p>
+</li>
+<li>
+<p>Choose one of the following options:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Click <strong>Add New Workspace</strong> to create a new workspace.</p>
+</li>
+<li>
+<p>Click <strong>Rename</strong> to rename the workspace.</p>
+</li>
+<li>
+<p>Click <strong>Delete</strong> to delete the workspace.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="managing-a-service-connectors-workspaces">Managing a service connector&#8217;s workspaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need to associate the service connector with workspaces so Workspace Admins can access those workspaces from Cloud Manager.</p>
+</div>
+<div class="paragraph">
+<p>If you only have Account Admins, then associating the service connector with workspaces isn&#8217;t required. Account Admins have the ability to access all workspaces in Cloud Manager by default.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_cloud_central_accounts.html#users-workspaces-and-service-connectors">Learn more about users, workspaces, and service connectors</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Click <strong>Account Settings</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Service Connector</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Manage Workspaces</strong> for the service connector that you want to associate.</p>
+</li>
+<li>
+<p>Select the workspaces to associate with the service connector and click <strong>Apply</strong>.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -955,7 +1078,7 @@
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -964,7 +1087,7 @@
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -974,7 +1097,7 @@
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -983,7 +1106,7 @@
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -1004,15 +1127,15 @@
 
     </div>
 
-    <script src="/occm/us-en/common/js/components.js"></script>
-    <script src="/occm/us-en/common/js/doc-components.js"></script>
+    <script src="/occm/common/js/components.js"></script>
+    <script src="/occm/common/js/doc-components.js"></script>
 
     <!-- Elasticsearch JS -->
-    <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
+    <script type="text/javascript" src='/occm/js/bundle.js'></script>
 
     <!-- Syntax Highlighting -->
-    <script type="text/javascript" src='/occm/us-en/js/prism.js'></script>
-    <script type="text/javascript" src='/occm/us-en/js/prism-curl.js'></script>
+    <script type="text/javascript" src='/occm/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/js/prism-curl.js'></script>
 
   </body>
 
