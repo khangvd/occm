@@ -831,7 +831,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-05 12:17:29 +0000">06/05/2019</time>
+<time datetime="2019-06-12 16:31:52 +0000">06/12/2019</time>
 
 
 <span>Contributors
@@ -1109,17 +1109,20 @@ https://github.com/NetApp/trident/releases/download/</p></td>
 <p>You must enter the host&#8217;s IP address from a web browser to load the Cloud Manager console.</p>
 </div>
 <div class="paragraph">
-<p>If you deploy Cloud Manager in AWS, the easiest way to provide access is by allocating a public IP address. However, if you want to use a private IP address instead, users can access the console through either of the following:</p>
+<p>Depending on your connectivity to your cloud provider, you can use the private IP or a public IP assigned to the host:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A jump host in the VPC that has a connection to Cloud Manager</p>
+<p>A private IP works if you have a VPN and direct connect access to your virtual network</p>
 </li>
 <li>
-<p>A host in your network that has a VPN connection to the private IP address</p>
+<p>A public IP works in any networking scenario</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>In any case, you should secure network access by ensuring that security group rules allow access from only authorized IPs or subnets.</p>
 </div></div></td>
 </tr>
 <tr>
