@@ -448,6 +448,10 @@
   
 
   
+    <li><a href="task_getting_started_gcp.html">Getting started in GCP</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Setting up Cloud Manager</a>
@@ -768,7 +772,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -839,7 +843,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-06 16:59:26 +0000">06/06/2019</time>
+<time datetime="2019-06-07 14:29:21 +0000">06/07/2019</time>
 
 
 <span>Contributors
@@ -940,14 +944,32 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Data tiering is supported with Cloud Volumes ONTAP Standard, Premium, and BYOL, starting with version 9.2 in AWS and version 9.4 in Microsoft Azure.</p>
+<p>Data tiering is supported with Cloud Volumes ONTAP Standard, Premium, and BYOL, starting with the following versions:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Data tiering is not supported with HA pairs in Microsoft Azure.</p>
+<p>Version 9.2 in AWS</p>
 </li>
 <li>
-<p>Data tiering is not supported in Azure with the DS3_v2 virtual machine type.</p>
+<p>Version 9.4 in Azure with single node systems</p>
+</li>
+<li>
+<p>Version 9.6 in Azure with HA pairs</p>
+</li>
+<li>
+<p>Version 9.6 in GCP</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ul>
 </div>

@@ -42,27 +42,10 @@ if (document.location.hostname.search("netapp.com") !== -1) {
 <li><a href="#_accessing_the_api_reference_and_running_operations_using_swagger">Accessing the API reference and running operations using Swagger</a></li>
 <li><a href="#_api_examples">API examples</a>
 <ul class="sectlevel2">
-<li><a href="#_creating_an_aws_cloud_provider_account">Creating an AWS Cloud Provider Account</a></li>
-<li><a href="#_creating_an_azure_cloud_provider_account">Creating an Azure Cloud Provider Account</a></li>
-<li><a href="#_obtaining_your_cloud_provider_account_id">Obtaining your Cloud Provider Account ID</a></li>
-<li><a href="#_preparing_to_launch_cloud_volumes_ontap_in_aws">Preparing to launch Cloud Volumes ONTAP in AWS</a></li>
-<li><a href="#_launching_a_single_cloud_volumes_ontap_instance_in_aws">Launching a single Cloud Volumes ONTAP instance in AWS</a></li>
-<li><a href="#_deploying_a_cloud_volumes_ontap_system_in_azure">Deploying a Cloud Volumes ONTAP system in Azure</a></li>
-<li><a href="#_creating_an_aggregate_for_a_single_cloud_volumes_ontap_system_in_aws">Creating an aggregate for a single Cloud Volumes ONTAP system in AWS</a></li>
-<li><a href="#_creating_an_aggregate_for_a_cloud_volumes_ontap_system_in_azure">Creating an aggregate for a Cloud Volumes ONTAP system in Azure</a></li>
-<li><a href="#_creating_a_volume_on_a_single_cloud_volumes_ontap_system_in_aws">Creating a volume on a single Cloud Volumes ONTAP system in AWS</a></li>
-<li><a href="#_creating_a_volume_on_an_aggregate_that_uses_provisioned_iops_ssds">Creating a volume on an aggregate that uses Provisioned IOPS SSDs</a></li>
-<li><a href="#_stopping_a_single_cloud_volumes_ontap_instance_in_aws">Stopping a single Cloud Volumes ONTAP instance in AWS</a></li>
-<li><a href="#_starting_a_single_cloud_volumes_ontap_instance_in_aws">Starting a single Cloud Volumes ONTAP instance in AWS</a></li>
-<li><a href="#_deleting_a_single_cloud_volumes_ontap_working_environment">Deleting a single Cloud Volumes ONTAP working environment</a></li>
-<li><a href="#_launching_a_cloud_volumes_ontap_ha_configuration_in_multiple_availability_zones">Launching a Cloud Volumes ONTAP HA configuration in multiple Availability Zones</a></li>
-<li><a href="#_specifying_a_proxy_for_the_ha_mediator">Specifying a proxy for the HA mediator</a></li>
-<li><a href="#_launching_an_ha_configuration_in_a_single_availability_zone">Launching an HA configuration in a single Availability Zone</a></li>
-<li><a href="#_creating_an_aggregate_on_a_node_in_an_ha_configuration">Creating an aggregate on a node in an HA configuration</a></li>
-<li><a href="#_changing_the_underlying_aws_disk_type_to_use_storage_tiering">Changing the underlying AWS disk type to use storage tiering</a></li>
-<li><a href="#_updating_route_tables_for_an_ha_configuration">Updating route tables for an HA configuration</a></li>
-<li><a href="#_stopping_an_ha_configuration">Stopping an HA configuration</a></li>
-<li><a href="#_starting_an_ha_configuration">Starting an HA configuration</a></li>
+<li><a href="#_getting_started">Getting started</a></li>
+<li><a href="#_creating_and_managing_aws_systems">Creating and managing AWS systems</a></li>
+<li><a href="#_creating_and_managing_azure_systems">Creating and managing Azure systems</a></li>
+<li><a href="#_managing_snapshot_copies">Managing Snapshot copies</a></li>
 </ul>
 </li>
 <li><a href="#_resources">Resources</a>
@@ -609,7 +592,7 @@ The server automatically returns content in JSON format if Accept is not specifi
 <div class="sect2">
 <h3 id="_public_ids">Public IDs</h3>
 <div class="paragraph">
-<p>All Cloud Manager resources (for example, users, tenants, and working environments) are assigned a public ID. Whenever a resource is created or returned, the public ID is displayed in the response. You must specify a resource&#8217;s public ID when performing operations on the resource. For example, you must specify the public ID for a working environment when you create a volume.</p>
+<p>All Cloud Manager resources (for example, users and working environments) are assigned a public ID. Whenever a resource is created or returned, the public ID is displayed in the response. You must specify a resource&#8217;s public ID when performing operations on the resource. For example, you must specify the public ID for a working environment when you create a volume.</p>
 </div>
 </div>
 <div class="sect2">
@@ -779,9 +762,11 @@ The examples use curl as the HTTP client. Some examples show API calls for singl
 </table>
 </div>
 <div class="sect2">
-<h3 id="_creating_an_aws_cloud_provider_account">Creating an AWS Cloud Provider Account</h3>
+<h3 id="_getting_started">Getting started</h3>
+<div class="sect3">
+<h4 id="_adding_an_aws_account_to_cloud_manager">Adding an AWS account to Cloud Manager</h4>
 <div class="paragraph">
-<p>You need to add one or more Cloud Provider Accounts to Cloud Manager so you can specify the AWS account in which you want to deploy Cloud Volumes ONTAP.</p>
+<p>You need to add one or more cloud provider accounts to Cloud Manager so you can specify the AWS account in which you want to deploy Cloud Volumes ONTAP.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -789,10 +774,10 @@ The examples use curl as the HTTP client. Some examples show API calls for singl
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_creating_an_azure_cloud_provider_account">Creating an Azure Cloud Provider Account</h3>
+<div class="sect3">
+<h4 id="_adding_an_azure_account_to_cloud_manager">Adding an Azure account to Cloud Manager</h4>
 <div class="paragraph">
-<p>You need to add one or more Cloud Provider Accounts to Cloud Manager so you can specify the Azure account in which you want to deploy Cloud Volumes ONTAP.</p>
+<p>You need to add one or more cloud provider accounts to Cloud Manager so you can specify the Azure account in which you want to deploy Cloud Volumes ONTAP.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -800,10 +785,10 @@ The examples use curl as the HTTP client. Some examples show API calls for singl
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_obtaining_your_cloud_provider_account_id">Obtaining your Cloud Provider Account ID</h3>
+<div class="sect3">
+<h4 id="_obtaining_your_cloud_provider_account_id">Obtaining your cloud provider account ID</h4>
 <div class="paragraph">
-<p>When you create a working environment, you must provide the ID of a Cloud Provider Account.</p>
+<p>When you create a working environment, you must provide the ID of a cloud provider account.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -814,8 +799,22 @@ awsAccountId=`cat temp.txt`</pre>
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_adding_a_netapp_support_site_account_to_cloud_manager">Adding a NetApp Support Site account to Cloud Manager</h4>
+<div class="paragraph">
+<p>Adding your NetApp Support Site account to Cloud Manager is required to deploy a BYOL system. It’s also required to register pay-as-you-go systems and to upgrade ONTAP software.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/accounts/nss  -X POST  --header 'Content-Type: application/json' --header "Authorization: $token" --data "{\"accountName\": \"accountNameTest\",\"providerKeys\": { \"nssUserName\": \"1\", \"nssPassword\": \"1\"},\"vsaList\": [\"$azureId\"]}"</pre>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="_preparing_to_launch_cloud_volumes_ontap_in_aws">Preparing to launch Cloud Volumes ONTAP in AWS</h3>
+<h3 id="_creating_and_managing_aws_systems">Creating and managing AWS systems</h3>
+<div class="sect3">
+<h4 id="_preparing_to_launch_cloud_volumes_ontap_in_aws">Preparing to launch Cloud Volumes ONTAP in AWS</h4>
 <div class="paragraph">
 <p>When you launch Cloud Volumes ONTAP, you must specify valid values for license type, AWS region, Cloud Volumes ONTAP version, and instance type. You can obtain valid values for your version of Cloud Manager by using the following API call:</p>
 </div>
@@ -853,8 +852,8 @@ GET --header "Content-Type:application/json" --header "Authorization:$token"</pr
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_launching_a_single_cloud_volumes_ontap_instance_in_aws">Launching a single Cloud Volumes ONTAP instance in AWS</h3>
+<div class="sect3">
+<h4 id="_launching_a_single_cloud_volumes_ontap_instance_in_aws">Launching a single Cloud Volumes ONTAP instance in AWS</h4>
 <div class="paragraph">
 <p>The following operation launches Cloud Volumes ONTAP in AWS:</p>
 </div>
@@ -935,28 +934,8 @@ weid=`cat vsaId.txt`</pre>
 <p>You should make note of the working environment ID because you must specify it when performing subsequent operations on the working environment.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_deploying_a_cloud_volumes_ontap_system_in_azure">Deploying a Cloud Volumes ONTAP system in Azure</h3>
-<div class="paragraph">
-<p>The following operation deploys a Cloud Volumes ONTAP system in Azure:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl http://localhost/occm/api/azure/vsa/working-environments -X POST --header "Content-Type:application/json" --header "Authorization:$token" --data "{\"name\": \"vsaAzure\",\"tenantId\": \"$tenantId\",\"region\": \"westus\",\"vsaMetadata\": {  \"ontapVersion\": \"ONTAP-9.4X8.T1.azure\",  \"licenseType\": \"azure-cot-standard-paygo\",  \"instanceType\": \"Standard_DS4_v2\"},\"writingSpeedState\": \"NORMAL\",\"subnetId\": \"$azureSubnetId\",\"svmPassword\": \"$svmPassword\",\"vnetId\": \"$azureVnetId\",\"cloudProviderAccount\": \"$azureAccountId\",\"subscriptionId\": \"$azureSubscriptionId\",\"cidr\": \"$azureCidr\",\"dataEncryptionType\": \"NONE\",\"ontapEncryptionParameters\": null,\"securityGroupId\": null,\"skipSnapshots\": false,\"diskSize\": {  \"size\": 1,  \"unit\": \"TB\"},\"storageType\": \"Premium_LRS\",\"azureTags\": []}" | jq .</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following API call monitors creation of the system:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl http://localhost/occm/api/azure/vsa/working-environments -X GET --header "Content-Type:application/json" --header "Authorization:$token" | jq -r .[0].publicId &gt; azureId.txt
-azureId=`cat azureId.txt`</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_creating_an_aggregate_for_a_single_cloud_volumes_ontap_system_in_aws">Creating an aggregate for a single Cloud Volumes ONTAP system in AWS</h3>
+<div class="sect3">
+<h4 id="_creating_an_aggregate_for_a_single_node_cloud_volumes_ontap_system_in_aws">Creating an aggregate for a single node Cloud Volumes ONTAP system in AWS</h4>
 <div class="paragraph">
 <p>Use the following API call to create a new aggregate on a Cloud Volumes ONTAP system:</p>
 </div>
@@ -974,19 +953,8 @@ azureId=`cat azureId.txt`</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_creating_an_aggregate_for_a_cloud_volumes_ontap_system_in_azure">Creating an aggregate for a Cloud Volumes ONTAP system in Azure</h3>
-<div class="paragraph">
-<p>The following API call creates an aggregate on a Cloud Volumes ONTAP system in Azure using the public ID returned when creating the working environment:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl http://localhost/occm/api/azure/vsa/aggregates -X POST --header "Content-Type:application/json" header "Authorization:$token" --data "{\"name\": \"aggr2\",\"workingEnvironmentId\": \"%azureId%\",\"numberOfDisks\": \"2\",\"diskSize\": {\"size\": \"1\",\"unit\": \"TB\"},\"providerVolumeType\": \"Standard_LRS\"}"</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_creating_a_volume_on_a_single_cloud_volumes_ontap_system_in_aws">Creating a volume on a single Cloud Volumes ONTAP system in AWS</h3>
+<div class="sect3">
+<h4 id="_creating_a_volume_on_a_single_cloud_volumes_ontap_system_in_aws">Creating a volume on a single Cloud Volumes ONTAP system in AWS</h4>
 <div class="paragraph">
 <p>The first API call in the following example gets the Storage Virtual Machine (SVM) name to specify when creating the volume. The second API call gets the required number of disks and the aggregate name in which to create the volume. The third API call creates a new volume on a Cloud Volumes ONTAP system using the public ID of the working environment, which was returned after Cloud Manager created the working environment.</p>
 </div>
@@ -1015,8 +983,8 @@ curl http://localhost/occm/api/vsa/volumes -X POST --header "Content-Type:applic
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_creating_a_volume_on_an_aggregate_that_uses_provisioned_iops_ssds">Creating a volume on an aggregate that uses Provisioned IOPS SSDs</h3>
+<div class="sect3">
+<h4 id="_creating_a_volume_on_an_aggregate_that_uses_provisioned_iops_ssds">Creating a volume on an aggregate that uses Provisioned IOPS SSDs</h4>
 <div class="paragraph">
 <p>In this example, the first API call obtains the required number of disks and the aggregate name for the volume. The second call creates the volume. Note that the first API call might not return the aggregateName parameter. If that happens, Cloud Manager chooses the best matching aggregate (if one exists) or it creates a new aggregate that meets the requirements.</p>
 </div>
@@ -1031,8 +999,8 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_stopping_a_single_cloud_volumes_ontap_instance_in_aws">Stopping a single Cloud Volumes ONTAP instance in AWS</h3>
+<div class="sect3">
+<h4 id="_stopping_a_single_cloud_volumes_ontap_instance_in_aws">Stopping a single Cloud Volumes ONTAP instance in AWS</h4>
 <div class="paragraph">
 <p>The following operation stops a Cloud Volumes ONTAP instance in AWS:</p>
 </div>
@@ -1042,8 +1010,8 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_starting_a_single_cloud_volumes_ontap_instance_in_aws">Starting a single Cloud Volumes ONTAP instance in AWS</h3>
+<div class="sect3">
+<h4 id="_starting_a_single_cloud_volumes_ontap_instance_in_aws">Starting a single Cloud Volumes ONTAP instance in AWS</h4>
 <div class="paragraph">
 <p>The following operation starts a Cloud Volumes ONTAP instance in AWS:</p>
 </div>
@@ -1053,8 +1021,8 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_deleting_a_single_cloud_volumes_ontap_working_environment">Deleting a single Cloud Volumes ONTAP working environment</h3>
+<div class="sect3">
+<h4 id="_deleting_a_single_cloud_volumes_ontap_working_environment">Deleting a single Cloud Volumes ONTAP working environment</h4>
 <div class="paragraph">
 <p>The following API call deletes a Cloud Volumes ONTAP working environment, which terminates the instance in AWS:</p>
 </div>
@@ -1064,8 +1032,8 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_launching_a_cloud_volumes_ontap_ha_configuration_in_multiple_availability_zones">Launching a Cloud Volumes ONTAP HA configuration in multiple Availability Zones</h3>
+<div class="sect3">
+<h4 id="_launching_a_cloud_volumes_ontap_ha_configuration_in_multiple_aws_availability_zones">Launching a Cloud Volumes ONTAP HA configuration in multiple AWS Availability Zones</h4>
 <div class="paragraph">
 <p>The following API call launches an HA configuration in AWS:</p>
 </div>
@@ -1075,8 +1043,8 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_specifying_a_proxy_for_the_ha_mediator">Specifying a proxy for the HA mediator</h3>
+<div class="sect3">
+<h4 id="_specifying_a_proxy_for_the_ha_mediator">Specifying a proxy for the HA mediator</h4>
 <div class="paragraph">
 <p>The following example creates an HA working environment that uses a proxy to provide the mediator instance with outbound internet connectivity.</p>
 </div>
@@ -1086,8 +1054,8 @@ curl http://localhost/occm/api/vsa/volumes?createAggregateIfNotFound=true -X POS
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_launching_an_ha_configuration_in_a_single_availability_zone">Launching an HA configuration in a single Availability Zone</h3>
+<div class="sect3">
+<h4 id="_launching_an_ha_configuration_in_a_single_aws_availability_zone">Launching an HA configuration in a single AWS Availability Zone</h4>
 <div class="paragraph">
 <p>The following API call launches a Cloud Volumes ONTAP HA configuration in a single AZ in AWS, sets up a proxy configuration for the mediator, and uses dedicated EC2 instances:</p>
 </div>
@@ -1110,8 +1078,8 @@ svm=`cat svmName.txt`</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_creating_an_aggregate_on_a_node_in_an_ha_configuration">Creating an aggregate on a node in an HA configuration</h3>
+<div class="sect3">
+<h4 id="_creating_an_aggregate_on_a_node_in_an_ha_configuration">Creating an aggregate on a node in an HA configuration</h4>
 <div class="paragraph">
 <p>The following operation creates an aggregate on the first node in an HA configuration:</p>
 </div>
@@ -1121,10 +1089,10 @@ svm=`cat svmName.txt`</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_changing_the_underlying_aws_disk_type_to_use_storage_tiering">Changing the underlying AWS disk type to use storage tiering</h3>
+<div class="sect3">
+<h4 id="_changing_the_underlying_aws_disk_type_to_tier_data_to_s3">Changing the underlying AWS disk type to tier data to S3</h4>
 <div class="paragraph">
-<p>The following API commands change the underlying AWS disk type to use storage tiering (General Purpose SSD + S3). Note that the first API call might not return the aggregateName parameter. If that happens, Cloud Manager chooses the best matching aggregate (if one exists) or it creates a new aggregate that meets the requirements.</p>
+<p>The following API commands change the underlying AWS disk type to use data tiering (General Purpose SSD + S3). Note that the first API call might not return the aggregateName parameter. If that happens, Cloud Manager chooses the best matching aggregate (if one exists) or it creates a new aggregate that meets the requirements.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1138,8 +1106,8 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_updating_route_tables_for_an_ha_configuration">Updating route tables for an HA configuration</h3>
+<div class="sect3">
+<h4 id="_updating_route_tables_for_an_ha_configuration">Updating route tables for an HA configuration</h4>
 <div class="paragraph">
 <p>The following API call updates the list of route tables that contain route entries for an HA configuration&#8217;s floating IP addresses:</p>
 </div>
@@ -1149,25 +1117,96 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_stopping_an_ha_configuration">Stopping an HA configuration</h3>
+<h3 id="_creating_and_managing_azure_systems">Creating and managing Azure systems</h3>
+<div class="sect3">
+<h4 id="_deploying_a_single_node_cloud_volumes_ontap_system_in_azure">Deploying a single node Cloud Volumes ONTAP system in Azure</h4>
 <div class="paragraph">
-<p>The following API call stops all instances in an HA configuration:</p>
+<p>The following operation deploys a Cloud Volumes ONTAP system in Azure:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost/occm/api/aws/ha/working-environments/%haid%/stop?take_snapshots=true -X POST --header "Content-Type:application/json" --header "Authorization:$token"</pre>
+<pre>curl http://localhost/occm/api/azure/vsa/working-environments -X POST --header "Content-Type:application/json" --header "Authorization:$token" --data "{\"name\": \"vsaAzure\",\"tenantId\": \"$tenantId\",\"region\": \"westus\",\"vsaMetadata\": {  \"ontapVersion\": \"ONTAP-9.4X8.T1.azure\",  \"licenseType\": \"azure-cot-standard-paygo\",  \"instanceType\": \"Standard_DS4_v2\"},\"writingSpeedState\": \"NORMAL\",\"subnetId\": \"$azureSubnetId\",\"svmPassword\": \"$svmPassword\",\"vnetId\": \"$azureVnetId\",\"cloudProviderAccount\": \"$azureAccountId\",\"subscriptionId\": \"$azureSubscriptionId\",\"cidr\": \"$azureCidr\",\"dataEncryptionType\": \"NONE\",\"ontapEncryptionParameters\": null,\"securityGroupId\": null,\"skipSnapshots\": false,\"diskSize\": {  \"size\": 1,  \"unit\": \"TB\"},\"storageType\": \"Premium_LRS\",\"azureTags\": []}" | jq .</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following API call monitors creation of the system:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/azure/vsa/working-environments -X GET --header "Content-Type:application/json" --header "Authorization:$token" | jq -r .[0].publicId &gt; azureId.txt
+azureId=`cat azureId.txt`</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creating_an_aggregate_for_a_cloud_volumes_ontap_system_in_azure">Creating an aggregate for a Cloud Volumes ONTAP system in Azure</h4>
+<div class="paragraph">
+<p>The following API call creates an aggregate on a Cloud Volumes ONTAP system in Azure using the public ID returned when creating the working environment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/azure/vsa/aggregates -X POST --header "Content-Type:application/json" header "Authorization:$token" --data "{\"name\": \"aggr2\",\"workingEnvironmentId\": \"%azureId%\",\"numberOfDisks\": \"2\",\"diskSize\": {\"size\": \"1\",\"unit\": \"TB\"},\"providerVolumeType\": \"Standard_LRS\"}"</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deploying_an_ha_pair_in_azure">Deploying an HA pair in Azure</h4>
+<div class="paragraph">
+<p>The following API call creates an HA pair in Azure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/azure/ha/working-environments -X POST  --header "Content-Type: application/json" --header "Authorization: $token" --data "{\"name\": \"kuki2\",\"tenantId\": \"$tenantId\",\"region\": \"$region\",\"packageName\": \"azure_ha_standard\",\"dataEncryptionType\": \"AZURE\",\"capacityTier\": \"Blob\",\"vsaMetadata\": {\"ontapVersion\":\"latest\",\"licenseType\": \"azure-ha-cot-standard-paygo\",\"instanceType\":\"Standard_DS4_v2\"},\"writingSpeedState\": \"NORMAL\",\"subnetId\": \"$subnetId\",\"svmPassword\": \"$svmPassword\",\"vnetId\": \"$vnetId\",\"cidr\": \"$azureCidr\",\"ontapEncryptionParameters\": null,\"securityGroupId\": null,\"skipSnapshots\": false,\"diskSize\": {\"size\": 1,\"unit\": \"TB\",\"_identifier\": \"1 TB\"},\"storageType\": \"Premium_LRS\",\"azureTags\": [], \"resourceGroup\": \"testHAazure-rg\", \"subscriptionId\": \"1\",\"cloudProviderAccount\": \"$azureAccountId\"}"</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stopping_a_cloud_volumes_ontap_system_in_azure">Stopping a Cloud Volumes ONTAP system in Azure</h4>
+<div class="paragraph">
+<p>To stop a Cloud Volumes ONTAP system in Azure, invoke the following API call using the working environment ID returned from the create-request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/azure/vsa/working-environments/$azureId/stop?take_snapshots=true -X POST --header "Content-Type:application/json" --header "Authorization:$token"</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_starting_a_cloud_volumes_ontap_system_in_azure">Starting a Cloud Volumes ONTAP system in Azure</h4>
+<div class="paragraph">
+<p>To start a Cloud Volumes ONTAP system in Azure, invoke the following API call using the working environment ID returned from the create-request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/azure/vsa/working-environments/$azureId/start -X POST --header "Content-Type:application/json" --header "Authorization:$token"</pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_starting_an_ha_configuration">Starting an HA configuration</h3>
+<h3 id="_managing_snapshot_copies">Managing Snapshot copies</h3>
+<div class="sect3">
+<h4 id="_creating_snapshot_copies">Creating Snapshot copies</h4>
 <div class="paragraph">
-<p>The following API call starts all instances in an HA configuration:</p>
+<p>To create a Snapshot copy, invoke the following API call using the working environment ID, SVM name, and volume name:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost/occm/api/aws/ha/working-environments/%haid%/start -X POST --header "Content-Type:application/json" --header "Authorization:$token"</pre>
+<pre>curl http://localhost/occm/api/vsa/volumes/$weid/$svm/newVol/snapshot -X DELETE --header "Content-Type:application/json" --header "Authorization: $token"  --data "{\"snapshotName\": [\"$snapshotName\"]}"</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deleting_snapshot_copies">Deleting Snapshot copies</h4>
+<div class="paragraph">
+<p>To delete a Snapshot copy, invoke the following API call using the working environment ID, SVM name, and volume name:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/vsa/volumes/$weid/$svm/newVol/snapshot -X DELETE --header "Content-Type:application/json" --header "Authorization: $token"  --data "{\"snapshotName\": [\"$snapshotName\"]}"</pre>
+</div>
 </div>
 </div>
 </div>

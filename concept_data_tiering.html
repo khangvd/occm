@@ -448,6 +448,10 @@
   
 
   
+    <li><a href="task_getting_started_gcp.html">Getting started in GCP</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Setting up Cloud Manager</a>
@@ -768,7 +772,7 @@
   
 
   
-    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
   
 
   
@@ -839,7 +843,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-03 13:05:31 +0000">06/03/2019</time>
+<time datetime="2019-06-10 20:02:49 +0000">06/10/2019</time>
 
 
 <span>Contributors
@@ -1006,7 +1010,7 @@ A Cloud Volumes ONTAP working environment uses an Azure Blob container for all t
 <p>Some tiering policies have an associated minimum cooling period, which sets the time that user data in a volume must remain inactive for the data to be considered "cold" and moved to the capacity tier.</p>
 </div>
 <div class="paragraph">
-<p>Cloud Volumes ONTAP supports the following tiering policies:</p>
+<p>Cloud Manager enables you to choose from the following volume tiering policies when you create or modify a volume:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1027,15 +1031,14 @@ A Cloud Volumes ONTAP working environment uses an Azure Blob container for all t
 <p>If read by random reads, the cold data blocks in the capacity tier become hot and move to the performance tier. If read by sequential reads, such as those associated with index and antivirus scans, the cold data blocks stay cold and do not move to the performance tier.</p>
 </div>
 </dd>
-<dt class="hdlist1">Backup</dt>
-<dd>
-<p>When you replicate a volume for disaster recovery or long-term retention, data for the destination volume starts in the capacity tier. If you activate the destination volume, the data gradually moves to the performance tier as it is read.</p>
-</dd>
 <dt class="hdlist1">None</dt>
 <dd>
 <p>Keeps data of a volume in the performance tier, preventing it from being moved to the capacity tier.</p>
 </dd>
 </dl>
+</div>
+<div class="paragraph">
+<p>When you replicate a volume, you can choose whether to tier the DR data to object storage. If you do, Cloud Manager applies the <strong>Backup</strong> policy to the data protection volume. Starting with Cloud Volumes ONTAP 9.6, the <strong>All</strong> tiering policy replaces the backup policy.</p>
 </div>
 </div>
 </div>
