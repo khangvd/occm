@@ -6,7 +6,7 @@
   <meta property="og:title" content="Data tiering overview | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/concept_data_tiering.html" />
-	<meta property="og:description" content="You can reduce your storage costs by enabling automated tiering of cold data to low-cost object storage." />
+	<meta property="og:description" content="Reduce your storage costs by enabling automated tiering of cold data to low-cost object storage." />
   <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="You can reduce your storage costs by enabling automated tiering of cold data to low-cost object storage.">
+  <meta name="description" content="Reduce your storage costs by enabling automated tiering of cold data to low-cost object storage.">
   <meta name="keywords" content=" storage tiering, tier, tiering, data tiering, s3, s3 tiering, capacity, performance, s3 endpoint, fabric pool, fabricpool, s3 bucket, requirement, vpc endpoint, policy, policies, tiering policies, auto, snapshot only, backup, none, cooling period, volume tiering policies, blob, standard, infrequent access, hot, cool, tiering level, storage tier, storage class">
   
 
@@ -367,7 +367,7 @@
         
 
   
-    <li><a href="concept_storage.html">Overview</a></li>
+    <li><a href="concept_storage.html">Disks and aggregates</a></li>
   
 
   
@@ -843,7 +843,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-10 20:02:49 +0000">06/10/2019</time>
+<time datetime="2019-06-18 22:03:28 +0000">06/18/2019</time>
 
 
 <span>Contributors
@@ -863,10 +863,13 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can reduce your storage costs by enabling automated tiering of inactive data to low-cost object storage. Active data remains in high-performance SSDs or HDDs (the performance tier), while inactive data is tiered to low-cost object storage (the capacity tier). This enables you to reclaim space on your primary storage and shrink secondary storage.</p>
+<p>Reduce your storage costs by enabling automated tiering of inactive data to low-cost object storage. Active data remains in high-performance SSDs or HDDs, while inactive data is tiered to low-cost object storage. This enables you to reclaim space on your primary storage and shrink secondary storage.</p>
 </div>
 <div class="paragraph">
-<p>Cloud Volumes ONTAP supports data tiering in AWS and in Microsoft Azure. Data tiering is powered by FabricPool technology.</p>
+<p><span class="image"><img src="./media/diagram_data_tiering.png" alt="This is a conceptual image that shows hot data going to EBS storage and inactive data going to S3 storage."></span></p>
+</div>
+<div class="paragraph">
+<p>Cloud Volumes ONTAP supports data tiering in AWS, Azure, and Google Cloud Platform. Data tiering is powered by FabricPool technology.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -875,7 +878,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You do not need to install a feature license to enable data tiering.
+You do not need to install a feature license to enable data tiering (FabricPool).
 </td>
 </tr>
 </table>
@@ -883,100 +886,65 @@ You do not need to install a feature license to enable data tiering.
 </div>
 </div>
 <div class="sect1">
-<h2 id="how-data-tiering-works-in-aws">How data tiering works in AWS</h2>
+<h2 id="data-tiering-in-aws">Data tiering in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you enable data tiering in AWS, Cloud Volumes ONTAP uses EBS as a performance tier for hot data and AWS S3 as a capacity tier for inactive data:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/diagram_storage_tiering.png" alt="This is a conceptual image that shows hot data going to EBS storage and inactive data going to S3 storage."></span></p>
-</div>
-<div class="sect2">
-<h3 id="performance-tier-in-aws">Performance tier in AWS</h3>
-<div class="paragraph">
-<p>The performance tier can be General Purpose SSDs, Provisioned IOPS SSDs, or Throughput Optimized HDDs.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="capacity-tier-in-aws">Capacity tier in AWS</h3>
-<div class="paragraph">
-<p>By default, Cloud Volumes ONTAP tiers inactive data to the S3 <em>Standard</em> storage class. Standard is ideal for frequently accessed data stored across multiple Availability Zones.</p>
-</div>
-<div class="paragraph">
-<p>If you do not plan to access the inactive data, you can reduce your storage costs by changing a system&#8217;s tiering level to one of the following, after you deploy Cloud Volumes ONTAP:</p>
+<p>When you enable data tiering in AWS, Cloud Volumes ONTAP uses EBS as a performance tier for hot data and AWS S3 as a capacity tier for inactive data. Changing a system&#8217;s tiering level enables you to choose a different S3 storage class.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Intelligent Tiering</dt>
+<dt class="hdlist1">Performance tier</dt>
 <dd>
-<p>Optimizes storage costs by moving data between two tiers as data access patterns change. One tier is for frequent access and the other is for infrequent access.</p>
+<p>The performance tier can be General Purpose SSDs, Provisioned IOPS SSDs, or Throughput Optimized HDDs.</p>
 </dd>
-<dt class="hdlist1">One Zone-Infrequent Access</dt>
+<dt class="hdlist1">Capacity tier</dt>
 <dd>
-<p>For infrequently accessed data stored in a single Availability Zone.</p>
+<p>A Cloud Volumes ONTAP system tiers inactive data to a single S3 bucket using the <em>Standard</em> storage class. Standard is ideal for frequently accessed data stored across multiple Availability Zones.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager creates a single S3 bucket for each working environment and names it fabric-pool-<em>cluster unique identifier</em>. A different S3 bucket is not created for each volume.
+</td>
+</tr>
+</table>
+</div>
 </dd>
-<dt class="hdlist1">Standard-Infrequent Access</dt>
+<dt class="hdlist1">Tiering levels</dt>
 <dd>
-<p>For infrequently accessed data stored across multiple Availability Zones.</p>
+<p>If you don&#8217;t plan to access the inactive data, you can reduce your storage costs by changing a system&#8217;s tiering level to one of the following: <em>Intelligent Tiering</em>, <em>One-Zone Infrequent Access</em>, or <em>Standard-Infrequent Access</em>. When you change the tiering level, inactive data starts in the Standard storage class and moves to the storage class that you selected, if the data is not accessed after 30 days.</p>
+<div class="paragraph">
+<p>The access costs are higher if you do access the data, so take that into consideration before you change the tiering level. <a href="https://aws.amazon.com/s3/storage-classes" target="_blank" rel="noopener">Learn more about Amazon S3 storage classes</a>.</p>
+</div>
+<div class="paragraph">
+<p>Changing the tiering level is possible after you create the system. For details, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
+</div>
+<div class="paragraph">
+<p>The tiering level is system wide&#8212;&#8203;it is not per volume.</p>
+</div>
 </dd>
 </dl>
 </div>
-<div class="paragraph">
-<p>The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level. For more details about S3 storage classes, refer to <a href="https://aws.amazon.com/s3/storage-classes" target="_blank" rel="noopener">AWS documentation</a>.</p>
-</div>
-<div class="paragraph">
-<p>When you change the tiering level, inactive data starts in the Standard storage class and moves to the storage class that you selected, if the data is not accessed after 30 days. For details about changing the tiering level, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
-</div>
-<div class="paragraph">
-<p>The tiering level is system wide&#8212;&#8203;it is not per volume.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-A Cloud Volumes ONTAP working environment uses an S3 bucket for all tiered data from the system. A different S3 bucket is not used for each volume. This includes an HA working environment. Cloud Manager creates an S3 bucket and names it fabric-pool-<em>cluster unique identifier</em>.
-</td>
-</tr>
-</table>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="how-data-tiering-works-in-microsoft-azure">How data tiering works in Microsoft Azure</h2>
+<h2 id="data-tiering-in-azure">Data tiering in Azure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you enable data tiering in Azure, Cloud Volumes ONTAP uses Azure managed disks as a performance tier for hot data and Azure Blob storage as a capacity tier for inactive data:</p>
+<p>When you enable data tiering in Azure, Cloud Volumes ONTAP uses Azure managed disks as a performance tier for hot data and Azure Blob storage as a capacity tier for inactive data. Changing a system&#8217;s tiering level enables you to choose a different Azure storage tier.</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/diagram_storage_tiering_azure.png" alt="This is a conceptual image that shows hot data going to Azure managed disks and inactive data going to Azure Blob storage."></span></p>
-</div>
-<div class="sect2">
-<h3 id="performance-tier-in-azure">Performance tier in Azure</h3>
-<div class="paragraph">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Performance tier</dt>
+<dd>
 <p>The performance tier can be either SSDs or HDDs.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="capacity-tier-in-azure">Capacity tier in Azure</h3>
-<div class="paragraph">
-<p>By default, Cloud Volumes ONTAP tiers inactive data to the Azure <em>hot</em> storage tier, which is ideal for frequently accessed data.</p>
-</div>
-<div class="paragraph">
-<p>If you do not plan to access the inactive data, you can reduce your storage costs by changing a system&#8217;s tiering level to the Azure <em>cool</em> storage tier after you deploy Cloud Volumes ONTAP. The cool tier is ideal for infrequently accessed data that will reside in the tier for at least 30 days.</p>
-</div>
-<div class="paragraph">
-<p>The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level. For more details about Azure Blob storage tiers, refer to <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">Azure documentation</a>.</p>
-</div>
-<div class="paragraph">
-<p>When you change the tiering level, inactive data starts in the hot storage tier and moves to the cool storage tier, if the data is not accessed after 30 days. For details about changing the tiering level, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
-</div>
-<div class="paragraph">
-<p>The tiering level is system wide&#8212;&#8203;it is not per volume.</p>
-</div>
+</dd>
+<dt class="hdlist1">Capacity tier</dt>
+<dd>
+<p>A Cloud Volumes ONTAP system tiers inactive data to a single Blob container using the Azure <em>hot</em> storage tier. The hot tier is ideal for frequently accessed data.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -984,16 +952,67 @@ A Cloud Volumes ONTAP working environment uses an S3 bucket for all tiered data 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A Cloud Volumes ONTAP working environment uses an Azure Blob container for all tiered data from the system. A different container is not used for each volume. Cloud Manager creates a new storage account with a container for each Cloud Volumes ONTAP system. The name of the storage account is random.
+Cloud Manager creates a new storage account with a single container for each Cloud Volumes ONTAP working environment. The name of the storage account is random. A different container is not created for each volume.
 </td>
 </tr>
 </table>
 </div>
+</dd>
+<dt class="hdlist1">Tiering levels</dt>
+<dd>
+<p>If you don&#8217;t plan to access the inactive data, you can reduce your storage costs by changing a system&#8217;s tiering level to the Azure <em>cool</em> storage tier. When you change the tiering level, inactive data starts in the hot storage tier and moves to the cool storage tier, if the data is not accessed after 30 days.</p>
+<div class="paragraph">
+<p>The access costs are higher if you do access the data, so take that into consideration before you change the tiering level. <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">Learn more about Azure Blob storage access tiers</a>.</p>
+</div>
+<div class="paragraph">
+<p>Changing the tiering level is possible after you create the system. For details, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
+</div>
+<div class="paragraph">
+<p>The tiering level is system wide&#8212;&#8203;it is not per volume.</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="how-data-tiering-affects-capacity-limits">How data tiering affects capacity limits</h2>
+<h2 id="data-tiering-in-gcp">Data tiering in GCP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you enable data tiering in GCP, Cloud Volumes ONTAP uses persistent disks as a performance tier for hot data and a Google Cloud Storage bucket as a capacity tier for inactive data.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Performance tier</dt>
+<dd>
+<p>The performance tier can be either SSDs or HDDs (standard disks).</p>
+</dd>
+<dt class="hdlist1">Capacity tier</dt>
+<dd>
+<p>A Cloud Volumes ONTAP system tiers inactive data to a single Google Cloud Storage bucket using the <em>Regional</em> storage class.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Manager creates a single bucket for each working environment and names it fabric-pool-<em>cluster unique identifier</em>. A different bucket is not created for each volume.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Tiering levels</dt>
+<dd>
+<p>No other GCP storage classes are supported at this time.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="data-tiering-and-capacity-limits">Data tiering and capacity limits</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you enable data tiering, a system&#8217;s capacity limit stays the same. The limit is spread across the performance tier and the capacity tier.</p>

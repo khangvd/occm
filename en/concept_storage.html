@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>How Cloud Volumes ONTAP uses cloud storage | NetApp Cloud Docs</title>
+  <title>Disks and aggregates | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="How Cloud Volumes ONTAP uses cloud storage | NetApp Cloud Docs" />
+  <meta property="og:title" content="Disks and aggregates | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/concept_storage.html" />
 	<meta property="og:description" content="Understanding how Cloud Volumes ONTAP uses cloud storage can help you understand your storage costs." />
@@ -367,7 +367,7 @@
         
 
   
-    <li class="active"><a href="concept_storage.html">Overview</a></li>
+    <li class="active"><a href="concept_storage.html">Disks and aggregates</a></li>
   
 
   
@@ -831,11 +831,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">How Cloud Volumes ONTAP uses cloud storage
+  <h1 class="n-doc__component-detail-heading">Disks and aggregates
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/concept_storage.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[How Cloud Volumes ONTAP uses cloud storage](https://docs.netapp.com/en/occm/concept_storage.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Disks and aggregates](https://docs.netapp.com/en/occm/concept_storage.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -843,7 +843,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-14 15:15:20 +0000">06/14/2019</time>
+<time datetime="2019-06-18 22:16:39 +0000">06/18/2019</time>
 
 
 <span>Contributors
@@ -871,13 +871,13 @@
 <h2 id="overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Volumes ONTAP uses AWS and Azure volumes as back-end storage. It sees these volumes as disks and groups them into one or more aggregates. Aggregates provide storage to one or more volumes.</p>
+<p>Cloud Volumes ONTAP uses cloud provider storage as disks and groups them into one or more aggregates. Aggregates provide storage to one or more volumes.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_storage.png" alt="This illustration shows an aggregate that is comprised of EBS disks" width="and the data volumes that Cloud Volumes ONTAP makes available to hosts."></span></p>
+<p><span class="image"><img src="./media/diagram_storage.png" alt="This illustration shows an aggregate that is comprised of disks" width="and the data volumes that Cloud Volumes ONTAP makes available to hosts."></span></p>
 </div>
 <div class="paragraph">
-<p>Several types of cloud disks are supported. You choose the disk type when creating volumes and the default disk size when you deploy Cloud Volumes ONTAP.</p>
+<p>Several types of cloud disks are supported. You choose the disk type when you create a volume and the default disk size when you deploy Cloud Volumes ONTAP.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -900,7 +900,7 @@ The total amount of storage purchased from AWS or Azure is the <em>raw capacity<
 <p>In AWS, an aggregate can contain up to 6 disks that are all the same size. The maximum disk size is 16 TB.</p>
 </div>
 <div class="paragraph">
-<p>The underlying EBS disk type can be either General Purpose SSD, Provisioned IOPS SSD, Throughput Optimized HDD, or Cold HDD. You can also pair an EBS disk with Amazon S3 for <a href="concept_data_tiering.html">data tiering</a>.</p>
+<p>The underlying EBS disk type can be either General Purpose SSD, Provisioned IOPS SSD, Throughput Optimized HDD, or Cold HDD. You can pair an EBS disk with Amazon S3 to <a href="concept_data_tiering.html">tier inactive data to low-cost object storage</a>.</p>
 </div>
 <div class="paragraph">
 <p>At a high level, the differences between EBS disk types are as follows:</p>
@@ -934,13 +934,20 @@ Cold HDD disks are not supported with HA configurations and with data tiering.
 </table>
 </div>
 <div class="paragraph">
-<p>For additional details about the use cases for these disks, refer to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS Documentation: EBS Volume Types</a>.</p>
+<p><strong>Related links</strong></p>
 </div>
-<div class="paragraph">
-<p><a href="task_planning_your_config.html#sizing-your-system-in-aws">Learn how to choose disk types and disk sizes for your systems in AWS</a>.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_aws_96.html" target="_blank" rel="noopener">Review storage limits for Cloud Volumes ONTAP in AWS</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">AWS documentation: EBS Volume Types</a></p>
+</li>
+<li>
+<p><a href="task_planning_your_config.html#sizing-your-system-in-aws">Learn how to choose disk types and disk sizes for your systems in AWS</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_aws_96.html" target="_blank" rel="noopener">Review storage limits for Cloud Volumes ONTAP in AWS</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -969,7 +976,7 @@ Cold HDD disks are not supported with HA configurations and with data tiering.
 <p>Each managed disk type has a maximum disk size of 32 TB.</p>
 </div>
 <div class="paragraph">
-<p>You can pair a managed disk with Azure Blob storage for <a href="concept_data_tiering.html">data tiering</a>.</p>
+<p>You can pair a managed disk with Azure Blob storage to <a href="concept_data_tiering.html">tier inactive data to low-cost object storage</a>.</p>
 </div>
 </li>
 </ul>
@@ -982,13 +989,44 @@ Cold HDD disks are not supported with HA configurations and with data tiering.
 </dl>
 </div>
 <div class="paragraph">
-<p>For additional details about the use cases for these disks, see <a href="https://azure.microsoft.com/documentation/articles/storage-introduction/" target="_blank" rel="noopener">Microsoft Azure Documentation: Introduction to Microsoft Azure Storage</a>.</p>
+<p><strong>Related links</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://azure.microsoft.com/documentation/articles/storage-introduction/" target="_blank" rel="noopener">Microsoft Azure documentation: Introduction to Microsoft Azure Storage</a></p>
+</li>
+<li>
+<p><a href="task_planning_your_config.html#sizing-your-system-in-azure">Learn how to choose disk types and disk sizes for your systems in Azure</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_azure_96.html" target="_blank" rel="noopener">Review storage limits for Cloud Volumes ONTAP in Azure</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gcp-storage">GCP storage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In GCP, an aggregate can contain up to 6 disks that are all the same size. The maximum disk size is 16 TB.</p>
 </div>
 <div class="paragraph">
-<p><a href="task_planning_your_config.html#sizing-your-system-in-azure">Learn how to choose disk types and disk sizes for your systems in Azure</a>.</p>
+<p>The disk type can be either <em>Zonal SSD persistent disks</em> or <em>Zonal standard persistent disks</em>. You can pair persistent disks with a Google Storage bucket to <a href="concept_data_tiering.html">tier inactive data to low-cost object storage</a>.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_azure_96.html" target="_blank" rel="noopener">Review storage limits for Cloud Volumes ONTAP in Azure</a>.</p>
+<p><strong>Related links</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://cloud.google.com/compute/docs/disks/" target="_blank" rel="noopener">Google Cloud Platform documentation: Storage Options</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_gcp_96.html" target="_blank" rel="noopener">Review storage limits for Cloud Volumes ONTAP in GCP</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
