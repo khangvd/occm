@@ -843,7 +843,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-07 14:29:21 +0000">06/07/2019</time>
+<time datetime="2019-06-21 20:14:02 +0000">06/21/2019</time>
 
 
 <span>Contributors
@@ -889,17 +889,39 @@
 <dd>
 <p>The Availability Set ensures that the nodes are in different fault and update domains.</p>
 </dd>
-<dt class="hdlist1">Storage</dt>
+<dt class="hdlist1">Disks</dt>
 <dd>
 <p>Customer data resides on Premium Storage page blobs. Each node has access to the other node&#8217;s storage.<br>
-Additional storage is also required for boot and root data:</p>
+Additional storage is also required for boot, root, and core data:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A node&#8217;s boot data resides on a Premium SSD Managed Disk.</p>
+<p>Two 90 GB Premium SSD disks for the boot volume (one per node)</p>
 </li>
 <li>
-<p>A node&#8217;s root data resides on a Premium Storage page blob.</p>
+<p>Two 140 GB Premium Storage page blobs for the root volume (one per node)</p>
+</li>
+<li>
+<p>Two 128 GB Standard HDD disks for saving cores (one per node)</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Storage accounts</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>One storage account is required for managed disks.</p>
+</li>
+<li>
+<p>One or more storage accounts are required for the Premium Storage page blobs, as the disk capacity limit per storage account is reached.</p>
+<div class="paragraph">
+<p><a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets" target="_blank" rel="noopener">Azure documentation: Azure Storage scalability and performance targets for storage accounts</a>.</p>
+</div>
+</li>
+<li>
+<p>One storage account is required for data tiering to Azure Blob storage.</p>
 </li>
 </ul>
 </div>
