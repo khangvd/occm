@@ -843,7 +843,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-18 22:16:39 +0000">06/18/2019</time>
+<time datetime="2019-07-10 19:45:43 +0000">07/10/2019</time>
 
 
 <span>Contributors
@@ -897,8 +897,13 @@ The total amount of storage purchased from AWS or Azure is the <em>raw capacity<
 <h2 id="aws-storage">AWS storage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In AWS, an aggregate can contain up to 6 disks that are all the same size. The maximum disk size is 16 TB.</p>
+<p>In AWS, Cloud Volumes ONTAP uses EBS storage for user data and local NVMe storage as Flash Cache on some EC2 instance types.</p>
 </div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">EBS storage</dt>
+<dd>
+<p>In AWS, an aggregate can contain up to 6 disks that are all the same size. The maximum disk size is 16 TB.</p>
 <div class="paragraph">
 <p>The underlying EBS disk type can be either General Purpose SSD, Provisioned IOPS SSD, Throughput Optimized HDD, or Cold HDD. You can pair an EBS disk with Amazon S3 to <a href="concept_data_tiering.html">tier inactive data to low-cost object storage</a>.</p>
 </div>
@@ -918,9 +923,6 @@ The total amount of storage purchased from AWS or Azure is the <em>raw capacity<
 </li>
 <li>
 <p><em>Cold HDD</em> disks are meant for backups, or infrequently accessed data, because the performance is very low. Like Throughput Optimized HDD disks, performance is defined in terms of throughput.</p>
-</li>
-</ul>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -932,6 +934,16 @@ Cold HDD disks are not supported with HA configurations and with data tiering.
 </td>
 </tr>
 </table>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Local NVMe storage</dt>
+<dd>
+<p>Some EC2 instance types include local NVMe storage, which Cloud Volumes ONTAP uses as <a href="task_enabling_flash_cache.html">Flash Cache</a>.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
 <p><strong>Related links</strong></p>
@@ -946,6 +958,9 @@ Cold HDD disks are not supported with HA configurations and with data tiering.
 </li>
 <li>
 <p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_aws_96.html" target="_blank" rel="noopener">Review storage limits for Cloud Volumes ONTAP in AWS</a></p>
+</li>
+<li>
+<p><a href="http://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_96.html" target="_blank" rel="noopener">Review supported configurations for Cloud Volumes ONTAP in AWS</a></p>
 </li>
 </ul>
 </div>
