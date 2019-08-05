@@ -844,7 +844,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-06 18:25:21 +0000">06/06/2019</time>
+<time datetime="2019-08-05 13:07:24 +0000">08/05/2019</time>
 
 
 <span>Contributors
@@ -918,7 +918,7 @@ https://github.com/NetApp/trident/releases/download/</p>
 <div class="sect2">
 <h3 id="start-provisioning-persistent-volumes"><span class="image"><img src="./media/number4.png" alt="Number 4"></span> Start provisioning Persistent Volumes</h3>
 <div class="paragraph quick-margin-para">
-<p>Request and manage Persistent Volumes using native Kubernetes interfaces and constructs. Cloud Manager creates two Kubernetes storage classes that you can use when provisioning Persistent Volumes:</p>
+<p>Request and manage Persistent Volumes using native Kubernetes interfaces and constructs. Cloud Manager creates four Kubernetes storage classes that you can use when provisioning Persistent Volumes:</p>
 </div>
 <div class="ulist quick-margin-list">
 <ul>
@@ -926,7 +926,13 @@ https://github.com/NetApp/trident/releases/download/</p>
 <p><strong>netapp-file</strong>: for binding Persistent Volumes to single-node Cloud Volumes ONTAP systems</p>
 </li>
 <li>
+<p><strong>netapp-file-san</strong>: for binding iSCSI Persistent Volumes to single-node Cloud Volumes ONTAP systems</p>
+</li>
+<li>
 <p><strong>netapp-file-redundant</strong>: for binding Persistent Volumes to Cloud Volumes ONTAP HA pairs</p>
+</li>
+<li>
+<p><strong>netapp-file-redundant-san</strong>: for binding iSCSI Persistent Volumes to Cloud Volumes ONTAP HA pairs</p>
 </li>
 </ul>
 </div>
