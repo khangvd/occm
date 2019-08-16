@@ -851,7 +851,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-08-05 13:08:05 +0000">08/05/2019</time>
+<time datetime="2019-08-16 14:39:06 +0000">08/16/2019</time>
 
 
 <span>Contributors
@@ -1115,45 +1115,6 @@ For HA pairs deployed in multiple AWS Availability Zones, you must mount the vol
 </div>
 </div>
 <div class="sect1">
-<h2 id="using-flexcache-volumes-to-accelerate-data-access">Using FlexCache volumes to accelerate data access</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>A FlexCache volume is a storage volume that caches NFS read data from an origin (or source) volume. Subsequent reads to the cached data result in faster access to that data.</p>
-</div>
-<div class="paragraph">
-<p>You can use FlexCache volumes to speed up access to data or to offload traffic from heavily accessed volumes. FlexCache volumes help improve performance, especially when clients need to access the same data repeatedly, because the data can be served directly without having to access the origin volume. FlexCache volumes work well for system workloads that are read-intensive.</p>
-</div>
-<div class="paragraph">
-<p>Cloud Manager does not provide management of FlexCache volumes at this time, but you can use the ONTAP CLI or ONTAP System Manager to create and manage FlexCache volumes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html" target="_blank" rel="noopener">FlexCache Volumes for Faster Data Access Power Guide</a></p>
-</li>
-<li>
-<p><a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-07F4C213-076D-4FE8-A8E3-410F49498D49.html" target="_blank" rel="noopener">Creating FlexCache volumes in System Manager</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Starting with the 3.7.2 release, Cloud Manager generates a FlexCache license for all new Cloud Volumes ONTAP systems. The license includes a 500 GB usage limit.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-To generate the license, Cloud Manager needs to access https://ipa-signer.cloudmanager.netapp.com. Make sure that this URL is accessible from your firewall.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="creating-aggregates">Creating aggregates</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -1224,6 +1185,50 @@ To generate the license, Cloud Manager needs to access https://ipa-signer.cloudm
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="using-flexcache-volumes-to-accelerate-data-access">Using FlexCache volumes to accelerate data access</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A FlexCache volume is a storage volume that caches NFS read data from an origin (or source) volume. Subsequent reads to the cached data result in faster access to that data.</p>
+</div>
+<div class="paragraph">
+<p>You can use FlexCache volumes to speed up access to data or to offload traffic from heavily accessed volumes. FlexCache volumes help improve performance, especially when clients need to access the same data repeatedly, because the data can be served directly without having to access the origin volume. FlexCache volumes work well for system workloads that are read-intensive.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager does not provide management of FlexCache volumes at this time, but you can use the ONTAP CLI or ONTAP System Manager to create and manage FlexCache volumes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html" target="_blank" rel="noopener">FlexCache Volumes for Faster Data Access Power Guide</a></p>
+</li>
+<li>
+<p><a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-07F4C213-076D-4FE8-A8E3-410F49498D49.html" target="_blank" rel="noopener">Creating FlexCache volumes in System Manager</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Starting with the 3.7.2 release, Cloud Manager generates a FlexCache license for all new Cloud Volumes ONTAP systems. The license includes a 500 GB usage limit.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To generate the license, Cloud Manager needs to access https://ipa-signer.cloudmanager.netapp.com. Make sure that this URL is accessible from your firewall.
+</td>
+</tr>
+</table>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe width="848" height="480" src="https://www.youtube.com/embed/PBNPVRUeT1o?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
 </div>
 </div>
 </div>
