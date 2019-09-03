@@ -356,7 +356,27 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud provider accounts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_accounts_aws.html">AWS accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_azure.html">Azure accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_gcp.html">GCP accounts</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -463,7 +483,15 @@
   
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+    <li><a href="task_adding_aws_accounts.html">Adding AWS accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_azure_accounts.html">Adding Azure accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_gcp_accounts.html">Adding GCP accounts</a></li>
   
 
   
@@ -504,6 +532,10 @@
 
   
     <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
+  
+
+  
+    <li><a href="reference_networking_gcp.html">Cloud Volumes ONTAP for GCP</a></li>
   
 
 
@@ -592,6 +624,10 @@
   
 
   
+    <li><a href="task_deploying_gcp.html">Launching Cloud Volumes ONTAP in GCP</a></li>
+  
+
+  
     <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
   
 
@@ -652,7 +688,7 @@
   
 
   
-    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+    <li><a href="task_syncing_s3.html">Syncing data to Amazon S3</a></li>
   
 
   
@@ -796,6 +832,10 @@
   
 
   
+    <li><a href="reference_firewall_rules_gcp.html">Firewall rules for GCP</a></li>
+  
+
+  
     <li><a href="reference_permissions.html">Permissions</a></li>
   
 
@@ -851,7 +891,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-07-15 20:05:58 +0000">07/15/2019</time>
+<time datetime="2019-09-03 15:51:56 +0000">09/03/2019</time>
 
 
 <span>Contributors
@@ -890,24 +930,18 @@
 <p>Microsoft Azure</p>
 </li>
 <li>
+<p>Google Cloud Platform</p>
+<div class="paragraph">
+<p>Cloud Manager must be in Google Cloud Platform when deploying Cloud Volumes ONTAP in GCP.</p>
+</div>
+</li>
+<li>
 <p>IBM Cloud</p>
 </li>
 <li>
 <p>In your own network</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-A private preview of Cloud Volumes ONTAP is available in Google Cloud Platform. To join the private preview, send a request to <a href="mailto:ng-Cloud-Volume-ONTAP-preview@netapp.com">ng-Cloud-Volume-ONTAP-preview@netapp.com</a>.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>How you deploy Cloud Manager depends on which location you choose:</p>
@@ -919,14 +953,16 @@ A private preview of Cloud Volumes ONTAP is available in Google Cloud Platform. 
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Location</th>
+<th class="tableblock halign-left valign-top">Location for Cloud Manager</th>
 <th class="tableblock halign-left valign-top">How to deploy Cloud Manager</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="task_getting_started_aws.html">Deploy Cloud Manager from NetApp Cloud Central</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="task_getting_started_aws.html">Deploy Cloud Manager from NetApp Cloud Central</a><br>
+<br>
+A secondary option is to deploy from <a href="task_launching_aws_mktp.html">the AWS Marketplace</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS C2S</p></td>
@@ -934,7 +970,9 @@ A private preview of Cloud Volumes ONTAP is available in Google Cloud Platform. 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Azure generally available region</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="task_getting_started_azure.html">Deploy Cloud Manager from NetApp Cloud Central</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="task_getting_started_azure.html">Deploy Cloud Manager from NetApp Cloud Central</a><br>
+<br>
+A secondary option is to deploy from <a href="task_launching_azure_mktp.html">the Azure Marketplace</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Azure Government</p></td>
@@ -943,6 +981,24 @@ A private preview of Cloud Volumes ONTAP is available in Google Cloud Platform. 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Azure Germany</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="task_installing_azure_germany.html">Download and install the software on a Linux host</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google Cloud Platform</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="task_getting_started_gcp.html">Deploy Cloud Manager from NetApp Cloud Central</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can&#8217;t deploy Cloud Manager in Google Cloud from the GCP Marketplace
+</td>
+</tr>
+</table>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">IBM Cloud</p></td>
@@ -968,7 +1024,13 @@ A private preview of Cloud Volumes ONTAP is available in Google Cloud Platform. 
 <p><a href="task_setting_up_cloud_central_accounts.html">Setting up your Cloud Central account</a></p>
 </li>
 <li>
-<p><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts to Cloud Manager</a></p>
+<p><a href="task_adding_aws_accounts.html">Adding AWS accounts to Cloud Manager</a></p>
+</li>
+<li>
+<p><a href="task_adding_azure_accounts.html">Adding Azure accounts to Cloud Manager</a></p>
+</li>
+<li>
+<p><a href="task_adding_gcp_accounts.html">Adding GCP accounts to Cloud Manager</a></p>
 </li>
 <li>
 <p><a href="task_installing_https_cert.html">Installing an HTTPS certificate</a></p>
@@ -987,7 +1049,7 @@ A private preview of Cloud Volumes ONTAP is available in Google Cloud Platform. 
 <p>After you get Cloud Manager up and running, you can start deploying Cloud Volumes ONTAP in your cloud provider.</p>
 </div>
 <div class="paragraph">
-<p><a href="task_getting_started_aws.html">Getting started in AWS</a> and <a href="task_getting_started_azure.html">Getting started in Azure</a> provide instructions for getting Cloud Volumes ONTAP up and running quickly. For additional help, refer to the following:</p>
+<p><a href="task_getting_started_aws.html">Getting started in AWS</a>, <a href="task_getting_started_azure.html">Getting started in Azure</a>, and <a href="task_getting_started_gcp.html">Getting started in GCP</a> provide instructions for getting Cloud Volumes ONTAP up and running quickly. For additional help, refer to the following:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1008,6 +1070,9 @@ A private preview of Cloud Volumes ONTAP is available in Google Cloud Platform. 
 </li>
 <li>
 <p><a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></p>
+</li>
+<li>
+<p><a href="task_deploying_gcp.html">Launching Cloud Volumes ONTAP in GCP</a></p>
 </li>
 </ul>
 </div>

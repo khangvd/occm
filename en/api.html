@@ -43,8 +43,9 @@ if (document.location.hostname.search("netapp.com") !== -1) {
 <li><a href="#_api_examples">API examples</a>
 <ul class="sectlevel2">
 <li><a href="#_getting_started">Getting started</a></li>
-<li><a href="#_creating_and_managing_aws_systems">Creating and managing AWS systems</a></li>
-<li><a href="#_creating_and_managing_azure_systems">Creating and managing Azure systems</a></li>
+<li><a href="#_creating_systems_in_aws">Creating systems in AWS</a></li>
+<li><a href="#_creating_systems_in_azure">Creating systems in Azure</a></li>
+<li><a href="#_creating_systems_in_gcp">Creating systems in GCP</a></li>
 <li><a href="#_managing_snapshot_copies">Managing Snapshot copies</a></li>
 </ul>
 </li>
@@ -802,6 +803,17 @@ The examples use curl as the HTTP client. Some examples show API calls for singl
 </div>
 </div>
 <div class="sect3">
+<h4 id="_adding_a_gcp_account_to_cloud_manager">Adding a GCP account to Cloud Manager</h4>
+<div class="paragraph">
+<p>If you want to enable data tiering on a Cloud Volumes ONTAP system, you need to provide Cloud Manager with a storage access key for a Google Cloud Platform account. Cloud Manager uses the access keys to set up and manage a Cloud Storage bucket for data tiering.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST http://localhost/occm/api/accounts/gcp  --header "Authorization: $token" --header "Content-Type: application/json" --data "{\"accountName\": \"GcpAdminKeys\", \"providerKeys\": {\"accessKey\": \"$accessKey\", \"secretKey\":\"$secretKey\"}}"</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_obtaining_your_cloud_provider_account_id">Obtaining your cloud provider account ID</h4>
 <div class="paragraph">
 <p>When you create a working environment, you must provide the ID of a cloud provider account.</p>
@@ -811,7 +823,9 @@ The examples use curl as the HTTP client. Some examples show API calls for singl
 <pre>curl -X GET http://localhost/occm/api/accounts --header "Authorization: $token"  |jq -r '.azureAccounts[0]'.publicId &gt; temp.txt
 azureAccountId=`cat temp.txt`
 curl -X GET http://localhost/occm/api/accounts --header "Authorization: $token"  |jq -r '.awsAccounts[0]'.publicId &gt; temp.txt
-awsAccountId=`cat temp.txt`</pre>
+awsAccountId=`cat temp.txt`
+curl -X GET http://localhost/occm/api/accounts --header "Authorization: $token"  |jq -r '.gcpAccounts[0]'.publicId &gt; temp.txt
+gcpAccountId=`cat temp.txt`</pre>
 </div>
 </div>
 </div>
@@ -828,7 +842,7 @@ awsAccountId=`cat temp.txt`</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_and_managing_aws_systems">Creating and managing AWS systems</h3>
+<h3 id="_creating_systems_in_aws">Creating systems in AWS</h3>
 <div class="sect3">
 <h4 id="_preparing_to_launch_cloud_volumes_ontap_in_aws">Preparing to launch Cloud Volumes ONTAP in AWS</h4>
 <div class="paragraph">
@@ -1135,7 +1149,7 @@ curl http://localhost/occm/api/aws/ha/volumes/%haid%/%svm%/newVol1/change-tier -
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_and_managing_azure_systems">Creating and managing Azure systems</h3>
+<h3 id="_creating_systems_in_azure">Creating systems in Azure</h3>
 <div class="sect3">
 <h4 id="_deploying_a_single_node_cloud_volumes_ontap_system_in_azure">Deploying a single node Cloud Volumes ONTAP system in Azure</h4>
 <div class="paragraph">
@@ -1198,6 +1212,17 @@ azureId=`cat azureId.txt`</pre>
 <div class="content">
 <pre>curl http://localhost/occm/api/azure/vsa/working-environments/$azureId/start -X POST --header "Content-Type:application/json" --header "Authorization:$token"</pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_systems_in_gcp">Creating systems in GCP</h3>
+<div class="paragraph">
+<p>To create a Cloud Volumes ONTAP working environment in GCP, invoke the following API call:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/gcp/vsa/working-environments -X POST --header "Content-Type: application/json" --header "Authorization:$token" --data "{\"name\": \"gcptest1\", \"tenantId\": \"$tenantId\", \"region\": \"us-east1-b\", \"packageName\": \"gcp_poc\", \"dataEncryptionType\": \"GCP\", \"vsaMetadata\": {\"ontapVersion\": \"ONTAP-9.6X17.T1.gcp\", \"licenseType\": \"gcp-cot-explore-paygo\", \"instanceType\": \"custom-4-16384\"}, \"writingSpeedState\": \"NORMAL\", \"subnetId\": \"default\", \"svmPassword\": \"$svmPassword\", \"vpcId\": \"default\", \"gcpVolumeSize\": {\"size\": 500, \"unit\": \"GB\", \"_identifier\": \"500 GB\"}, \"gcpVolumeType\": \"pd-ssd\", \"gcpLabels\": []}"</pre>
 </div>
 </div>
 </div>
@@ -67649,7 +67674,7 @@ Support telephone: +1 (888) 463-8277</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>August 2019</p>
+<p>September 2019</p>
 </div>
 </div>
 </div>

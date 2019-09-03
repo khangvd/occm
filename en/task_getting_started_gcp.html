@@ -6,7 +6,7 @@
   <meta property="og:title" content="Getting started with Cloud Volumes ONTAP in Google Cloud Platform | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/task_getting_started_gcp.html" />
-	<meta property="og:description" content="You can get started with Cloud Volumes ONTAP in Google Cloud Platform by completing a few quick steps." />
+	<meta property="og:description" content="Get started with Cloud Volumes ONTAP in GCP from NetApp Cloud Central." />
   <meta property="og:image" content="https://docs.netapp.com/occm/en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +19,8 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="You can get started with Cloud Volumes ONTAP in Google Cloud Platform by completing a few quick steps.">
-  <meta name="keywords" content=" google cloud platform, gcp">
+  <meta name="description" content="Get started with Cloud Volumes ONTAP in GCP from NetApp Cloud Central.">
+  <meta name="keywords" content=" google cloud platform, gcp, deploy cloud manager, launch cloud manager, create cloud manager, getting started, networking, gcp networking, service account, tiering, data tiering, bucket, fabricpool, storage access key, gcp role, role, iam role, permissions, gcp permissions">
   
 
   <!-- Icons -->
@@ -353,7 +353,27 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud provider accounts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_accounts_aws.html">AWS accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_azure.html">Azure accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_gcp.html">GCP accounts</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -460,7 +480,15 @@
   
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+    <li><a href="task_adding_aws_accounts.html">Adding AWS accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_azure_accounts.html">Adding Azure accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_gcp_accounts.html">Adding GCP accounts</a></li>
   
 
   
@@ -501,6 +529,10 @@
 
   
     <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
+  
+
+  
+    <li><a href="reference_networking_gcp.html">Cloud Volumes ONTAP for GCP</a></li>
   
 
 
@@ -589,6 +621,10 @@
   
 
   
+    <li><a href="task_deploying_gcp.html">Launching Cloud Volumes ONTAP in GCP</a></li>
+  
+
+  
     <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
   
 
@@ -649,7 +685,7 @@
   
 
   
-    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+    <li><a href="task_syncing_s3.html">Syncing data to Amazon S3</a></li>
   
 
   
@@ -793,6 +829,10 @@
   
 
   
+    <li><a href="reference_firewall_rules_gcp.html">Firewall rules for GCP</a></li>
+  
+
+  
     <li><a href="reference_permissions.html">Permissions</a></li>
   
 
@@ -848,7 +888,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-14 20:29:30 +0000">06/14/2019</time>
+<time datetime="2019-09-03 15:51:56 +0000">09/03/2019</time>
 
 
 <span>Contributors
@@ -865,12 +905,125 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>A private preview of Cloud Volumes ONTAP is available in Google Cloud Platform. To join the private preview, send a request to <a href="mailto:ng-Cloud-Volume-ONTAP-preview@netapp.com">ng-Cloud-Volume-ONTAP-preview@netapp.com</a>.</p>
+<p>Get started with Cloud Volumes ONTAP in GCP by setting up GCP and then deploying Cloud Manager software from NetApp Cloud Central.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-up-your-networking"><span class="image"><img src="./media/number1.png" alt="Number 1"></span> Set up your networking</h3>
+<div class="paragraph quick-margin-para">
+<p>Enable outbound internet access from the target VPC so Cloud Manager and Cloud Volumes ONTAP can contact several endpoints.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>This step is important because Cloud Manager can&#8217;t deploy Cloud Volumes ONTAP without outbound internet access. If you need to limit outbound connectivity, refer to the list of endpoints for <a href="reference_networking_cloud_manager.html#outbound-internet-access">Cloud Manager</a> and <a href="reference_networking_gcp.html">Cloud Volumes ONTAP</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-up-gcp-for-data-tiering"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Set up GCP for data tiering</h3>
+<div class="paragraph quick-margin-para">
+<p>A few steps are required if you want to tier cold data from Cloud Volumes ONTAP to low-cost object storage (a Google Cloud Storage bucket):</p>
+</div>
+<div class="olist loweralpha quick-margin-list">
+<ol class="loweralpha" type="a">
+<li>
+<p><a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">Configure the Cloud Volumes ONTAP subnet for Private Google Access</a>.</p>
+</li>
+<li>
+<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role" target="_blank" rel="noopener">Create a service account that has the Storage Admin role</a>.</p>
+</li>
+<li>
+<p>Go to your <a href="https://console.cloud.google.com/storage/settings" target="_blank" rel="noopener">GCP Storage Settings</a>, enable interoperability access, and create access keys for the service account that you just created.</p>
 <div class="paragraph">
-<div class="title">Related link</div>
-<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_gcp_96.html" target="_blank" rel="noopener">Supported configurations for Cloud Volumes ONTAP 9.6 in Google Cloud Platform</a></p>
+<p>You&#8217;ll need to <a href="task_adding_gcp_accounts.html">add the keys to Cloud Manager during setup</a> so it can use the keys to manage a Cloud Storage bucket for data tiering.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-up-gcp-permissions"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Set up GCP permissions</h3>
+<div class="paragraph quick-margin-para">
+<p>Make sure that two sets of permissions are in place:</p>
+</div>
+<div class="olist loweralpha quick-margin-list">
+<ol class="loweralpha" type="a">
+<li>
+<p>Ensure that the GCP user who deploys Cloud Manager from NetApp Cloud Central has the permissions defined in the <a href="https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml" target="_blank" rel="noopener">NetApp Cloud Central policy for GCP</a>.</p>
+</li>
+<li>
+<p>Set up a service account that has the permissions that Cloud Manager needs to create and manage Cloud Volumes ONTAP systems on your behalf. This service account is different from the service account that&#8217;s used for data tiering.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role" target="_blank" rel="noopener">Create a custom role in GCP</a> that includes the permissions defined in the <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.7.3_GCP.yaml" target="_blank" rel="noopener">Cloud Manager policy for GCP</a>.</p>
+<div class="paragraph">
+<p>This policy is different than the policy in step 3a.</p>
+</div>
+</li>
+<li>
+<p><a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account" target="_blank" rel="noopener">Create a GCP service account, apply the custom role that you just created, and grant users access to the service account</a>.</p>
+<div class="paragraph">
+<p>You&#8217;ll associate this service account with the Cloud Manager VM instance in the next step.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="launch-cloud-manager-from-netapp-cloud-central"><span class="image"><img src="./media/number4.png" alt="Number 4"></span> Launch Cloud Manager from NetApp Cloud Central</h3>
+<div class="paragraph quick-margin-para">
+<p>Cloud Manager software is required to deploy and manage Cloud Volumes ONTAP. It takes just a few minutes to launch a Cloud Manager instance in GCP from <a href="https://cloud.netapp.com" target="_blank" rel="noopener">Cloud Central</a>. Cloud Manager must be installed in GCP from Cloud Central before you can deploy Cloud Volumes ONTAP.</p>
+</div>
+<div class="admonitionblock note quick-margin-para">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In this step, a Google form prompts you to log in to your Google account. You&#8217;ll see a notification from Google that the Cloud Central site is unverified. NetApp is currently working closely with Google to finalize the verification process. Additional information pertaining to the NetApp privacy policies and terms of service can be accessed at: <a href="https://www.netapp.com/us/legal/privacypolicy/index.aspx" class="bare">https://www.netapp.com/us/legal/privacypolicy/index.aspx</a> and <a href="https://www.netapp.com/us/how-to-buy/stc.aspx" class="bare">https://www.netapp.com/us/how-to-buy/stc.aspx</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="launch-cloud-volumes-ontap-using-cloud-manager"><span class="image"><img src="./media/number5.png" alt="Number 5"></span> Launch Cloud Volumes ONTAP using Cloud Manager</h3>
+<div class="paragraph quick-margin-para">
+<p>Once Cloud Manager is ready, just click Create, select the type of system that you would like to deploy, and complete the steps in the wizard. After 25 minutes, your first Cloud Volumes ONTAP system should be up and running.</p>
+</div>
+<div class="ulist">
+<div class="title">Related links</div>
+<ul>
+<li>
+<p><a href="concept_evaluating.html">Evaluating</a></p>
+</li>
+<li>
+<p><a href="reference_networking_cloud_manager.html">Networking requirements for Cloud Manager</a></p>
+</li>
+<li>
+<p><a href="reference_networking_gcp.html">Networking requirements for Cloud Volumes ONTAP in GCP</a></p>
+</li>
+<li>
+<p><a href="reference_firewall_rules_gcp.html">Firewall rules for GCP</a></p>
+</li>
+<li>
+<p><a href="task_adding_gcp_accounts.html">Adding GCP accounts to Cloud Manager</a></p>
+</li>
+<li>
+<p><a href="reference_permissions.html#what-cloud-manager-does-with-gcp-permissions">What Cloud Manager does with GCP permissions</a></p>
+</li>
+<li>
+<p><a href="task_deploying_gcp.html">Launching Cloud Volumes ONTAP in GCP</a></p>
+</li>
+</ul>
+</div>
 </div>
 
         </article>

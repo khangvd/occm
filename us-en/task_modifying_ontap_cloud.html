@@ -20,7 +20,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="You might need to change the configuration of Cloud Volumes ONTAP instances as your storage needs change. For example, you can change between pay-as-you-go c...">
-  <meta name="keywords" content=" license, licensing, install, instance type, virtual machine type, VM type, change, modify, configuration, subscription, paygo, pay-as-you-go, pay as you go, byol, password, MTU, jumbo frames, c4.xlarge, c4.8xlarge, HA pair, file, license file, install, upload, change, modify, svm, storage virtual machine, password, route tables, nlf">
+  <meta name="keywords" content=" license, licensing, install, instance type, virtual machine type, VM type, change, modify, configuration, subscription, paygo, pay-as-you-go, pay as you go, byol, password, MTU, jumbo frames, c4.xlarge, c4.8xlarge, HA pair, file, license file, install, upload, change, modify, svm, storage virtual machine, password, route tables, nlf, gcp, machine type, virtual machine type, vm instance, aws subscription, changing aws subscription">
   
 
   <!-- Icons -->
@@ -356,7 +356,27 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud provider accounts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_accounts_aws.html">AWS accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_azure.html">Azure accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_gcp.html">GCP accounts</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -463,7 +483,15 @@
   
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+    <li><a href="task_adding_aws_accounts.html">Adding AWS accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_azure_accounts.html">Adding Azure accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_gcp_accounts.html">Adding GCP accounts</a></li>
   
 
   
@@ -504,6 +532,10 @@
 
   
     <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
+  
+
+  
+    <li><a href="reference_networking_gcp.html">Cloud Volumes ONTAP for GCP</a></li>
   
 
 
@@ -592,6 +624,10 @@
   
 
   
+    <li><a href="task_deploying_gcp.html">Launching Cloud Volumes ONTAP in GCP</a></li>
+  
+
+  
     <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
   
 
@@ -652,7 +688,7 @@
   
 
   
-    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+    <li><a href="task_syncing_s3.html">Syncing data to Amazon S3</a></li>
   
 
   
@@ -796,6 +832,10 @@
   
 
   
+    <li><a href="reference_firewall_rules_gcp.html">Firewall rules for GCP</a></li>
+  
+
+  
     <li><a href="reference_permissions.html">Permissions</a></li>
   
 
@@ -851,7 +891,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-05-02 19:06:17 +0000">05/02/2019</time>
+<time datetime="2019-09-03 15:51:56 +0000">09/03/2019</time>
 
 
 <span>Contributors
@@ -888,7 +928,7 @@
 <p>Go to the <a href="https://register.netapp.com/register/getlicensefile" target="_blank" rel="noopener">NetApp License File Generator</a> and log in using your NetApp Support Site credentials.</p>
 </li>
 <li>
-<p>Enter your password, choose your product (either <strong>NetApp Cloud Volumes ONTAP BYOL for AWS</strong>, <strong>NetApp Cloud Volumes ONTAP BYOL for Azure</strong>, or <strong>NetApp Cloud Volumes ONTAP BYOL HA for AWS</strong>), enter the serial number, confirm that you have read and accepted the privacy policy, and then click <strong>Submit</strong>.</p>
+<p>Enter your password, choose your product, enter the serial number, confirm that you have read and accepted the privacy policy, and then click <strong>Submit</strong>.</p>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -923,10 +963,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="changing-the-instance-or-virtual-machine-type-for-cloud-volumes-ontap">Changing the instance or virtual machine type for Cloud Volumes ONTAP</h2>
+<h2 id="changing-the-instance-or-machine-type-for-cloud-volumes-ontap">Changing the instance or machine type for Cloud Volumes ONTAP</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can choose from several instance or virtual machine types when you launch Cloud Volumes ONTAP in AWS or Azure. You can change the instance or virtual machine type at any time if you determine that it is undersized or oversized for your needs.</p>
+<p>You can choose from several instance or machine types when you launch Cloud Volumes ONTAP in AWS, Azure, or GCP. You can change the instance or machine type at any time if you determine that it is undersized or oversized for your needs.</p>
 </div>
 <div class="ulist">
 <div class="title">About this task</div>
@@ -941,7 +981,7 @@
 </div>
 </li>
 <li>
-<p>Changing the instance or virtual machine type affects AWS or Azure service charges.</p>
+<p>Changing the instance or machine type affects cloud provider service charges.</p>
 </li>
 </ul>
 </div>
@@ -949,13 +989,13 @@
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>From the working environment, click the menu icon, and then click <strong>Change license or instance</strong> for AWS or click <strong>Change license or VM</strong> for Azure.</p>
+<p>From the working environment, click the menu icon, and then click <strong>Change license or instance</strong> for AWS, <strong>Change license or VM</strong> for Azure, or <strong>Change license or machine</strong> for GCP.</p>
 </li>
 <li>
 <p>If you are using a pay-as-you-go configuration, you can optionally choose a different license.</p>
 </li>
 <li>
-<p>Select an instance or virtual machine type, select the check box to confirm that you understand the implications of the change, and then click <strong>OK</strong>.</p>
+<p>Select an instance or machine type, select the check box to confirm that you understand the implications of the change, and then click <strong>OK</strong>.</p>
 </li>
 </ol>
 </div>
@@ -969,7 +1009,19 @@
 <h2 id="changing-between-pay-as-you-go-configurations">Changing between pay-as-you-go configurations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you launch pay-as-you-go Cloud Volumes ONTAP systems, you can change between the Explore, Standard, and Premium configurations at any time by modifying the license. Changing the license increases or decreases the raw capacity limit and enables you to choose from different EC2 instance types or Azure virtual machine types.</p>
+<p>After you launch pay-as-you-go Cloud Volumes ONTAP systems, you can change between the Explore, Standard, and Premium configurations at any time by modifying the license. Changing the license increases or decreases the raw capacity limit and enables you to choose from different AWS instance types or Azure virtual machine types.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In GCP, a single machine type is available for each pay-as-you-go configuration. You can&#8217;t choose between different machine types.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
@@ -987,7 +1039,7 @@
 </div>
 </li>
 <li>
-<p>Changing the instance or virtual machine type affects AWS or Azure service charges.</p>
+<p>Changing the instance or machine type affects cloud provider service charges.</p>
 </li>
 </ul>
 </div>
@@ -995,16 +1047,16 @@
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>From the working environment, click the menu icon, and then click <strong>Change license or instance</strong> for AWS or click <strong>Change license or VM</strong> for Azure.</p>
+<p>From the working environment, click the menu icon, and then click <strong>Change license or instance</strong> for AWS, <strong>Change license or VM</strong> for Azure, or <strong>Change license or machine</strong> for GCP.</p>
 </li>
 <li>
-<p>Select a license type and an instance type or virtual machine type, select the check box to confirm that you understand the implications of the change, and then click <strong>OK</strong>.</p>
+<p>Select a license type and an instance type or machine type, select the check box to confirm that you understand the implications of the change, and then click <strong>OK</strong>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>Cloud Volumes ONTAP reboots with the new license, instance type or virtual machine type, or both.</p>
+<p>Cloud Volumes ONTAP reboots with the new license, instance type or machine type, or both.</p>
 </div>
 </div>
 </div>
@@ -1021,7 +1073,8 @@
 <p>Create a new Cloud Volumes ONTAP working environment.</p>
 <div class="paragraph">
 <p><a href="task_deploying_otc_aws.html">Launching Cloud Volumes ONTAP in AWS</a><br>
-<a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a></p>
+<a href="task_deploying_otc_azure.html">Launching Cloud Volumes ONTAP in Azure</a><br>
+<a href="task_deploying_gcp.html">Launching Cloud Volumes ONTAP in GCP</a></p>
 </div>
 </li>
 <li>

@@ -356,7 +356,27 @@
   
 
   
-    <li><a href="concept_accounts_and_permissions.html">Cloud provider accounts</a></li>
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud provider accounts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_accounts_aws.html">AWS accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_azure.html">Azure accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_gcp.html">GCP accounts</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -463,7 +483,15 @@
   
 
   
-    <li><a href="task_adding_cloud_accounts.html">Adding cloud provider accounts</a></li>
+    <li><a href="task_adding_aws_accounts.html">Adding AWS accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_azure_accounts.html">Adding Azure accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_gcp_accounts.html">Adding GCP accounts</a></li>
   
 
   
@@ -504,6 +532,10 @@
 
   
     <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
+  
+
+  
+    <li><a href="reference_networking_gcp.html">Cloud Volumes ONTAP for GCP</a></li>
   
 
 
@@ -592,6 +624,10 @@
   
 
   
+    <li><a href="task_deploying_gcp.html">Launching Cloud Volumes ONTAP in GCP</a></li>
+  
+
+  
     <li><a href="task_registering.html">Registering pay-as-you-go systems</a></li>
   
 
@@ -652,7 +688,7 @@
   
 
   
-    <li><a href="task_syncing_s3.html">Syncing data to AWS S3</a></li>
+    <li><a href="task_syncing_s3.html">Syncing data to Amazon S3</a></li>
   
 
   
@@ -796,6 +832,10 @@
   
 
   
+    <li><a href="reference_firewall_rules_gcp.html">Firewall rules for GCP</a></li>
+  
+
+  
     <li><a href="reference_permissions.html">Permissions</a></li>
   
 
@@ -851,7 +891,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-14 15:15:20 +0000">06/14/2019</time>
+<time datetime="2019-09-03 15:51:56 +0000">09/03/2019</time>
 
 
 <span>Contributors
@@ -879,7 +919,7 @@
 <h2 id="choosing-a-license-type">Choosing a license type</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Volumes ONTAP is available in AWS and Azure in two pricing options: pay-as-you-go and Bring Your Own License (BYOL). For pay-as-you-go, you can choose from three licenses: Explore, Standard, or Premium. Each license provides different capacity and compute options.</p>
+<p>Cloud Volumes ONTAP is available in two pricing options: pay-as-you-go and Bring Your Own License (BYOL). For pay-as-you-go, you can choose from three licenses: Explore, Standard, or Premium. Each license provides different capacity and compute options.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -888,6 +928,9 @@
 </li>
 <li>
 <p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_96.html" target="_blank" rel="noopener">Supported configurations for Cloud Volumes ONTAP 9.6 in Azure</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_gcp_96.html" target="_blank" rel="noopener">Supported configurations for Cloud Volumes ONTAP 9.6 in GCP</a></p>
 </li>
 </ul>
 </div>
@@ -907,13 +950,90 @@
 <li>
 <p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_azure_96.html">Storage limits for Cloud Volumes ONTAP 9.6 in Azure</a></p>
 </li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_gcp_96.html">Storage limits for Cloud Volumes ONTAP 9.6 in GCP</a></p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="sizing-your-system-in-aws">Sizing your system in AWS</h2>
+<h2 id="choosing-a-write-speed">Choosing a write speed</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager enables you to choose a write speed setting for single node Cloud Volumes ONTAP systems. Before you choose a write speed, you should understand the differences between the normal and high settings and risks and recommendations when using high write speed.</p>
+</div>
+<div class="sect3">
+<h4 id="difference-between-normal-write-speed-and-high-write-speed">Difference between normal write speed and high write speed</h4>
+<div class="paragraph">
+<p>When you choose normal write speed, data is written directly to disk, thereby reducing the likelihood of data loss in the event of an unplanned system outage.</p>
+</div>
+<div class="paragraph">
+<p>When you choose high write speed, data is buffered in memory before it is written to disk, which provides faster write performance. Due to this caching, there is the potential for data loss if an unplanned system outage occurs.</p>
+</div>
+<div class="paragraph">
+<p>The amount of data that can be lost in the event of an unplanned system outage is the span of the last two consistency points. A consistency point is the act of writing buffered data to disk. A consistency point occurs when the write log is full or after 10 seconds (whichever comes first). However, AWS EBS volume performance can affect consistency point processing time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="when-to-use-high-write-speed">When to use high write speed</h4>
+<div class="paragraph">
+<p>High write speed is a good choice if fast write performance is required for your workload and you can withstand the risk of data loss in the event of an unplanned system outage.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="recommendations-when-using-high-write-speed">Recommendations when using high write speed</h4>
+<div class="paragraph">
+<p>If you enable high write speed, you should ensure write protection at the application layer.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="choosing-a-volume-usage-profile">Choosing a volume usage profile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP includes several storage efficiency features that can reduce the total amount of storage that you need. When you create a volume in Cloud Manager, you can choose a profile that enables these features or a profile that disables them. You should learn more about these features to help you decide which profile to use.</p>
+</div>
+<div class="paragraph">
+<p>NetApp storage efficiency features provide the following benefits:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Thin provisioning</dt>
+<dd>
+<p>Presents more logical storage to hosts or users than you actually have in your physical storage pool. Instead of preallocating storage space, storage space is allocated dynamically to each volume as data is written.</p>
+</dd>
+<dt class="hdlist1">Deduplication</dt>
+<dd>
+<p>Improves efficiency by locating identical blocks of data and replacing them with references to a single shared block. This technique reduces storage capacity requirements by eliminating redundant blocks of data that reside in the same volume.</p>
+</dd>
+<dt class="hdlist1">Compression</dt>
+<dd>
+<p>Reduces the physical capacity required to store data by compressing data within a volume on primary, secondary, and archive storage.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="aws-planning">AWS planning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Plan your deployment of Cloud Volumes ONTAP in AWS by sizing your system and reviewing the network information that you need to enter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#sizing-your-system-in-aws">Sizing your system in AWS</a></p>
+</li>
+<li>
+<p><a href="#aws-network-information-worksheet">AWS network information worksheet</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="sizing-your-system-in-aws">Sizing your system in AWS</h3>
 <div class="paragraph">
 <p>Sizing your Cloud Volumes ONTAP system can help you meet requirements for performance and capacity. You should be aware of a few key points when choosing an instance type, disk type, and disk size:</p>
 </div>
@@ -931,9 +1051,15 @@
 </li>
 <li>
 <p>If you have an application that is mostly reads, then choose a system with enough RAM.</p>
-<div class="paragraph">
-<p><a href="https://aws.amazon.com/ec2/instance-types/" target="_blank" rel="noopener">AWS Documentation: Amazon EC2 Instance Types</a><br>
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html" target="_blank" rel="noopener">AWS Documentation: Amazon EBS–Optimized Instances</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://aws.amazon.com/ec2/instance-types/" target="_blank" rel="noopener">AWS Documentation: Amazon EC2 Instance Types</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html" target="_blank" rel="noopener">AWS Documentation: Amazon EBS–Optimized Instances</a></p>
+</li>
+</ul>
 </div>
 </li>
 </ul>
@@ -977,10 +1103,138 @@
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="aws-network-information-worksheet">AWS network information worksheet</h3>
+<div class="paragraph">
+<p>When you launch Cloud Volumes ONTAP in AWS, you need to specify details about your VPC network. You can use a worksheet to collect the information from your administrator.</p>
+</div>
+<div class="sect3">
+<h4 id="network-information-for-cloud-volumes-ontap">Network information for Cloud Volumes ONTAP</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">AWS information</th>
+<th class="tableblock halign-left valign-top">Your value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security group (if using your own)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="network-information-for-an-ha-pair-in-multiple-azs">Network information for an HA pair in multiple AZs</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">AWS information</th>
+<th class="tableblock halign-left valign-top">Your value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security group (if using your own)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node 1 availability zone</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node 1 subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node 2 availability zone</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node 2 subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mediator availability zone</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mediator subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key pair for the mediator</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for cluster management port</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for data on node 1</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for data on node 2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Route tables for floating IP addresses</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="sizing-your-system-in-azure">Sizing your system in Azure</h2>
+<h2 id="azure-planning">Azure planning</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Plan your deployment of Cloud Volumes ONTAP in Azure by sizing your system and reviewing the network information that you need to enter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#sizing-your-system-in-azure">Sizing your system in Azure</a></p>
+</li>
+<li>
+<p><a href="#azure-network-information-worksheet">Azure network information worksheet</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="sizing-your-system-in-azure">Sizing your system in Azure</h3>
 <div class="paragraph">
 <p>Sizing your Cloud Volumes ONTAP system can help you meet requirements for performance and capacity. You should be aware of a few key points when choosing a VM type, disk type, and disk size:</p>
 </div>
@@ -1064,183 +1318,8 @@ All disks in an aggregate must be the same size.
 </dl>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="choosing-a-write-speed">Choosing a write speed</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager enables you to choose a write speed setting for single node Cloud Volumes ONTAP systems. Before you choose a write speed, you should understand the differences between the normal and high settings and risks and recommendations when using high write speed.</p>
-</div>
 <div class="sect2">
-<h3 id="difference-between-normal-write-speed-and-high-write-speed">Difference between normal write speed and high write speed</h3>
-<div class="paragraph">
-<p>When you choose normal write speed, data is written directly to disk, thereby reducing the likelihood of data loss in the event of an unplanned system outage.</p>
-</div>
-<div class="paragraph">
-<p>When you choose high write speed, data is buffered in memory before it is written to disk, which provides faster write performance. Due to this caching, there is the potential for data loss if an unplanned system outage occurs.</p>
-</div>
-<div class="paragraph">
-<p>The amount of data that can be lost in the event of an unplanned system outage is the span of the last two consistency points. A consistency point is the act of writing buffered data to disk. A consistency point occurs when the write log is full or after 10 seconds (whichever comes first). However, AWS EBS volume performance can affect consistency point processing time.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="when-to-use-high-write-speed">When to use high write speed</h3>
-<div class="paragraph">
-<p>High write speed is a good choice if fast write performance is required for your workload and you can withstand the risk of data loss in the event of an unplanned system outage.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="recommendations-when-using-high-write-speed">Recommendations when using high write speed</h3>
-<div class="paragraph">
-<p>If you enable high write speed, you should ensure write protection at the application layer.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="choosing-a-volume-usage-profile">Choosing a volume usage profile</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>ONTAP includes several storage efficiency features that can reduce the total amount of storage that you need. When you create a volume in Cloud Manager, you can choose a profile that enables these features or a profile that disables them. You should learn more about these features to help you decide which profile to use.</p>
-</div>
-<div class="paragraph">
-<p>NetApp storage efficiency features provide the following benefits:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Thin provisioning</dt>
-<dd>
-<p>Presents more logical storage to hosts or users than you actually have in your physical storage pool. Instead of preallocating storage space, storage space is allocated dynamically to each volume as data is written.</p>
-</dd>
-<dt class="hdlist1">Deduplication</dt>
-<dd>
-<p>Improves efficiency by locating identical blocks of data and replacing them with references to a single shared block. This technique reduces storage capacity requirements by eliminating redundant blocks of data that reside in the same volume.</p>
-</dd>
-<dt class="hdlist1">Compression</dt>
-<dd>
-<p>Reduces the physical capacity required to store data by compressing data within a volume on primary, secondary, and archive storage.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="aws-network-information-worksheet">AWS network information worksheet</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When you launch Cloud Volumes ONTAP in AWS, you need to specify details about your VPC network. You can use a worksheet to collect the information from your administrator.</p>
-</div>
-<div class="sect2">
-<h3 id="network-information-for-cloud-volumes-ontap">Network information for Cloud Volumes ONTAP</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 70%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">AWS information</th>
-<th class="tableblock halign-left valign-top">Your value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPC</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Security group (if using your own)</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="network-information-for-an-ha-pair-in-multiple-azs">Network information for an HA pair in multiple AZs</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 70%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">AWS information</th>
-<th class="tableblock halign-left valign-top">Your value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPC</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Security group (if using your own)</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Node 1 availability zone</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Node 1 subnet</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Node 2 availability zone</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Node 2 subnet</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mediator availability zone</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mediator subnet</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key pair for the mediator</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for cluster management port</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for data on node 1</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Floating IP address for data on node 2</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Route tables for floating IP addresses</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="azure-network-information-worksheet">Azure network information worksheet</h2>
-<div class="sectionbody">
+<h3 id="azure-network-information-worksheet">Azure network information worksheet</h3>
 <div class="paragraph">
 <p>When you deploy Cloud Volumes ONTAP in Azure, you need to specify details about your virtual network. You can use a worksheet to collect the information from your administrator.</p>
 </div>
@@ -1274,6 +1353,119 @@ All disks in an aggregate must be the same size.
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gcp-planning">GCP planning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Plan your deployment of Cloud Volumes ONTAP in Google Cloud Platform by sizing your system and reviewing the network information that you need to enter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#sizing-your-system-in-gcp">Sizing your system in GCP</a></p>
+</li>
+<li>
+<p><a href="#gcp-network-information-worksheet">GCP network information worksheet</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="sizing-your-system-in-gcp">Sizing your system in GCP</h3>
+<div class="paragraph">
+<p>Sizing your Cloud Volumes ONTAP system can help you meet requirements for performance and capacity. You should be aware of a few key points when choosing a machine type, disk type, and disk size:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Machine type</dt>
+<dd>
+<p>Look at the supported machine types in the <a href="http://docs.netapp.com/cloud-volumes-ontap/us-en/index.html" target="_blank" rel="noopener">Cloud Volumes ONTAP Release Notes</a> and then review details from Google about each supported machine type. Match your workload requirements to the number of vCPUs and memory for the machine type. Note that each CPU core increases networking performance.</p>
+<div class="paragraph">
+<p><a href="https://cloud.google.com/compute/docs/machine-types#n1_machine_types" target="_blank" rel="noopener">Google Cloud documentation: N1 standard machine types</a></p>
+</div>
+</dd>
+<dt class="hdlist1">GCP disk type</dt>
+<dd>
+<p>When you create volumes for Cloud Volumes ONTAP, you need to choose the underlying cloud storage that Cloud Volumes ONTAP uses for a disk. The disk type can be either <em>Zonal SSD persistent disks</em> or <em>Zonal standard persistent disks</em>.</p>
+<div class="paragraph">
+<p>SSD persistent disks are best for workloads that require high rates of random IOPS, while Standard persistent disks are economical and can handle sequential read/write operations. For more details, see <a href="https://cloud.google.com/compute/docs/disks/#pdspecs" target="_blank" rel="noopener">Google Cloud documentation: Zonal Persistent disks (Standard and SSD)</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1">GCP disk size</dt>
+<dd>
+<p>You need to choose an initial disk size when you deploy a Cloud Volumes ONTAP system. After that you can let Cloud Manager manage a system&#8217;s capacity for you, but if you want to build aggregates yourself, be aware of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All disks in an aggregate must be the same size.</p>
+</li>
+<li>
+<p>Determine the space that you need, while taking performance into consideration.</p>
+</li>
+<li>
+<p>The performance of persistent disks scales automatically with disk size and the number of vCPUs available to the system.</p>
+<div class="paragraph">
+<p>Refer to the following for more details:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://cloud.google.com/compute/docs/disks/#pdspecs" target="_blank" rel="noopener">Google Cloud documentation: Zonal Persistent disks (Standard and SSD)</a></p>
+</li>
+<li>
+<p><a href="https://cloud.google.com/compute/docs/disks/performance" target="_blank" rel="noopener">Google Cloud documentation: Optimizing Persistent Disk and Local SSD Performance</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gcp-network-information-worksheet">GCP network information worksheet</h3>
+<div class="paragraph">
+<p>When you deploy Cloud Volumes ONTAP in GCP, you need to specify details about your virtual network. You can use a worksheet to collect the information from your administrator.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">GCP information</th>
+<th class="tableblock halign-left valign-top">Your value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zone</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC network</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Firewall policy (if using your own)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
