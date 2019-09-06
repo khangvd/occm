@@ -891,7 +891,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-03 15:51:56 +0000">09/03/2019</time>
+<time datetime="2019-09-06 17:01:19 +0000">09/06/2019</time>
 
 
 <span>Contributors
@@ -1119,16 +1119,23 @@ UNIX for NFS volumes</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>One Provisioned IOPS SSD disk for boot data, which is approximately 45 GB and 1,250 PIOPS</p>
+<p>Two General Purpose SSD disks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>One 140 GB disk for root data (one per node)</p>
 </li>
 <li>
-<p>One General Purpose SSD disk for root data, which is approximately 140 GB</p>
+<p>9.6 and later: One 86 GB disk for boot data (one per node)</p>
+</li>
+<li>
+<p>9.5 and earlier: One 45 GB disk for boot data (one per node)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>One EBS snapshot for each boot disk and root disk</p>
-<div class="paragraph">
-<p>In an HA pair, both Cloud Volumes ONTAP nodes replicate its root disk to the partner node.</p>
-</div>
 </li>
 <li>
 <p>For HA pairs, one EBS volume for the Mediator instance, which is approximately 8 GB</p>
@@ -1145,10 +1152,10 @@ UNIX for NFS volumes</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>One 90 GB disk for the boot volume</p>
+<p>One 90 GB disk for boot data</p>
 </li>
 <li>
-<p>One 140 GB disk for the root volume</p>
+<p>One 140 GB disk for root data</p>
 </li>
 </ul>
 </div>
