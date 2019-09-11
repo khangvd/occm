@@ -20,7 +20,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="You can launch Cloud Volumes ONTAP instances in a single-system configuration or as an HA pair in AWS.">
-  <meta name="keywords" content=" Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, aws, serial number, license key, byol, test instance, aws tags, tags, location, vpc, encryption, security group, aws-managed encryption, disk size, disk type, write speed, licensing, IAM role, preconfigured package, access control, volume protection, usage profile, register, CIFS share, quota, qtree, WorkingEnvironmentId, HA, high availability">
+  <meta name="keywords" content=" Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, aws, serial number, license key, byol, test instance, aws tags, tags, location, vpc, encryption, security group, aws-managed encryption, disk size, disk type, write speed, licensing, IAM role, preconfigured package, access control, volume protection, usage profile, register, CIFS share, quota, qtree, WorkingEnvironmentId, HA, high availability, subscription">
   
 
   <!-- Icons -->
@@ -701,6 +701,10 @@
   
 
   
+    <li><a href="task_manage_cvs_aws.html">Managing Cloud Volumes for AWS</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Administering Cloud Volumes ONTAP</a>
@@ -836,6 +840,10 @@
   
 
   
+    <li><a href="reference_aws_marketplace.html">AWS Marketplace pages</a></li>
+  
+
+  
     <li><a href="reference_permissions.html">Permissions</a></li>
   
 
@@ -891,7 +899,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-07-17 16:41:27 +0000">07/17/2019</time>
+<time datetime="2019-09-03 17:11:18 +0000">09/03/2019</time>
 
 
 <span>Contributors
@@ -912,6 +920,30 @@
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>You can launch Cloud Volumes ONTAP in a single-system configuration or as an HA pair in AWS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="subscribing-from-the-aws-marketplace">Subscribing from the AWS Marketplace</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">Subscribe from the AWS Marketplace</a> to ensure that there&#8217;s no disruption of service after your free trial of Cloud Volumes ONTAP ends. You&#8217;ll be charged from this subscription for every Cloud Volumes ONTAP 9.6 PAYGO system that you create and each add-on feature that you enable.</p>
+</div>
+<div class="paragraph">
+<p>The following video shows the subscription process:</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="./media/video_subscribing_aws.mp4" width="848" height="480" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re launching Cloud Volumes ONTAP by bringing your own license (BYOL), <a href="https://aws.amazon.com/marketplace/search/results?x=0&amp;y=0&amp;searchTerms=cloud+volumes+ontap+byol" target="_blank" rel="noopener">then you&#8217;ll need to subscribe to that offering in the AWS Marketplace</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="reference_aws_marketplace.html">Learn more about each AWS Marketplace page</a>.</p>
 </div>
 </div>
 </div>
@@ -943,13 +975,13 @@
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>On the Working Environments page, click <strong>Add Working Environment</strong>.</p>
+<p>On the Working Environments page, click <strong>Create Cloud Volumes ONTAP</strong> and follow the prompts.</p>
 </li>
 <li>
-<p>Under Create, select <strong>Cloud Volumes ONTAP</strong>.</p>
+<p><strong>Define Your Working Environment</strong>: Select <strong>Amazon Web Services</strong> and <strong>Cloud Volumes ONTAP</strong>.</p>
 </li>
 <li>
-<p>On the Details and Credentials page, optionally change the AWS account, enter a working environment name, add tags if needed, and then enter a password.</p>
+<p><strong>Details and Credentials</strong>: Optionally change the AWS account and marketplace subscription, enter a working environment name, add tags if needed, and then enter a password.</p>
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
@@ -966,8 +998,12 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Switch Account</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different account if you added additional Cloud Provider Accounts. For details, see <a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts to Cloud Manager</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different account if you <a href="task_adding_aws_accounts.html">added additional AWS accounts to Cloud Manager</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Marketplace Subscription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select a different subscription if you want to change the AWS account from which you get charged. To add a new subscription, <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">go to the offering in the AWS Marketplace</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Working Environment Name</p></td>
@@ -987,30 +1023,18 @@ For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If AWS keys were not specified for your Cloud Manager account, you are prompted to enter them after you click Continue. You need to enter them before you can proceed.
-</td>
-</tr>
-</table>
-</div>
 </li>
 <li>
-<p>On the Location &amp; Connectivity page, enter the network information that you recorded in the AWS worksheet and then click <strong>Continue</strong>.</p>
+<p><strong>Location &amp; Connectivity</strong>: Enter the network information that you recorded in the AWS worksheet.</p>
 <div class="paragraph">
-<p>The following image shows the Location &amp; Connectivity page filled out:</p>
+<p>The following image shows the page filled out:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_cot_vpc.gif" alt="Screen shot: Shows the VPC page filled out for a new Cloud Volumes ONTAP instance."></span></p>
 </div>
 </li>
 <li>
-<p>On the Data Encryption page, choose no data encryption or AWS-managed encryption.</p>
+<p><strong>Data Encryption</strong>: Choose no data encryption or AWS-managed encryption.</p>
 <div class="paragraph">
 <p>For AWS-managed encryption, you can choose a different Customer Master Key (CMK) from your account or another AWS account.</p>
 </div>
@@ -1022,7 +1046,7 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 </div>
 </li>
 <li>
-<p>On the License and Support Site Account page, specify whether you want to use pay-as-you-go or BYOL, and then specify a NetApp Support Site account.</p>
+<p><strong>License and Support Site Account</strong>: Specify whether you want to use pay-as-you-go or BYOL, and then specify a NetApp Support Site account.</p>
 <div class="paragraph">
 <p>To understand how licenses work, see <a href="concept_licensing.html">Licensing</a>.</p>
 </div>
@@ -1031,19 +1055,19 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 </div>
 </li>
 <li>
-<p>On the Preconfigured Packages page, select one of the packages to quickly launch Cloud Volumes ONTAP, or click <strong>Create my own configuration</strong>.</p>
+<p><strong>Preconfigured Packages</strong>: Select one of the packages to quickly launch Cloud Volumes ONTAP, or click <strong>Create my own configuration</strong>.</p>
 <div class="paragraph">
 <p>If you choose one of the packages, you only need to specify a volume and then review and approve the configuration.</p>
 </div>
 </li>
 <li>
-<p>On the IAM Role page, you should keep the default option to let Cloud Manager create the role for you.</p>
+<p><strong>IAM Role</strong>: You should keep the default option to let Cloud Manager create the role for you.</p>
 <div class="paragraph">
 <p>If you prefer to use your own policy, it must meet <a href="http://mysupport.netapp.com/cloudontap/support/iampolicies" target="_blank" rel="noopener">policy requirements for Cloud Volumes ONTAP nodes</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Licensing page, change the Cloud Volumes ONTAP version as needed, select a license, an instance type, the instance tenancy, and then click <strong>Continue</strong>.</p>
+<p><strong>Licensing</strong>: Change the Cloud Volumes ONTAP version as needed, select a license, an instance type, and the instance tenancy.</p>
 <div class="paragraph">
 <p>If your needs change after you launch the instance, you can modify the license or instance type later.</p>
 </div>
@@ -1061,7 +1085,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>On the Underlying Storage Resources page, choose settings for the initial aggregate: a disk type, a size for each disk, and whether S3 tiering should be enabled.</p>
+<p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type, a size for each disk, and whether S3 tiering should be enabled.</p>
 <div class="paragraph">
 <p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
 </div>
@@ -1073,7 +1097,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>On the Write Speed &amp; WORM page, choose <strong>Normal</strong> or <strong>High</strong> write speed, and activate write once, read many (WORM) storage, if desired.</p>
+<p><strong>Write Speed &amp; WORM</strong>: Choose <strong>Normal</strong> or <strong>High</strong> write speed, and activate write once, read many (WORM) storage, if desired.</p>
 <div class="paragraph">
 <p><a href="task_planning_your_config.html#choosing-a-write-speed">Learn more about write speed</a>.</p>
 </div>
@@ -1082,7 +1106,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>On the Create Volume page, enter details for the new volume, and then click <strong>Continue</strong>.</p>
+<p><strong>Create Volume</strong>: Enter details for the new volume or click <strong>Skip</strong>.</p>
 <div class="paragraph">
 <p>You might skip this step if you want to create a volume for iSCSI. Cloud Manager sets up volumes for NFS and CIFS only.</p>
 </div>
@@ -1127,7 +1151,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>If you chose the CIFS protocol, set up a CIFS server on the CIFS Setup page:</p>
+<p><strong>CIFS Setup</strong>: If you chose the CIFS protocol, set up a CIFS server.</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1174,13 +1198,13 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 </table>
 </li>
 <li>
-<p>On the Usage Profile, Disk Type, and Tiering Policy page, choose whether you want to enable storage efficiency features and edit the S3 tiering policy, if needed.</p>
+<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and edit the S3 tiering policy, if needed.</p>
 <div class="paragraph">
 <p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Review &amp; Approve page, review and confirm your selections:</p>
+<p><strong>Review &amp; Approve</strong>: Review and confirm your selections.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1254,13 +1278,13 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>On the Working Environments page, click <strong>Add Working Environment</strong>.</p>
+<p>On the Working Environments page, click <strong>Create Cloud Volumes ONTAP</strong> and follow the prompts.</p>
 </li>
 <li>
-<p>Under Create, select <strong>Cloud Volumes ONTAP HA</strong>.</p>
+<p><strong>Define Your Working Environment</strong>: Select <strong>Amazon Web Services</strong> and <strong>Cloud Volumes ONTAP HA</strong>.</p>
 </li>
 <li>
-<p>On the Details and Credentials page, optionally change the AWS account, enter a working environment name, add tags if needed, and then enter a password.</p>
+<p><strong>Details and Credentials</strong>: Optionally change the AWS account and marketplace subscription, enter a working environment name, add tags if needed, and then enter a password.</p>
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
@@ -1277,8 +1301,12 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Switch Account</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different account if you added additional Cloud Provider Accounts. For details, see <a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts to Cloud Manager</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different account if you <a href="task_adding_aws_accounts.html">added additional AWS accounts to Cloud Manager</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Marketplace Subscription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select a different subscription if you want to change the AWS account from which you get charged. To add a new subscription, <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">go to the offering in the AWS Marketplace</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Working Environment Name</p></td>
@@ -1286,7 +1314,11 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the Cloud Volumes ONTAP instance and each AWS resource associated with the instance. For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS tags are metadata for your AWS resources. Cloud Manager adds the tags to the Cloud Volumes ONTAP instance and each AWS resource associated with the instance.<br>
+<br>
+You can add up to four tags from the user interface when creating a working environment, and then you can add more after its created. Note that the API does not limit you to four tags when creating a working environment.<br>
+<br>
+For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html" target="_blank" rel="noopener">AWS Documentation: Tagging your Amazon EC2 Resources</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Credentials</p></td>
@@ -1294,51 +1326,39 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If AWS keys were not specified for your Cloud Manager account, you are prompted to enter them after you click Continue. You must enter the AWS keys before you proceed.
-</td>
-</tr>
-</table>
-</div>
 </li>
 <li>
-<p>On the HA Deployment Models page, choose an HA configuration.</p>
+<p><strong>HA Deployment Models</strong>: Choose an HA configuration.</p>
 <div class="paragraph">
 <p>For an overview of the deployment models, see <a href="concept_ha.html">Cloud Volumes ONTAP HA for AWS</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Region &amp; VPC page, enter the network information that you recorded in the AWS worksheet and then click <strong>Continue</strong>.</p>
+<p><strong>Region &amp; VPC</strong>: Enter the network information that you recorded in the AWS worksheet.</p>
 <div class="paragraph">
-<p>The following image shows the Location page filled out for a multiple AZ configuration:</p>
+<p>The following image shows the page filled out for a multiple AZ configuration:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_cot_vpc_ha.gif" alt="Screen shot: Shows the VPC page filled out for an HA configuration. A different availability zone is selected for each instance."></span></p>
 </div>
 </li>
 <li>
-<p>On the Connectivity and SSH Authentication page, choose connection methods for the HA pair and the mediator.</p>
+<p><strong>Connectivity and SSH Authentication</strong>: Choose connection methods for the HA pair and the mediator.</p>
 </li>
 <li>
-<p>If you chose multiple AZs, specify the floating IP addresses and then click <strong>Continue</strong>.</p>
+<p><strong>Floating IPs</strong>: If you chose multiple AZs, specify the floating IP addresses.</p>
 <div class="paragraph">
 <p>The IP addresses must be outside of the CIDR block for all VPCs in the region. For additional details, see <a href="reference_networking_aws.html#aws-networking-requirements-for-cloud-volumes-ontap-ha-in-multiple-azs">AWS networking requirements for Cloud Volumes ONTAP HA in multiple AZs</a>.</p>
 </div>
 </li>
 <li>
-<p>If you chose multiple AZs, select the route tables that should include routes to the floating IP addresses and then click <strong>Continue</strong>.</p>
+<p><strong>Route Tables</strong>: If you chose multiple AZs, select the route tables that should include routes to the floating IP addresses.</p>
 <div class="paragraph">
 <p>If you have more than one route table, it is very important to select the correct route tables. Otherwise, some clients might not have access to the Cloud Volumes ONTAP HA pair. For more information about route tables, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank" rel="noopener">AWS Documentation: Route Tables</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Data Encryption page, choose no data encryption or AWS-managed encryption.</p>
+<p><strong>Data Encryption</strong>: Choose no data encryption or AWS-managed encryption.</p>
 <div class="paragraph">
 <p>For AWS-managed encryption, you can choose a different Customer Master Key (CMK) from your account or another AWS account.</p>
 </div>
@@ -1350,7 +1370,7 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 </div>
 </li>
 <li>
-<p>On the License and Support Site Account page, specify whether you want to use pay-as-you-go or BYOL, and then specify a NetApp Support Site account.</p>
+<p><strong>License and Support Site Account</strong>: Specify whether you want to use pay-as-you-go or BYOL, and then specify a NetApp Support Site account.</p>
 <div class="paragraph">
 <p>To understand how licenses work, see <a href="concept_licensing.html">Licensing</a>.</p>
 </div>
@@ -1359,19 +1379,19 @@ If AWS keys were not specified for your Cloud Manager account, you are prompted 
 </div>
 </li>
 <li>
-<p>On the Preconfigured Packages page, select one of the packages to quickly launch a Cloud Volumes ONTAP system, or click <strong>Create my own configuration</strong>.</p>
+<p><strong>Preconfigured Packages</strong>: Select one of the packages to quickly launch a Cloud Volumes ONTAP system, or click <strong>Create my own configuration</strong>.</p>
 <div class="paragraph">
 <p>If you choose one of the packages, you only need to specify a volume and then review and approve the configuration.</p>
 </div>
 </li>
 <li>
-<p>On the IAM Role page, you should keep the default option to let Cloud Manager create the roles for you.</p>
+<p><strong>IAM Role</strong>: You should keep the default option to let Cloud Manager create the roles for you.</p>
 <div class="paragraph">
 <p>If you prefer to use your own policy, it must meet <a href="http://mysupport.netapp.com/cloudontap/support/iampolicies" target="_blank" rel="noopener">policy requirements for Cloud Volumes ONTAP nodes and the HA mediator</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Licensing page, change the Cloud Volumes ONTAP version as needed, select a license, an instance type, the instance tenancy, and then click <strong>Continue</strong>.</p>
+<p><strong>Licensing</strong>: Change the Cloud Volumes ONTAP version as needed, select a license, an instance type, and the instance tenancy.</p>
 <div class="paragraph">
 <p>If your needs change after you launch the instances, you can modify the license or instance type later.</p>
 </div>
@@ -1389,7 +1409,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>On the Underlying Storage Resources page, choose settings for the initial aggregate: a disk type, a size for each disk, and whether S3 tiering should be enabled.</p>
+<p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type, a size for each disk, and whether S3 tiering should be enabled.</p>
 <div class="paragraph">
 <p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
 </div>
@@ -1401,13 +1421,13 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>On the WORM page, activate write once, read many (WORM) storage, if desired.</p>
+<p><strong>WORM</strong>: Activate write once, read many (WORM) storage, if desired.</p>
 <div class="paragraph">
 <p><a href="concept_worm.html">Learn more about WORM storage</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Create Volume page, enter details for the new volume, and then click <strong>Continue</strong>.</p>
+<p><strong>Create Volume</strong>: Enter details for the new volume or click <strong>Skip</strong>.</p>
 <div class="paragraph">
 <p>You might skip this step if you want to create a volume for iSCSI. Cloud Manager sets up volumes for NFS and CIFS only.</p>
 </div>
@@ -1452,7 +1472,7 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 </li>
 <li>
-<p>If you selected the CIFS protocol, set up a CIFS server on the CIFS Setup page:</p>
+<p><strong>CIFS Setup</strong>: If you selected the CIFS protocol, set up a CIFS server.</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1499,13 +1519,13 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 </table>
 </li>
 <li>
-<p>On the Usage Profile, Disk Type, and Tiering Policy page, choose whether you want to enable storage efficiency features and edit the S3 tiering policy, if needed.</p>
+<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and edit the S3 tiering policy, if needed.</p>
 <div class="paragraph">
 <p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
 </div>
 </li>
 <li>
-<p>On the Review &amp; Approve page, review and confirm your selections:</p>
+<p><strong>Review &amp; Approve</strong>: Review and confirm your selections.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>

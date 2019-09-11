@@ -698,6 +698,10 @@
   
 
   
+    <li><a href="task_manage_cvs_aws.html">Managing Cloud Volumes for AWS</a></li>
+  
+
+  
     <!-- Check Container -->
     <li class="subfolders">
       <a href="#">Administering Cloud Volumes ONTAP</a>
@@ -833,6 +837,10 @@
   
 
   
+    <li><a href="reference_aws_marketplace.html">AWS Marketplace pages</a></li>
+  
+
+  
     <li><a href="reference_permissions.html">Permissions</a></li>
   
 
@@ -888,7 +896,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-04-16 19:24:36 +0000">04/16/2019</time>
+<time datetime="2019-09-03 17:11:05 +0000">09/03/2019</time>
 
 
 <span>Contributors
@@ -908,7 +916,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can get started with Cloud Volumes ONTAP in AWS from NetApp Cloud Central.</p>
+<p>Get started with Cloud Volumes ONTAP by setting up AWS and then launching Cloud Manager software from NetApp Cloud Central. A 30-day free trial is available for the first Cloud Volumes ONTAP system that you launch in AWS.</p>
 </div>
 </div>
 </div>
@@ -919,7 +927,7 @@
 <li>
 <p>Enable outbound internet access from the target VPC so Cloud Manager and Cloud Volumes ONTAP can contact several endpoints.</p>
 <div class="paragraph">
-<p>This step is important because Cloud Manager cannot deploy Cloud Volumes ONTAP without outbound internet access. If you need to limit outbound connectivity, refer to the list of endpoints for <a href="reference_networking_cloud_manager.html#outbound-internet-access">Cloud Manager</a> and <a href="reference_networking_aws.html#general-aws-networking-requirements-for-cloud-volumes-ontap">Cloud Volumes ONTAP</a>.</p>
+<p>This step is important because Cloud Manager can&#8217;t deploy Cloud Volumes ONTAP without outbound internet access. If you need to limit outbound connectivity, refer to the list of endpoints for <a href="reference_networking_cloud_manager.html#outbound-internet-access">Cloud Manager</a> and <a href="reference_networking_aws.html#general-aws-networking-requirements-for-cloud-volumes-ontap">Cloud Volumes ONTAP</a>.</p>
 </div>
 </li>
 <li>
@@ -932,13 +940,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="subscribe-to-cloud-volumes-ontap-from-the-aws-marketplace"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Subscribe to Cloud Volumes ONTAP from the AWS Marketplace</h3>
-<div class="paragraph quick-margin-para">
-<p>Subscribing from <a href="https://aws.amazon.com/marketplace/search/results?page=1&amp;searchTerms=netapp+cloud+volumes+ontap" target="_blank" rel="noopener">the AWS Marketplace</a> is required to accept the software terms. You should only subscribe from the Marketplace. Launching Cloud Volumes ONTAP from anywhere but Cloud Manager is not supported.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="provide-the-required-aws-permissions"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Provide the required AWS permissions</h3>
+<h3 id="provide-the-required-aws-permissions"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Provide the required AWS permissions</h3>
 <div class="paragraph quick-margin-para">
 <p>When you deploy Cloud Manager from NetApp Cloud Central, you need to use an AWS account that has permissions to deploy the instance.</p>
 </div>
@@ -951,6 +953,15 @@
 <p>Attach the policy to the IAM user.</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="subscribe-from-the-aws-marketplace"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Subscribe from the AWS Marketplace</h3>
+<div class="paragraph quick-margin-para">
+<p><a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">Subscribe to Cloud Manager from the AWS Marketplace</a> to ensure that there&#8217;s no disruption of service after your free trial of Cloud Volumes ONTAP ends. You&#8217;ll be charged from this subscription for every Cloud Volumes ONTAP PAYGO system that you create and each add-on feature that you enable.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>If you&#8217;re launching Cloud Volumes ONTAP by bringing your own license (BYOL), <a href="https://aws.amazon.com/marketplace/search/results?x=0&amp;y=0&amp;searchTerms=cloud+volumes+ontap+byol" target="_blank" rel="noopener">then you&#8217;ll need to subscribe to that offering in the AWS Marketplace</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -969,7 +980,9 @@
 </div>
 <div class="videoblock">
 <div class="content">
-<iframe width="848" height="480" src="https://www.youtube.com/embed/au5qQDiPuzo?rel=0" frameborder="0" allowfullscreen></iframe>
+<video src="./media/video_getting_started_aws.mp4" width="848" height="480" controls>
+Your browser does not support the video tag.
+</video>
 </div>
 </div>
 <div class="ulist">
@@ -988,7 +1001,7 @@
 <p><a href="reference_security_groups.html">Security group rules for AWS</a></p>
 </li>
 <li>
-<p><a href="task_adding_cloud_accounts.html">Adding Cloud Provider Accounts to Cloud Manager</a></p>
+<p><a href="task_adding_aws_accounts.html">Adding AWS accounts to Cloud Manager</a></p>
 </li>
 <li>
 <p><a href="reference_permissions.html#what-cloud-manager-does-with-aws-permissions">What Cloud Manager does with AWS permissions</a></p>
