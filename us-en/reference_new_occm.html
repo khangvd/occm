@@ -688,11 +688,11 @@
   
 
   
-    <li><a href="task_syncing_s3.html">Syncing data to Amazon S3</a></li>
+    <li><a href="task_backup_to_s3.html">Backing up to Amazon S3</a></li>
   
 
   
-    <li><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
+    <li><a href="task_syncing_s3.html">Syncing data to Amazon S3</a></li>
   
 
 
@@ -899,7 +899,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-11 13:53:52 +0000">09/11/2019</time>
+<time datetime="2019-09-16 11:31:46 +0000">09/16/2019</time>
 
 
 <span>Contributors
@@ -945,6 +945,31 @@ Looking for a previous release?<br>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-7-3-update-15-sept-2019">Cloud Manager 3.7.3 update (15 Sept 2019)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager now enables you to back up data from Cloud Volumes ONTAP to Amazon S3.</p>
+</div>
+<div class="paragraph">
+<p>Backup to S3 is an add-on feature for Cloud Volumes ONTAP that delivers fully-managed backup and restore capabilities for protection, and long-term archive of your cloud data. Backups are stored in S3 object storage, independent of volume Snapshot copies used for near-term recovery or cloning. The feature is powered by NetApp&#8217;s Cloud Backup Service.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_backup_to_s3.html">Learn how to get started</a>.</p>
+</div>
+<div class="paragraph">
+<p>This feature requires an update to the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager policy</a>. The following VPC endpoint permissions are now required:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"ec2:DescribeVpcEndpoints",
+"ec2:CreateVpcEndpoint",
+"ec2:ModifyVpcEndpoint",
+"ec2:DeleteVpcEndpoints"</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1217,7 +1242,19 @@ Cloud Manager needs access to <em>https://cloudmanager.cloud.netapp.com</em> in 
 <p><a href="https://cloud.netapp.com/cloud-backup-service" target="_blank" rel="noopener">Learn more about the Cloud Backup Service</a>.</p>
 </div>
 <div class="paragraph">
-<p>To get started, <a href="task_setting_up_cbs.html">install and configure the backup agent and then start backup and restore operations</a>. If you need help, we encourage you to contact us by using the chat icon in Cloud Manager.</p>
+<p>To get started, install and configure the backup agent and then start backup and restore operations. If you need help, we encourage you to contact us by using the chat icon in Cloud Manager.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This manual process is no longer supported. The Backup to S3 feature was integrated into Cloud Manager in the 3.7.3 release.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

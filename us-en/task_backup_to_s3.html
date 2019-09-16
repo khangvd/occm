@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Backing up and restoring data using the NetApp Cloud Backup Service in AWS | NetApp Cloud Docs</title>
+  <title>Backing up data to Amazon S3 | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Backing up and restoring data using the NetApp Cloud Backup Service in AWS | NetApp Cloud Docs" />
+  <meta property="og:title" content="Backing up data to Amazon S3 | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/task_setting_up_cbs.html" />
-	<meta property="og:description" content="The NetApp Cloud Backup Service for Cloud Volumes ONTAP delivers fully-managed backup and restore capabilities for protection and long-term archive of your c..." />
+	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/task_backup_to_s3.html" />
+	<meta property="og:description" content="Backup to S3 is an add-on feature for Cloud Volumes ONTAP that delivers fully-managed backup and restore capabilities for protection, and long-term archive o..." />
   <meta property="og:image" content="https://docs.netapp.com/occm/us-en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +19,8 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="The NetApp Cloud Backup Service for Cloud Volumes ONTAP delivers fully-managed backup and restore capabilities for protection and long-term archive of your c...">
-  <meta name="keywords" content=" backing up, restoring, back up, backup, restore, cloud volumes ontap, cloud backup service, aws">
+  <meta name="description" content="Backup to S3 is an add-on feature for Cloud Volumes ONTAP that delivers fully-managed backup and restore capabilities for protection, and long-term archive o...">
+  <meta name="keywords" content=" backing up, restoring, back up, backup, restore, cloud volumes ontap, cloud backup service, aws, back up volumes, backup to s3, restore volumes, vpc endpoint, billing, cost">
   
 
   <!-- Icons -->
@@ -688,11 +688,11 @@
   
 
   
-    <li><a href="task_syncing_s3.html">Syncing data to Amazon S3</a></li>
+    <li class="active"><a href="task_backup_to_s3.html">Backing up to Amazon S3</a></li>
   
 
   
-    <li class="active"><a href="task_setting_up_cbs.html">Backing up data using the Cloud Backup Service in AWS</a></li>
+    <li><a href="task_syncing_s3.html">Syncing data to Amazon S3</a></li>
   
 
 
@@ -887,11 +887,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Backing up and restoring data using the NetApp Cloud Backup Service in AWS
+  <h1 class="n-doc__component-detail-heading">Backing up data to Amazon S3
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_setting_up_cbs.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Backing up and restoring data using the NetApp Cloud Backup Service in AWS](https://docs.netapp.com/us-en/occm/task_setting_up_cbs.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_backup_to_s3.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Backing up data to Amazon S3](https://docs.netapp.com/us-en/occm/task_backup_to_s3.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -899,7 +899,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-11 12:40:01 +0000">06/11/2019</time>
+<time datetime="2019-09-16 11:31:25 +0000">09/16/2019</time>
 
 
 <span>Contributors
@@ -919,467 +919,14 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>The NetApp Cloud Backup Service for Cloud Volumes ONTAP delivers fully-managed backup and restore capabilities for protection and long-term archive of your cloud data. You can integrate the Cloud Backup Service with Cloud Volumes ONTAP for AWS. Backups created by the service are stored in AWS S3 object storage.</p>
+<p>Backup to S3 is an add-on feature for Cloud Volumes ONTAP that delivers fully-managed backup and restore capabilities for protection, and long-term archive of your cloud data. Backups are stored in S3 object storage, independent of volume Snapshot copies used for near-term recovery or cloning. The feature is powered by NetApp&#8217;s Cloud Backup Service.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://cloud.netapp.com/cloud-backup-service" target="_blank" rel="noopener">Learn more about the Cloud Backup Service</a>.</p>
+<p>When you enable Backup to S3, the Cloud Backup Service performs a full backup of your data. All additional backups are incremental, which means that only changed blocks and new blocks are backed up. You can set the backup schedule to daily, or weekly, or monthly.</p>
 </div>
 <div class="paragraph">
-<p>The Cloud Backup Service is supported with Cloud Volumes ONTAP 9.4 and later.</p>
+<p><a href="https://cloud.netapp.com/cloud-backup-service" target="_blank" rel="noopener">Go to NetApp Cloud Central for pricing details</a>.</p>
 </div>
-<div class="paragraph">
-<p>To get started, install and configure the backup agent and then run commands to start backup and restore operations. If you need help, we encourage you to contact us by using the chat icon in Cloud Manager.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contacting-netapp-to-use-the-cloud-backup-service">Contacting NetApp to use the Cloud Backup Service</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Before you get started, send us your AWS account ID so that we can enable your account to use the Cloud Backup Service.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Step</div>
-<ol class="arabic">
-<li>
-<p>Send an email to <a href="mailto:ng-cloud-volume-ontap-preview@netapp.com">ng-cloud-volume-ontap-preview@netapp.com</a> that includes your AWS account ID.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="verifying-your-aws-permissions">Verifying your AWS permissions</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>To complete the steps on this page, your AWS account must have the following permissions:</p>
-</div>
-<div class="paragraph">
-<p>ec2:DescribeVpcEndpoints<br>
-ec2:CreateVpcEndpoint<br>
-ec2:ModifyVpcEndpoint</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="installing-and-configuring-the-cloud-backup-service-agent">Installing and configuring the Cloud Backup Service agent</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>We recommend that you install the backup agent on the Cloud Manager instance. An internet connection is required to download the agent package and a connection to Cloud Volumes ONTAP systems is required for backup and restore operations. The Cloud Manager instance should meet both of those requirements.</p>
-</div>
-<div class="sect2">
-<h3 id="downloading-the-agent-package">Downloading the agent package</h3>
-<div class="paragraph">
-<p>Download the agent package from an S3 bucket and uncompress the files to a directory on the instance.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>SSH to the Cloud Manager EC2 instance.</p>
-</li>
-<li>
-<p>Download the agent for the Cloud Backup Service:</p>
-<div class="paragraph">
-<p><code>wget <a href="https://s3.us-east-2.amazonaws.com/cbs-package-bucket/packages/cvo-cbs-agent-0.7.tar.gz" class="bare">https://s3.us-east-2.amazonaws.com/cbs-package-bucket/packages/cvo-cbs-agent-0.7.tar.gz</a></code></p>
-</div>
-</li>
-<li>
-<p>Untar the compressed files into another existing directory:</p>
-<div class="paragraph">
-<p><code>tar -xvf folder.tar -C /target/directory</code></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="creating-vpc-interface-endpoints-to-the-cloud-backup-service">Creating VPC interface endpoints to the Cloud Backup Service</h3>
-<div class="paragraph">
-<p>Two VPC interface endpoints are required to communicate with the Cloud Backup Service.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>At the AWS CLI, run <code>aws configure</code> and provide your secret key and access key.</p>
-</li>
-<li>
-<p>Run the following command to create a VPC interface endpoint to the backup service:</p>
-<div class="paragraph">
-<p><code>aws --region &lt;region&gt; cloudformation create-stack --stack-name &lt;stack-name&gt; --template-body file://vpc_endpoint.json --parameters ParameterKey=VPCId,ParameterValue=&lt;vpc-id&gt; ParameterKey=ServiceCbs,ParameterValue=&lt;service-endpoint&gt;</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The <em>region</em> and <em>VPC ID</em> should correspond to the network location where your Cloud Volumes ONTAP systems are deployed.</p>
-</li>
-<li>
-<p>The <em>stack name</em> can be any string that identifies the purpose of the CFT.</p>
-</li>
-<li>
-<p>The <em>template body</em> specifies the location of the Cloud Formation Template that was included in the agent package that you downloaded and uncompressed to a directory.</p>
-</li>
-<li>
-<p>The <em>service endpoint</em> must point to the backup service endpoint in the eu-west-1 region or the us-east-1 region:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>eu-west-1: com.amazonaws.vpce.eu-west-1.vpce-svc-0cd9f6bf5706d5ec9</p>
-</li>
-<li>
-<p>us-east-1: com.amazonaws.vpce.us-east-1.vpce-svc-046e3104ac8604f7e</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Now run the following command to create a VPC interface endpoint to the restore service:</p>
-<div class="paragraph">
-<p><code>aws --region &lt;region&gt; cloudformation create-stack --stack-name &lt;stack-name&gt; --template-body file://vpc_endpoint.json --parameters ParameterKey=VPCId,ParameterValue=&lt;vpc-id&gt; ParameterKey=ServiceCbs,ParameterValue=&lt;service-endpoint&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>The only difference between this command and the previous command is the value of the <em>service endpoint</em>. The <em>service endpoint</em> must point to the restore service endpoint in the eu-west-1 region or the us-east-1 region:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>eu-west-1: com.amazonaws.vpce.eu-west-1.vpce-svc-04dd86976846bc84b</p>
-</li>
-<li>
-<p>us-east-1: com.amazonaws.vpce.us-east-1.vpce-svc-0343dd25489869199</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="configuring-the-subnets-for-the-vpc-interface-endpoints">Configuring the subnets for the VPC interface endpoints</h3>
-<div class="paragraph">
-<p>The VPC interface endpoints that you just created must be added to the subnets where the Cloud Volumes ONTAP systems reside.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Go to the AWS Console, select the VPC service, and click <strong>Endpoints</strong>.</p>
-</li>
-<li>
-<p>Select the VPC interface endpoint for the backup service.</p>
-</li>
-<li>
-<p>Click the <strong>Subnets</strong> tab and click <strong>Manage Subnets</strong>.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_endpoint_ip_manage.gif" alt="A screenshot of the AWS VPC Console that shows the Manage Subnets button in the Subnets tab after you select and endpoint."></span></p>
-</div>
-</li>
-<li>
-<p>Choose the subnets where the Cloud Volumes ONTAP systems reside and click <strong>Modify Subnets</strong>.</p>
-</li>
-<li>
-<p>From the Subnets tab, copy the private IP address of the subnet where the Cloud Volumes ONTAP system resides.</p>
-<div class="paragraph">
-<p>You&#8217;ll need this IP address later when you configure the Cloud Backup Service agent by modifying the  <em>config.json</em> file.</p>
-</div>
-</li>
-<li>
-<p>Repeat these steps for the restore service endpoint.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="generating-a-user-token-for-authentication">Generating a user token for authentication</h3>
-<div class="paragraph">
-<p>Each backup and restore operation requires a user token for authentication.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p><a href="https://services.cloud.netapp.com/developer-hub" target="_blank" rel="noopener">Go to the API Documentation for NetApp Cloud Central</a>.</p>
-</li>
-<li>
-<p>Click <strong>Learn how to authenticate</strong>.</p>
-</li>
-<li>
-<p>Follow the instructions to generate an access token using regular access or federated access, while making a few changes to the body so it works for the Cloud Backup Service.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>For regular access, use the following audience and client_id:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">"audience": "https://cloudmanager.cloud.netapp.com",
-"client_id": "_CloudManagerClientID_"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Obtain the client ID for Cloud Manager by using the following API:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>GET /occm/system/support-services</pre>
-</div>
-</div>
-</li>
-<li>
-<p>For federated access, use the following audience:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">"audience": "https://cloudmanager.cloud.netapp.com",</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><a href="https://youtu.be/qXz4TSOAibo" target="_blank" rel="noopener">YouTube video: Using Rest APIs with Federated Access with Cloud Manager</a></p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>After you receive the token, copy the value into the <em>user_token.json</em> file by overwriting the existing value.</p>
-<div class="paragraph">
-<p>You can find this file in the same directory where you uncompressed the agent package.</p>
-</div>
-<div class="paragraph">
-<p>NetApp Cloud Central uses the token to authenticate the user for all API calls between Cloud Volumes ONTAP and the Cloud Backup Service. If the token is invalid or expired, the API calls will fail and backup and restore operations will not start.</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="configuring-the-cloud-backup-service-agent">Configuring the Cloud Backup Service agent</h3>
-<div class="paragraph">
-<p>Modify the agent&#8217;s configuration file by specifying the IP addresses of the network interfaces for the VPC endpoints. This enables the agent to contact the Cloud Backup Service.</p>
-</div>
-<div class="paragraph">
-<div class="title">About this task</div>
-<p>If you update this configuration file after you start the agent, you&#8217;ll need to kill the service and then restart it. See <a href="#updating-the-config-json-file">Updating the config.json file</a>.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Go to the directory where you uncompressed the agent package.</p>
-</li>
-<li>
-<p>Edit the <em>config.json</em> file by specifying the IP addresses.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-          "LRSE_BACKUP_IP": "&lt;ENI private IP for backup&gt;",
-          "LRSE_RESTORE_IP": "&lt;ENI private IP for restore&gt;",
-          "CBS_ENDPOINT_IP" : "&lt;ENI private IP for backup&gt;",
-          "CBS_ENDPOINT_PORT" : "8088",
-          "SNAPMIRROR_POLICY_TRIES": 8,
-          "SNAPMIRROR_RETRY_COUNT": 10,
-          "SNAPMIRROR_POLL_INTERVAL":30
-}</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>LRSE_BACKUP_IP is the private IP address of the VPC interface endpoint that&#8217;s connected to the backup service. You can find the IP address in the AWS console. Go to the VPC service and select the VPC Endpoint. Click Subnets and find the IP address of the subnet where the Cloud Volumes ONTAP system resides.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_endpoint_ip.gif" alt="A screenshot of the AWS VPC Console that shows the network interfaces for a VPC Endpoint."></span></p>
-</div>
-</li>
-<li>
-<p>LRSE_RESTORE_IP is the private IP address of the VPC interface endpoint that&#8217;s connected to the restore service. Follow the same instructions provided for LRSE_BACKUP_IP.</p>
-</li>
-<li>
-<p>CBS_ENDPOINT_IP should be the same as the LRSE_BACKUP_IP since we use the same VPC interface endpoint for making API calls.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">What if I&#8217;m backing multiple Cloud Volumes ONTAP systems?</div>
-<div class="paragraph">
-<p>It&#8217;s okay to use the same IP addresses for multiple Cloud Volumes ONTAP systems, as long as the subnets are in the same Availability Zone. If you need to back up multiple systems that are spread across Availability Zones, contact us using the in-product chat and we&#8217;ll help you with your setup.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="starting-the-cloud-backup-service-agent">Starting the Cloud Backup Service agent</h3>
-<div class="paragraph">
-<p>Now that you&#8217;ve installed and configured the agent, you need to start it.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Run the following commands:</p>
-<div class="paragraph">
-<p><code>chmod +x cvo-cbs-service</code><br>
-<code>chmod +x cvo-cbs-client</code><br>
-<code>./cvo-cbs-service &amp;</code></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="preparing-to-back-up-volumes">Preparing to back up volumes</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When you run a backup operation, you need to specify a JSON file that includes information about the volume. You can use a JSON template to prepare a JSON file for each volume.</p>
-</div>
-<div class="sect2">
-<h3 id="preparing-ad-hoc-backups">Preparing ad hoc backups</h3>
-<div class="paragraph">
-<p>An ad hoc backup is an immediate, one-time backup. Prepare a separate JSON file for each volume that you want to backup.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Create a copy of <em>adhoc_backup.json</em> and edit it by providing details about the volume.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-       "ownerId": "e7855e3e-006d-49f0-bd1e-2c0df8fec505",
-       "ontapIP": "10.193.78.9",
-       "username": "admin",
-       "password": "netapp1!",
-       "vserverName": "vs_seeni",
-       "volumeName": "backup",
-       "fileSystemId": "cf765c5f-84e6-4080-84a7-599ab8a31968",
-       "sourceSnapshot": "snap10",
-       "tag": ""
-}</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>ownerId: A unique identifier for all of the backup and restore operations associated with this Cloud Manager system. Run the "uuidgen" UNIX utility to generate an ID and use it in all JSON files for backup and restore operations.</p>
-</li>
-<li>
-<p>ontapIP: The cluster management IP of the Cloud Volumes ONTAP system where the volume is located. Get this value from Cloud Manager by selecting the system from the Working Environments page.</p>
-</li>
-<li>
-<p>username and password: The credentials for the Cloud Volumes ONTAP system.</p>
-</li>
-<li>
-<p>vserverName: The name of the storage virtual machine (SVM) that contains data volumes. Get this value from Cloud Manager by opening the working environment and selecting <strong>Information</strong>.</p>
-</li>
-<li>
-<p>volumeName: The name of the volume name that you want to backup.</p>
-</li>
-<li>
-<p>fileSystemId: The file system UUID for the volume&#8217;s backup copy. This value must be unique for every volume because it&#8217;s used by the Cloud Backup Service to identify a volume. Generate an ID by running the "uuidgen" UNIX utility.</p>
-</li>
-<li>
-<p>sourceSnapshot (optional): Specify the name of a Snapshot copy that you want to backup. If you omit this parameter, the Cloud Backup Service backs up the volume based on its existing state.</p>
-</li>
-<li>
-<p>tag (optional): Specify a tag for the backup so you can search for it more easily.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="preparing-scheduled-backups">Preparing scheduled backups</h3>
-<div class="paragraph">
-<p>A scheduled backup triggers incremental backups at a defined interval. Prepare a separate JSON file for each volume that you want to backup.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Create a copy of <em>scheduled_backup.json</em> and edit it by providing details about the volume.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-      "ownerId": "e7855e3e-006d-49f0-bd1e-2c0df8fec505",
-      "ontapIP": "10.193.78.9",
-      "username": "admin",
-      "password": "netapp1!",
-      "vserverName": "vs_seeni",
-      "volumeName": "backup",
-      "fileSystemId": "e2334e3e-226d-39f0-bd1e-1c0df6fec215",
-      "snapmirrorPolicy": {
-      "enabled": true,
-      "daily-schedule": {
-      "snapmirrorLabel": "sm_daily",
-      "snapshotsToKeep": 24
-      },
-      "weekly-schedule": {
-      "snapmirrorLabel": "sm_weekly",
-      "snapshotsToKeep": 4
-      },
-      "monthly-schedule": {
-      "snapmirrorLabel": "sm_monthly",
-      "snapshotsToKeep": 40
-     }
-}
-}</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>ownerId: A unique identifier for all of the backup and restore operations associated with this Cloud Manager system. Run the "uuidgen" UNIX utility to generate an ID and use it in all JSON files for backup and restore operations.</p>
-</li>
-<li>
-<p>ontapIP: The cluster management IP of the Cloud Volumes ONTAP system where the volume is located. Get this value from Cloud Manager by selecting the system from the Working Environments page.</p>
-</li>
-<li>
-<p>username and password: The credentials for the Cloud Volumes ONTAP system.</p>
-</li>
-<li>
-<p>vserverName: The name of the storage virtual machine (SVM) that contains data volumes. Get this value from Cloud Manager by opening the working environment and selecting <strong>Information</strong>.</p>
-</li>
-<li>
-<p>volumeName: The name of the volume name that you want to backup.</p>
-</li>
-<li>
-<p>fileSystemId: The file system UUID for the volume&#8217;s backup copy. This value must be unique for every volume because it&#8217;s used by Cloud Backup Service to identify a volume. Generate an ID by running the "uuidgen" UNIX utility.</p>
-</li>
-<li>
-<p>snapmirrorPolicy: Defines the SnapMirror policy for the scheduled backup.</p>
-</li>
-<li>
-<p>enabled: Enables the policy.</p>
-</li>
-<li>
-<p>daily-schedule: Defines daily scheduling information for the policy.</p>
-</li>
-<li>
-<p>weekly-schedule: Defines weekly scheduling information for the policy.</p>
-</li>
-<li>
-<p>monthly-schedule: Defines monthly scheduling information for the policy.</p>
-</li>
-<li>
-<p>snapmirrorLabel: A SnapMirror label for the rule.</p>
-</li>
-<li>
-<p>snapshotsToKeep: The number of Snapshot copies to keep.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Create a Snapshot policy on the Cloud Volumes ONTAP system and modify the volume to use the Snapshot policy.</p>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -1387,289 +934,465 @@ ec2:ModifyVpcEndpoint</p>
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-For scheduled backups to work, a corresponding Snapshot policy must be configured on the Cloud Volumes ONTAP system and attached to the volume. The label for the Snapshot policy must match the value of the <em>snapmirrorLabel</em> that you specified in the JSON file.
+You must use Cloud Manager for all backup and restore operations. Any actions taken directly from ONTAP or from Amazon S3 results in an unsupported configuration.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="paragraph">
-<p><code>cluster1::&gt; volume snapshot policy create -vserver vs0 -policy mysnappolicy -schedule1 hourly-count1 5 -prefix1 every_hour -snapmirror-label1 hrLabel</code></p>
-</div>
-<div class="paragraph">
-<p><code>cluster1::&gt; volume modify -vserver vs0 -volume backup -snapshot-policy mysnappolicy</code></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="preparing-to-restore-volumes">Preparing to restore volumes</h2>
+<h2 id="quick-start">Quick start</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you restore a volume, the Cloud Backup Service restores the contents of the volume to a data protection volume that you must create beforehand. To prepare for a restore, create the new data protection volume and set up a JSON file that specifies details about the volume restore. You&#8217;ll specify the JSON file when you run the restore operation.</p>
+<p>Get started quickly by following these steps or scroll down to the remaining sections for full details.</p>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Create the data protection volume to which you&#8217;ll restore the contents of the volume.</p>
-<div class="paragraph">
-<p><strong>Example</strong></p>
+<div class="sect3">
+<h4 id="verify-support-for-your-configuration"><span class="image"><img src="./media/number1.png" alt="Number 1"></span> Verify support for your configuration</h4>
+<div class="paragraph quick-margin-para">
+<p>You need the following:</p>
 </div>
-<div class="paragraph">
-<p><code>cluster1::&gt; vol create -volume restoreVol -aggregate aggr1 -size 100GB -state online -policy default -type DP</code></p>
-</div>
-</li>
-<li>
-<p>Create a copy of <em>restore.json</em> and edit it by providing details about the volume.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-       "ownerId": "e7855e3e-006d-49f0-bd1e-2c0df8fec505",
-       "ontapIP": "10.193.78.9",
-       "username": "admin",
-       "password": "netapp1!",
-       "vserverName": "vs_seeni",
-       "fileSystemId": "cf765c5f-84e6-4080-84a7-599ab8a31967",
-       "destinationVolumeName": "retoreauth",
-       "restoreSnapshot": ""
-}</code></pre>
-</div>
-</div>
-<div class="ulist">
+<div class="ulist quick-margin-list">
 <ul>
 <li>
-<p>ownerId: A unique identifier for all of the backup and restore operations associated with this Cloud Manager system.</p>
+<p>Cloud Volumes ONTAP 9.4 or later running in a supported AWS region: N. Virginia, Oregon, Ireland, Frankfurt, and Sydney</p>
 </li>
 <li>
-<p>ontapIP: The cluster management IP of the Cloud Volumes ONTAP system where the volume is located. Get this value from Cloud Manager by selecting the system from the Working Environments page.</p>
+<p>A subscription to the new <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">Cloud Manager Marketplace offering</a></p>
 </li>
 <li>
-<p>username/password: The credentials for the Cloud Volumes ONTAP system.</p>
+<p>Room for Cloud Manager to allocate up to two interface VPC endpoints in the VPC (the AWS limit per VPC is 20)</p>
 </li>
 <li>
-<p>vserverName: The name of the storage virtual machine (SVM) that contains data volumes. The value should match what you entered in the JSON file for the backup operation.</p>
-</li>
-<li>
-<p>fileSystemId: The file system UUID for the volume’s backup copy. The value should match what you entered in the JSON file for the backup operation.</p>
-</li>
-<li>
-<p>destinationVolumeName: Specify the name of the destination volume that you created in step 1. The volume must be a data protection (DP) volume.</p>
-</li>
-<li>
-<p>restoreSnapshot: Specify the name of a Snapshot copy that you want to restore. If you don&#8217;t want to specify a specific Snapshot copy, enter an empty value as shown above.</p>
+<p>The VPC endpoint permissions listed in the latest <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager policy</a>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"ec2:DescribeVpcEndpoints",
+"ec2:CreateVpcEndpoint",
+"ec2:ModifyVpcEndpoint",
+"ec2:DeleteVpcEndpoints"</code></pre>
+</div>
+</div>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="enable-backup-to-s3-on-your-new-or-existing-system"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Enable Backup to S3 on your new or existing system</h4>
+<div class="ulist quick-margin-list">
+<ul>
+<li>
+<p>New systems: The Backup to S3 feature is enabled by default in the working environment wizard. Be sure to keep the option enabled.</p>
 </li>
-</ol>
+<li>
+<p>Existing systems: Open the working environment, click the backup settings icon and enable backups.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_icon.gif" alt="A screenshot that shows the Backup to S3 icon which is available after you open a working environment."></span></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="if-needed-modify-the-backup-policy"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> If needed, modify the backup policy</h4>
+<div class="paragraph quick-margin-para">
+<p>The default policy backs up volumes every day and retains 30 backup copies of each volume. Change to weekly or monthly backups or change the number of backup copies to retain.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_settings.gif" alt="A screenshot that shows the Backup to S3 settings where you can enable or disable the feature and then choose your schedule and backup retention."></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="restore-your-data-as-needed"><span class="image"><img src="./media/number4.png" alt="Number 4"></span> Restore your data, as needed</h4>
+<div class="paragraph quick-margin-para">
+<p>At the top of Cloud Manager, click <strong>Backup &amp; Restore</strong>, select a volume, select a backup, and then restore data from the backup to a new volume.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_restore_icon.gif" alt="A screenshot of the restore icon for a backup after you select a volume."></span></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="backing-up-and-restoring-volumes">Backing up and restoring volumes</h2>
+<h2 id="requirements">Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Once you&#8217;re ready, start backing up and restoring your volumes.</p>
+<p>Read the following requirements to make sure that you have a supported configuration before you start backing up volumes to S3.</p>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Run the following command from the Cloud Manager instance:</p>
-<div class="paragraph">
-<p><code>./cvo-cbs-client</code></p>
-</div>
-</li>
-<li>
-<p>Select an action from the prompt:</p>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">1) Backup a volume</dt>
+<dt class="hdlist1">Supported ONTAP versions</dt>
 <dd>
-<p>Run a one-time backup. When prompted, specify the absolute path for the JSON file that corresponds to the volume that you want to backup.</p>
+<p>Backup to S3 is supported with Cloud Volume ONTAP 9.4 and later.</p>
 </dd>
-<dt class="hdlist1">2) Scheduled backup</dt>
+<dt class="hdlist1">Supported AWS regions</dt>
 <dd>
-<p>Use a scheduled backup to periodically trigger incremental backups. When prompted, specify the absolute path for the JSON file that corresponds to the volume that you want to backup.</p>
+<p>Backup to S3 is supported with Cloud Volumes ONTAP in the following AWS regions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>US East (N. Virginia)</p>
+</li>
+<li>
+<p>US West (Oregon)</p>
+</li>
+<li>
+<p>EU (Ireland)</p>
+</li>
+<li>
+<p>EU (Frankfurt)</p>
+</li>
+<li>
+<p>Asia Pacific (Sydney)</p>
+</li>
+</ul>
+</div>
 </dd>
-<dt class="hdlist1">3) Restore to a DP volume</dt>
+<dt class="hdlist1">AWS permissions required</dt>
 <dd>
-<p>Restore a volume that you previously backed up. When prompted, specify the absolute path for the JSON file that corresponds to the volume that you want to restore.</p>
+<p>The IAM role that provides Cloud Manager with permissions must include the following:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"ec2:DescribeVpcEndpoints",
+"ec2:CreateVpcEndpoint",
+"ec2:ModifyVpcEndpoint",
+"ec2:DeleteVpcEndpoints"</code></pre>
+</div>
+</div>
 </dd>
-<dt class="hdlist1">4) Job Status</dt>
+<dt class="hdlist1">AWS subscription requirement</dt>
 <dd>
-<p>Display the job status for backup and restore operations. Backup and restore operations are async operations, so you&#8217;ll get a job ID when you run an operation. Use that ID as input when this option prompts for the jobId.</p>
+<p>Starting with the 3.7.3 release, a new Cloud Manager subscription is available in the AWS Marketplace. This subscription enables deployments of Cloud Volumes ONTAP 9.6 PAYGO systems and the Backup to S3 feature. You need to <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">subscribe to this new Cloud Manager subscription</a> before you enable Backup to S3. Billing for the Backup to S3 feature is done through this subscription.</p>
 </dd>
-<dt class="hdlist1">5) List Volume Backups</dt>
+<dt class="hdlist1">Interface VPC endpoints</dt>
 <dd>
-<p>List all backups corresponding to a volume. The fileSystemId that you specified in the backup JSON template must be provided as input to this option.</p>
-</dd>
-<dt class="hdlist1">6) Exit</dt>
-<dd>
-<p>Exit the prompt.</p>
+<p>When you enable the Backup to S3 feature, Cloud Manager creates an interface VPC endpoint in the VPC where Cloud Volumes ONTAP is running. This <em>backup endpoint</em> connects to the NetApp VPC where the Cloud Backup Service is running. If you restore a volume, Cloud Manager creates an additional interface VPC endpoint&#8212;&#8203;the <em>restore endpoint</em>.</p>
+<div class="paragraph">
+<p>Any additional Cloud Volumes ONTAP systems in the VPC use these two VPC endpoints.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-endpoints" target="_blank" rel="noopener">The default limit for interface VPC endpoints is 20 per VPC</a>. Make sure that your VPC hasn&#8217;t reached the limit before you enable the feature.</p>
+</div>
 </dd>
 </dl>
 </div>
-</li>
-</ol>
 </div>
+</div>
+<div class="sect1">
+<h2 id="enabling-backups-to-s3-on-a-new-system">Enabling backups to S3 on a new system</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p><strong>Example 1</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Choose a operation to be performed:1
-Enter backup volume details json file path:/home/ubuntu/cvo-cbs-agent/adhoc_backup.json
-Processing Backup request...
-Adhoc backup initiated successfully.
-Get Backup status using JobID 45</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Example 2</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Choose a operation to be performed:5
-Enter filesystem id to list backups: cf761c4f-84e6-4080-84a7-599ab8b31965
-Processing List backups for:  cf761c4f-84e6-4080-84a7-599ab8b31965
-Total Backups are: 1
---------------------Backup 0 details--------------------
-backup Id = db682289-b896-d248-ac29-a13e4e8e1bbb
-backup Name = adhoc_2019-04-06_150037
-backup type = adhoc
-completion time = 2019-04-06T15:02:23.000Z
-creation time = 2019-04-06T15:00:51.000Z
-size =  1.2582912e+09
-status = Backup Complete</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Example 3</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Choose a operation to be performed:3
-Enter restore volume details json file path: /home/ubuntu/cvo-cbs-agent/restore.json
-Processing volume restore request ...
-Restore initiated successfully.
-Track Backup status using JobID 47</pre>
-</div>
-</div>
-<div class="sect2">
-<h3 id="mounting-a-restored-volume">Mounting a restored volume</h3>
-<div class="paragraph">
-<p>After you restore the volume, you&#8217;ll need to mount it to view the files that it contains.</p>
+<p>The Backup to S3 feature is enabled by default in the working environment wizard. Be sure to keep the option enabled.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p><a href="task_connecting_to_otc.html#connecting-to-the-cloud-volumes-ontap-cli">Connect to the Cloud Volumes ONTAP CLI</a>.</p>
+<p>Click <strong>Create Cloud Volumes ONTAP</strong>.</p>
 </li>
 <li>
-<p>Add a junction path:</p>
+<p>Select Amazon Web Services as the cloud provider and then choose a single node or HA system.</p>
+</li>
+<li>
+<p>Fill out the Details &amp; Credentials page.</p>
+</li>
+<li>
+<p>On the Backup to S3 page, leave the feature enabled and click <strong>Continue</strong>.</p>
 <div class="paragraph">
-<p><code>volume mount -vserver &lt;vserver_name&gt; -volume &lt;volume_name&gt; -junction-path /&lt;junction-path-name&gt;</code></p>
+<p><span class="image"><img src="./media/screenshot_backup_to_s3.gif" alt="Shows the Backup to S3 option in the working environment wizard."></span></p>
 </div>
 </li>
 <li>
-<p>Verify that the volume is in the desired mount state:</p>
-<div class="paragraph">
-<p><code>volume show -vserver &lt;vserver_name&gt; -volume &lt;volume_name&gt; -junction</code></p>
-</div>
-</li>
-<li>
-<p>Mount the volume to the client.</p>
+<p>Complete the pages in the wizard to deploy the system.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<div class="title">Result</div>
+<p>The Backup to S3 feature is enabled on the system and backs up volumes every day and retains 30 backup copies. <a href="#changing-the-schedule-and-backup-retention">Learn how to modify the schedule and backup retention</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="administering">Administering</h2>
+<h2 id="enabling-backups-to-s3-on-an-existing-system">Enabling backups to S3 on an existing system</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#updating-the-config-json-file">Updating the config.json file</a></p>
-</li>
-<li>
-<p><a href="#troubleshooting-unauthorized-access">Troubleshooting unauthorized access</a></p>
-</li>
-<li>
-<p><a href="#troubleshooting-the-fail-to-open-database-error">Troubleshooting the fail to open database error</a></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="updating-the-config-json-file">Updating the config.json file</h3>
 <div class="paragraph">
-<p>If you need to update the <em>config.json</em> file after you start the agent, you&#8217;ll need to kill the service and then restart it.</p>
+<p>You can enable backups to S3 on an existing Cloud Volumes ONTAP system, as long as you are running a supported configuration. For details, see <a href="#requirements">Requirements</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Stop the Cloud Backup Service agent:</p>
+<p>Open the working environment.</p>
+</li>
+<li>
+<p>Click the backup settings icon.</p>
 <div class="paragraph">
-<p><code>ps -ef | grep -i cvo-cbs-service</code><br>
-<code>kill -9 &lt;service PID&gt;</code></p>
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_icon.gif" alt="A screenshot that shows the Backup to S3 Settings icon which is available after you open a working environment."></span></p>
 </div>
 </li>
 <li>
-<p><a href="#configuring-the-cloud-backup-service-agent">Update the configuration file</a>.</p>
+<p>Select <strong>Automatically back up all volumes</strong>.</p>
 </li>
 <li>
-<p><a href="#starting-the-cloud-backup-service-agent">Start the agent</a>.</p>
+<p>Choose your schedule and backup retention and then click <strong>Save</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_settings.gif" alt="A screenshot that shows the Backup to S3 settings where you can enable or disable the feature and then choose your schedule and backup retention."></span></p>
+</div>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="troubleshooting-unauthorized-access">Troubleshooting unauthorized access</h3>
 <div class="paragraph">
-<p>If there is a problem with the access token, you might receive the following error message:</p>
+<div class="title">Result</div>
+<p>The Backup to S3 feature starts taking the initial backups of each volume.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Post to CVO api server returned status code =401 and error Unauthorized</pre>
 </div>
+</div>
+<div class="sect1">
+<h2 id="changing-the-schedule-and-backup-retention">Changing the schedule and backup retention</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The default policy backs up volumes every day and retains 30 backup copies of each volume. You can change to weekly or monthly backups and you can change the number of backup copies to retain.</p>
 </div>
 <div class="paragraph">
-<p>If this happens, generate a new token and update the <em>user_token.json</em> file. For details, see <a href="#generating-a-user-token-for-authentication">Generating a user token for authentication</a>.</p>
+<p>A combination of daily, weekly, and monthly isn&#8217;t supported. You can choose daily, or weekly, or monthly.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="troubleshooting-the-fail-to-open-database-error">Troubleshooting the fail to open database error</h3>
 <div class="paragraph">
-<p>If you receive the following database error, kill the previously running cvo-cbs-service.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Error setting up pending jobs db: timeout</pre>
-</div>
+<p>Changing the backup policy does not affect any previous backups that were created. For example, let’s say the current policy backs up volumes every month and retains 30 backup copies. You change the policy to back up daily and retain 30 backup copies. The <em>monthly</em> backup copies would still exist until you delete them.</p>
 </div>
 <div class="olist arabic">
+<div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Stop the Cloud Backup Service agent:</p>
+<p>Open the working environment.</p>
+</li>
+<li>
+<p>Click the backup settings icon.</p>
 <div class="paragraph">
-<p><code>ps -ef | grep -i cvo-cbs-service</code><br>
-<code>kill -9 &lt;service PID&gt;</code></p>
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_icon.gif" alt="A screenshot that shows the Backup to S3 icon which is available after you open a working environment."></span></p>
 </div>
 </li>
 <li>
-<p><a href="#starting-the-cloud-backup-service-agent">Start the agent</a>.</p>
+<p>Change the schedule and backup retention and then click <strong>Save</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_settings.gif" alt="A screenshot that shows the Backup to S3 settings where you can enable or disable the feature and then choose your schedule and backup retention."></span></p>
+</div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="restoring-a-volume">Restoring a volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you restore data from a backup, Cloud Manager performs a full volume restore to a <em>new</em> volume. You can restore the data to the same working environment or to a different working environment.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>At the top of Cloud Manager, click <strong>Backup &amp; Restore</strong>.</p>
+</li>
+<li>
+<p>Select the volume that you want to restore.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_volume.gif" alt="A screenshot of the Backup and Restore tab showing a volume that has backups."></span></p>
+</div>
+</li>
+<li>
+<p>Find the backup that you want to restore from and click the restore icon.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_restore_icon.gif" alt="A screenshot of the restore icon for a backup after you select a volume."></span></p>
+</div>
+</li>
+<li>
+<p>Select the working environment to which you want to restore the volume.</p>
+</li>
+<li>
+<p>Enter a name for the volume.</p>
+</li>
+<li>
+<p>Click <strong>Restore</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_restore_options.gif" alt="A screenshot that shows the restore options: a working environment to restore to" width="the name of the volume" height="and the volume info."></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deleting-backups">Deleting backups</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All backups are retained in S3 until you delete them from Cloud Manager. Backups are not deleted when you delete a volume or when you delete the Cloud Volumes ONTAP system.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>At the top of Cloud Manager, click <strong>Backup &amp; Restore</strong>.</p>
+</li>
+<li>
+<p>Select a volume.</p>
+</li>
+<li>
+<p>Find the backup that you want to delete and click the delete icon.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_delete_icon.gif" alt="A screenshot of the delete icon for a backup after you select a volume."></span></p>
+</div>
+</li>
+<li>
+<p>Confirm that you want to delete the backup.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="disabling-backups-to-s3">Disabling backups to S3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Disabling backups to S3 disables backups of each volume on the system. Any existing backups will not be deleted.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Open the working environment.</p>
+</li>
+<li>
+<p>Click the backup settings icon.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_to_s3_icon.gif" alt="A screenshot that shows the Backup to S3 icon which is available after you open a working environment."></span></p>
+</div>
+</li>
+<li>
+<p>Disable <strong>Automatically back up all volumes</strong> and then click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-backup-to-s3-works">How Backup to S3 works</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sections provide more information about the Backup to S3 feature.</p>
+</div>
+<div class="sect2">
+<h3 id="where-backups-reside">Where backups reside</h3>
+<div class="paragraph">
+<p>Backup copies are stored in a NetApp-owned S3 bucket, in the same region where the Cloud Volumes ONTAP system is located.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="backups-are-incremental">Backups are incremental</h3>
+<div class="paragraph">
+<p>After the initial full backup of your data, all additional backups are incremental, which means that only changed blocks and new blocks are backed up.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="the-backup-schedule-is-daily-or-weekly-or-monthly">The backup schedule is daily, <em>or</em> weekly, <em>or</em> monthly</h3>
+<div class="paragraph">
+<p>A combination of these backup frequency options isn&#8217;t supported. You can choose daily, or weekly, or monthly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="backups-are-taken-at-midnight">Backups are taken at midnight</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Daily backups start just after midnight each day.</p>
+</li>
+<li>
+<p>Weekly backups start just after midnight on Sunday mornings.</p>
+</li>
+<li>
+<p>Monthly backups start just after midnight on the first of each month.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>At this time, you can&#8217;t schedule backup operations at a user specified time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="backup-copies-are-associated-with-your-cloud-central-account">Backup copies are associated with your Cloud Central account</h3>
+<div class="paragraph">
+<p>Backup copies are associated with the <a href="concept_cloud_central_accounts.html">Cloud Central account</a> in which Cloud Manager resides.</p>
+</div>
+<div class="paragraph">
+<p>If you have multiple Cloud Manager systems in the same Cloud Central account, each Cloud Manager system will display the same list of backups. That includes the backups associated with Cloud Volumes ONTAP instances from other Cloud Manager systems.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="the-backup-policy-is-system-wide">The backup policy is system wide</h3>
+<div class="paragraph">
+<p>The backup schedule and the number of backups to retain are defined at the system level. You can&#8217;t set a different policy for each volume on the system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="security">Security</h3>
+<div class="paragraph">
+<p>Backup data is secured with AES-256 bit encryption at-rest and TLS 1.2 HTTPS connections in-flight.</p>
+</div>
+<div class="paragraph">
+<p>The Cloud Backup Service offers end-to-end security of backup data. Data travels across secured Direct Connect links to the service, and is protected at rest by AES 256-bit encryption. The encrypted data is then written to cloud using HTTPS TLS 1.2 connections. Data also travels to Amazon S3 only through secure VPC endpoint connections, so no traffic is sent across the internet.</p>
+</div>
+<div class="paragraph">
+<p>Each user is assigned a tenant key, in addition to an overall encryption key owned by the service. This requirement is similar to needing a pair of keys to open a customer safe in a bank. All keys, as cloud credentials, are stored securely by the service and are restricted to only certain NetApp personnel responsible for maintaining the service.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="limitations">Limitations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>If you use any of the following instance types, a Cloud Volumes ONTAP system can back up a maximum of 20 volumes to S3:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>m4.xlarge</p>
+</li>
+<li>
+<p>m5.xlarge</p>
+</li>
+<li>
+<p>r4.xlarge</p>
+</li>
+<li>
+<p>r5.xlarge</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Volumes that you create outside of Cloud Manager aren&#8217;t automatically backed up to S3.</p>
+<div class="paragraph">
+<p>For example, if you create a volume from the ONTAP CLI, ONTAP API, or System Manager, then the volume won&#8217;t be automatically backed up.</p>
+</div>
+<div class="paragraph">
+<p>If you want to backup these volumes, you would need to disable Backup to S3 and then enable it again.</p>
+</div>
+</li>
+<li>
+<p>When you restore data from a backup, Cloud Manager performs a full volume restore to a <em>new</em> volume. This new volume isn’t automatically backed up to S3.</p>
+<div class="paragraph">
+<p>If you want to backup volumes created from a restore operation, you would need to disable Backup to S3 and then enable it again.</p>
+</div>
+</li>
+<li>
+<p>You can back up volumes that are 50 TB in size or less.</p>
+</li>
+<li>
+<p>Cloud Backup Service can maintain up to 245 total backups of a volume.</p>
+</li>
+<li>
+<p>WORM storage is not supported on a Cloud Volumes ONTAP system when backup to S3 is enabled.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
