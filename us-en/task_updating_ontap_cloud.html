@@ -583,6 +583,10 @@
     </li>
   
 
+  
+    <li><a href="concept_keep_up.html">Keeping Cloud Manager running</a></li>
+  
+
 
       </ul>
     </li>
@@ -899,7 +903,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-10 18:55:04 +0000">09/10/2019</time>
+<time datetime="2019-09-17 19:11:02 +0000">09/17/2019</time>
 
 
 <span>Contributors
@@ -992,6 +996,9 @@ For HA systems, Cloud Manager might upgrade the HA mediator as part of the upgra
 <p><a href="#reviewing-version-requirements">Reviewing version requirements</a></p>
 </li>
 <li>
+<p><a href="#verifying-that-automatic-giveback-is-still-enabled">Verifying that automatic giveback is still enabled</a></p>
+</li>
+<li>
 <p><a href="#suspending-snapmirror-transfers">Suspending SnapMirror transfers</a></p>
 </li>
 <li>
@@ -1015,6 +1022,15 @@ For HA systems, Cloud Manager might upgrade the HA mediator as part of the upgra
 </div>
 <div class="paragraph">
 <p>To understand version requirements, refer to <a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-dot-upgrade/GUID-AC0EB781-583F-4C90-A4C4-BC7B14CEFD39.html" target="_blank" rel="noopener">ONTAP 9 Documentation: Cluster update requirements</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="verifying-that-automatic-giveback-is-still-enabled">Verifying that automatic giveback is still enabled</h3>
+<div class="paragraph">
+<p>Automatic giveback must be enabled on a Cloud Volumes ONTAP HA pair (this is the default setting). If it isn&#8217;t, then the operation will fail.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D01-49A5-BEFD-D529713EC1FA.html" target="_blank" rel="noopener">ONTAP 9 Documentation: Commands for configuring automatic giveback</a></p>
 </div>
 </div>
 <div class="sect2">
