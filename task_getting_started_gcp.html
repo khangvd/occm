@@ -900,7 +900,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-11 16:56:57 +0000">09/11/2019</time>
+<time datetime="2019-09-20 20:49:01 +0000">09/20/2019</time>
 
 
 <span>Contributors
@@ -957,12 +957,22 @@
 <p><a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">Configure the Cloud Volumes ONTAP subnet for Private Google Access</a>.</p>
 </li>
 <li>
-<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role" target="_blank" rel="noopener">Create a service account that has the Storage Admin role</a>.</p>
+<p><a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account" target="_blank" rel="noopener">Create a service account that has the predefined Storage Admin role</a>.</p>
 </li>
 <li>
-<p>Go to your <a href="https://console.cloud.google.com/storage/settings" target="_blank" rel="noopener">GCP Storage Settings</a>, enable interoperability access, and create access keys for the service account that you just created.</p>
+<p>Go to your <a href="https://console.cloud.google.com/storage/settings" target="_blank" rel="noopener">GCP Storage Settings</a> and create access keys for the service account:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Select a project, and click <strong>Interoperability</strong>. If you haven’t already done so, click <strong>Enable interoperability access</strong>.</p>
+</li>
+<li>
+<p>Under <strong>Access keys for service accounts</strong>, click <strong>Create a key for a service account</strong>, select the service account that you just created, and click <strong>Create Key</strong>.</p>
 <div class="paragraph">
 <p>You&#8217;ll need to <a href="task_adding_gcp_accounts.html">add the keys to Cloud Manager during setup</a> so it can use the keys to manage a Cloud Storage bucket for data tiering.</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 </ol>
@@ -996,15 +1006,18 @@
 <ol class="loweralpha" type="a">
 <li>
 <p>Ensure that the GCP user who deploys Cloud Manager from NetApp Cloud Central has the permissions defined in the <a href="https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml" target="_blank" rel="noopener">NetApp Cloud Central policy for GCP</a>.</p>
+<div class="paragraph">
+<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud" target="_blank" rel="noopener">You can create a custom role using this YAML file</a> and then attach it to your user. You&#8217;ll need to use the gcloud command line to create the custom role.</p>
+</div>
 </li>
 <li>
 <p>Set up a service account that has the permissions that Cloud Manager needs to create and manage Cloud Volumes ONTAP systems on your behalf. This service account is different from the service account that&#8217;s used for data tiering.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role" target="_blank" rel="noopener">Create a custom role in GCP</a> that includes the permissions defined in the <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.7.3_GCP.yaml" target="_blank" rel="noopener">Cloud Manager policy for GCP</a>.</p>
+<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud" target="_blank" rel="noopener">Create a custom role in GCP</a> that includes the permissions defined in the <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.7.3_GCP.yaml" target="_blank" rel="noopener">Cloud Manager policy for GCP</a>. Again, you&#8217;ll need to use the gcloud command line.</p>
 <div class="paragraph">
-<p>This policy is different than the policy in step 4a.</p>
+<p>The permissions contained in this YAML file are different than the permissions in step 4a.</p>
 </div>
 </li>
 <li>
