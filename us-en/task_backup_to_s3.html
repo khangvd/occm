@@ -944,7 +944,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-16 11:50:58 +0000">09/16/2019</time>
+<time datetime="2019-10-02 19:39:42 +0000">10/02/2019</time>
 
 
 <span>Contributors
@@ -995,6 +995,9 @@
 </li>
 <li>
 <p>A subscription to the new <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">Cloud Manager Marketplace offering</a></p>
+</li>
+<li>
+<p>TCP port 5010 open for outbound traffic on the security group for Cloud Volumes ONTAP</p>
 </li>
 <li>
 <p>Room for Cloud Manager to allocate up to two interface VPC endpoints in the VPC (the AWS limit per VPC is 20)</p>
@@ -1099,6 +1102,10 @@
 <dt class="hdlist1">AWS subscription requirement</dt>
 <dd>
 <p>Starting with the 3.7.3 release, a new Cloud Manager subscription is available in the AWS Marketplace. This subscription enables deployments of Cloud Volumes ONTAP 9.6 PAYGO systems and the Backup to S3 feature. You need to <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">subscribe to this new Cloud Manager subscription</a> before you enable Backup to S3. Billing for the Backup to S3 feature is done through this subscription.</p>
+</dd>
+<dt class="hdlist1">Port requirement</dt>
+<dd>
+<p>TCP port 5010 must be open for outbound traffic from Cloud Volumes ONTAP to the Cloud Backup Service. The port is already open if you chose the predefined security group. But if you used your own, then you&#8217;ll need to open this port.</p>
 </dd>
 <dt class="hdlist1">Interface VPC endpoints</dt>
 <dd>
