@@ -8,16 +8,16 @@
     <description>The latest updates from NetApp Cloud Docs</description>
     <language>en</language>
     <ttl>60</ttl>
-    <pubDate>Fri, 20 Sep 2019 21:02:06 +0000</pubDate>
-    <lastBuildDate>Fri, 20 Sep 2019 21:02:06 +0000</lastBuildDate>
+    <pubDate>Wed, 02 Oct 2019 13:23:54 +0000</pubDate>
+    <lastBuildDate>Wed, 02 Oct 2019 13:23:54 +0000</lastBuildDate>
     
     
     
     <item>
-      <title>What&amp;#8217;s new in Cloud Manager 3.7 (16 Sep 2019)</title>
-      <pubDate>Mon, 16 Sep 2019 11:31:46 +0000</pubDate>
-      <link>https://docs.netapp.com/en/occm/reference_new_occm.html?time=1568633506</link>
-      <guid isPermaLink="false">Mon, 16 Sep 2019 11:31:46 +0000</guid>
+      <title>What&amp;#8217;s new in Cloud Manager 3.7 (2 Oct 2019)</title>
+      <pubDate>Wed, 02 Oct 2019 12:51:41 +0000</pubDate>
+      <link>https://docs.netapp.com/en/occm/reference_new_occm.html?time=1570020701</link>
+      <guid isPermaLink="false">Wed, 02 Oct 2019 12:51:41 +0000</guid>
       <description><![CDATA[ Cloud Manager typically introduces a new release every month to bring you new features, enhancements, and bug fixes. ]]></description>
     </item>
     

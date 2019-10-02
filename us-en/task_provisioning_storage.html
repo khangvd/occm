@@ -22,6 +22,7 @@
   <meta name="description" content="You can provision additional NFS and CIFS storage for your Cloud Volumes ONTAP systems from Cloud Manager by managing volumes and aggregates. If you need to ...">
   <meta name="keywords" content=" storage, provisioning, iscsi, nfs, cifs, volumes, aggregates, provision, create, quotas, nas, san, LUNs, quotas, qtree, add, advanced allocation, create a volume, add a volume, create volumes, add volumes, creating a volume, adding a volume, creating aggregates, adding an aggregate, add an aggregate, create an aggregate, provision volume, provision a volume, provisioning volumes, create a LUN, create LUNs, create LUN, provision LUNs, add volume to second node, add volume to node 2, flexcache, flexcache volumes, create a flexcache volume, provision flexcache, create flexcache volume">
   
+  
 
   <!-- Icons -->
   <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
@@ -248,21 +249,61 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list">
-
-
+                
                 
                 
                 <li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="/occm/us-en/" class="n-menu__header-text">English</a>
+                  <a href="/occm/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li>
                 
                 
                 
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 <li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="/occm/ja-jp/" class="n-menu__header-text">Japanese</a>
+                  <a href="/occm/ja-jp/" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
                 
               </ul>
@@ -903,7 +944,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-08-16 14:39:06 +0000">08/16/2019</time>
+<time datetime="2019-10-02 12:54:13 +0000">10/02/2019</time>
 
 
 <span>Contributors
@@ -1065,8 +1106,20 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Organizational Unit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The organizational unit within the AD domain to associate with the CIFS server. The default is CN=Computers.<br>
-If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONTAP, you should enter <strong>OU=Computers,OU=corp</strong> in this field.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The organizational unit within the AD domain to associate with the CIFS server. The default is CN=Computers.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONTAP, you should enter <strong>OU=Computers,OU=corp</strong> in this field.</p>
+</li>
+<li>
+<p>To configure Azure AD Domain Services as the AD server for Cloud Volumes ONTAP, you should enter <strong>OU=AADDC Computers</strong> or <strong>OU=AADDC Users</strong> in this field.<br>
+<a href="https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou" target="_blank" rel="noopener">Azure Documentation: Create an Organizational Unit (OU) in an Azure AD Domain Services managed domain</a></p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS Domain</p></td>

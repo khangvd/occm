@@ -22,6 +22,7 @@
   <meta name="description" content="Cloud Manager provides simplified and advanced management of Cloud Volumes ONTAP storage.">
   <meta name="keywords" content=" provisioning, capacity management, storage provisioning, manual, automatic, advanced allocation, aggregates, thin provisioning, free space, mode">
   
+  
 
   <!-- Icons -->
   <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
@@ -248,21 +249,61 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list">
-
-
+                
                 
                 
                 <li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="/occm/us-en/" class="n-menu__header-text">English</a>
+                  <a href="/occm/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li>
                 
                 
                 
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 <li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="/occm/ja-jp/" class="n-menu__header-text">Japanese</a>
+                  <a href="/occm/ja-jp/" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
                 
               </ul>
@@ -903,7 +944,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-03 15:51:56 +0000">09/03/2019</time>
+<time datetime="2019-10-02 12:51:41 +0000">10/02/2019</time>
 
 
 <span>Contributors
@@ -1042,7 +1083,7 @@ The Account Admin can modify free space thresholds from the <strong>Settings</st
 <div class="sect2">
 <h3 id="automatic-capacity-management">Automatic capacity management</h3>
 <div class="paragraph">
-<p>If the Account Admin set the Capacity Management Mode to automatic, Cloud Manager automatically purchases new disks for Cloud Volumes ONTAP instances when more capacity is needed, deletes unused collections of disks (aggregates), moves volumes between aggregates when needed, and attempts to unfail disks.</p>
+<p>The Capacity Management Mode is set to automatic by default. In this mode, Cloud Manager automatically purchases new disks for Cloud Volumes ONTAP instances when more capacity is needed, deletes unused collections of disks (aggregates), moves volumes between aggregates when needed, and attempts to unfail disks.</p>
 </div>
 <div class="paragraph">
 <p>The following examples illustrate how this mode works:</p>
@@ -1065,6 +1106,12 @@ The Account Admin can modify free space thresholds from the <strong>Settings</st
 <p>If an aggregate contains no volumes for more than 12 hours, Cloud Manager deletes it.</p>
 </li>
 </ul>
+</div>
+<div class="sect3">
+<h4 id="management-of-inodes-with-automatic-capacity-management">Management of inodes with automatic capacity management</h4>
+<div class="paragraph">
+<p>Cloud Manager monitors inode usage on a volume. When 85% of the inodes are used, Cloud Manager increases the size of the volume to increase the number of available inodes. The number of files a volume can contain is determined by how many inodes it has.</p>
+</div>
 </div>
 </div>
 <div class="sect2">

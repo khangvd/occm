@@ -22,6 +22,7 @@
   <meta name="description" content="You can launch a single Cloud Volumes ONTAP system in Azure by creating a Cloud Volumes ONTAP working environment in Cloud Manager.">
   <meta name="keywords" content=" Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, azure, BYOL, license key, serial number, tags, azure tags, location, license, preconfigured packages, programmatic deployments, disk size, write speed, access control, volume protection, usage profile, register, CIFS share, quota, qtree, HA, HA pair">
   
+  
 
   <!-- Icons -->
   <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
@@ -248,21 +249,61 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list">
-
-
+                
                 
                 
                 <li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="/occm/us-en/" class="n-menu__header-text">English</a>
+                  <a href="/occm/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li>
                 
                 
                 
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 <li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="/occm/ja-jp/" class="n-menu__header-text">Japanese</a>
+                  <a href="/occm/ja-jp/" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
                 
               </ul>
@@ -903,7 +944,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-03 17:11:18 +0000">09/03/2019</time>
+<time datetime="2019-10-02 12:53:30 +0000">10/02/2019</time>
 
 
 <span>Contributors
@@ -1147,7 +1188,10 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Organizational Unit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The organizational unit within the AD domain to associate with the CIFS server. The default is CN=Computers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The organizational unit within the AD domain to associate with the CIFS server. The default is CN=Computers.<br>
+<br>
+To configure Azure AD Domain Services as the AD server for Cloud Volumes ONTAP, you should enter <strong>OU=AADDC Computers</strong> or <strong>OU=AADDC Users</strong> in this field.<br>
+<a href="https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou" target="_blank" rel="noopener">Azure Documentation: Create an Organizational Unit (OU) in an Azure AD Domain Services managed domain</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS Domain</p></td>
