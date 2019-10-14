@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Getting started with Cloud Volumes ONTAP in Google Cloud | NetApp Cloud Docs</title>
+  <title>Getting started with Cloud Volumes ONTAP in Google Cloud Platform | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Getting started with Cloud Volumes ONTAP in Google Cloud | NetApp Cloud Docs" />
+  <meta property="og:title" content="Getting started with Cloud Volumes ONTAP in Google Cloud Platform | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/task_getting_started_gcp.html" />
 	<meta property="og:description" content="Get started with Cloud Volumes ONTAP in GCP from NetApp Cloud Central." />
@@ -945,11 +945,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Getting started with Cloud Volumes ONTAP in Google Cloud
+  <h1 class="n-doc__component-detail-heading">Getting started with Cloud Volumes ONTAP in Google Cloud Platform
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_getting_started_gcp.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Getting started with Cloud Volumes ONTAP in Google Cloud](https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Getting started with Cloud Volumes ONTAP in Google Cloud Platform](https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -957,7 +957,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-10 21:01:29 +0000">10/10/2019</time>
+<time datetime="2019-10-14 20:09:07 +0000">10/14/2019</time>
 
 
 <span>Contributors
@@ -1004,7 +1004,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-up-google-cloud-for-data-tiering"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Set up Google Cloud for data tiering</h3>
+<h3 id="set-up-gcp-for-data-tiering"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Set up GCP for data tiering</h3>
 <div class="paragraph quick-margin-para">
 <p>A few steps are required if you want to tier cold data from Cloud Volumes ONTAP to low-cost object storage (a Google Cloud Storage bucket):</p>
 </div>
@@ -1058,7 +1058,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="service-account"><span class="image"><img src="./media/number4.png" alt="Number 4"></span> Set up Google Cloud permissions and projects</h3>
+<h3 id="service-account"><span class="image"><img src="./media/number4.png" alt="Number 4"></span> Set up GCP permissions and projects</h3>
 <div class="paragraph quick-margin-para">
 <p>Make sure that two sets of permissions are in place:</p>
 </div>
@@ -1071,9 +1071,9 @@
 </div>
 </li>
 <li>
-<p>Set up a service account that has the permissions that Cloud Manager needs to create and manage Cloud Volumes ONTAP systems.</p>
+<p>Set up a service account that has the permissions that Cloud Manager needs to create and manage Cloud Volumes ONTAP systems in projects.</p>
 <div class="paragraph">
-<p>You&#8217;ll associate this service account with the Cloud Manager VM instance in step 5. This service account is different from the service account that&#8217;s used for data tiering.</p>
+<p>You&#8217;ll associate this service account with the Cloud Manager VM in step 5. This service account is different from the service account that&#8217;s used for data tiering.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1087,7 +1087,7 @@
 <p><a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account" target="_blank" rel="noopener">Create a GCP service account and apply the custom role that you just created</a>.</p>
 </li>
 <li>
-<p>If you want to deploy Cloud Volumes ONTAP in other projects, go to the Google Cloud console, open the IAM service, and select the project. Add the service account with the Cloud Manager role to that project. You&#8217;ll need to repeat this step for each project.</p>
+<p>If you want to deploy Cloud Volumes ONTAP in other projects, <a href="https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console" target="_blank" rel="noopener">grant access by adding the service account with the Cloud Manager role to that project</a>. You&#8217;ll need to repeat this step for each project.</p>
 </li>
 </ul>
 </div>
