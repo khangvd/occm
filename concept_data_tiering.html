@@ -960,7 +960,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-18 22:03:28 +0000">06/18/2019</time>
+<time datetime="2019-10-21 20:07:34 +0000">10/21/2019</time>
 
 
 <span>Contributors
@@ -1174,7 +1174,26 @@ Cloud Manager creates a single bucket for each working environment and names it 
 </dl>
 </div>
 <div class="paragraph">
-<p>When you replicate a volume, you can choose whether to tier the DR data to object storage. If you do, Cloud Manager applies the <strong>Backup</strong> policy to the data protection volume. Starting with Cloud Volumes ONTAP 9.6, the <strong>All</strong> tiering policy replaces the backup policy.</p>
+<p>When you replicate a volume, you can choose whether to tier the data to object storage. If you do, Cloud Manager applies the <strong>Backup</strong> policy to the data protection volume. Starting with Cloud Volumes ONTAP 9.6, the <strong>All</strong> tiering policy replaces the backup policy.</p>
+</div>
+<div class="sect2">
+<h3 id="turning-off-cloud-volumes-ontap-impacts-the-cooling-period">Turning off Cloud Volumes ONTAP impacts the cooling period</h3>
+<div class="paragraph">
+<p>Data blocks are cooled by cooling scans. During this process, blocks that haven&#8217;t been used have their block temperature moved (cooled) to the next lower value. The default cooling time depends on the volume tiering policy:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Auto: 31 days</p>
+</li>
+<li>
+<p>Snapshot Only: 2 days</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cloud Volumes ONTAP must be running for the cooling scan to work. If Cloud Volumes ONTAP is turned off, cooling will stop, as well. As a result, you might experience longer cooling times.</p>
+</div>
 </div>
 </div>
 </div>
