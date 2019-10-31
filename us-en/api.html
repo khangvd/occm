@@ -1248,6 +1248,22 @@ azureId=`cat azureId.txt`</pre>
 <pre>curl http://localhost/occm/api/gcp/vsa/working-environments -X POST --header "Content-Type: application/json" --header "Authorization:$token" --data "{\"name\": \"gcptest1\", \"tenantId\": \"$tenantId\", \"region\": \"us-east1-b\", \"packageName\": \"gcp_poc\", \"dataEncryptionType\": \"GCP\", \"vsaMetadata\": {\"ontapVersion\": \"ONTAP-9.6X17.T1.gcp\", \"licenseType\": \"gcp-cot-explore-paygo\", \"instanceType\": \"custom-4-16384\"}, \"writingSpeedState\": \"NORMAL\", \"subnetId\": \"default\", \"svmPassword\": \"$svmPassword\", \"vpcId\": \"default\", \"gcpVolumeSize\": {\"size\": 500, \"unit\": \"GB\", \"_identifier\": \"500 GB\"}, \"gcpVolumeType\": \"pd-ssd\", \"gcpLabels\": []}"</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>To create a Cloud Volumes ONTAP working environment in GCP with customer-managed keys, invoke the following API call:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/gcp/vsa/working-environments -X POST --header "Content-Type: application/json" --header "Authorization:$token" --data "{\"name\": \"gcptest1\", \"tenantId\": \"$tenantId\", \"region\": \"us-east1-b\", \"packageName\": \"gcp_poc\", \"dataEncryptionType\": \"GCP\", \"vsaMetadata\":{\"ontapVersion\": \"ONTAP-9.6X17.T1.gcp\", \"licenseType\": \"gcp-cot-explore-paygo\", \"instanceType\": \"custom-4-16384\"}, \"writingSpeedState\": \"NORMAL\", \"subnetId\": \"default\", \"svmPassword\": \"$svmPassword\", \"vpcId\": \"default\", \"gcpVolumeSize\": {\"size\": 500, \"unit\": \"GB\", \"_identifier\": \"500 GB\"}, \"gcpVolumeType\": \"pd-ssd\", \"gcpEncryptionParameters\": {\"key\": \"projects/occm-dev/locations/global/keyRings/test/cryptoKeys/key1\"}, \"gcpLabels\": []}"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To find the keypath for the KMS key that Cloud Manager requires in the request, use the following API call:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl http://localhost/occm/api/gcp/vsa/metadata/gcp-encryption-keys?region=region-name&amp;project=project-name -X GET--header "Content-Type: application/json" --header "Authorization:$token"</pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_managing_snapshot_copies">Managing Snapshot copies</h3>

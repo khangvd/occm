@@ -960,7 +960,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-07 01:37:14 +0000">10/07/2019</time>
+<time datetime="2019-10-31 19:14:40 +0000">10/31/2019</time>
 
 
 <span>Contributors
@@ -1026,6 +1026,18 @@
 <div class="paragraph">
 <p>When you launch a Cloud Volumes ONTAP system in AWS, you can enable data encryption using the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/overview.html" target="_blank" rel="noopener">AWS Key Management Service (KMS)</a>. Cloud Manager requests data keys using a customer master key (CMK).</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can&#8217;t change the AWS data encryption method after you create a Cloud Volumes ONTAP system.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>If you want to use this encryption option, then you must ensure that the AWS KMS is set up appropriately. For details, see <a href="task_setting_up_kms.html">Setting up the AWS KMS</a>.</p>
 </div>
@@ -1057,7 +1069,7 @@ Customer-managed keys are not supported with Cloud Volumes ONTAP.
 <p>While Google Cloud Storage always encrypts your data before it&#8217;s written to disk, you can use Cloud Manager APIs to create a Cloud Volumes ONTAP system that uses <em>customer-managed encryption keys</em>. These are keys that you generate and manage in GCP using the Cloud Key Management Service.</p>
 </div>
 <div class="paragraph">
-<p>Refer to the <a href="api.html" target="_blank" rel="noopener">API Developer Guide</a> for details about using the "GcpEncryption" parameters.</p>
+<p>Refer to the <a href="api.html#_creating_systems_in_gcp" target="_blank" rel="noopener">API Developer Guide</a> for details about using the "GcpEncryption" parameters.</p>
 </div>
 </div>
 </div>
