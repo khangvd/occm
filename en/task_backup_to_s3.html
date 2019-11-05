@@ -960,7 +960,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-02 19:39:42 +0000">10/02/2019</time>
+<time datetime="2019-11-05 22:57:06 +0000">11/05/2019</time>
 
 
 <span>Contributors
@@ -1002,24 +1002,33 @@
 <div class="sect3">
 <h4 id="verify-support-for-your-configuration"><span class="image"><img src="./media/number1.png" alt="Number 1"></span> Verify support for your configuration</h4>
 <div class="paragraph quick-margin-para">
-<p>You need the following:</p>
+<p>Verify the following:</p>
 </div>
 <div class="ulist quick-margin-list">
 <ul>
 <li>
-<p>Cloud Volumes ONTAP 9.4 or later running in a supported AWS region: N. Virginia, Oregon, Ireland, Frankfurt, and Sydney</p>
+<p>Cloud Volumes ONTAP 9.4 or later is running in a supported AWS region: N. Virginia, Oregon, Ireland, Frankfurt, or Sydney</p>
 </li>
 <li>
-<p>A subscription to the new <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">Cloud Manager Marketplace offering</a></p>
+<p>You have subscribed to the new <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">Cloud Manager Marketplace offering</a></p>
 </li>
 <li>
-<p>TCP port 5010 open for outbound traffic on the security group for Cloud Volumes ONTAP</p>
+<p>TCP port 5010 is open for outbound traffic on the security group for Cloud Volumes ONTAP (it&#8217;s open by default)</p>
 </li>
 <li>
-<p>Room for Cloud Manager to allocate up to two interface VPC endpoints in the VPC (the AWS limit per VPC is 20)</p>
+<p>TCP port 8088 is open for outbound traffic on the security group for Cloud Manager (it&#8217;s open by default)</p>
 </li>
 <li>
-<p>The VPC endpoint permissions listed in the latest <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager policy</a>:</p>
+<p>The following endpoint is accessible from Cloud Manager:</p>
+<div class="paragraph">
+<p>https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist</p>
+</div>
+</li>
+<li>
+<p>There&#8217;s room for Cloud Manager to allocate up to two interface VPC endpoints in the VPC (the AWS limit per VPC is 20)</p>
+</li>
+<li>
+<p>Cloud Manager has permission to use the VPC endpoint permissions listed in the latest <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager policy</a>:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">"ec2:DescribeVpcEndpoints",
@@ -1119,9 +1128,29 @@
 <dd>
 <p>Starting with the 3.7.3 release, a new Cloud Manager subscription is available in the AWS Marketplace. This subscription enables deployments of Cloud Volumes ONTAP 9.6 PAYGO systems and the Backup to S3 feature. You need to <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">subscribe to this new Cloud Manager subscription</a> before you enable Backup to S3. Billing for the Backup to S3 feature is done through this subscription.</p>
 </dd>
-<dt class="hdlist1">Port requirement</dt>
+<dt class="hdlist1">Port requirements</dt>
 <dd>
-<p>TCP port 5010 must be open for outbound traffic from Cloud Volumes ONTAP to the Cloud Backup Service. The port is already open if you chose the predefined security group. But if you used your own, then you&#8217;ll need to open this port.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>TCP port 5010 must be open for outbound traffic from Cloud Volumes ONTAP to the Cloud Backup Service.</p>
+</li>
+<li>
+<p>TCP port 8088 must be open for outbound traffic on the security group for Cloud Manager.</p>
+<div class="paragraph">
+<p>These ports are already open if you used the predefined security groups. But if you used your own, then you&#8217;ll need to open these ports.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Outbound internet access</dt>
+<dd>
+<p>Ensure that the following endpoint is accessible from Cloud Manager:<br>
+https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist</p>
+<div class="paragraph">
+<p>Cloud Manager contacts this endpoint to add your AWS account ID to the list of allowed users for the Cloud Backup Service.</p>
+</div>
 </dd>
 <dt class="hdlist1">Interface VPC endpoints</dt>
 <dd>
