@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Using Cloud Volumes ONTAP as persistent storage for Kubernetes | NetApp Cloud Docs</title>
+  <title>Using ONTAP as persistent storage for Kubernetes | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Using Cloud Volumes ONTAP as persistent storage for Kubernetes | NetApp Cloud Docs" />
+  <meta property="og:title" content="Using ONTAP as persistent storage for Kubernetes | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/task_connecting_kubernetes.html" />
-	<meta property="og:description" content="Cloud Manager can automate the deployment of NetApp Trident on Kubernetes clusters so you can use Cloud Volumes ONTAP as persistent storage for containers. G..." />
+	<meta property="og:description" content="Cloud Manager can automate the deployment of NetApp Trident on Kubernetes clusters so you can use ONTAP as persistent storage for containers. This works with..." />
   <meta property="og:image" content="https://docs.netapp.com/occm/us-en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="Cloud Manager can automate the deployment of NetApp Trident on Kubernetes clusters so you can use Cloud Volumes ONTAP as persistent storage for containers. G...">
+  <meta name="description" content="Cloud Manager can automate the deployment of NetApp Trident on Kubernetes clusters so you can use ONTAP as persistent storage for containers. This works with...">
   <meta name="keywords" content=" kubernetes, persistent volumes, containers, persistent storage, kubeconfig, trident, kubernetes cluster, storage classes, classes, cvo-single, cvo-ha, thick provisioning, trident_trident, connect, disconnect, provision">
   
   
@@ -698,7 +698,7 @@
   
 
   
-    <li class="active"><a href="task_connecting_kubernetes.html">Use Cloud Volumes ONTAP as persistent storage</a></li>
+    <li class="active"><a href="task_connecting_kubernetes.html">Use ONTAP as persistent storage</a></li>
   
 
   
@@ -945,11 +945,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Using Cloud Volumes ONTAP as persistent storage for Kubernetes
+  <h1 class="n-doc__component-detail-heading">Using ONTAP as persistent storage for Kubernetes
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_connecting_kubernetes.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Using Cloud Volumes ONTAP as persistent storage for Kubernetes](https://docs.netapp.com/us-en/occm/task_connecting_kubernetes.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Using ONTAP as persistent storage for Kubernetes](https://docs.netapp.com/us-en/occm/task_connecting_kubernetes.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -957,7 +957,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-08-05 13:07:24 +0000">08/05/2019</time>
+<time datetime="2019-12-03 21:10:08 +0000">12/03/2019</time>
 
 
 <span>Contributors
@@ -977,7 +977,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Manager can automate the deployment of <a href="https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html" target="_blank" rel="noopener">NetApp Trident</a> on Kubernetes clusters so you can use Cloud Volumes ONTAP as persistent storage for containers. Getting started includes a few steps.</p>
+<p>Cloud Manager can automate the deployment of <a href="https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html" target="_blank" rel="noopener">NetApp Trident</a> on Kubernetes clusters so you can use ONTAP as persistent storage for containers. This works with Cloud Volumes ONTAP and on-prem ONTAP clusters.</p>
+</div>
+<div class="paragraph">
+<p>Before you complete these steps, you need to <a href="reference_before.html">create a Cloud Volumes ONTAP system</a> or <a href="task_discovering_ontap.html">discover an on-premises ONTAP cluster</a> from Cloud Manager.</p>
 </div>
 <div class="paragraph">
 <p>If you deploy Kubernetes clusters using the <a href="https://cloud.netapp.com/kubernetes-service" target="_blank" rel="noopener">NetApp Kubernetes Service</a>, Cloud Manager can automatically discover the clusters from your NetApp Cloud Central account. If that&#8217;s the case, skip the first two steps and start with step 3.</p>
@@ -989,7 +992,7 @@
 <div class="olist loweralpha quick-margin-list">
 <ol class="loweralpha" type="a">
 <li>
-<p>A network connection must be available between Cloud Manager and the Kubernetes clusters, and from the Kubernetes clusters to Cloud Volumes ONTAP systems.</p>
+<p>A network connection must be available between Cloud Manager and the Kubernetes clusters, and from the Kubernetes clusters to ONTAP systems.</p>
 </li>
 <li>
 <p>Cloud Manager needs an outbound internet connection to access the following endpoints when installing Trident:</p>
@@ -1019,10 +1022,10 @@ https://github.com/NetApp/trident/releases/download/</p>
 <div class="sect2">
 <h3 id="connect-your-working-environments-to-kubernetes-clusters"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Connect your working environments to Kubernetes clusters</h3>
 <div class="paragraph quick-margin-para">
-<p>From the working environment, click the Kubernetes icon and follow the prompts. You can connect different clusters to different Cloud Volumes ONTAP systems and multiple clusters to the same Cloud Volumes ONTAP system.</p>
+<p>From the working environment, click the Kubernetes icon and follow the prompts. You can connect different clusters to different ONTAP systems and multiple clusters to the same ONTAP system.</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>You have the option to set the NetApp storage class as the default storage class for the Kubernetes cluster. When a user creates a persistent volume, the Kubernetes cluster can use connected Cloud Volumes ONTAP systems as the backend storage by default.</p>
+<p>You have the option to set the NetApp storage class as the default storage class for the Kubernetes cluster. When a user creates a persistent volume, the Kubernetes cluster can use connected ONTAP systems as the backend storage by default.</p>
 </div>
 <div class="paragraph quick-margin-para">
 <p><span class="image"><img src="./media/screenshot_kubernetes_connect.gif" alt="A screenshot that shows the Kubernetes icon inside and Cloud Volumes ONTAP working environment and the subsequent page that enables you to select a Kubernetes cluster and then click Connect."></span></p>
@@ -1036,16 +1039,16 @@ https://github.com/NetApp/trident/releases/download/</p>
 <div class="ulist quick-margin-list">
 <ul>
 <li>
-<p><strong>netapp-file</strong>: for binding Persistent Volumes to single-node Cloud Volumes ONTAP systems</p>
+<p><strong>netapp-file</strong>: for binding Persistent Volumes to single-node ONTAP systems</p>
 </li>
 <li>
-<p><strong>netapp-file-san</strong>: for binding iSCSI Persistent Volumes to single-node Cloud Volumes ONTAP systems</p>
+<p><strong>netapp-file-san</strong>: for binding iSCSI Persistent Volumes to single-node ONTAP systems</p>
 </li>
 <li>
-<p><strong>netapp-file-redundant</strong>: for binding Persistent Volumes to Cloud Volumes ONTAP HA pairs</p>
+<p><strong>netapp-file-redundant</strong>: for binding Persistent Volumes to ONTAP HA pairs</p>
 </li>
 <li>
-<p><strong>netapp-file-redundant-san</strong>: for binding iSCSI Persistent Volumes to Cloud Volumes ONTAP HA pairs</p>
+<p><strong>netapp-file-redundant-san</strong>: for binding iSCSI Persistent Volumes to ONTAP HA pairs</p>
 </li>
 </ul>
 </div>
@@ -1072,7 +1075,7 @@ https://github.com/NetApp/trident/releases/download/</p>
 <div class="content">
 <div class="title">What are the trident_trident volumes?</div>
 <div class="paragraph">
-<p>Cloud Manager creates a volume on the first Cloud Volumes ONTAP system that you connect to a Kubernetes cluster. The name of the volume is appended with "_trident_trident." Cloud Volumes ONTAP systems use this volume to connect to the Kubernetes cluster. You should not delete these volumes.</p>
+<p>Cloud Manager creates a volume on the first ONTAP system that you connect to a Kubernetes cluster. The name of the volume is appended with "_trident_trident." ONTAP uses this volume to connect to the Kubernetes cluster. You should not delete these volumes.</p>
 </div>
 </div>
 </div>
@@ -1080,7 +1083,7 @@ https://github.com/NetApp/trident/releases/download/</p>
 <div class="content">
 <div class="title">What happens when you disconnect or remove a Kubernetes cluster?</div>
 <div class="paragraph">
-<p>Cloud Manager enables you to disconnect individual Cloud Volumes ONTAP systems from a Kubernetes cluster. When you disconnect a system, you can no longer use that Cloud Volumes ONTAP system as persistent storage for containers. Existing Persistent Volumes are not deleted.</p>
+<p>Cloud Manager enables you to disconnect individual ONTAP systems from a Kubernetes cluster. When you disconnect a system, you can no longer use that ONTAP system as persistent storage for containers. Existing Persistent Volumes are not deleted.</p>
 </div>
 <div class="paragraph">
 <p>After you disconnect all systems from a Kubernetes cluster, you can also remove the entire Kubernetes configuration from Cloud Manager. Cloud Manager does not uninstall Trident when you remove the cluster and it does not delete any Persistent Volumes.</p>

@@ -20,7 +20,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="You might need to change the configuration of Cloud Volumes ONTAP instances as your storage needs change. For example, you can change between pay-as-you-go c...">
-  <meta name="keywords" content=" license, licensing, install, instance type, virtual machine type, VM type, change, modify, configuration, subscription, paygo, pay-as-you-go, pay as you go, byol, password, MTU, jumbo frames, c4.xlarge, c4.8xlarge, HA pair, file, license file, install, upload, change, modify, svm, storage virtual machine, password, route tables, nlf, gcp, machine type, virtual machine type, vm instance, aws subscription, changing aws subscription">
+  <meta name="keywords" content=" license, licensing, install, instance type, virtual machine type, VM type, change, modify, configuration, subscription, paygo, pay-as-you-go, pay as you go, byol, password, MTU, jumbo frames, c4.xlarge, c4.8xlarge, HA pair, file, license file, install, upload, change, modify, svm, storage virtual machine, password, route tables, nlf, gcp, machine type, virtual machine type, vm instance, aws subscription, changing aws subscription, write speed, high write speed, normal write speed">
   
   
 
@@ -701,7 +701,7 @@
   
 
   
-    <li><a href="task_connecting_kubernetes.html">Use Cloud Volumes ONTAP as persistent storage</a></li>
+    <li><a href="task_connecting_kubernetes.html">Use ONTAP as persistent storage</a></li>
   
 
   
@@ -960,7 +960,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-17 19:11:02 +0000">09/17/2019</time>
+<time datetime="2019-12-03 21:11:06 +0000">12/03/2019</time>
 
 
 <span>Contributors
@@ -1182,6 +1182,48 @@ In GCP, a single machine type is available for each pay-as-you-go configuration.
 </li>
 <li>
 <p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="changing-write-speed-to-normal-or-high">Changing write speed to normal or high</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The default write speed for Cloud Volumes ONTAP is normal. You can change to high write speed if fast write performance is required for your workload. Before you change the write speed, you should <a href="task_planning_your_config.html#choosing-a-write-speed">understand the differences between the normal and high settings</a>.</p>
+</div>
+<div class="ulist">
+<div class="title">About this task</div>
+<ul>
+<li>
+<p>Ensure that operations such as volume or aggregate creation are not in progress.</p>
+</li>
+<li>
+<p>Be aware that this change restarts Cloud Volumes ONTAP.</p>
+<div class="paragraph">
+<p>For single node systems, I/O is interrupted.</p>
+</div>
+<div class="paragraph">
+<p>For HA pairs, the change is nondisruptive. HA pairs continue to serve data.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>From the working environment, click the menu icon, and then click <strong>Advanced &gt; Writing Speed</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Normal</strong> or <strong>High</strong>.</p>
+<div class="paragraph">
+<p>If you choose High, then you&#8217;ll need to read the "I understand&#8230;&#8203;" statement and confirm by checking the box.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>, review the confirmation message, and then click <strong>Proceed</strong>.</p>
 </li>
 </ol>
 </div>
