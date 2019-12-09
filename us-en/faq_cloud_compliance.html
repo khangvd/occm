@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Frequently asked questions about Cloud Compliance | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Frequently asked questions about Cloud Compliance | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/faq_cloud_compliance.html" />
+	<meta property="og:description" content="This FAQ can help if you’re just looking for a quick answer to a question." />
+  <meta property="og:image" content="https://docs.netapp.com/occm/us-en/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta http-equiv="nss-product" content="OnCommand"/>
+  
+  <meta name="description" content="This FAQ can help if you’re just looking for a quick answer to a question.">
+  <meta name="keywords" content=" faq, frequently asked questions, questions">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/occm/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/us-en/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/occm/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/us-en/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/occm/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/occm/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/us-en/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/occm/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/occm/us-en/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/occm/us-en/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/occm/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/us-en/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/occm/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/us-en/css/prism-netapp.css' type='text/css'>
+
+  <script src='/occm/us-en/js/clouddocs.js'></script>
+  <script src='/occm/us-en/js/s_code_impl.js'></script>
+  <script src='/occm/us-en/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/occm/us-en/js/toc.js'></script>
+  <script src='/occm/us-en/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+      siteLocales.push("en");
+    
+      siteLocales.push("ja-jp");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/occm/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/occm/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n" class="n-property-bar__utils">
+        <div id="ie-i18n-menu">
+          <ul class="n-property-navigation-bar__utils-list">
+            <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+              <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+                <span class="ie-i18n-lang">English</span>
+                <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                  <title>globe</title>
+                  <use xlink:href="/occm/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/ja-jp/" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Release notes</a>
+      <ul>
+        
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new</a></li>
+  
+
+  
+    <li><a href="reference_issues.html">Known issues</a></li>
+  
+
+  
+    <li><a href="reference_limitations.html">Known limitations</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central.html">NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud provider accounts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_accounts_aws.html">AWS accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_azure.html">Azure accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_gcp.html">GCP accounts</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Storage</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_storage.html">Disks and aggregates</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
+  
+
+  
+    <li><a href="concept_storage_management.html">Storage management</a></li>
+  
+
+  
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">High-availability pairs</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_ha.html">HA pairs in AWS</a></li>
+  
+
+  
+    <li><a href="concept_ha_azure.html">HA pairs in Azure</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="concept_evaluating.html">Evaluating</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Get started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Deployment overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Get started in AWS</a></li>
+  
+
+  
+    <li><a href="task_getting_started_azure.html">Get started in Azure</a></li>
+  
+
+  
+    <li><a href="task_getting_started_gcp.html">Get started in GCP</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Set up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_setting_up_cloud_central_accounts.html">Set up the Cloud Central account</a></li>
+  
+
+  
+    <li><a href="task_adding_aws_accounts.html">Add AWS accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_azure_accounts.html">Add Azure accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Add NetApp Support Site accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Install an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Set up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Network requirements</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
+  
+
+  
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
+  
+
+  
+    <li><a href="task_setting_up_transit_gateway.html">Set up an AWS transit gateway</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
+  
+
+  
+    <li><a href="reference_networking_gcp.html">Cloud Volumes ONTAP for GCP</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional deployment options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Install Cloud Manager on Linux</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Deploy Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_launching_azure_mktp.html">Deploy Cloud Manager from the Azure Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Deploy Cloud Manager in an Azure Gov region</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Deploy Cloud Manager in the Azure Germany region</a></li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Get started in AWS C2S</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="concept_keep_up.html">Keep Cloud Manager running</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploy Cloud Volumes ONTAP</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Log in to Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_planning_your_config.html">Plan your configuration</a></li>
+  
+
+  
+    <li><a href="task_finding_system_id.html">Find your system ID</a></li>
+  
+
+  
+    <li><a href="task_enabling_flash_cache.html">Enable Flash Cache in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launch Cloud Volumes ONTAP in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launch Cloud Volumes ONTAP in Azure</a></li>
+  
+
+  
+    <li><a href="task_deploying_gcp.html">Launch Cloud Volumes ONTAP in GCP</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Register pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Set up Cloud Volumes ONTAP</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provision storage</a>
+      <ul>
+        
+
+  
+    <li><a href="task_provisioning_storage.html">Create volumes, aggregates, and LUNs</a></li>
+  
+
+  
+    <li><a href="task_tiering.html">Tier inactive data to object storage</a></li>
+  
+
+  
+    <li><a href="task_connecting_kubernetes.html">Use ONTAP as persistent storage</a></li>
+  
+
+  
+    <li><a href="task_encrypting_volumes.html">Encrypt volumes with NetApp Volume Encryption</a></li>
+  
+
+  
+    <li><a href="task_managing_storage.html">Manage existing storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Replicate and protect data</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discover and manage ONTAP clusters</a></li>
+  
+
+  
+    <li><a href="task_replicating_data.html">Replicate data between systems</a></li>
+  
+
+  
+    <li><a href="task_backup_to_s3.html">Back up to Amazon S3</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Sync data to Amazon S3</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Gain insight into data privacy</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_cloud_compliance.html">Learn about Cloud Compliance</a></li>
+  
+
+  
+    <li><a href="task_getting_started_compliance.html">Get started</a></li>
+  
+
+  
+    <li><a href="task_controlling_private_data.html">Gain visibility and control of data</a></li>
+  
+
+  
+    <li><a href="task_generating_compliance_reports.html">Generate reports</a></li>
+  
+
+  
+    <li><a href="task_responding_to_dsar.html">Respond to a DSAR</a></li>
+  
+
+  
+    <li><a href="task_managing_compliance.html">Disable Cloud Compliance</a></li>
+  
+
+  
+    <li class="active"><a href="faq_cloud_compliance.html">FAQ</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administer Cloud Volumes ONTAP</a>
+      <ul>
+        
+
+  
+    <li><a href="task_connecting_to_otc.html">Connect to Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Update software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modify system configurations</a></li>
+  
+
+  
+    <li><a href="task_managing_state.html">Stop and start systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitor AWS costs</a></li>
+  
+
+  
+    <li><a href="task_protecting_ransomware.html">Improve ransomware protection</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Add existing systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Delete systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administer Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Update Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_managing_cloud_central_accounts.html">Manage the Cloud Central account</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Remove working environments</a></li>
+  
+
+  
+    <li><a href="task_configuring_proxy.html">Configure proxy settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renew the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstall Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provision volumes for file services</a>
+      <ul>
+        
+
+  
+    <li><a href="task_manage_anf.html">Azure NetApp Files</a></li>
+  
+
+  
+    <li><a href="task_manage_cvs_aws.html">Cloud Volumes Service for AWS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">APIs and automation</a>
+      <ul>
+        
+
+  
+    <li><a href="https://docs.netapp.com/us-en/occm/api.html" target="_blank">API Developer Guide</a></li>
+  
+
+  
+    <li><a href="reference_infrastructure_as_code.html">Automation samples</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_integration_faq.html">FAQ for Cloud Central integration</a></li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank">Supported regions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules for AWS</a></li>
+  
+
+  
+    <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
+  
+
+  
+    <li><a href="reference_firewall_rules_gcp.html">Firewall rules for GCP</a></li>
+  
+
+  
+    <li><a href="reference_aws_marketplace.html">AWS Marketplace pages</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+  
+    <li><a href="reference_legal_notices.html">Legal notices</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Frequently asked questions about Cloud Compliance
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/faq_cloud_compliance.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Frequently asked questions about Cloud Compliance](https://docs.netapp.com/us-en/occm/faq_cloud_compliance.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-12-05 17:07:32 +0000">12/05/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/netapp-bcammett">
+    <img  class="avatar avatar-small"
+          alt="netapp-bcammett"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/18287750?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>This FAQ can help if you’re just looking for a quick answer to a question.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-is-cloud-compliance">What is Cloud Compliance?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance is a new NetApp cloud offering. Using Artificial Intelligence (AI) driven technology, Cloud Compliance helps organizations understand data context and identify sensitive data across your Cloud Volumes ONTAP systems hosted in AWS or Azure.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Compliance provides pre-defined parameters (such as sensitive information types and categories) to address new data compliance regulations for data privacy and sensitivity, such as GDPR, CCPA, and more.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="why-should-i-use-cloud-compliance">Why should I use Cloud Compliance?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance can empower you with data to help you:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Comply with data compliance and privacy regulations.</p>
+</li>
+<li>
+<p>Comply with data retention policies.</p>
+</li>
+<li>
+<p>Easily locate and report on specific data in response to data subjects, as required by GDPR, CCPA, and other data privacy regulations.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-are-the-common-use-cases-for-cloud-compliance">What are the common use cases for Cloud Compliance?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Identify Personal Identifiable Information (PII).</p>
+</li>
+<li>
+<p>Identify a wide scope of sensitive information as required by GDPR and CCPA privacy regulations.</p>
+</li>
+<li>
+<p>Comply with new and upcoming data privacy regulations.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://cloud.netapp.com/cloud-compliance" target="_blank" rel="noopener">Learn more about the use cases for Cloud Compliance</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-types-of-data-can-be-scanned-with-cloud-compliance">What types of data can be scanned with Cloud Compliance?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance supports scanning of unstructured data over NFS and CIFS protocols. Currently Cloud Compliance scans data managed by Cloud Volumes ONTAP.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_cloud_compliance.html#how-scans-work">Learn how scans work</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="which-cloud-providers-are-supported">Which cloud providers are supported?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance operates as part of Cloud Manager and currently supports AWS and Azure. This provides your organization with unified privacy visibility across different cloud providers. Support for Google Cloud Platform (GCP) will be added soon.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-do-i-access-cloud-compliance">How do I access Cloud Compliance?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance is operated and managed through Cloud Manager. You can access Cloud Compliance features from the <strong>Compliance</strong> tab in Cloud Manager.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-does-cloud-compliance-work">How does Cloud Compliance work?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance deploys another layer of Artificial Intelligence alongside your Cloud Manager system and Cloud Volumes ONTAP instances. It then scans the data on Cloud Volumes ONTAP and indexes the data insights found.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_cloud_compliance.html">Learn more about how Cloud Compliance works</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-much-does-cloud-compliance-cost">How much does Cloud Compliance cost?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance is offered as part of Cloud Volumes ONTAP and doesn’t require any additional costs. Additional costs might be required in the future for customized capabilities.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Compliance requires deployment of an instance in your cloud provider, for which you&#8217;ll be charged by your cloud provider.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-often-does-cloud-compliance-scan-my-data">How often does Cloud Compliance scan my data?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Data changes frequently, so Cloud Compliance scans your data continuously with no impact to your data. While the initial scan of your data might take longer, subsequent scans only scan the incremental changes, which reduces system scan times.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_cloud_compliance.html#how-scans-work">Learn how scans work</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="does-cloud-compliance-offer-reports">Does Cloud Compliance offer reports?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Yes. The information offered by Cloud Compliance can be relevant to other stakeholders in your organizations, so we enable you to generate reports to share the insights.</p>
+</div>
+<div class="paragraph">
+<p>The following reports are available for Cloud Compliance:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Privacy Risk Assessment report</dt>
+<dd>
+<p>Provides privacy insights from your data and a privacy risk score. <a href="task_generating_compliance_reports.html">Learn more</a>.</p>
+</dd>
+<dt class="hdlist1">Data Subject Access Request report</dt>
+<dd>
+<p>Enables you to extract a report of all files that contain information regarding a data subject’s specific name or personal identifier. <a href="task_responding_to_dsar.html">Learn more</a>.</p>
+</dd>
+<dt class="hdlist1">Reports on a specific information type</dt>
+<dd>
+<p>Reports are available that include details about the identified files that contain personal data and sensitive personal data. You can also see files broken down by category and file type. <a href="task_controlling_private_data.html">Learn more</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-type-of-instance-or-vm-is-required-for-cloud-compliance">What type of instance or VM is required for Cloud Compliance?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>In Azure, Cloud Compliance runs on a Standard_D16s_v3 VM with a 512 GB disk.</p>
+</li>
+<li>
+<p>In AWS, Cloud Compliance runs on an m5.4xlarge instance with a 500 GB io1 disk.</p>
+<div class="paragraph">
+<p>In regions where m5.4xlarge isn&#8217;t available, Cloud Compliance runs on an m4.4xlarge instance instead.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="concept_cloud_compliance.html">Learn more about how Cloud Compliance works</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="does-scan-performance-vary">Does scan performance vary?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Scan performance can vary based on the network bandwidth and the average file size in your cloud environment.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-do-i-enable-cloud-compliance">How do I enable Cloud Compliance?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can enable Cloud Compliance when you create a new working environment. You can enable it on existing working environments from the <strong>Compliance</strong> tab (on first activation only) or by selecting a specific working environment.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_getting_started_compliance.html">Learn how to get started</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Activating Cloud Compliance results in an immediate initial scan. Compliance results display shortly after.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-do-i-disable-cloud-compliance">How do I disable Cloud Compliance?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can disable Cloud Compliance from the Working Environments page after you select an individual working environment.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_managing_compliance.html">Learn more</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To completely remove the Cloud Compliance instance, you can manually remove the Cloud Compliance instance from your cloud provider&#8217;s portal.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="can-i-use-cloud-compliance-to-scan-on-premise-ontap-storage">Can I use Cloud Compliance to scan on-premise ONTAP storage?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>No. Cloud Compliance is currently available as part of Cloud Manager and supports Cloud Volumes ONTAP. We&#8217;re planning to support Cloud Compliance with additional cloud offerings such as Cloud Volumes Service and Azure NetApp Files. </p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="can-cloud-compliance-send-notifications-to-my-organization">Can Cloud Compliance send notifications to my organization?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>No, but you can download status reports that you can share internally in your organization.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="can-i-customize-the-service-to-my-organizations-need">Can I customize the service to my organization’s need?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance provides out-of-the-box insights to your data. These insights can be extracted and used for your organization&#8217;s needs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="can-i-limit-cloud-compliance-information-to-specific-users">Can I limit Cloud Compliance information to specific users?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Yes, Cloud Compliance is fully integrated with Cloud Manager. Cloud Manager users can only see information for the working environments they are eligible to view according to their workspace privileges.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_cloud_compliance.html#user-access-to-compliance-information">Learn more</a>.</p>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/occm/us-en/common/js/components.js"></script>
+    <script src="/occm/us-en/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/occm/us-en/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/occm/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/us-en/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>

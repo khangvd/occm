@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Gaining visibility and control of private data | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Gaining visibility and control of private data | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/occm/task_controlling_private_data.html" />
+	<meta property="og:description" content="Gain control of your private data by viewing details about the personal data and sensitive personal data in your organization. You can also gain visibility b..." />
+  <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta http-equiv="nss-product" content="OnCommand"/>
+  
+  <meta name="description" content="Gain control of your private data by viewing details about the personal data and sensitive personal data in your organization. You can also gain visibility b...">
+  <meta name="keywords" content=" personal files, personal data, sensitive personal files, sensitive personal data, health data, ethnic origin, political opinions, gdpr, email address, credit card, ip address, iban, national ID, identifier, sex, criminal, compliance, privacy">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/occm/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/occm/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/occm/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/occm/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/occm/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/css/prism-netapp.css' type='text/css'>
+
+  <script src='/occm/js/clouddocs.js'></script>
+  <script src='/occm/js/s_code_impl.js'></script>
+  <script src='/occm/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/occm/js/toc.js'></script>
+  <script src='/occm/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+      siteLocales.push("en");
+    
+      siteLocales.push("ja-jp");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n" class="n-property-bar__utils">
+        <div id="ie-i18n-menu">
+          <ul class="n-property-navigation-bar__utils-list">
+            <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+              <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+                <span class="ie-i18n-lang">English</span>
+                <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                  <title>globe</title>
+                  <use xlink:href="/occm/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/occm/ja-jp/" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Release notes</a>
+      <ul>
+        
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_new_occm.html">What's new</a></li>
+  
+
+  
+    <li><a href="reference_issues.html">Known issues</a></li>
+  
+
+  
+    <li><a href="reference_limitations.html">Known limitations</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/" target="_blank">Cloud Volumes ONTAP</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central.html">NetApp Cloud Central</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cloud provider accounts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_accounts_aws.html">AWS accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_azure.html">Azure accounts</a></li>
+  
+
+  
+    <li><a href="concept_accounts_gcp.html">GCP accounts</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Storage</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_storage.html">Disks and aggregates</a></li>
+  
+
+  
+    <li><a href="concept_data_tiering.html">Data tiering</a></li>
+  
+
+  
+    <li><a href="concept_storage_management.html">Storage management</a></li>
+  
+
+  
+    <li><a href="concept_worm.html">WORM storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">High-availability pairs</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_ha.html">HA pairs in AWS</a></li>
+  
+
+  
+    <li><a href="concept_ha_azure.html">HA pairs in Azure</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="concept_evaluating.html">Evaluating</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="concept_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_performance.html">Performance</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Get started</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_deployment_overview.html">Deployment overview</a></li>
+  
+
+  
+    <li><a href="task_getting_started_aws.html">Get started in AWS</a></li>
+  
+
+  
+    <li><a href="task_getting_started_azure.html">Get started in Azure</a></li>
+  
+
+  
+    <li><a href="task_getting_started_gcp.html">Get started in GCP</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Set up Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_setting_up_cloud_central_accounts.html">Set up the Cloud Central account</a></li>
+  
+
+  
+    <li><a href="task_adding_aws_accounts.html">Add AWS accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_azure_accounts.html">Add Azure accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+  
+
+  
+    <li><a href="task_adding_nss_accounts.html">Add NetApp Support Site accounts</a></li>
+  
+
+  
+    <li><a href="task_installing_https_cert.html">Install an HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_setting_up_kms.html">Set up the AWS KMS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Network requirements</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_networking_cloud_manager.html">Cloud Manager</a></li>
+  
+
+  
+    <li><a href="reference_networking_aws.html">Cloud Volumes ONTAP for AWS</a></li>
+  
+
+  
+    <li><a href="task_setting_up_transit_gateway.html">Set up an AWS transit gateway</a></li>
+  
+
+  
+    <li><a href="reference_networking_azure.html">Cloud Volumes ONTAP for Azure</a></li>
+  
+
+  
+    <li><a href="reference_networking_gcp.html">Cloud Volumes ONTAP for GCP</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Additional deployment options</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_cloud_mgr_reqs.html">Cloud Manager host requirements</a></li>
+  
+
+  
+    <li><a href="task_installing_linux.html">Install Cloud Manager on Linux</a></li>
+  
+
+  
+    <li><a href="task_launching_aws_mktp.html">Deploy Cloud Manager from the AWS Marketplace</a></li>
+  
+
+  
+    <li><a href="task_launching_azure_mktp.html">Deploy Cloud Manager from the Azure Marketplace</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_gov.html">Deploy Cloud Manager in an Azure Gov region</a></li>
+  
+
+  
+    <li><a href="task_installing_azure_germany.html">Deploy Cloud Manager in the Azure Germany region</a></li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/occm/media/c2s.pdf" target="_blank">Get started in AWS C2S</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="concept_keep_up.html">Keep Cloud Manager running</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Deploy Cloud Volumes ONTAP</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_before.html">Before you begin</a></li>
+  
+
+  
+    <li><a href="task_logging_in.html">Log in to Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_planning_your_config.html">Plan your configuration</a></li>
+  
+
+  
+    <li><a href="task_finding_system_id.html">Find your system ID</a></li>
+  
+
+  
+    <li><a href="task_enabling_flash_cache.html">Enable Flash Cache in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_aws.html">Launch Cloud Volumes ONTAP in AWS</a></li>
+  
+
+  
+    <li><a href="task_deploying_otc_azure.html">Launch Cloud Volumes ONTAP in Azure</a></li>
+  
+
+  
+    <li><a href="task_deploying_gcp.html">Launch Cloud Volumes ONTAP in GCP</a></li>
+  
+
+  
+    <li><a href="task_registering.html">Register pay-as-you-go systems</a></li>
+  
+
+  
+    <li><a href="task_setting_up_ontap_cloud.html">Set up Cloud Volumes ONTAP</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provision storage</a>
+      <ul>
+        
+
+  
+    <li><a href="task_provisioning_storage.html">Create volumes, aggregates, and LUNs</a></li>
+  
+
+  
+    <li><a href="task_tiering.html">Tier inactive data to object storage</a></li>
+  
+
+  
+    <li><a href="task_connecting_kubernetes.html">Use ONTAP as persistent storage</a></li>
+  
+
+  
+    <li><a href="task_encrypting_volumes.html">Encrypt volumes with NetApp Volume Encryption</a></li>
+  
+
+  
+    <li><a href="task_managing_storage.html">Manage existing storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Replicate and protect data</a>
+      <ul>
+        
+
+  
+    <li><a href="task_discovering_ontap.html">Discover and manage ONTAP clusters</a></li>
+  
+
+  
+    <li><a href="task_replicating_data.html">Replicate data between systems</a></li>
+  
+
+  
+    <li><a href="task_backup_to_s3.html">Back up to Amazon S3</a></li>
+  
+
+  
+    <li><a href="task_syncing_s3.html">Sync data to Amazon S3</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Gain insight into data privacy</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_cloud_compliance.html">Learn about Cloud Compliance</a></li>
+  
+
+  
+    <li><a href="task_getting_started_compliance.html">Get started</a></li>
+  
+
+  
+    <li class="active"><a href="task_controlling_private_data.html">Gain visibility and control of data</a></li>
+  
+
+  
+    <li><a href="task_generating_compliance_reports.html">Generate reports</a></li>
+  
+
+  
+    <li><a href="task_responding_to_dsar.html">Respond to a DSAR</a></li>
+  
+
+  
+    <li><a href="task_managing_compliance.html">Disable Cloud Compliance</a></li>
+  
+
+  
+    <li><a href="faq_cloud_compliance.html">FAQ</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administer Cloud Volumes ONTAP</a>
+      <ul>
+        
+
+  
+    <li><a href="task_connecting_to_otc.html">Connect to Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="task_updating_ontap_cloud.html">Update software</a></li>
+  
+
+  
+    <li><a href="task_modifying_ontap_cloud.html">Modify system configurations</a></li>
+  
+
+  
+    <li><a href="task_managing_state.html">Stop and start systems</a></li>
+  
+
+  
+    <li><a href="task_monitoring_costs.html">Monitor AWS costs</a></li>
+  
+
+  
+    <li><a href="task_protecting_ransomware.html">Improve ransomware protection</a></li>
+  
+
+  
+    <li><a href="task_adding_ontap_cloud.html">Add existing systems</a></li>
+  
+
+  
+    <li><a href="task_deleting_working_env.html">Delete systems</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Administer Cloud Manager</a>
+      <ul>
+        
+
+  
+    <li><a href="task_updating_cloud_manager.html">Update Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_managing_cloud_central_accounts.html">Manage the Cloud Central account</a></li>
+  
+
+  
+    <li><a href="task_removing.html">Remove working environments</a></li>
+  
+
+  
+    <li><a href="task_configuring_proxy.html">Configure proxy settings</a></li>
+  
+
+  
+    <li><a href="task_renewing_cert.html">Renew the HTTPS certificate</a></li>
+  
+
+  
+    <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
+  
+
+  
+    <li><a href="task_uninstalling.html">Uninstall Cloud Manager</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Provision volumes for file services</a>
+      <ul>
+        
+
+  
+    <li><a href="task_manage_anf.html">Azure NetApp Files</a></li>
+  
+
+  
+    <li><a href="task_manage_cvs_aws.html">Cloud Volumes Service for AWS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">APIs and automation</a>
+      <ul>
+        
+
+  
+    <li><a href="https://docs.netapp.com/us-en/occm/api.html" target="_blank">API Developer Guide</a></li>
+  
+
+  
+    <li><a href="reference_infrastructure_as_code.html">Automation samples</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Reference</a>
+      <ul>
+        
+
+  
+    <li><a href="reference_integration_faq.html">FAQ for Cloud Central integration</a></li>
+  
+
+  
+    <li><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html" target="_blank">Supported configurations for Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank">Supported regions</a></li>
+  
+
+  
+    <li><a href="reference_security_groups.html">Security group rules for AWS</a></li>
+  
+
+  
+    <li><a href="reference_security_groups_azure.html">Security group rules for Azure</a></li>
+  
+
+  
+    <li><a href="reference_firewall_rules_gcp.html">Firewall rules for GCP</a></li>
+  
+
+  
+    <li><a href="reference_aws_marketplace.html">AWS Marketplace pages</a></li>
+  
+
+  
+    <li><a href="reference_permissions.html">Permissions</a></li>
+  
+
+  
+    <li><a href="reference_default_configs.html">Default configurations</a></li>
+  
+
+  
+    <li><a href="reference_user_roles.html">User roles</a></li>
+  
+
+  
+    <li><a href="reference_additional_info.html">Related links</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_earlier_versions.html">Earlier versions</a></li>
+  
+
+  
+    <li><a href="reference_legal_notices.html">Legal notices</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Gaining visibility and control of private data
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_controlling_private_data.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Gaining visibility and control of private data](https://docs.netapp.com/us-en/occm/task_controlling_private_data.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-12-09 13:54:23 +0000">12/09/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/netapp-bcammett">
+    <img  class="avatar avatar-small"
+          alt="netapp-bcammett"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/18287750?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Gain control of your private data by viewing details about the personal data and sensitive personal data in your organization. You can also gain visibility by reviewing the categories and file types that Cloud Compliance found in your data.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="personal-data">Personal data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance automatically identifies specific words, strings, and patterns (Regex) inside the data. For example, Personal Identification Information (PII), credit card numbers, social security numbers, bank account numbers, and more. <a href="#types-of-personal-data">See the full list</a>.</p>
+</div>
+<div class="paragraph">
+<p>For some types of personal data, Cloud Compliance uses <em>proximity validation</em> to validate its findings. The validation occurs by looking for one or more predefined keywords in proximity to the personal data that was found. For example, Cloud Compliance identifies a U.S. social security number (SSN) as a SSN if it sees a proximity word next to it&#8212;&#8203;for example, <em>SSN</em> or <em>social security</em>. <a href="#types-of-personal-data">The list below</a> shows when Cloud Compliance uses proximity validation.</p>
+</div>
+<div class="sect2">
+<h3 id="viewing-files-that-contain-personal-data">Viewing files that contain personal data</h3>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>At the top of Cloud Manager, click <strong>Compliance</strong>.</p>
+</li>
+<li>
+<p>Download the details for one of the top 2 file types directly from the main screen, or click <strong>View All</strong> and then download the list for any of the personal data types that were found.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_personal_files.gif" alt="A screenshot of the personal files dialog box where you can click the download button next to a personal data type. The result is a CSV file with details about the files."></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="types-of-personal-data">Types of personal data</h3>
+<div class="paragraph">
+<p>The personal data found in files can be general personal data or national identifiers. The third column identifies whether Cloud Compliance uses <a href="#personal-data">proximity validation</a> to validate its findings for the identifier.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 22.7272%;">
+<col style="width: 56.8181%;">
+<col style="width: 20.4547%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Identifier</th>
+<th class="tableblock halign-left valign-top">Proximity validation?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">General</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Credit card number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IBAN number (International Bank Account Number)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IP address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="27"><p class="tableblock">National Identifiers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Belgian ID (Numero National)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bulgarian ID (Unified Civil Number)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cyprus Tax Identification Number (TIC)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Danish Tax Identification Number (CPR)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Estonian ID (Isikukood)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finnish ID (henkilötunnus)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">French Tax Identification Number (SPI)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">German Tax Identification Number (Steuerliche Identifikationsnummer)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hungarian Tax Identification Number (Adóazonosító jel)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Irish ID (PPS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Israeli ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Italian ID (Codice Fiscale)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Latvian Tax Identification Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lithuanian ID (Asmens kodas)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Luxembourg ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Malta ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Netherlands ID (BSN)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Polish Tax Identification Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Portuguese Tax Identification Number (NIF)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Romanian Tax Identification Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Slovakian Tax Identification Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Slovenian Tax Identification Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">South African ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spanish Tax Identification Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swedish Tax Identification Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U.K. National Insurance Number (NINO)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">USA Social Security Number (SSN)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sensitive-personal-data">Sensitive personal data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance automatically identifies special types of sensitive personal information, as defined by privacy regulations such as <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e2051-1-1" target="_blank" rel="noopener">articles 9 and 10 of the GDPR</a>. For example, information regarding a person&#8217;s health, ethnic origin, or sexual orientation. <a href="#types-of-sensitive-personal-data">See the full list</a>.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Compliance uses artificial intelligence (AI), natural language processing (NLP), machine learning (ML), and cognitive computing (CC) to understand the meaning of the content that it scans in order to extract entities and categorize it accordingly.</p>
+</div>
+<div class="paragraph">
+<p>For example, one sensitive GDPR data category is ethnic origin. Because of its NLP abilities, Cloud Compliance can distinguish the difference between a sentence that reads "George is Mexican" (indicating sensitive data as specified in article 9 of the GDPR), versus "George is eating Mexican food."</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only English is supported when scanning for sensitive personal data. Support for more languages will be added later.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="viewing-files-that-contain-sensitive-personal-data">Viewing files that contain sensitive personal data</h3>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>At the top of Cloud Manager, click <strong>Compliance</strong>.</p>
+</li>
+<li>
+<p>Download the details for one of the top 2 file types directly from the main screen, or click <strong>View All</strong> and then download the list for any of the sensitive personal data types that were found.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_sensitive_personal_files.gif" alt="A screenshot of the sensitive personal files dialog box where you can click the download button next to a personal data type. The result is a CSV file with details about the files."></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="types-of-sensitive-personal-data">Types of sensitive personal data</h3>
+<div class="paragraph">
+<p>The sensitive personal data that Cloud Compliance can find in files includes the following:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Criminal Procedures Reference</dt>
+<dd>
+<p>Data concerning a natural person’s criminal convictions and offenses.</p>
+</dd>
+<dt class="hdlist1">Ethnicity Reference</dt>
+<dd>
+<p>Data concerning a natural person’s racial or ethnic origin.</p>
+</dd>
+<dt class="hdlist1">Health Reference</dt>
+<dd>
+<p>Data concerning a natural person’s health.</p>
+</dd>
+<dt class="hdlist1">Philosophical Beliefs Reference</dt>
+<dd>
+<p>Data concerning a natural person’s philosophical beliefs.</p>
+</dd>
+<dt class="hdlist1">Religious Beliefs Reference</dt>
+<dd>
+<p>Data concerning a natural person’s religious beliefs.</p>
+</dd>
+<dt class="hdlist1">Sex Life or Orientation Reference</dt>
+<dd>
+<p>Data concerning a natural person’s sex life or sexual orientation.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="categories">Categories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance takes the data that it scanned and divides it into different types of categories. Categories are topics based on AI analysis of the content and metadata of each file. <a href="#types-of-categories">See the list of categories</a>.</p>
+</div>
+<div class="paragraph">
+<p>Categories can help you understand what&#8217;s happening with your data by showing you the type of information that you have. For example, a category like resumes or employee contracts can include sensitive data. When you download the CSV report, you might find that employee contracts are stored in an unsecure location. You can then correct that issue.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only English is supported for categories. Support for more languages will be added later.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="viewing-files-by-categories">Viewing files by categories</h3>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>At the top of Cloud Manager, click <strong>Compliance</strong>.</p>
+</li>
+<li>
+<p>Download the details for one of the top 4 file types directly from the main screen, or click <strong>View All</strong> and then download the list for any of the categories.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_categories.gif" alt="A screenshot of the categories dialog box where you can click the download button next to a category. The result is a CSV file with details about the files in that category."></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="types-of-categories">Types of categories</h3>
+<div class="paragraph">
+<p>Cloud Compliance categorizes your data as follows:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Finance</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Balance Sheets</p>
+</li>
+<li>
+<p>Purchase Orders</p>
+</li>
+<li>
+<p>Invoices</p>
+</li>
+<li>
+<p>Quarterly Reports</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">HR</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Background Check</p>
+</li>
+<li>
+<p>Compensation Plans</p>
+</li>
+<li>
+<p>Employee Contracts</p>
+</li>
+<li>
+<p>Employee Review</p>
+</li>
+<li>
+<p>Health</p>
+</li>
+<li>
+<p>Resumes</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Legal</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>NDA</p>
+</li>
+<li>
+<p>Vendor-Customer contracts</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Marketing</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Campaigns</p>
+</li>
+<li>
+<p>Conferences</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Operations</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Audit Reports</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Sales</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Sales Orders</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Services</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>RFI</p>
+</li>
+<li>
+<p>RFP</p>
+</li>
+<li>
+<p>Training</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Support</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Complaints and Tickets</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="file-types">File types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance takes the data that it scanned and breaks it down by file type. Cloud Compliance can display all file types found in the scans.</p>
+</div>
+<div class="paragraph">
+<p>Reviewing your file types can help you control your sensitive data because you might find that certain file types are not stored correctly. For example, you might be storing CAD files that include very sensitive information about your organization. If they are unsecured, you can take control of the sensitive data by restricting permissions or moving the files to another location.</p>
+</div>
+<div class="sect2">
+<h3 id="viewing-file-types">Viewing file types</h3>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>At the top of Cloud Manager, click <strong>Compliance</strong>.</p>
+</li>
+<li>
+<p>Download the details for one of the top 4 file types directly from the main screen, or click <strong>View All</strong> and then download the list for any of the file types.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_file_types.gif" alt="A screenshot of the file types dialog box where you can click the download button next to a file type. The result is a CSV file with details about the files."></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="accuracy-of-information-found">Accuracy of information found</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp can&#8217;t guarantee 100% accuracy of the personal data and sensitive personal data that Cloud Compliance identifies. You should always validate the information by reviewing the data.</p>
+</div>
+<div class="paragraph">
+<p>Based on our testing, the table below shows the accuracy of the information that Cloud Compliance finds. We break it down by <em>precision</em> and <em>recall</em>:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Precision</dt>
+<dd>
+<p>The probability that what Cloud Compliance finds has been identified correctly. For example, a precision rate of 90% for personal data means that 9 out of 10 files identified as containing personal information, actually contain personal information. 1 out of 10 files would be a false positive.</p>
+</dd>
+<dt class="hdlist1">Recall</dt>
+<dd>
+<p>The probability for Cloud Compliance to find what it should. For example, a recall rate of 70% for personal data means that Cloud Compliance can identify 7 out of 10 files that actually contain personal information in your organization. Cloud Compliance would miss 30% of the data and it won’t appear in the dashboard.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Cloud Compliance is in a Controlled Availability release and we are constantly improving the accuracy of our results. Those improvements will be automatically available in future Cloud Compliance releases.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 38.4615%;">
+<col style="width: 30.7692%;">
+<col style="width: 30.7693%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Precision</th>
+<th class="tableblock halign-left valign-top">Recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Personal data - General</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">90%-95%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60%-80%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Personal data - Country identifiers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30%-60%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40%-60%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sensitive personal data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80%-95%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20%-30%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Categories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">90%-97%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60%-80%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="whats-included-in-each-file-list-report-csv-file">What’s included in each file list report (CSV file)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The dashboard enables you to download file lists (in CSV format) that include details about the identified files. If there are more than 10,000 results, only the top 10,000 appear in the list (support for more will be added later).</p>
+</div>
+<div class="paragraph">
+<p>Each file list includes the following information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>File name</p>
+</li>
+<li>
+<p>Location type</p>
+</li>
+<li>
+<p>Location</p>
+</li>
+<li>
+<p>File path</p>
+</li>
+<li>
+<p>File type</p>
+</li>
+<li>
+<p>Category</p>
+</li>
+<li>
+<p>Personal information</p>
+</li>
+<li>
+<p>Sensitive personal information</p>
+</li>
+<li>
+<p>Deletion detection date</p>
+<div class="paragraph">
+<p>A deletion detection date identifies the date that the file was deleted or moved. This enables you to identify when sensitive files have been moved. Deleted files aren&#8217;t part of the file number count that appears in the dashboard. The files only appear in the CSV reports.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/occm/common/js/components.js"></script>
+    <script src="/occm/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/occm/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/occm/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>
