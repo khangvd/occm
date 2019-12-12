@@ -20,7 +20,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="Set up your Google Cloud Platform networking so Cloud Volumes ONTAP systems can operate properly.">
-  <meta name="keywords" content=" networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, tiering, data tiering, bucket, private google access, set up data tiering, data tiering requirement, gcp networking, google networking">
+  <meta name="keywords" content=" networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, tiering, data tiering, bucket, private google access, set up data tiering, data tiering requirement, gcp networking, google networking, shared vpc, host project, service project">
   
   
 
@@ -1003,7 +1003,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-07 01:37:59 +0000">10/07/2019</time>
+<time datetime="2019-12-12 17:27:14 +0000">12/12/2019</time>
 
 
 <span>Contributors
@@ -1029,7 +1029,18 @@
 <dd>
 <p>Cloud Manager and Cloud Volumes ONTAP are supported in a Google Cloud Platform shared VPC.</p>
 <div class="paragraph">
-<p>Shared VPC enables you to configure and centrally manage virtual networks across multiple projects. You can set up Shared VPC networks in the <em>host project</em> and deploy the Cloud Manager and Cloud Volumes ONTAP virtual machine instances in a <em>service project</em>. <a href="https://cloud.google.com/vpc/docs/shared-vpc" target="_blank" rel="noopener">Google Cloud documentation: Shared VPC overview</a>.</p>
+<p>A shared VPC enables you to configure and centrally manage virtual networks across multiple projects. You can set up shared VPC networks in the <em>host project</em> and deploy the Cloud Manager and Cloud Volumes ONTAP virtual machine instances in a <em>service project</em>. <a href="https://cloud.google.com/vpc/docs/shared-vpc" target="_blank" rel="noopener">Google Cloud documentation: Shared VPC overview</a>.</p>
+</div>
+<div class="paragraph">
+<p>The only requirement is to provide the following permissions to the Cloud Manager service account in the shared VPC host project:</p>
+</div>
+<div class="paragraph">
+<p>compute.firewalls.*<br>
+compute.networks.*<br>
+compute.subnetworks.*</p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager needs these permissions to query the firewalls, VPC, and subnets in the host project.</p>
 </div>
 </dd>
 <dt class="hdlist1">Outbound internet access for Cloud Volumes ONTAP</dt>

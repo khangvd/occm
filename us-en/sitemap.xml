@@ -15,7 +15,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_accounts_and_permissions.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -43,7 +43,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_cloud_central.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -71,14 +71,14 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_evaluating.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_ha.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -99,7 +99,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_licensing.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -113,7 +113,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_performance.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -141,7 +141,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/concept_worm.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -204,7 +204,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_earlier_versions.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -218,21 +218,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_infrastructure_as_code.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_integration_faq.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_issues.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -274,7 +274,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_networking_gcp.html</loc>
       
-      <lastmod>2019-10-07T01:37:59+00:00</lastmod>
+      <lastmod>2019-12-12T17:27:14+00:00</lastmod>
       
     </url>
   
@@ -295,7 +295,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/reference_regions.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -323,7 +323,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm//search.html</loc>
       
-      <lastmod>2019-12-10T18:47:41+00:00</lastmod>
+      <lastmod>2019-12-12T17:37:03+00:00</lastmod>
       
     </url>
   
@@ -393,7 +393,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_connecting_to_otc.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -407,7 +407,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_deleting_working_env.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -442,7 +442,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_enabling_flash_cache.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -575,7 +575,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_managing_state.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -596,7 +596,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_monitoring_costs.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -610,7 +610,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_protecting_ransomware.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -624,7 +624,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_registering.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -680,21 +680,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_setting_up_kms.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_setting_up_ontap_cloud.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_setting_up_transit_gateway.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
@@ -715,7 +715,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/occm/task_uninstalling.html</loc>
       
-      <lastmod>2019-06-12T20:20:54+00:00</lastmod>
+      <lastmod>2019-06-14T00:39:28+00:00</lastmod>
       
     </url>
   
