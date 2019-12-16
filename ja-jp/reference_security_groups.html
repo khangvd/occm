@@ -676,7 +676,7 @@
   
 
   
-    <li><a href="task_enabling_flash_cache.html">Enable Flash Cache in AWS</a></li>
+    <li><a href="task_enabling_flash_cache.html">Enable Flash Cache</a></li>
   
 
   
@@ -1019,7 +1019,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-11-05 22:57:31 +0000">11/05/2019</time>
+<time datetime="2019-12-16 13:27:17 +0000">12/16/2019</time>
 
 
 <span>Contributors
@@ -1082,6 +1082,11 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provides HTTPS access from client web browsers to the Cloud Manager web console</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3128</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the Cloud Compliance instance with internet access, if your AWS network doesn’t use a NAT or proxy</p></td>
 </tr>
 </tbody>
 </table>
@@ -1239,6 +1244,13 @@ The source IP address is the Cloud Manager host.
 <td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Used for DNS resolve by Cloud Manager</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Compliance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Compliance instance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Compliance for Cloud Volumes ONTAP</p></td>
 </tr>
 </tbody>
 </table>
