@@ -1003,7 +1003,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-27 16:17:17 +0000">06/27/2019</time>
+<time datetime="2019-12-18 21:39:31 +0000">12/18/2019</time>
 
 
 <span>Contributors
@@ -1024,13 +1024,6 @@
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>Set up your AWS networking so Cloud Volumes ONTAP systems can operate properly.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Looking for the list of endpoints to which Cloud Manager requires access? They&#8217;re now maintained in a single location. <a href="reference_networking_cloud_manager.html">Click here for details</a>.</p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1067,6 +1060,38 @@
 <p>The HA mediator instance must have an outbound connection to the AWS EC2 service so it can assist with storage failover. To provide the connection, you can add a public IP address, specify a proxy server, or use a manual option.</p>
 <div class="paragraph">
 <p>The manual option can be a NAT gateway or an interface VPC endpoint from the target subnet to the AWS EC2 service. For details about VPC endpoints, refer to <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html" target="_blank" rel="noopener">AWS Documentation: Interface VPC Endpoints (AWS PrivateLink)</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1">Number of IP addresses</dt>
+<dd>
+<p>Cloud Manager allocates the following number of IP addresses to Cloud Volumes ONTAP in AWS:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Single node: 6 IP addresses</p>
+</li>
+<li>
+<p>HA pairs in single AZs: 15 addresses</p>
+</li>
+<li>
+<p>HA pairs in multiple AZs: 15 or 16 IP addresses</p>
+<div class="paragraph">
+<p>Note that Cloud Manager creates an SVM management LIF on single node systems, but not on HA pairs in a single AZ. You can choose whether to create an SVM management LIF on HA pairs in multiple AZs.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A LIF is an IP address associated with a physical port. An SVM management LIF is required for management tools like SnapCenter.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
 </div>
 </dd>
 <dt class="hdlist1">Security groups</dt>

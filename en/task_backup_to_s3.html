@@ -20,7 +20,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="Backup to S3 is an add-on feature for Cloud Volumes ONTAP that delivers fully-managed backup and restore capabilities for protection, and long-term archive o...">
-  <meta name="keywords" content=" backing up, restoring, back up, backup, restore, cloud volumes ontap, cloud backup service, aws, back up volumes, backup to s3, restore volumes, vpc endpoint, billing, cost">
+  <meta name="keywords" content=" backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, back up volumes, backup to s3, restore volumes, vpc endpoint, billing, cost">
   
   
 
@@ -1003,7 +1003,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-16 15:49:13 +0000">12/16/2019</time>
+<time datetime="2019-12-18 21:36:56 +0000">12/18/2019</time>
 
 
 <span>Contributors
@@ -1023,10 +1023,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Backup to S3 is an add-on feature for Cloud Volumes ONTAP that delivers fully-managed backup and restore capabilities for protection, and long-term archive of your cloud data. Backups are stored in S3 object storage, independent of volume Snapshot copies used for near-term recovery or cloning. The feature is powered by NetApp&#8217;s Cloud Backup Service.</p>
+<p>Backup to S3 is an add-on feature for Cloud Volumes ONTAP that delivers fully-managed backup and restore capabilities for protection, and long-term archive of your cloud data. Backups are stored in S3 object storage, independent of volume Snapshot copies used for near-term recovery or cloning.</p>
 </div>
 <div class="paragraph">
-<p>When you enable Backup to S3, the Cloud Backup Service performs a full backup of your data. All additional backups are incremental, which means that only changed blocks and new blocks are backed up.</p>
+<p>When you enable Backup to S3, the service performs a full backup of your data. All additional backups are incremental, which means that only changed blocks and new blocks are backed up.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://cloud.netapp.com/cloud-backup-service" target="_blank" rel="noopener">Go to NetApp Cloud Central for pricing details</a>.</p>
@@ -1176,7 +1176,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>TCP port 5010 must be open for outbound traffic from Cloud Volumes ONTAP to the Cloud Backup Service.</p>
+<p>TCP port 5010 must be open for outbound traffic from Cloud Volumes ONTAP to the backup service.</p>
 </li>
 <li>
 <p>TCP port 8088 must be open for outbound traffic on the security group for Cloud Manager.</p>
@@ -1192,12 +1192,12 @@
 <p>Ensure that the following endpoint is accessible from Cloud Manager:<br>
 https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist</p>
 <div class="paragraph">
-<p>Cloud Manager contacts this endpoint to add your AWS account ID to the list of allowed users for the Cloud Backup Service.</p>
+<p>Cloud Manager contacts this endpoint to add your AWS account ID to the list of allowed users for Backup to S3.</p>
 </div>
 </dd>
 <dt class="hdlist1">Interface VPC endpoints</dt>
 <dd>
-<p>When you enable the Backup to S3 feature, Cloud Manager creates an interface VPC endpoint in the VPC where Cloud Volumes ONTAP is running. This <em>backup endpoint</em> connects to the NetApp VPC where the Cloud Backup Service is running. If you restore a volume, Cloud Manager creates an additional interface VPC endpoint&#8212;&#8203;the <em>restore endpoint</em>.</p>
+<p>When you enable the Backup to S3 feature, Cloud Manager creates an interface VPC endpoint in the VPC where Cloud Volumes ONTAP is running. This <em>backup endpoint</em> connects to the NetApp VPC where Backup to S3 is running. If you restore a volume, Cloud Manager creates an additional interface VPC endpoint&#8212;&#8203;the <em>restore endpoint</em>.</p>
 <div class="paragraph">
 <p>Any additional Cloud Volumes ONTAP systems in the VPC use these two VPC endpoints.</p>
 </div>
@@ -1445,7 +1445,7 @@ https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist</p>
 <p>Backup data is secured with AES-256 bit encryption at-rest and TLS 1.2 HTTPS connections in-flight.</p>
 </div>
 <div class="paragraph">
-<p>The Cloud Backup Service offers end-to-end security of backup data. Data travels across secured Direct Connect links to the service, and is protected at rest by AES 256-bit encryption. The encrypted data is then written to cloud using HTTPS TLS 1.2 connections. Data also travels to Amazon S3 only through secure VPC endpoint connections, so no traffic is sent across the internet.</p>
+<p>Data travels across secured Direct Connect links to the service, and is protected at rest by AES 256-bit encryption. The encrypted data is then written to cloud using HTTPS TLS 1.2 connections. Data also travels to Amazon S3 only through secure VPC endpoint connections, so no traffic is sent across the internet.</p>
 </div>
 <div class="paragraph">
 <p>Each user is assigned a tenant key, in addition to an overall encryption key owned by the service. This requirement is similar to needing a pair of keys to open a customer safe in a bank. All keys, as cloud credentials, are stored securely by the service and are restricted to only certain NetApp personnel responsible for maintaining the service.</p>
@@ -1493,7 +1493,7 @@ https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist</p>
 <p>You can back up volumes that are 50 TB in size or less.</p>
 </li>
 <li>
-<p>Cloud Backup Service can maintain up to 245 total backups of a volume.</p>
+<p>Backup to S3 can maintain up to 245 total backups of a volume.</p>
 </li>
 <li>
 <p>WORM storage is not supported on a Cloud Volumes ONTAP system when backup to S3 is enabled.</p>

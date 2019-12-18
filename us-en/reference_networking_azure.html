@@ -1003,7 +1003,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-03 17:23:02 +0000">09/03/2019</time>
+<time datetime="2019-12-18 21:39:31 +0000">12/18/2019</time>
 
 
 <span>Contributors
@@ -1031,13 +1031,6 @@
 <div class="paragraph lead">
 <p>Set up your Azure networking so Cloud Volumes ONTAP systems can operate properly.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Looking for the list of endpoints to which Cloud Manager requires access? They&#8217;re now maintained in a single location. <a href="reference_networking_cloud_manager.html">Click here for details</a>.</p>
-</div>
-</div>
-</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Outbound internet access for Cloud Volumes ONTAP</dt>
@@ -1060,6 +1053,35 @@
 <dt class="hdlist1">Security groups</dt>
 <dd>
 <p>You do not need to create security groups because Cloud Manager does that for you. If you need to use your own, refer to <a href="reference_security_groups_azure.html">Security group rules</a>.</p>
+</dd>
+<dt class="hdlist1">Number of IP addresses</dt>
+<dd>
+<p>Cloud Manager allocates the following number of IP addresses to Cloud Volumes ONTAP in Azure:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Single node: 5 IP addresses</p>
+</li>
+<li>
+<p>HA pair: 16 IP addresses</p>
+<div class="paragraph">
+<p>Note that Cloud Manager creates an SVM management LIF on HA pairs, but not on single node systems in Azure.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A LIF is an IP address associated with a physical port. An SVM management LIF is required for management tools like SnapCenter.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
 </dd>
 <dt class="hdlist1">Connection from Cloud Volumes ONTAP to Azure Blob storage for data tiering</dt>
 <dd>
