@@ -83,22 +83,29 @@
 
   <script>
       $(document).ready(function() {
-          // Initialize navgoco with default options
-          $("#mysidebar").navgoco({
-              caretHtml: '',
-              accordion: true,
-              openClass: 'active', // open
-              save: false, // leave false or nav highlighting doesn't work right
-              cookie: {
-                  name: 'navgoco',
-                  expires: false,
-                  path: '/'
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
               },
-              slide: {
-                  duration: 400,
-                  easing: 'swing'
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
               }
-          });
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -1003,7 +1010,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-17 20:04:30 +0000">06/17/2019</time>
+<time datetime="2019-12-20 13:19:04 +0000">12/20/2019</time>
 
 
 <span>Contributors
@@ -1030,12 +1037,7 @@
 <p>With centralized user authentication, you can use the same set of credentials across Cloud Manager systems and between Cloud Manager and other data services, such as Cloud Sync. It’s also easy to reset your password if you forgot it.</p>
 </div>
 <div class="paragraph">
-<p>The following video provides an overview of NetApp Cloud Central:</p>
-</div>
-<div class="videoblock">
-<div class="content">
-<iframe width="848" height="480" src="https://www.youtube.com/embed/xKRsIfiy-54?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
+<p><span class="image"><img src="./media/screenshot_cloud_central.gif" alt="A screenshot that shows the Fabric View in Cloud Central."></span></p>
 </div>
 
         </article>
@@ -1117,6 +1119,9 @@
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright-link">Announcements</a>
               </div>
             </div>
           </div>

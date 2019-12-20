@@ -83,22 +83,29 @@
 
   <script>
       $(document).ready(function() {
-          // Initialize navgoco with default options
-          $("#mysidebar").navgoco({
-              caretHtml: '',
-              accordion: true,
-              openClass: 'active', // open
-              save: false, // leave false or nav highlighting doesn't work right
-              cookie: {
-                  name: 'navgoco',
-                  expires: false,
-                  path: '/'
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
               },
-              slide: {
-                  duration: 400,
-                  easing: 'swing'
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
               }
-          });
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -1003,7 +1010,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-10 21:02:31 +0000">10/10/2019</time>
+<time datetime="2019-12-20 13:21:10 +0000">12/20/2019</time>
 
 
 <span>Contributors
@@ -1204,19 +1211,13 @@ The baseline transfer includes a full copy of the source data. Subsequent transf
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All working environments in the workspace</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Click Replication Status from the navigation bar.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_replication_nav.gif" alt="Screen shot: Shows the Replication Status tab."></span></p>
+<p>At the top of Cloud Manager, click <strong>Replication Status</strong>.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A specific working environment</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Select the working environment, and then click Replication Status.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_replication_status.gif" alt="Screen shot: Shows the Replication Status icon available from the working environments page."></span></p>
+<p>Open the working environment and click <strong>Replications</strong>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1303,6 +1304,10 @@ Any data written to the original source volume between the last data replication
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edit Max Transfer Rate</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enables you to edit the maximum rate (in kilobytes per second) at which data can be transferred.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starts an incremental transfer to update the destination volume.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete</p></td>
@@ -1507,6 +1512,9 @@ Replication policies are also referred to as <em>protection</em> policies becaus
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright-link">Announcements</a>
               </div>
             </div>
           </div>

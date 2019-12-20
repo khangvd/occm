@@ -83,22 +83,29 @@
 
   <script>
       $(document).ready(function() {
-          // Initialize navgoco with default options
-          $("#mysidebar").navgoco({
-              caretHtml: '',
-              accordion: true,
-              openClass: 'active', // open
-              save: false, // leave false or nav highlighting doesn't work right
-              cookie: {
-                  name: 'navgoco',
-                  expires: false,
-                  path: '/'
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
               },
-              slide: {
-                  duration: 400,
-                  easing: 'swing'
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
               }
-          });
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -1003,7 +1010,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-06-17 20:04:30 +0000">06/17/2019</time>
+<time datetime="2019-12-20 13:21:18 +0000">12/20/2019</time>
 
 
 <span>Contributors
@@ -1021,7 +1028,7 @@
 </p>
 
 <div class="paragraph lead">
-<p>It is best to delete Cloud Volumes ONTAP systems from Cloud Manager, rather than from AWS or Azure. For example, if you terminate a licensed Cloud Volumes ONTAP instance from AWS, you cannot use the license key for another instance. You must delete the working environment from Cloud Manager to release the license.</p>
+<p>It is best to delete Cloud Volumes ONTAP systems from Cloud Manager, rather than from your cloud provider&#8217;s console. For example, if you terminate a licensed Cloud Volumes ONTAP instance from AWS, then you can&#8217;t use the license key for another instance. You must delete the working environment from Cloud Manager to release the license.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
@@ -1133,6 +1140,9 @@ Cloud Volumes ONTAP instances have termination protection enabled to help preven
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/en/announcements/" class="n-footer__copyright-link">Announcements</a>
               </div>
             </div>
           </div>

@@ -83,22 +83,29 @@
 
   <script>
       $(document).ready(function() {
-          // Initialize navgoco with default options
-          $("#mysidebar").navgoco({
-              caretHtml: '',
-              accordion: true,
-              openClass: 'active', // open
-              save: false, // leave false or nav highlighting doesn't work right
-              cookie: {
-                  name: 'navgoco',
-                  expires: false,
-                  path: '/'
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
               },
-              slide: {
-                  duration: 400,
-                  easing: 'swing'
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
               }
-          });
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -1003,7 +1010,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-07-10 19:47:29 +0000">07/10/2019</time>
+<time datetime="2019-12-20 13:21:10 +0000">12/20/2019</time>
 
 
 <span>Contributors
@@ -1060,7 +1067,7 @@
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>On the Working Environments page, click <strong>Discover a system</strong> and select <strong>ONTAP Cluster</strong>.</p>
+<p>On the Working Environments page, click <strong>Discover</strong> and select <strong>ONTAP Cluster</strong>.</p>
 </li>
 <li>
 <p>On the <strong>ONTAP Cluster Details</strong> page, enter the cluster management IP address, the password for the admin user account, and the location of the cluster.</p>
@@ -1226,6 +1233,9 @@
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/en/announcements/" class="n-footer__copyright-link">Announcements</a>
               </div>
             </div>
           </div>

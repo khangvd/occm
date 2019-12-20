@@ -83,22 +83,29 @@
 
   <script>
       $(document).ready(function() {
-          // Initialize navgoco with default options
-          $("#mysidebar").navgoco({
-              caretHtml: '',
-              accordion: true,
-              openClass: 'active', // open
-              save: false, // leave false or nav highlighting doesn't work right
-              cookie: {
-                  name: 'navgoco',
-                  expires: false,
-                  path: '/'
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
               },
-              slide: {
-                  duration: 400,
-                  easing: 'swing'
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
               }
-          });
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -1003,7 +1010,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-03 15:51:56 +0000">09/03/2019</time>
+<time datetime="2019-12-20 13:21:10 +0000">12/20/2019</time>
 
 
 <span>Contributors
@@ -1343,7 +1350,7 @@ You can&#8217;t change the tiering level in GCP because only the <em>Regional</e
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>From the working environment, click the menu icon and then click <strong>Tiering Level</strong>.</p>
+<p>From the working environment, click the menu icon and then click <strong>S3 Storage Classes</strong> or <strong>Blob Storage Tiering</strong>.</p>
 </li>
 <li>
 <p>Choose the tiering level and then click <strong>Save</strong>.</p>
@@ -1432,6 +1439,9 @@ You can&#8217;t change the tiering level in GCP because only the <em>Regional</e
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright-link">Announcements</a>
               </div>
             </div>
           </div>
