@@ -1010,7 +1010,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-03 17:23:02 +0000">09/03/2019</time>
+<time datetime="2020-01-07 21:28:40 +0000">01/07/2020</time>
 
 
 <span>Contributors
@@ -1029,6 +1029,18 @@
 
 <div class="paragraph lead">
 <p>The most common way to deploy Cloud Manager is from Cloud Central or from a cloud provider&#8217;s marketplace. But you have the option to download and install the Cloud Manager software on an existing Linux host in your network or in the cloud.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can install Cloud Manager on your own host in GCP, but not in your on-premises network. Cloud Manager must be installed in GCP in order to deploy Cloud Volumes ONTAP in GCP.
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <div class="title">Before you begin</div>
@@ -1073,6 +1085,9 @@
 </li>
 <li>
 <p><a href="reference_networking_azure.html">Networking requirements for Cloud Volumes ONTAP for Azure</a></p>
+</li>
+<li>
+<p><a href="reference_networking_gcp.html">Networking requirements for Cloud Volumes ONTAP in GCP</a></p>
 </li>
 </ul>
 </div>
@@ -1177,15 +1192,34 @@
 </div>
 <div class="paragraph">
 <div class="title">After you finish</div>
-<p>Set up permissions for your AWS and Azure accounts so Cloud Manager can deploy Cloud Volumes ONTAP:</p>
+<p>Set up permissions so Cloud Manager can deploy Cloud Volumes ONTAP in your cloud provider:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>If you want to deploy Cloud Volumes ONTAP in AWS, <a href="task_adding_aws_accounts.html">set up an AWS account and then add it to Cloud Manager</a>.</p>
+<p>AWS: <a href="task_adding_aws_accounts.html">Set up an AWS account and then add it to Cloud Manager</a>.</p>
 </li>
 <li>
-<p>If you want to deploy Cloud Volumes ONTAP in Azure, <a href="task_adding_azure_accounts.html">set up an Azure account and then add it to Cloud Manager</a>.</p>
+<p>Azure: <a href="task_adding_azure_accounts.html">Set up an Azure account and then add it to Cloud Manager</a>.</p>
+</li>
+<li>
+<p>GCP: Set up a service account that has the permissions that Cloud Manager needs to create and manage Cloud Volumes ONTAP systems in projects.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud" target="_blank" rel="noopener">Create a role in GCP</a> that includes the permissions defined in the <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.8.0_GCP.yaml" target="_blank" rel="noopener">Cloud Manager policy for GCP</a>.</p>
+</li>
+<li>
+<p><a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account" target="_blank" rel="noopener">Create a GCP service account and apply the custom role that you just created</a>.</p>
+</li>
+<li>
+<p><a href="https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes" target="_blank" rel="noopener">Associate this service account with the Cloud Manager VM</a>.</p>
+</li>
+<li>
+<p>If you want to deploy Cloud Volumes ONTAP in other projects, <a href="https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console" target="_blank" rel="noopener">grant access by adding the service account with the Cloud Manager role to that project</a>. You&#8217;ll need to repeat this step for each project.</p>
+</li>
+</ol>
+</div>
 </li>
 </ul>
 </div>
@@ -1216,7 +1250,7 @@
           <div class="n-container">
             <div class="n-footer__bottom-left">
               <div class="n-footer__copyright">
-                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2020 NetApp, Inc.</a>
               </div>
               <div class="n-footer__copyright">
                 <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
