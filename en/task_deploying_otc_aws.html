@@ -344,7 +344,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.8 docs</a></li>
   
 
   
@@ -542,7 +542,7 @@
   
 
   
-    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts (9.6 only)</a></li>
   
 
   
@@ -867,6 +867,10 @@
   
 
   
+    <li><a href="task_overriding_cifs_locks.html">Override CIFS locks in Azure</a></li>
+  
+
+  
     <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
   
 
@@ -1010,7 +1014,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-18 21:40:17 +0000">12/18/2019</time>
+<time datetime="2020-01-08 15:36:50 +0000">01/08/2020</time>
 
 
 <span>Contributors
@@ -1164,10 +1168,10 @@ For information about tags, refer to <a href="https://docs.aws.amazon.com/AWSEC2
 <div class="ulist">
 <ul>
 <li>
-<p><a href="task_backup_to_s3.html">Learn more about Backup to S3</a>.</p>
+<p><a href="concept_cloud_compliance.html">Learn more about Cloud Compliance</a>.</p>
 </li>
 <li>
-<p><a href="concept_cloud_compliance.html">Learn more about Cloud Compliance</a>.</p>
+<p><a href="task_backup_to_s3.html">Learn more about Backup to S3</a>.</p>
 </li>
 </ul>
 </div>
@@ -1238,22 +1242,38 @@ You can&#8217;t change the AWS data encryption method after you create a Cloud V
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.4 RC1 and 9.4 GA is available. The update does not occur from one release to another—for example, from 9.3 to 9.4.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.6 RC1 and 9.6 GA is available. The update does not occur from one release to another—for example, from 9.6 to 9.7.
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type, a size for each disk, and whether S3 tiering should be enabled.</p>
+<p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type, a size for each disk, and whether data tiering should be enabled.</p>
 <div class="paragraph">
+<p>Note the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
 <p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>The disk size is for all disks in the initial aggregate and for any additional aggregates that Cloud Manager creates when you use the simple provisioning option. You can create aggregates that use a different disk size by using the advanced allocation option.</p>
-</div>
 <div class="paragraph">
 <p>For help choosing a disk type and size, see <a href="task_planning_your_config.html#sizing-your-system-in-aws">Sizing your system in AWS</a>.</p>
+</div>
+</li>
+<li>
+<p>You can choose a specific volume tiering policy when you create or edit a volume.</p>
+</li>
+<li>
+<p>If you disable data tiering, you can enable it on subsequent aggregates.</p>
+<div class="paragraph">
+<p><a href="concept_data_tiering.html">Learn how data tiering works</a>.</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -1358,7 +1378,7 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 </table>
 </li>
 <li>
-<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and edit the S3 tiering policy, if needed.</p>
+<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and edit the volume tiering policy, if needed.</p>
 <div class="paragraph">
 <p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
 </div>
@@ -1587,22 +1607,38 @@ You can&#8217;t change the AWS data encryption method after you create a Cloud V
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.4 RC1 and 9.4 GA is available. The update does not occur from one release to another—for example, from 9.3 to 9.4.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.6 RC1 and 9.6 GA is available. The update does not occur from one release to another—for example, from 9.6 to 9.7.
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type, a size for each disk, and whether S3 tiering should be enabled.</p>
+<p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type, a size for each disk, and whether data tiering should be enabled.</p>
 <div class="paragraph">
+<p>Note the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
 <p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>The disk size is for all disks in the initial aggregate and for any additional aggregates that Cloud Manager creates when you use the simple provisioning option. You can create aggregates that use a different disk size by using the advanced allocation option.</p>
-</div>
 <div class="paragraph">
 <p>For help choosing a disk type and size, see <a href="task_planning_your_config.html#sizing-your-system-in-aws">Sizing your system in AWS</a>.</p>
+</div>
+</li>
+<li>
+<p>You can choose a specific volume tiering policy when you create or edit a volume.</p>
+</li>
+<li>
+<p>If you disable data tiering, you can enable it on subsequent aggregates.</p>
+<div class="paragraph">
+<p><a href="concept_data_tiering.html">Learn how data tiering works</a>.</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -1704,7 +1740,7 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 </table>
 </li>
 <li>
-<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and edit the S3 tiering policy, if needed.</p>
+<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and edit the volume tiering policy, if needed.</p>
 <div class="paragraph">
 <p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
 </div>

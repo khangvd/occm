@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>What&#8217;s new in Cloud Manager 3.7 | NetApp Cloud Docs</title>
+  <title>What&#8217;s new in Cloud Manager 3.8 | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="What&#8217;s new in Cloud Manager 3.7 | NetApp Cloud Docs" />
+  <meta property="og:title" content="What&#8217;s new in Cloud Manager 3.8 | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/reference_new_occm.html" />
 	<meta property="og:description" content="Cloud Manager typically introduces a new release every month to bring you new features, enhancements, and bug fixes." />
@@ -344,7 +344,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.8 docs</a></li>
   
 
   
@@ -542,7 +542,7 @@
   
 
   
-    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts (9.6 only)</a></li>
   
 
   
@@ -867,6 +867,10 @@
   
 
   
+    <li><a href="task_overriding_cifs_locks.html">Override CIFS locks in Azure</a></li>
+  
+
+  
     <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
   
 
@@ -998,11 +1002,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">What&#8217;s new in Cloud Manager 3.7
+  <h1 class="n-doc__component-detail-heading">What&#8217;s new in Cloud Manager 3.8
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_new_occm.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[What&#8217;s new in Cloud Manager 3.7](https://docs.netapp.com/en/occm/reference_new_occm.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[What&#8217;s new in Cloud Manager 3.8](https://docs.netapp.com/en/occm/reference_new_occm.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -1010,7 +1014,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-18 21:36:56 +0000">12/18/2019</time>
+<time datetime="2020-01-08 15:34:24 +0000">01/08/2020</time>
 
 
 <span>Contributors
@@ -1020,14 +1024,6 @@
           alt="netapp-bcammett"
           width="20" height="20"
           src="https://avatars3.githubusercontent.com/u/18287750?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
-  <a target="_blank" href="https://github.com/akseldavis">
-    <img  class="avatar avatar-small"
-          alt="akseldavis"
-          width="20" height="20"
-          src="https://avatars2.githubusercontent.com/u/33839009?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -1050,9 +1046,9 @@
 </td>
 <td class="content">
 Looking for a previous release?<br>
+<a href="https://docs.netapp.com/us-en/occm37/reference_new_occm.html" target="_blank" rel="noopener">What&#8217;s new in 3.7</a><br>
 <a href="https://docs.netapp.com/us-en/occm36/reference_new_occm.html" target="_blank" rel="noopener">What&#8217;s new in 3.6</a><br>
-<a href="https://docs.netapp.com/us-en/occm35/reference_new_occm.html" target="_blank" rel="noopener">What&#8217;s new in 3.5</a><br>
-<a href="https://docs.netapp.com/us-en/occm34/reference_new_occm.html" target="_blank" rel="noopener">What&#8217;s new in 3.4</a>
+<a href="https://docs.netapp.com/us-en/occm35/reference_new_occm.html" target="_blank" rel="noopener">What&#8217;s new in 3.5</a>
 </td>
 </tr>
 </table>
@@ -1060,590 +1056,96 @@ Looking for a previous release?<br>
 </div>
 </div>
 <div class="sect1">
-<h2 id="cloud-manager-3-7-5-update-16-dec-2019">Cloud Manager 3.7.5 update (16 Dec 2019)</h2>
+<h2 id="cloud-manager-3-8-5-jan-2020">Cloud Manager 3.8 (5 Jan 2020)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>This update includes the following enhancements:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#cloud-volumes-ontap-9-7">Cloud Volumes ONTAP 9.7</a></p>
+<p><a href="#ha-enhancements-in-azure">HA enhancements in Azure</a></p>
 </li>
 <li>
-<p><a href="#cloud-compliance-for-cloud-volumes-ontap">Cloud Compliance for Cloud Volumes ONTAP</a></p>
+<p><a href="#data-tiering-enhancements-in-gcp">Data tiering enhancements in GCP</a></p>
 </li>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="cloud-volumes-ontap-9-7">Cloud Volumes ONTAP 9.7</h3>
+<h3 id="ha-enhancements-in-azure">HA enhancements in Azure</h3>
 <div class="paragraph">
-<p>Cloud Volumes ONTAP 9.7 is now available in AWS, Azure, and Google Cloud Platform.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_97.html" target="_blank" rel="noopener">See what&#8217;s new in Cloud Volumes ONTAP 9.7</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="cloud-compliance-for-cloud-volumes-ontap">Cloud Compliance for Cloud Volumes ONTAP</h3>
-<div class="paragraph">
-<p>Cloud Compliance is a data privacy and compliance service for Cloud Volumes ONTAP in AWS and Azure. Using Artificial Intelligence (AI) driven technology, Cloud Compliance helps organizations understand data context and identify sensitive data across Cloud Volumes ONTAP systems.</p>
-</div>
-<div class="paragraph">
-<p>Cloud Compliance is currently available as a Controlled Availability release.</p>
-</div>
-<div class="paragraph">
-<p><a href="concept_cloud_compliance.html">Learn more about Cloud Compliance</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-7-5-3-dec-2019">Cloud Manager 3.7.5 (3 Dec 2019)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager 3.7.5 includes the following enhancements.</p>
+<p>The following enhancements are now available for Cloud Volumes ONTAP HA pairs in Azure.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#high-write-speed-for-cloud-volumes-ontap-in-gcp">High write speed for Cloud Volumes ONTAP in GCP</a></p>
-</li>
-<li>
-<p><a href="#on-prem-ontap-clusters-as-persistent-storage-for-kubernetes">On-prem ONTAP clusters as persistent storage for Kubernetes</a></p>
-</li>
-<li>
-<p><a href="#latest-trident-version-for-kubernetes">Latest Trident version for Kubernetes</a></p>
-</li>
-<li>
-<p><a href="#support-for-azure-general-purpose-v2-storage-accounts">Support for Azure general-purpose v2 storage accounts</a></p>
-</li>
-<li>
-<p><a href="#prefixes-in-azure-storage-account-names-using-apis">Prefixes in Azure storage account names using APIs</a></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="high-write-speed-for-cloud-volumes-ontap-in-gcp">High write speed for Cloud Volumes ONTAP in GCP</h3>
+<p><strong>Override CIFS locks for Cloud Volumes ONTAP HA in Azure</strong></p>
 <div class="paragraph">
-<p>You can now enable high write speed on new and existing Cloud Volumes ONTAP systems in Google Cloud Platform. High write speed is a good choice if fast write performance is required for your workload.</p>
+<p>You can now enable a setting in Cloud Manager that prevents issues with Cloud Volumes ONTAP storage failover during Azure maintenance events. When you enable this setting, Cloud Volumes ONTAP vetoes CIFS locks and resets active CIFS sessions. <a href="task_overriding_cifs_locks.html">Learn more</a>.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="task_planning_your_config.html#choosing-a-write-speed">Learn how to choose a write speed</a></p>
 </li>
 <li>
-<p><a href="task_modifying_ontap_cloud.html#changing-write-speed-to-normal-or-high">Learn how to change write speed on existing systems</a></p>
+<p><strong>HTTPS connection from Cloud Volumes ONTAP to storage accounts</strong></p>
+<div class="paragraph">
+<p>You can now enable an HTTPS connection from a Cloud Volumes ONTAP 9.7 HA pair to Azure storage accounts when creating a working environment. Note that enabling this option can impact write performance. You can&#8217;t change the setting after you create the working environment.</p>
+</div>
+</li>
+<li>
+<p><strong>Support for Azure general-purpose v2 storage accounts</strong></p>
+<div class="paragraph">
+<p>The storage accounts that Cloud Manager creates for Cloud Volumes ONTAP 9.7 HA pairs are now general-purpose v2 storage accounts.</p>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="on-prem-ontap-clusters-as-persistent-storage-for-kubernetes">On-prem ONTAP clusters as persistent storage for Kubernetes</h3>
+<h3 id="data-tiering-enhancements-in-gcp">Data tiering enhancements in GCP</h3>
 <div class="paragraph">
-<p>Cloud Manager now enables you to use on-premises ONTAP clusters as persistent storage for containers. Similar to Cloud Volumes ONTAP, Cloud Manager automates the deployment of NetApp Trident and the connects ONTAP to Kubernetes clusters.</p>
-</div>
-<div class="paragraph">
-<p>After adding a Kubernetes cluster to Cloud Manager, you can connect it to your on-premises ONTAP clusters from the Working Environments page:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_kubernetes_connect_onprem.gif" alt="A screenshot of the Working Environments page" width="an on-premises ONTAP system" height="and the Connect button for Kubernetes. This button is available after you select the working environment."></span></p>
-</div>
-<div class="paragraph">
-<p><a href="task_connecting_kubernetes.html">Learn how to get started</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="latest-trident-version-for-kubernetes">Latest Trident version for Kubernetes</h3>
-<div class="paragraph">
-<p>Cloud Manager now installs a more recent version of Trident (version 19.07.1) when you connect a working environment to a Kubernetes cluster.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="support-for-azure-general-purpose-v2-storage-accounts">Support for Azure general-purpose v2 storage accounts</h3>
-<div class="paragraph">
-<p>When you deploy new Cloud Volumes ONTAP systems in Azure, the storage accounts that Cloud Manager creates for diagnostics and data tiering are now general-purpose v2 storage accounts.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="prefixes-in-azure-storage-account-names-using-apis">Prefixes in Azure storage account names using APIs</h3>
-<div class="paragraph">
-<p>You can now add a prefix to the names of the Azure storage accounts that Cloud Manager creates for Cloud Volumes ONTAP. Just use the <em>storageAccountPrefix</em> parameter when you deploy a new Cloud Volumes ONTAP system in Azure.</p>
-</div>
-<div class="paragraph">
-<p><a href="api.html">See the API Developer Guide for more details about using APIs</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-7-4-6-oct-2019">Cloud Manager 3.7.4 (6 Oct 2019)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager 3.7.4 includes the following enhancements.</p>
+<p>The following enhancements are available for Cloud Volumes ONTAP data tiering in GCP.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#support-for-azure-netapp-files">Support for Azure NetApp Files</a></p>
+<p><strong>Google Cloud storage classes for data tiering</strong></p>
+<div class="paragraph">
+<p>You can now choose a storage class for data that Cloud Volumes ONTAP tiers to Google Cloud Storage:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Standard Storage (default)</p>
 </li>
 <li>
-<p><a href="#cloud-volumes-ontap-for-gcp-enhancements">Cloud Volumes ONTAP for GCP enhancements</a></p>
+<p>Nearline Storage</p>
 </li>
 <li>
-<p><a href="#backup-to-s3-enhancement">Backup to S3 enhancement</a></p>
-</li>
-<li>
-<p><a href="#encryption-of-boot-and-root-disks-in-aws">Encryption of boot and root disks in AWS</a></p>
-</li>
-<li>
-<p><a href="#support-for-the-aws-bahrain-region">Support for the AWS Bahrain region</a></p>
-</li>
-<li>
-<p><a href="#support-for-the-azure-uae-north-region">Support for the Azure UAE North region</a></p>
+<p>Coldline Storage</p>
+<div class="paragraph">
+<p><a href="https://cloud.google.com/storage/docs/storage-classes" target="_blank" rel="noopener">Learn more about Google Cloud storage classes</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_tiering.html#changing-the-storage-class-for-tiered-data">Learn how to change the storage class for Cloud Volumes ONTAP</a>.</p>
+</div>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="support-for-azure-netapp-files">Support for Azure NetApp Files</h3>
+</li>
+<li>
+<p><strong>Data tiering using a service account</strong></p>
 <div class="paragraph">
-<p>You can now view and create NFS volumes for Azure NetApp Files directly from Cloud Manager. This enhancement continues our goal to help you manage your cloud storage from a single interface.</p>
+<p>Starting with the 9.7 release, Cloud Manager now sets a service account on the Cloud Volumes ONTAP instance. This service account provides permissions for data tiering to a Google Cloud Storage bucket. This change provides more security and requires less setup. For step-by-step instructions when deploying a new system, <a href="task_getting_started_gcp.html">see step 3 on this page</a>.</p>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><a href="task_manage_anf.html">Learn how to get started</a>.</p>
-</div>
-<div class="paragraph">
-<p>This feature requires new permissions as shown in the latest <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.7.4.json" target="_blank" rel="noopener">Cloud Manager policy for Azure</a>.</p>
+<p>Cloud Manager requires the following GCP permissions for these enhancements, as shown in the latest <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.8.0_GCP.yaml" target="_blank" rel="noopener">Cloud Manager policy for GCP</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">"Microsoft.NetApp/netAppAccounts/read",
-"Microsoft.NetApp/netAppAccounts/capacityPools/read",
-"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write",
-"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read",
-"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete"</code></pre>
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">- storage.buckets.update
+- compute.instances.setServiceAccount
+- iam.serviceAccounts.getIamPolicy
+- iam.serviceAccounts.list</code></pre>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="cloud-volumes-ontap-for-gcp-enhancements">Cloud Volumes ONTAP for GCP enhancements</h3>
-<div class="paragraph">
-<p>Cloud Manager 3.7.4 enables the following enhancements to Cloud Volumes ONTAP for Google Cloud Platform:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Pay-as-you-go subscriptions in the GCP Marketplace</dt>
-<dd>
-<p>You can now pay for Cloud Volumes ONTAP as you go by subscribing to Cloud Volumes ONTAP in the Google Cloud Platform Marketplace.</p>
-<div class="paragraph">
-<p><a href="https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager" target="_blank" rel="noopener">Google Cloud Platform Marketplace: Cloud Manager for Cloud Volumes ONTAP</a></p>
-</div>
-</dd>
-<dt class="hdlist1">Shared VPC</dt>
-<dd>
-<p>Cloud Manager and Cloud Volumes ONTAP are now supported in a Google Cloud Platform shared VPC.</p>
-<div class="paragraph">
-<p>Shared VPC enables you to configure and centrally manage virtual networks across multiple projects. You can set up Shared VPC networks in the <em>host project</em> and deploy the Cloud Manager and Cloud Volumes ONTAP virtual machine instances in a <em>service project</em>. <a href="https://cloud.google.com/vpc/docs/shared-vpc" target="_blank" rel="noopener">Google Cloud documentation: Shared VPC overview</a>.</p>
-</div>
-</dd>
-<dt class="hdlist1">Multiple Google Cloud projects</dt>
-<dd>
-<p>Cloud Volumes ONTAP no longer needs to be in the same project as Cloud Manager. Add the Cloud Manager service account and role to additional projects and then you can choose from those projects you deploy Cloud Volumes ONTAP.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_gcp_project.gif" alt="A screenshot that shows the project selection option from the Working Environment wizard."></span></p>
-</div>
-<div class="paragraph">
-<p>For more details about setting up the Cloud Manager service account, <a href="task_getting_started_gcp.html#service-account">see step 4b on this page</a>.</p>
-</div>
-</dd>
-<dt class="hdlist1">Customer-managed encryption keys when using Cloud Manager APIs</dt>
-<dd>
-<p>While Google Cloud Storage always encrypts your data before it&#8217;s written to disk, you can use Cloud Manager APIs to create a new Cloud Volumes ONTAP system that uses <em>customer-managed encryption keys</em>. These are keys that you generate and manage in GCP using the Cloud Key Management Service.</p>
-<div class="paragraph">
-<p>Refer to the <a href="api.html#_creating_systems_in_gcp" target="_blank" rel="noopener">API Developer Guide</a> for details about using the "GcpEncryption" parameters.</p>
-</div>
-<div class="paragraph">
-<p>This feature requires new permissions as shown in the latest <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.7.4_GCP.yaml" target="_blank" rel="noopener">Cloud Manager policy for GCP</a>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-yaml" data-lang="yaml">- cloudkms.cryptoKeyVersions.useToEncrypt
-- cloudkms.cryptoKeys.get
-- cloudkms.cryptoKeys.list
-- cloudkms.keyRings.list</code></pre>
-</div>
-</div>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="backup-to-s3-enhancement">Backup to S3 enhancement</h3>
-<div class="paragraph">
-<p>You can now delete the backups for existing volumes. Previously, you could only delete the backups for volumes that had been deleted.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_backup_to_s3.html">Learn more about Backup to S3</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encryption-of-boot-and-root-disks-in-aws">Encryption of boot and root disks in AWS</h3>
-<div class="paragraph">
-<p>When you enable data encryption using the AWS Key Management Service (KMS), the boot and root disks for Cloud Volumes ONTAP are now encrypted, as well. This includes the boot disk for the mediator instance in an HA pair. The disks are encrypted using the CMK that you select when you create the working environment.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Boot and root disks are always encrypted in Azure and Google Cloud Platform because encryption is enabled by default in those cloud providers.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="support-for-the-aws-bahrain-region">Support for the AWS Bahrain region</h3>
-<div class="paragraph">
-<p>Cloud Manager and Cloud Volumes ONTAP are now supported in the AWS Middle East (Bahrain) region.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="support-for-the-azure-uae-north-region">Support for the Azure UAE North region</h3>
-<div class="paragraph">
-<p>Cloud Manager and Cloud Volumes ONTAP are now supported in the Azure UAE North region.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">View all supported regions</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-7-3-update-15-sept-2019">Cloud Manager 3.7.3 update (15 Sept 2019)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager now enables you to back up data from Cloud Volumes ONTAP to Amazon S3.</p>
-</div>
-<div class="sect2">
-<h3 id="backup-to-s3">Backup to S3</h3>
-<div class="paragraph">
-<p>Backup to S3 is an add-on service for Cloud Volumes ONTAP that delivers fully-managed backup and restore capabilities for protection, and long-term archive of your cloud data. Backups are stored in S3 object storage, independent of volume Snapshot copies used for near-term recovery or cloning.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_backup_to_s3.html">Learn how to get started</a>.</p>
-</div>
-<div class="paragraph">
-<p>This feature requires an update to the <a href="https://mysupport.netapp.com/cloudontap/iampolicies" target="_blank" rel="noopener">Cloud Manager policy</a>. The following VPC endpoint permissions are now required:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">"ec2:DescribeVpcEndpoints",
-"ec2:CreateVpcEndpoint",
-"ec2:ModifyVpcEndpoint",
-"ec2:DeleteVpcEndpoints"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-7-3-11-sept-2019">Cloud Manager 3.7.3 (11 Sept 2019)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Manager 3.7.3 includes the following enhancements.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#discovery-and-management-of-cloud-volumes-service-for-aws">Discovery and management of Cloud Volumes Service for AWS</a></p>
-</li>
-<li>
-<p><a href="#new-subscription-required-in-the-aws-marketplace">New subscription required in the AWS Marketplace</a></p>
-</li>
-<li>
-<p><a href="#support-for-aws-govcloud-us-east">Support for AWS GovCloud (US-East)</a></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="discovery-and-management-of-cloud-volumes-service-for-aws">Discovery and management of Cloud Volumes Service for AWS</h3>
-<div class="paragraph">
-<p>Cloud Manager now enables you to discover the cloud volumes in your <a href="https://cloud.netapp.com/cloud-volumes-service-for-aws" target="_blank" rel="noopener">Cloud Volumes Service for AWS</a> subscription. After discovery, you can add additional cloud volumes directly from Cloud Manager. This enhancement provides a single pane of glass from which you can manage your NetApp cloud storage.</p>
-</div>
-<div class="paragraph">
-<p><a href="task_manage_cvs_aws.html">Learn how to get started</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="new-subscription-required-in-the-aws-marketplace">New subscription required in the AWS Marketplace</h3>
-<div class="paragraph">
-<p><a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">A new subscription is available in the AWS Marketplace</a>. This one-time subscription is required to deploy Cloud Volumes ONTAP 9.6 PAYGO (except for your 30-day free trial system). The subscription also enables us to offer add-on features for Cloud Volumes ONTAP PAYGO and BYOL. You&#8217;ll be charged from this subscription for every Cloud Volumes ONTAP PAYGO system that you create and each add-on feature that you enable.</p>
-</div>
-<div class="paragraph">
-<p>Starting with version 9.6, this new subscription method replaces the two existing AWS Marketplace subscriptions for Cloud Volumes ONTAP PAYGO to which you previously subscribed. You still need subscriptions through the <a href="https://aws.amazon.com/marketplace/search/results?x=0&amp;y=0&amp;searchTerms=cloud+volumes+ontap+byol" target="_blank" rel="noopener">existing AWS Marketplace pages when deploying Cloud Volumes ONTAP BYOL</a>.</p>
-</div>
-<div class="paragraph">
-<p><a href="reference_aws_marketplace.html">Learn more about each AWS Marketplace page</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="support-for-aws-govcloud-us-east">Support for AWS GovCloud (US-East)</h3>
-<div class="paragraph">
-<p>Cloud Manager and Cloud Volumes ONTAP are now supported in the AWS GovCloud (US-East) region.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="general-availability-of-cloud-volumes-ontap-in-gcp-3-sept-2019">General Availability of Cloud Volumes ONTAP in GCP (3 Sept 2019)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP is now generally available in Google Cloud Platform (GCP) when you bring your own license (BYOL). A pay-as-you-go promotion is also available. The promotion offers free licenses for an unlimited number of systems and will expire at the end of September 2019.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="task_getting_started_gcp.html">Learn how to get started in GCP</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_gcp_96.html" target="_blank" rel="noopener">View supported configurations</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-7-2-5-aug-2019">Cloud Manager 3.7.2 (5 Aug 2019)</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#flexcache-licenses">FlexCache licenses</a></p>
-</li>
-<li>
-<p><a href="#kubernetes-storage-classes-for-iscsi">Kubernetes storage classes for iSCSI</a></p>
-</li>
-<li>
-<p><a href="#management-of-inodes">Management of inodes</a></p>
-</li>
-<li>
-<p><a href="#support-for-the-hong-kong-region-in-aws">Support for the Hong Kong region in AWS</a></p>
-</li>
-<li>
-<p><a href="#support-for-the-australia-central-regions-in-azure">Support for the Australia Central regions in Azure</a></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="flexcache-licenses">FlexCache licenses</h3>
-<div class="paragraph">
-<p>Cloud Manager now generates a FlexCache license for all new Cloud Volumes ONTAP systems. The license includes a 500 GB usage limit.</p>
-</div>
-<div class="paragraph">
-<p>To generate the license, Cloud Manager needs to access https://ipa-signer.cloudmanager.netapp.com. Make sure that this URL is accessible from your firewall.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="kubernetes-storage-classes-for-iscsi">Kubernetes storage classes for iSCSI</h3>
-<div class="paragraph">
-<p>When you connect Cloud Volumes ONTAP to a Kubernetes cluster, Cloud Manager now creates two additional Kubernetes storage classes that you can use with iSCSI Persistent Volumes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>netapp-file-san</strong>: For binding iSCSI Persistent Volumes to single-node Cloud Volumes ONTAP systems</p>
-</li>
-<li>
-<p><strong>netapp-file-redundant-san</strong>: For binding iSCSI Persistent Volumes to Cloud Volumes ONTAP HA pairs</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="management-of-inodes">Management of inodes</h3>
-<div class="paragraph">
-<p>Cloud Manager now monitors inode usage on a volume. When 85% of the inodes are used, Cloud Manager increases the size of the volume to increase the number of available inodes. The number of files a volume can contain is determined by how many inodes it has.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Cloud Manager monitors inode usage only when the Capacity Management Mode is set to automatic (this is the default setting).
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="support-for-the-hong-kong-region-in-aws">Support for the Hong Kong region in AWS</h3>
-<div class="paragraph">
-<p>Cloud Manager and Cloud Volumes ONTAP are now supported in the Asia Pacific (Hong Kong) region in AWS.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="support-for-the-australia-central-regions-in-azure">Support for the Australia Central regions in Azure</h3>
-<div class="paragraph">
-<p>Cloud Manager and Cloud Volumes ONTAP are now supported in the following Azure regions:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Australia Central</p>
-</li>
-<li>
-<p>Australia Central 2</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">See the full list of supported regions</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="update-on-backing-up-and-restoring-15-july-2019">Update on backing up and restoring (15 July 2019)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Starting with the 3.7.1 release, Cloud Manager no longer supports downloading a backup and using it to restore your Cloud Manager configuration. <a href="task_restoring.html">You need to follow these steps to restore Cloud Manager</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-7-1-1-july-2019">Cloud Manager 3.7.1 (1 July 2019)</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>This release primarily includes bug fixes.</p>
-</li>
-<li>
-<p>It does include one enhancement: Cloud Manager now installs a NetApp Volume Encryption (NVE) license on each Cloud Volumes ONTAP system that is registered with NetApp Support (both new and existing systems).</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="task_adding_nss_accounts.html">Adding NetApp Support Site accounts to Cloud Manager</a></p>
-</li>
-<li>
-<p><a href="task_registering.html">Registering pay-as-you-go systems</a></p>
-</li>
-<li>
-<p><a href="task_encrypting_volumes.html">Setting up NetApp Volume Encryption</a></p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Cloud Manager does not install the NVE license on systems that reside in the China region.
-</td>
-</tr>
-</table>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-7-update-16-june-2019">Cloud Manager 3.7 update (16 June 2019)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP 9.6 is now available in AWS, Azure, and in Google Cloud Platform as a private preview. To join the private preview, send a request to <a href="mailto:ng-Cloud-Volume-ONTAP-preview@netapp.com">ng-Cloud-Volume-ONTAP-preview@netapp.com</a>.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_96.html" target="_blank" rel="noopener">See what&#8217;s new in Cloud Volumes ONTAP 9.6</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-manager-3-7-5-june-2019">Cloud Manager 3.7 (5 June 2019)</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#support-for-upcoming-cloud-volumes-ontap-9-6-release">Support for upcoming Cloud Volumes ONTAP 9.6 release</a></p>
-</li>
-<li>
-<p><a href="#netapp-cloud-central-accounts">NetApp Cloud Central accounts</a></p>
-</li>
-<li>
-<p><a href="#backup-and-restore-with-the-cloud-backup-service">Backup and restore with the Cloud Backup Service</a></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="support-for-upcoming-cloud-volumes-ontap-9-6-release">Support for upcoming Cloud Volumes ONTAP 9.6 release</h3>
-<div class="paragraph">
-<p>Cloud Manager 3.7 includes support for the upcoming Cloud Volumes ONTAP 9.6 release. The 9.6 release includes a private preview of Cloud Volumes ONTAP in Google Cloud Platform. We&#8217;ll update the release notes when 9.6 is available.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="netapp-cloud-central-accounts">NetApp Cloud Central accounts</h3>
-<div class="paragraph">
-<p>We&#8217;ve enhanced how you manage your cloud resources. Each Cloud Manager system will be associated with a <em>NetApp Cloud Central account</em>. The account enables multi-tenancy and is planned for other NetApp cloud data services in the future.</p>
-</div>
-<div class="paragraph">
-<p>In Cloud Manager, a Cloud Central account is a container for your Cloud Manager systems and the <em>workspaces</em> in which users deploy Cloud Volumes ONTAP.</p>
-</div>
-<div class="paragraph">
-<p><a href="concept_cloud_central_accounts.html">Learn how Cloud Central accounts enable multi-tenancy</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Cloud Manager needs access to <em>https://cloudmanager.cloud.netapp.com</em> in order to connect to the Cloud Central account service. Open this URL on your ﬁrewall to ensure that Cloud Manager can contact the service.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect3">
-<h4 id="integrating-your-system-with-cloud-central-accounts">Integrating your system with Cloud Central accounts</h4>
-<div class="paragraph">
-<p>Some time after you upgrade to Cloud Manager 3.7, NetApp will choose specific Cloud Manager systems to integrate with Cloud Central accounts. During this process, NetApp creates an account, assigns new roles to each user, creates workspaces, and places existing working environments in those workspaces. There&#8217;s no disruption to your Cloud Volumes ONTAP systems.</p>
-</div>
-<div class="paragraph">
-<p><a href="concept_cloud_central_accounts.html#faq">If you have questions, refer to this FAQ</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="backup-and-restore-with-the-cloud-backup-service">Backup and restore with the Cloud Backup Service</h3>
-<div class="paragraph">
-<p>The NetApp Cloud Backup Service for Cloud Volumes ONTAP delivers fully-managed backup and restore capabilities for protection and long-term archive of your cloud data. You can integrate the Cloud Backup Service with Cloud Volumes ONTAP for AWS. Backups created by the service are stored in AWS S3 object storage.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://cloud.netapp.com/cloud-backup-service" target="_blank" rel="noopener">Learn more about the Cloud Backup Service</a>.</p>
-</div>
-<div class="paragraph">
-<p>To get started, install and configure the backup agent and then start backup and restore operations. If you need help, we encourage you to contact us by using the chat icon in Cloud Manager.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This manual process is no longer supported. The Backup to S3 feature was integrated into Cloud Manager in the 3.7.3 release.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>

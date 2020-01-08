@@ -344,7 +344,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.8 docs</a></li>
   
 
   
@@ -542,7 +542,7 @@
   
 
   
-    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts (9.6 only)</a></li>
   
 
   
@@ -867,6 +867,10 @@
   
 
   
+    <li><a href="task_overriding_cifs_locks.html">Override CIFS locks in Azure</a></li>
+  
+
+  
     <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
   
 
@@ -1010,7 +1014,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-16 13:26:08 +0000">12/16/2019</time>
+<time datetime="2020-01-08 15:36:50 +0000">01/08/2020</time>
 
 
 <span>Contributors
@@ -1140,7 +1144,7 @@ For information about tags, refer to <a href="https://azure.microsoft.com/docume
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.5 RC1 and 9.5 GA is available. The update does not occur from one release to another—for example, from 9.4 to 9.5.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.6 RC1 and 9.6 GA is available. The update does not occur from one release to another—for example, from 9.6 to 9.7.
 </td>
 </tr>
 </table>
@@ -1152,17 +1156,33 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 <li>
 <p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type, a size for each disk, and whether data tiering to Blob storage should be enabled.</p>
 <div class="paragraph">
+<p>Note the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
 <p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>The disk size is for all disks in the initial aggregate and for any additional aggregates that Cloud Manager creates when you use the simple provisioning option. You can create aggregates that use a different disk size by using the advanced allocation option.</p>
-</div>
 <div class="paragraph">
 <p>For help choosing a disk type and size, see <a href="task_planning_your_config.html#sizing-your-system-in-azure">Sizing your system in Azure</a>.</p>
 </div>
 </li>
 <li>
-<p><strong>Write Speed &amp; WORM</strong>: Choose <strong>Normal</strong> or <strong>High</strong> write speed, and activate write once, read many (WORM) storage, if desired.</p>
+<p>You can choose a specific volume tiering policy when you create or edit a volume.</p>
+</li>
+<li>
+<p>If you disable data tiering, you can enable it on subsequent aggregates.</p>
+<div class="paragraph">
+<p><a href="concept_data_tiering.html">Learn more about data tiering</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Write Speed &amp; WORM</strong> (single node systems only): Choose <strong>Normal</strong> or <strong>High</strong> write speed, and activate write once, read many (WORM) storage, if desired.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1177,6 +1197,15 @@ Choosing a write speed is supported with single node systems only.
 </div>
 <div class="paragraph">
 <p><a href="task_planning_your_config.html#choosing-a-write-speed">Learn more about write speed</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="concept_worm.html">Learn more about WORM storage</a>.</p>
+</div>
+</li>
+<li>
+<p><strong>Secure Communication to Storage &amp; WORM</strong> (HA only): Choose whether to enable an HTTPS connection to Azure storage accounts, and activate write once, read many (WORM) storage, if desired.</p>
+<div class="paragraph">
+<p>The HTTPS connection is from a Cloud Volumes ONTAP 9.7 HA pair to Azure storage accounts. Note that enabling this option can impact write performance. You can&#8217;t change the setting after you create the working environment.</p>
 </div>
 <div class="paragraph">
 <p><a href="concept_worm.html">Learn more about WORM storage</a>.</p>
@@ -1277,7 +1306,7 @@ To configure Azure AD Domain Services as the AD server for Cloud Volumes ONTAP, 
 </table>
 </li>
 <li>
-<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and change the tiering policy, if needed.</p>
+<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and change the volume tiering policy, if needed.</p>
 <div class="paragraph">
 <p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
 </div>

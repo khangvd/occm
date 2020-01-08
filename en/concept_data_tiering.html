@@ -344,7 +344,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.8 docs</a></li>
   
 
   
@@ -542,7 +542,7 @@
   
 
   
-    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts (9.6 only)</a></li>
   
 
   
@@ -867,6 +867,10 @@
   
 
   
+    <li><a href="task_overriding_cifs_locks.html">Override CIFS locks in Azure</a></li>
+  
+
+  
     <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
   
 
@@ -1010,7 +1014,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-21 20:07:34 +0000">10/21/2019</time>
+<time datetime="2020-01-08 15:35:59 +0000">01/08/2020</time>
 
 
 <span>Contributors
@@ -1045,7 +1049,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You do not need to install a feature license to enable data tiering (FabricPool).
+You don&#8217;t need to install a feature license to enable data tiering (FabricPool).
 </td>
 </tr>
 </table>
@@ -1056,7 +1060,7 @@ You do not need to install a feature license to enable data tiering (FabricPool)
 <h2 id="data-tiering-in-aws">Data tiering in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you enable data tiering in AWS, Cloud Volumes ONTAP uses EBS as a performance tier for hot data and AWS S3 as a capacity tier for inactive data. Changing a system&#8217;s tiering level enables you to choose a different S3 storage class.</p>
+<p>When you enable data tiering in AWS, Cloud Volumes ONTAP uses EBS as a performance tier for hot data and AWS S3 as a capacity tier for inactive data.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1080,17 +1084,17 @@ Cloud Manager creates a single S3 bucket for each working environment and names 
 </table>
 </div>
 </dd>
-<dt class="hdlist1">Tiering levels</dt>
+<dt class="hdlist1">Storage classes</dt>
 <dd>
-<p>If you don&#8217;t plan to access the inactive data, you can reduce your storage costs by changing a system&#8217;s tiering level to one of the following: <em>Intelligent Tiering</em>, <em>One-Zone Infrequent Access</em>, or <em>Standard-Infrequent Access</em>. When you change the tiering level, inactive data starts in the Standard storage class and moves to the storage class that you selected, if the data is not accessed after 30 days.</p>
+<p>The default storage class for tiered data in AWS is <em>Standard</em>. If you don&#8217;t plan to access the inactive data, you can reduce your storage costs by changing the storage class to one of the following: <em>Intelligent Tiering</em>, <em>One-Zone Infrequent Access</em>, or <em>Standard-Infrequent Access</em>. When you change the storage class, inactive data starts in the Standard storage class and moves to the storage class that you selected, if the data is not accessed after 30 days.</p>
 <div class="paragraph">
-<p>The access costs are higher if you do access the data, so take that into consideration before you change the tiering level. <a href="https://aws.amazon.com/s3/storage-classes" target="_blank" rel="noopener">Learn more about Amazon S3 storage classes</a>.</p>
+<p>The access costs are higher if you do access the data, so take that into consideration before you change the storage class. <a href="https://aws.amazon.com/s3/storage-classes" target="_blank" rel="noopener">Learn more about Amazon S3 storage classes</a>.</p>
 </div>
 <div class="paragraph">
-<p>Changing the tiering level is possible after you create the system. For details, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
+<p>You can select a storage class when you create the working environment and you can change it any time after. For details about changing the storage class, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
 </div>
 <div class="paragraph">
-<p>The tiering level is system wide&#8212;&#8203;it is not per volume.</p>
+<p>The storage class for data tiering is system wide&#8212;&#8203;it&#8217;s not per volume.</p>
 </div>
 </dd>
 </dl>
@@ -1101,7 +1105,7 @@ Cloud Manager creates a single S3 bucket for each working environment and names 
 <h2 id="data-tiering-in-azure">Data tiering in Azure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you enable data tiering in Azure, Cloud Volumes ONTAP uses Azure managed disks as a performance tier for hot data and Azure Blob storage as a capacity tier for inactive data. Changing a system&#8217;s tiering level enables you to choose a different Azure storage tier.</p>
+<p>When you enable data tiering in Azure, Cloud Volumes ONTAP uses Azure managed disks as a performance tier for hot data and Azure Blob storage as a capacity tier for inactive data.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1125,17 +1129,17 @@ Cloud Manager creates a new storage account with a single container for each Clo
 </table>
 </div>
 </dd>
-<dt class="hdlist1">Tiering levels</dt>
+<dt class="hdlist1">Storage access tiers</dt>
 <dd>
-<p>If you don&#8217;t plan to access the inactive data, you can reduce your storage costs by changing a system&#8217;s tiering level to the Azure <em>cool</em> storage tier. When you change the tiering level, inactive data starts in the hot storage tier and moves to the cool storage tier, if the data is not accessed after 30 days.</p>
+<p>The default storage access tier for tiered data in Azure is the <em>hot</em> tier. If you don&#8217;t plan to access the inactive data, you can reduce your storage costs by changing to the <em>cool</em> storage tier. When you change the storage tier, inactive data starts in the hot storage tier and moves to the cool storage tier, if the data is not accessed after 30 days.</p>
 <div class="paragraph">
-<p>The access costs are higher if you do access the data, so take that into consideration before you change the tiering level. <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">Learn more about Azure Blob storage access tiers</a>.</p>
+<p>The access costs are higher if you do access the data, so take that into consideration before you change the storage tier. <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">Learn more about Azure Blob storage access tiers</a>.</p>
 </div>
 <div class="paragraph">
-<p>Changing the tiering level is possible after you create the system. For details, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
+<p>You can select a storage tier when you create the working environment and you can change it any time after. For details about changing the storage tier, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
 </div>
 <div class="paragraph">
-<p>The tiering level is system wide&#8212;&#8203;it is not per volume.</p>
+<p>The storage access tier for data tiering is system wide&#8212;&#8203;it&#8217;s not per volume.</p>
 </div>
 </dd>
 </dl>
@@ -1170,9 +1174,18 @@ Cloud Manager creates a single bucket for each working environment and names it 
 </table>
 </div>
 </dd>
-<dt class="hdlist1">Tiering levels</dt>
+<dt class="hdlist1">Storage classes</dt>
 <dd>
-<p>No other GCP storage classes are supported at this time.</p>
+<p>The default storage class for tiered data is the <em>Standard Storage</em> class. If the data is infrequently accessed, you can reduce your storage costs by changing to <em>Nearline Storage</em> or <em>Coldline Storage</em>.</p>
+<div class="paragraph">
+<p>The access costs are higher if you do access the data, so take that into consideration before you change the storage class. <a href="https://cloud.google.com/storage/docs/storage-classes" target="_blank" rel="noopener">Learn more about storage classes for Google Cloud Storage</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can select a storage tier when you create the working environment and you can change it any time after. For details about changing the storage class, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
+</div>
+<div class="paragraph">
+<p>The storage class for data tiering is system wide&#8212;&#8203;it&#8217;s not per volume.</p>
+</div>
 </dd>
 </dl>
 </div>

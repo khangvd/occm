@@ -344,7 +344,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.8 docs</a></li>
   
 
   
@@ -542,7 +542,7 @@
   
 
   
-    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts (9.6 only)</a></li>
   
 
   
@@ -867,6 +867,10 @@
   
 
   
+    <li><a href="task_overriding_cifs_locks.html">Override CIFS locks in Azure</a></li>
+  
+
+  
     <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
   
 
@@ -1010,7 +1014,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-03 21:10:35 +0000">12/03/2019</time>
+<time datetime="2020-01-08 15:36:50 +0000">01/08/2020</time>
 
 
 <span>Contributors
@@ -1095,7 +1099,7 @@ Your browser does not support the video tag.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This is the service account that you set up for Cloud Manager, <a href="task_getting_started_gcp.html#service-account">as described in step 4b on this page</a>.
+This is the service account that you set up for Cloud Manager, <a href="task_getting_started_gcp.html#service-account">as described in step 2b on this page</a>.
 </td>
 </tr>
 </table>
@@ -1153,14 +1157,14 @@ For information about labels, refer to <a href="https://cloud.google.com/compute
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.5 RC1 and 9.5 GA is available. The update does not occur from one release to another—for example, from 9.4 to 9.5.
+If a newer Release Candidate, General Availability, or patch release is available for the selected version, then Cloud Manager updates the system to that version when creating the working environment. For example, the update occurs if you select Cloud Volumes ONTAP 9.6 RC1 and 9.6 GA is available. The update does not occur from one release to another—for example, from 9.6 to 9.7.
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type, a size for each disk, and whether data tiering should be enabled.</p>
+<p><strong>Underlying Storage Resources</strong>: Choose settings for the initial aggregate: a disk type and the size for each disk.</p>
 <div class="paragraph">
 <p>The disk type is for the initial volume. You can choose a different disk type for subsequent volumes.</p>
 </div>
@@ -1178,6 +1182,31 @@ If a newer Release Candidate, General Availability, or patch release is availabl
 </div>
 <div class="paragraph">
 <p><a href="concept_worm.html">Learn more about WORM storage</a>.</p>
+</div>
+</li>
+<li>
+<p><strong>Data Tiering in Google Cloud Platform</strong>: Choose whether to enable data tiering on the initial aggregate, choose a storage class for the tiered data, and then either select a service account that has the predefined Storage Admin role (required for Cloud Volumes ONTAP 9.7), or select a GCP account (required for Cloud Volumes ONTAP 9.6).</p>
+<div class="paragraph">
+<p>Note the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager sets the service account on the Cloud Volumes ONTAP instance. This service account provides permissions for data tiering to a Google Cloud Storage bucket. Be sure to add the Cloud Manager service account as a user of the tiering service account, otherwise, you can&#8217;t select it from Cloud Manager.</p>
+</li>
+<li>
+<p>For help with adding a GCP account, see <a href="task_adding_gcp_accounts.html">Setting up and adding GCP accounts for data tiering with 9.6</a>.</p>
+</li>
+<li>
+<p>You can choose a specific volume tiering policy when you create or edit a volume.</p>
+</li>
+<li>
+<p>If you disable data tiering, you can enable it on subsequent aggregates, but you&#8217;ll need to turn off the system and add a service account from the GCP console.</p>
+<div class="paragraph">
+<p><a href="concept_data_tiering.html">Learn more about data tiering</a>.</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -1272,15 +1301,9 @@ The listed DNS servers must contain the service location records (SRV) needed to
 </table>
 </li>
 <li>
-<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and change the tiering policy, if needed.</p>
+<p><strong>Usage Profile, Disk Type, and Tiering Policy</strong>: Choose whether you want to enable storage efficiency features and change the volume tiering policy, if needed.</p>
 <div class="paragraph">
 <p>For more information, see <a href="task_planning_your_config.html#choosing-a-volume-usage-profile">Understanding volume usage profiles</a> and <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
-</div>
-</li>
-<li>
-<p><strong>Google Cloud Platform Account for Data Tiering</strong>: Set up data tiering by providing interoperable storage access keys for a Google Cloud Platform account. Click <strong>Skip</strong> to disable data tiering.</p>
-<div class="paragraph">
-<p>The keys enable Cloud Manager to set up a Cloud Storage bucket for data tiering. For more details, see <a href="task_adding_gcp_accounts.html">Setting up and adding GCP accounts to Cloud Manager</a>.</p>
 </div>
 </li>
 <li>

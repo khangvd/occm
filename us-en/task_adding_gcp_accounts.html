@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Setting up and adding GCP accounts to Cloud Manager | NetApp Cloud Docs</title>
+  <title>Setting up and adding GCP accounts for data tiering with 9.6 | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Setting up and adding GCP accounts to Cloud Manager | NetApp Cloud Docs" />
+  <meta property="og:title" content="Setting up and adding GCP accounts for data tiering with 9.6 | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/us-en/task_adding_gcp_accounts.html" />
 	<meta property="og:description" content="Adding a Google Cloud Platform account to Cloud Manager is required to enable data tiering on a Cloud Volumes ONTAP system. Data tiering automatically tiers ..." />
@@ -344,7 +344,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.8 docs</a></li>
   
 
   
@@ -542,7 +542,7 @@
   
 
   
-    <li class="active"><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+    <li class="active"><a href="task_adding_gcp_accounts.html">Add GCP accounts (9.6 only)</a></li>
   
 
   
@@ -867,6 +867,10 @@
   
 
   
+    <li><a href="task_overriding_cifs_locks.html">Override CIFS locks in Azure</a></li>
+  
+
+  
     <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
   
 
@@ -998,11 +1002,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Setting up and adding GCP accounts to Cloud Manager
+  <h1 class="n-doc__component-detail-heading">Setting up and adding GCP accounts for data tiering with 9.6
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_adding_gcp_accounts.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Setting up and adding GCP accounts to Cloud Manager](https://docs.netapp.com/us-en/occm/task_adding_gcp_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Setting up and adding GCP accounts for data tiering with 9.6](https://docs.netapp.com/us-en/occm/task_adding_gcp_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -1010,7 +1014,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-03 15:51:56 +0000">09/03/2019</time>
+<time datetime="2020-01-08 15:35:10 +0000">01/08/2020</time>
 
 
 <span>Contributors
@@ -1030,7 +1034,19 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>If you want to enable <a href="concept_data_tiering.html">data tiering</a> on a Cloud Volumes ONTAP system, you need to provide Cloud Manager with a storage access key for a service account that has Storage Admin permissions. Cloud Manager uses the access keys to set up and manage a Cloud Storage bucket for data tiering.</p>
+<p>If you want to enable <a href="concept_data_tiering.html">data tiering</a> on a Cloud Volumes ONTAP 9.6 system, you need to provide Cloud Manager with a storage access key for a service account that has Storage Admin permissions. Cloud Manager uses the access keys to set up and manage a Cloud Storage bucket for data tiering.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want to use data tiering with Cloud Volumes ONTAP 9.7, then follow step 3 in <a href="task_getting_started_gcp.html">Getting started with Cloud Volumes ONTAP in Google Cloud Platform</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1114,7 +1130,7 @@
 </div>
 <div class="paragraph">
 <div class="title">What&#8217;s next?</div>
-<p>You can now enable data tiering on individual volumes when you create, modify, or replicate them. For details, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
+<p>You can now enable data tiering on individual volumes on a Cloud Volumes ONTAP 9.6 system when you create, modify, or replicate them. For details, see <a href="task_tiering.html">Tiering inactive data to low-cost object storage</a>.</p>
 </div>
 <div class="paragraph">
 <p>But before you do, be sure that the subnet in which Cloud Volumes ONTAP resides is configured for Private Google Access. For instructions, refer to <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">Google Cloud Documentation: Configuring Private Google Access</a>.</p>

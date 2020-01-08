@@ -344,7 +344,7 @@
   
 
   
-    <li><a href="index.html">Cloud Manager 3.7 docs</a></li>
+    <li><a href="index.html">Cloud Manager 3.8 docs</a></li>
   
 
   
@@ -542,7 +542,7 @@
   
 
   
-    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts</a></li>
+    <li><a href="task_adding_gcp_accounts.html">Add GCP accounts (9.6 only)</a></li>
   
 
   
@@ -867,6 +867,10 @@
   
 
   
+    <li><a href="task_overriding_cifs_locks.html">Override CIFS locks in Azure</a></li>
+  
+
+  
     <li><a href="task_restoring.html">Restore Cloud Manager</a></li>
   
 
@@ -1010,7 +1014,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-20 13:21:10 +0000">12/20/2019</time>
+<time datetime="2020-01-08 15:35:10 +0000">01/08/2020</time>
 
 
 <span>Contributors
@@ -1062,7 +1066,7 @@
 <p>For Azure, you won&#8217;t need to do anything as long as Cloud Manager has the required permissions. <a href="#Requirements for tiering data in Microsoft Azure">Learn more</a>.</p>
 </li>
 <li>
-<p>For GCP, you need to add a GCP account to Cloud Manager and configure the subnet for Private Google Access. <a href="#Requirements for tiering data in Google Cloud Platform">Learn more</a>.</p>
+<p>For GCP, you need to configure the subnet for Private Google Access and set up a service account. <a href="#Requirements for tiering data in Google Cloud Platform">Learn more</a>.</p>
 </li>
 </ul>
 </div>
@@ -1200,10 +1204,16 @@ Data tiering is not supported in Azure with the DS3_v2 virtual machine type.
 <div class="ulist">
 <ul>
 <li>
-<p>You need to add a Google Cloud Platform account to Cloud Manager by entering storage access keys for a service account. The keys enable Cloud Manager to set up a Cloud Storage bucket for data tiering. For instructions, see <a href="task_adding_gcp_accounts.html">Setting up and adding GCP accounts to Cloud Manager</a>.</p>
+<p>The subnet in which Cloud Volumes ONTAP resides must be configured for Private Google Access. For instructions, refer to <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">Google Cloud Documentation: Configuring Private Google Access</a>.</p>
 </li>
 <li>
-<p>The subnet in which Cloud Volumes ONTAP resides must be configured for Private Google Access. For instructions, refer to <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">Google Cloud Documentation: Configuring Private Google Access</a>.</p>
+<p>Cloud Volumes ONTAP 9.7: You need to create a service account that has the predefined Storage Admin role. You&#8217;ll need to select this service account when you create a Cloud Volumes ONTAP working environment. For more details, see step 3 in <a href="task_getting_started_gcp.html">Getting started with Cloud Volumes ONTAP in Google Cloud Platform</a>.</p>
+<div class="paragraph">
+<p>If you don&#8217;t enable data tiering and select a service account when you create the Cloud Volumes ONTAP 9.7 system, then you&#8217;ll need to turn off the system and add the service account to Cloud Volumes ONTAP from the GCP console.</p>
+</div>
+</li>
+<li>
+<p>Cloud Volumes ONTAP 9.6: You need to add a Google Cloud Platform account to Cloud Manager by entering storage access keys for a service account. The keys enable Cloud Manager to set up a Cloud Storage bucket for data tiering. For instructions, see <a href="task_adding_gcp_accounts.html">Setting up and adding GCP accounts for data tiering with 9.6</a>.</p>
 </li>
 </ul>
 </div>
@@ -1303,57 +1313,25 @@ If you prefer to create aggregates yourself, you can enable data tiering on aggr
 </div>
 </div>
 <div class="sect1">
-<h2 id="changing-the-tiering-level-in-aws-or-azure">Changing the tiering level in AWS or Azure</h2>
+<h2 id="changing-the-storage-class-for-tiered-data">Changing the storage class for tiered data</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you enable data tiering, Cloud Volumes ONTAP tiers inactive data to the S3 <em>Standard</em> storage class in AWS or to the <em>hot</em> storage tier in Azure. After you deploy Cloud Volumes ONTAP, you can reduce your storage costs by changing the tiering level for inactive data that has not been accessed for 30 days. The access costs are higher if you do access the data, so you must take that into consideration before you change the tiering level.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You can&#8217;t change the tiering level in GCP because only the <em>Regional</em> storage class is supported at this time.
-</td>
-</tr>
-</table>
+<p>After you deploy Cloud Volumes ONTAP, you can reduce your storage costs by changing the storage class for inactive data that hasn&#8217;t been accessed for 30 days. The access costs are higher if you do access the data, so you must take that into consideration before you change the storage class.</p>
 </div>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>The tiering level is system wide—​it is not per volume.</p>
+<p>The storage class for tiered data is system wide—​it&#8217;s not per volume.</p>
 </div>
 <div class="paragraph">
-<p>In AWS, you can change the tiering level so inactive data moves to one of the following storage classes after 30 days of inactivity:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Intelligent Tiering</p>
-</li>
-<li>
-<p>Standard-Infrequent Access</p>
-</li>
-<li>
-<p>One Zone-Infrequent Access</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In Azure, you can change the tiering level so inactive data moves to the  <em>cool</em> storage tier after 30 days of inactivity.</p>
-</div>
-<div class="paragraph">
-<p>For more information about how tiering levels work, see <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
+<p>For information about supported storage classes, see <a href="concept_data_tiering.html">Data tiering overview</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>From the working environment, click the menu icon and then click <strong>S3 Storage Classes</strong> or <strong>Blob Storage Tiering</strong>.</p>
+<p>From the working environment, click the menu icon and then click <strong>Storage Classes</strong> or <strong>Blob Storage Tiering</strong>.</p>
 </li>
 <li>
-<p>Choose the tiering level and then click <strong>Save</strong>.</p>
+<p>Choose a storage class and then click <strong>Save</strong>.</p>
 </li>
 </ol>
 </div>
