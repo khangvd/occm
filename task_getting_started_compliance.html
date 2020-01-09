@@ -1014,7 +1014,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-18 21:40:48 +0000">12/18/2019</time>
+<time datetime="2020-01-09 15:40:56 +0000">01/09/2020</time>
 
 
 <span>Contributors
@@ -1051,7 +1051,19 @@
 <li>
 <p>Ensure that the Cloud Compliance instance will have outbound internet access.</p>
 <div class="paragraph">
-<p>Cloud Manager deploys the instance in the same VPC or VNet as the first Cloud Volumes ONTAP system in the request.</p>
+<p>Cloud Manager deploys the instance in the same VPC or VNet in which the Cloud Manager instance is running.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If Cloud Manager is installed on-prem, it deploys the Cloud Compliance instance in same VPC or VNet as the first Cloud Volumes ONTAP system in the request.
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
@@ -1292,9 +1304,6 @@ If you&#8217;re accessing Cloud Manager from a public IP address, then your web 
 <ol class="arabic">
 <li>
 <p>Make sure that there&#8217;s a network connection between the Cloud Compliance instance and each Cloud Volumes ONTAP subnet.</p>
-<div class="paragraph">
-<p>Cloud Manager deploys the Cloud Compliance instance in the same VPC or VNet as the first Cloud Volumes ONTAP system in the request. So this step is important if some Cloud Volumes ONTAP systems are in different subnets or virtual networks.</p>
-</div>
 </li>
 <li>
 <p>Ensure that the security group for Cloud Volumes ONTAP allows inbound traffic from the Cloud Compliance instance.</p>
@@ -1371,6 +1380,127 @@ This port is open by default on all new Cloud Manager instances, starting with v
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="troubleshooting-errors">Troubleshooting errors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If Cloud Manager fails to enable Cloud Compliance, the Compliance dashboard won&#8217;t display in the Compliance tab. The tab will look like it did before you tried to enable Cloud Compliance.</p>
+</div>
+<div class="paragraph">
+<p>If this happens, view deployment errors in the Timeline to investigate and correct the error. The following sections describe the most common errors.</p>
+</div>
+<div class="sect2">
+<h3 id="vcpu-quota-limit-in-azure">vCPU quota limit in Azure</h3>
+<div class="paragraph">
+<p>The timeline might display an error if the vCPU quota limit was reached in Azure.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example error in the timeline</dt>
+<dd>
+<p>"The template deployment 'cloud-compliance-1576642249048-deployment' is not valid according to the validation procedure. The tracking id is 'f8c662ec-f556-423e-9e43-c4a6ea3c7424'. See inner errors for details. Code: InvalidTemplateDeployment Details: The operation couldn&#8217;t be completed as it results in exceeding quota limit of standardDSv3Family Cores. Maximum allowed: 10, Current in use: 0, Additional requested: 16. Read more about quota limits at https://aka.ms/AzurePerVMQuotaLimits. Submit a request for Quota increase using the link https://aka.ms/ProdportalCRP/?#create/Microsoft.Support/Parameters/%7B%22subId%22:%22bc48045a-c34b-4ad6-8367-6b1fc0d5e955%22,%22pesId%22:%2206bfd9d3-516b-d5c6-5802-169c800dec89%22,%22supportTopicId%22:%22e12e3d1d-7fa0-af33-c6d0-3c50df9658a3%22%7D."</p>
+</dd>
+<dt class="hdlist1">What caused the error</dt>
+<dd>
+<p>The vCPU quota limit was reached, so Azure wouldn&#8217;t allow creation of the Cloud Compliance instance.</p>
+</dd>
+<dt class="hdlist1">How to fix the error</dt>
+<dd>
+<p>Increase the vCPU quota limit in Azure.</p>
+<div class="paragraph">
+<p><a href="https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests" target="_blank" rel="noopener">Azure documentation: Increase limits by VM series</a></p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="vcpu-limit-in-aws">vCPU limit in AWS</h3>
+<div class="paragraph">
+<p>The timeline might display an error if the vCPU limit was reached in AWS.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example error in the timeline</dt>
+<dd>
+<p>"You have requested more vCPU capacity than your current vCPU limit of 32 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit. (Service: AmazonEC2; Status Code: 400; Error Code: VcpuLimitExceeded; Request ID: 3d6a659f-289b-449e-82e9-e3f18e49d69a)"</p>
+</dd>
+<dt class="hdlist1">What caused the error</dt>
+<dd>
+<p>The vCPU limit was reached, so AWS wouldn&#8217;t allow creation of the Cloud Compliance instance.</p>
+</dd>
+<dt class="hdlist1">How to fix the error</dt>
+<dd>
+<p>Increase the vCPU limit in AWS.</p>
+<div class="paragraph">
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html" target="_blank" rel="noopener">AWS documentation: Amazon EC2 Service Limits</a></p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="timeout-error">Timeout error</h3>
+<div class="paragraph">
+<p>The timeline might display a timeout error if the right connections aren&#8217;t available.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example error in the timeline</dt>
+<dd>
+<p>"Timed out"</p>
+</dd>
+<dt class="hdlist1">What caused the error</dt>
+<dd>
+<p>It&#8217;s either that Cloud Compliance and Cloud Manager can&#8217;t communicate with each other or that Cloud Compliance can&#8217;t access the internet.</p>
+</dd>
+<dt class="hdlist1">How to fix the error</dt>
+<dd>
+<p>Verify the following, while remembering that the Cloud Compliance instance gets deployed in the same location as Cloud Manager.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If Cloud Manager is installed on-prem, it deploys the Cloud Compliance instance in same VPC or VNet as the first Cloud Volumes ONTAP system in the request.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure connectivity between Cloud Manager and Cloud Compliance.</p>
+<div class="paragraph">
+<p>The security group for Cloud Manager must allow inbound and outbound traffic over port 80 to and from the Cloud Compliance instance.</p>
+</div>
+</li>
+<li>
+<p>Ensure that Cloud Compliance can access the internet in one of the following ways:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Proxy</strong>: If you have defined a proxy through Cloud Manager settings, ensure that the Cloud Compliance instance can reach the proxy server.</p>
+</li>
+<li>
+<p><strong>Direct connection through Cloud Manager</strong>: If you don’t use a proxy, ensure that the security group for Cloud Manager allows inbound traffic over TCP port 3128 from the Cloud Compliance instance.</p>
+</li>
+<li>
+<p><strong>NAT</strong>: Ensure that the subnet for the Cloud Compliance instance is defined under a NAT Gateway.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 </div>
