@@ -7,7 +7,7 @@
   <meta property="og:title" content="Learn about Cloud Compliance | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/concept_cloud_compliance.html" />
-	<meta property="og:description" content="Cloud Compliance is a data privacy and compliance service for Cloud Volumes ONTAP in AWS and Azure. Using Artificial Intelligence (AI) driven technology, Clo..." />
+	<meta property="og:description" content="Cloud Compliance is a data privacy and compliance service for Azure NetApp Files and Cloud Volumes ONTAP in AWS and Azure. Using Artificial Intelligence (AI)..." />
   <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,8 +20,8 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="Cloud Compliance is a data privacy and compliance service for Cloud Volumes ONTAP in AWS and Azure. Using Artificial Intelligence (AI) driven technology, Clo...">
-  <meta name="keywords" content=" artificial intelligence, ai, compliance, cloud compliance, dsar, personal data, personal information, sensitive, personal sensitive data, gdpr, scans, scanning">
+  <meta name="description" content="Cloud Compliance is a data privacy and compliance service for Azure NetApp Files and Cloud Volumes ONTAP in AWS and Azure. Using Artificial Intelligence (AI)...">
+  <meta name="keywords" content=" artificial intelligence, ai, compliance, cloud compliance, dsar, personal data, personal information, sensitive, personal sensitive data, gdpr, scans, scanning, azure netapp files, cloud volumes ontap">
   
   
 
@@ -1018,7 +1018,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-01-23 18:37:19 +0000">01/23/2020</time>
+<time datetime="2020-01-28 17:18:13 +0000">01/28/2020</time>
 
 
 <span>Contributors
@@ -1038,7 +1038,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Compliance is a data privacy and compliance service for Cloud Volumes ONTAP in AWS and Azure. Using Artificial Intelligence (AI) driven technology, Cloud Compliance helps organizations understand data context and identify sensitive data across Cloud Volumes ONTAP systems.</p>
+<p>Cloud Compliance is a data privacy and compliance service for Azure NetApp Files and Cloud Volumes ONTAP. Using Artificial Intelligence (AI) driven technology, Cloud Compliance helps organizations understand data context and identify sensitive data.</p>
 </div>
 <div class="paragraph">
 <p>Cloud Compliance is currently available as a Controlled Availability release.</p>
@@ -1064,6 +1064,27 @@
 </li>
 <li>
 <p>Respond to Data Subject Access Requests (DSAR)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-working-environments">Supported working environments</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance can scan data from the following types of working environments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP in AWS and Azure</p>
+</li>
+<li>
+<p>Azure NetApp Files</p>
+<div class="paragraph">
+<p>For Azure NetApp Files, Cloud Compliance can scan volumes that are in the same region as Cloud Manager. When you activate compliance scans on an Azure NetApp Files working environment, Cloud Compliance scans <em>all</em> of the volumes in the region.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -1099,7 +1120,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>You enable Cloud Compliance on one or more Cloud Volumes ONTAP systems.</p>
+<p>You enable Cloud Compliance on one or more working environments.</p>
 </li>
 <li>
 <p>Cloud Compliance scans the data using an AI learning process.</p>
@@ -1115,7 +1136,7 @@
 <h2 id="the-cloud-compliance-instance">The Cloud Compliance instance</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you enable Cloud Compliance on one or more Cloud Volumes ONTAP systems, Cloud Manager deploys a Cloud Compliance instance in the same subnet as Cloud Manager.</p>
+<p>When you enable Cloud Compliance, Cloud Manager deploys a Cloud Compliance instance in the subnet as Cloud Manager.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1164,7 +1185,7 @@ If Cloud Manager is installed on-prem, it deploys the Cloud Compliance instance 
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The instance should remain running at all times because Cloud Compliance continuously scans the data on Cloud Volumes ONTAP systems.
+The instance should remain running at all times because Cloud Compliance continuously scans the data on volumes.
 </td>
 </tr>
 </table>
@@ -1178,7 +1199,7 @@ The instance should remain running at all times because Cloud Compliance continu
 <p>After you enable Cloud Compliance, it immediately starts scanning your data to identify personal and sensitive data.</p>
 </div>
 <div class="paragraph">
-<p>Cloud Compliance connects to Cloud Volumes ONTAP like any other client by mounting NFS and CIFS volumes. NFS volumes are automatically accessed as read-only, while you need to provide Active Directory credentials to scan CIFS volumes.</p>
+<p>Cloud Compliance connects to the data like any other client by mounting NFS and CIFS volumes. NFS volumes are automatically accessed as read-only, while you need to provide Active Directory credentials to scan CIFS volumes.</p>
 </div>
 <div class="paragraph">
 <p>Cloud Compliance scans the unstructured data on each volume for a range of personal information. It maps your organizational data, categorizes each file, and identifies and extracts entities and predefined patterns in the data. The result of the scan is an index of personal information, sensitive personal information, and data categories.</p>
@@ -1233,7 +1254,7 @@ The instance should remain running at all times because Cloud Compliance continu
 <p>Cloud Manager deploys the Cloud Compliance instance with a private IP address and a security group that enables inbound HTTP connections from Cloud Manager. This connection enables you to access the Cloud Compliance dashboard from the Cloud Manager interface.</p>
 </div>
 <div class="paragraph">
-<p>Outbound rules are completely open. The instance connects to Cloud Volumes ONTAP systems and to the internet through a proxy from Cloud Manager. Internet access is needed to upgrade the Cloud Compliance software and to send usage metrics.</p>
+<p>Outbound rules are completely open. The instance connects the internet through a proxy from Cloud Manager. Internet access is needed to upgrade the Cloud Compliance software and to send usage metrics.</p>
 </div>
 <div class="paragraph">
 <p>If you have strict networking requirements, <a href="task_getting_started_compliance.html#reviewing-prerequisites">learn about the endpoints that Cloud Compliance contacts</a>.</p>

@@ -2,12 +2,12 @@
 
 <html lang="en">
   <head>
-  <title>Getting started with Cloud Compliance for Cloud Volumes ONTAP | NetApp Cloud Docs</title>
+  <title>Getting started with Cloud Compliance | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Getting started with Cloud Compliance for Cloud Volumes ONTAP | NetApp Cloud Docs" />
+  <meta property="og:title" content="Getting started with Cloud Compliance | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/task_getting_started_compliance.html" />
-	<meta property="og:description" content="Complete a few steps to get started with Cloud Compliance on Cloud Volumes ONTAP systems in AWS or Azure." />
+	<meta property="og:description" content="Complete a few steps to get started with Cloud Compliance for Azure NetApp Files or Cloud Volumes ONTAP in AWS or Azure." />
   <meta property="og:image" content="https://docs.netapp.com/occm/en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="Complete a few steps to get started with Cloud Compliance on Cloud Volumes ONTAP systems in AWS or Azure.">
+  <meta name="description" content="Complete a few steps to get started with Cloud Compliance for Azure NetApp Files or Cloud Volumes ONTAP in AWS or Azure.">
   <meta name="keywords" content=" cloud compliance, get started, enable cloud compliance, cifs credentials, smb credentials, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance">
   
   
@@ -1006,11 +1006,11 @@
 
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Getting started with Cloud Compliance for Cloud Volumes ONTAP
+  <h1 class="n-doc__component-detail-heading">Getting started with Cloud Compliance
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_getting_started_compliance.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Getting started with Cloud Compliance for Cloud Volumes ONTAP](https://docs.netapp.com/en/occm/task_getting_started_compliance.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Getting started with Cloud Compliance](https://docs.netapp.com/en/occm/task_getting_started_compliance.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -1018,7 +1018,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-01-23 18:37:46 +0000">01/23/2020</time>
+<time datetime="2020-02-03 13:37:33 +0000">02/03/2020</time>
 
 
 <span>Contributors
@@ -1038,7 +1038,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Complete a few steps to get started with Cloud Compliance for Cloud Volumes ONTAP in AWS or Azure.</p>
+<p>Complete a few steps to get started with Cloud Compliance for Cloud Volumes ONTAP or Azure NetApp Files.</p>
 </div>
 </div>
 </div>
@@ -1049,32 +1049,13 @@
 <p>Get started quickly by following these steps or scroll down to the remaining sections for full details.</p>
 </div>
 <div class="sect3">
-<h4 id="verify-that-your-configuration-can-meet-the-requirements"><span class="image"><img src="./media/number1.png" alt="Number 1"></span> Verify that your configuration can meet the requirements</h4>
-<div class="ulist quick-margin-list">
-<ul>
-<li>
-<p>The Cloud Compliance instance needs outbound internet access.</p>
-<div class="paragraph">
-<p>Cloud Manager deploys the instance in the same subnet in which Cloud Manager is running. If Cloud Manager is on-prem, it deploys Cloud Compliance in same VPC or VNet as the first Cloud Volumes ONTAP system in the request.</p>
-</div>
-</li>
-<li>
-<p>Users need to access the Cloud Manager interface from a host that has a direct connection to AWS or Azure, or from a host that&#8217;s inside the same network as the Cloud Compliance instance (the instance will have a private IP address).</p>
-</li>
-<li>
-<p>Cloud Manager needs permissions to deploy resources and create security groups. <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">Check the latest Cloud Manager policy</a>.</p>
-</li>
-<li>
-<p>16 vCPUs are required for the Cloud Compliance instance. Ensure that you haven&#8217;t reached your cloud provider&#8217;s vCPU limit in Cloud Manager&#8217;s region for <em>On-Demand Standard instances</em> (AWS) or <em>Standard DSv3 Family</em> (Azure).</p>
-</li>
-<li>
-<p>The Cloud Compliance instance needs to remain running so it can scan volumes.</p>
-</li>
-</ul>
+<h4 id="review-prerequisites"><span class="image"><img src="./media/number1.png" alt="Number 1"></span> Review prerequisites</h4>
+<div class="paragraph quick-margin-para">
+<p>Ensure that your cloud environment can meet the prerequisites, which includes 16 vCPUs for the Cloud Compliance instance, outbound internet access for the instance, connectivity between Cloud Manager and Cloud Compliance over port 80, and more. <a href="#reviewing-prerequisites">See the complete list</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-cloud-compliance-on-cloud-volumes-ontap"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Enable Cloud Compliance on Cloud Volumes ONTAP</h4>
+<h4 id="enable-cloud-compliance"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Enable Cloud Compliance</h4>
 <div class="ulist quick-margin-list">
 <ul>
 <li>
@@ -1094,7 +1075,7 @@
 <div class="ulist quick-margin-list">
 <ul>
 <li>
-<p>The Cloud Compliance instance needs a network connection to each Cloud Volumes ONTAP subnet.</p>
+<p>The Cloud Compliance instance needs a network connection to each Cloud Volumes ONTAP subnet or Azure NetApp Files subnet.</p>
 </li>
 <li>
 <p>Security groups for Cloud Volumes ONTAP must allow inbound connections from the Cloud Compliance instance.</p>
@@ -1105,21 +1086,8 @@
 <li>
 <p>Cloud Compliance needs Active Directory credentials to scan CIFS volumes.</p>
 <div class="paragraph">
-<p>Click <strong>Compliance</strong> &gt; <strong>CIFS Scan Status</strong> &gt; <strong>Edit CIFS Credentials</strong> and provide the credentials. The credentials can be read-only, but providing admin credentials ensures that Cloud Compliance can read data that requires elevated permissions.</p>
+<p>Click <strong>Compliance</strong> &gt; <strong>Scan Status</strong> &gt; <strong>Edit CIFS Credentials</strong> and provide the credentials. The credentials can be read-only, but providing admin credentials ensures that Cloud Compliance can read data that requires elevated permissions.</p>
 </div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="ensure-connectivity-between-cloud-manager-and-cloud-compliance"><span class="image"><img src="./media/number4.png" alt="Number 4"></span> Ensure connectivity between Cloud Manager and Cloud Compliance</h4>
-<div class="ulist quick-margin-list">
-<ul>
-<li>
-<p>The security group for Cloud Manager must allow inbound and outbound traffic over port 80 to and from the Cloud Compliance instance.</p>
-</li>
-<li>
-<p>If your AWS network doesn’t use a NAT or proxy for internet access, then the security group for Cloud Manager must allow inbound traffic over TCP port 3128 from the Cloud Compliance instance.</p>
 </li>
 </ul>
 </div>
@@ -1130,7 +1098,7 @@
 <h2 id="reviewing-prerequisites">Reviewing prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Review the following prerequisites to make sure that you have a supported configuration before you enable Cloud Compliance. You&#8217;ll need to ensure connectivity between components after you enable Cloud Compliance. That&#8217;s covered below.</p>
+<p>Review the following prerequisites to make sure that you have a supported configuration before you enable Cloud Compliance. You&#8217;ll need to ensure connectivity to volumes after you enable Cloud Compliance. That&#8217;s covered below.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1174,20 +1142,64 @@ https://cognito-identity.us-east-1.amazonaws.com</p></td>
 </tbody>
 </table>
 </dd>
-<dt class="hdlist1">Verify web browser connectivity to Cloud Compliance</dt>
+<dt class="hdlist1">Ensure that Cloud Manager has the required permissions</dt>
 <dd>
-<p>The Cloud Compliance instance uses a private IP address to ensure that the indexed data isn&#8217;t accessible to the internet. As a result, the web browser that you use to access Cloud Manager must have a connection to that private IP address. That connection can come from a direct connection to AWS or Azure (for example, a VPN), or from a host that&#8217;s inside the same network as the Cloud Compliance instance.</p>
-<div class="admonitionblock tip">
+<p>Ensure that Cloud Manager has permissions to deploy resources and create security groups for the Cloud Compliance instance. You can find the latest Cloud Manager permissions in <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">the policies provided by NetApp</a>.</p>
+</dd>
+<dt class="hdlist1">Check your vCPU limits</dt>
+<dd>
+<p>Ensure that your cloud provider&#8217;s vCPU limit allows for the deployment of an instance with 16 cores. You&#8217;ll need to verify the vCPU limit for the relevant instance family in the region where Cloud Manager is running.</p>
+<div class="paragraph">
+<p>In AWS, the instance family is <em>On-Demand Standard instances</em>. In Azure, the instance family is <em>Standard DSv3 Family</em>.</p>
+</div>
+<div class="paragraph">
+<p>For more details on vCPU limits, see the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html" target="_blank" rel="noopener">AWS documentation: Amazon EC2 Service Limits</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quotas" target="_blank" rel="noopener">Azure documentation: Virtual machine vCPU quotas</a></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Set up discovery of Azure NetApp Files</dt>
+<dd>
+<p>Before you can scan volumes for Azure NetApp Files, <a href="task_manage_anf.html">Cloud Manager must be set up to discover the configuration</a>.</p>
+</dd>
+<dt class="hdlist1">Ensure that Cloud Manager can access Cloud Compliance</dt>
+<dd>
+<p>Ensure connectivity between Cloud Manager and the Cloud Compliance instance:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The security group for Cloud Manager must allow inbound and outbound traffic over port 80 to and from the Cloud Compliance instance.</p>
+<div class="paragraph">
+<p>This connection enables deployment of the Cloud Compliance instance and enables you to view information in the Compliance tab.</p>
+</div>
+</li>
+<li>
+<p>If your AWS network doesn’t use a NAT or proxy for internet access, modify the security group for Cloud Manager to allow inbound traffic over TCP port 3128 from the Cloud Compliance instance.</p>
+<div class="paragraph">
+<p>This is required because the Cloud Compliance instance uses Cloud Manager as a proxy to access the internet.</p>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you&#8217;re accessing Cloud Manager from a public IP address, then your web browser probably isn&#8217;t running on a host inside the network.
+This port is open by default on all new Cloud Manager instances, starting with version 3.7.5. It&#8217;s not open on Cloud Manager instances created prior to that.
 </td>
 </tr>
 </table>
+</div>
+</li>
+</ul>
 </div>
 </dd>
 <dt class="hdlist1">Ensure that Cloud Manager has the required permissions</dt>
@@ -1218,6 +1230,25 @@ If you&#8217;re accessing Cloud Manager from a public IP address, then your web 
 <dd>
 <p>The Cloud Compliance instance needs to stay on to continuously scan your data.</p>
 </dd>
+<dt class="hdlist1">Ensure web browser connectivity to Cloud Compliance</dt>
+<dd>
+<p>After Cloud Compliance is enabled, ensure that users access the Cloud Manager interface from a host that has a connection to the Cloud Compliance instance.</p>
+<div class="paragraph">
+<p>The Cloud Compliance instance uses a private IP address to ensure that the indexed data isn&#8217;t accessible to the internet. As a result, the web browser that you use to access Cloud Manager must have a connection to that private IP address. That connection can come from a direct connection to AWS or Azure (for example, a VPN), or from a host that&#8217;s inside the same network as the Cloud Compliance instance.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you&#8217;re accessing Cloud Manager from a public IP address, then your web browser probably isn&#8217;t running on a host inside the network.
+</td>
+</tr>
+</table>
+</div>
+</dd>
 </dl>
 </div>
 </div>
@@ -1226,7 +1257,7 @@ If you&#8217;re accessing Cloud Manager from a public IP address, then your web 
 <h2 id="enabling-cloud-compliance-on-a-new-working-environment">Enabling Cloud Compliance on a new working environment</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Compliance is enabled by default in the working environment wizard. Be sure to keep the option enabled.</p>
+<p>Cloud Compliance is enabled by default in the Cloud Volumes ONTAP working environment wizard. Be sure to keep the option enabled.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1264,13 +1295,13 @@ If you&#8217;re accessing Cloud Manager from a public IP address, then your web 
 <h2 id="enabling-cloud-compliance-on-existing-working-environments">Enabling Cloud Compliance on existing working environments</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Enable Cloud Compliance on your existing Cloud Volumes ONTAP systems from the <strong>Compliance</strong> tab in Cloud Manager.</p>
+<p>If you haven&#8217;t enabled Cloud Compliance yet, enable it on existing Cloud Volumes ONTAP or Azure NetApp Files working environments from the <strong>Compliance</strong> tab in Cloud Manager.</p>
 </div>
 <div class="paragraph">
-<p>Another option is to enable Cloud Compliance from the <strong>Working Environments</strong> tab by selecting each working environment individually. That&#8217;ll take you longer to complete, unless you have just one system.</p>
+<p>Another option is to enable Cloud Compliance from the <strong>Working Environments</strong> tab by selecting each working environment individually.</p>
 </div>
 <div class="olist arabic">
-<div class="title">Steps for multiple working environments</div>
+<div class="title">Steps for multiple working environments (first time only)</div>
 <ol class="arabic">
 <li>
 <p>At the top of Cloud Manager, click <strong>Compliance</strong>.</p>
@@ -1319,13 +1350,25 @@ If you&#8217;re accessing Cloud Manager from a public IP address, then your web 
 <h2 id="verifying-that-cloud-compliance-has-access-to-volumes">Verifying that Cloud Compliance has access to volumes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Make sure that Cloud Compliance can access volumes on Cloud Volumes ONTAP by checking your networking, security groups, and export policies. You&#8217;ll need to provide Cloud Compliance with CIFS credentials so it can access CIFS volumes.</p>
+<p>Make sure that Cloud Compliance can access volumes by checking your networking, security groups, and export policies. You&#8217;ll need to provide Cloud Compliance with CIFS credentials so it can access CIFS volumes.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Make sure that there&#8217;s a network connection between the Cloud Compliance instance and each Cloud Volumes ONTAP subnet.</p>
+<p>Make sure that there&#8217;s a network connection between the Cloud Compliance instance and each network that includes volumes for Cloud Volumes ONTAP or Azure NetApp Files.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For Azure NetApp Files, Cloud Compliance can only scan volumes that are in the same region as Cloud Manager.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Ensure that the security group for Cloud Volumes ONTAP allows inbound traffic from the Cloud Compliance instance.</p>
@@ -1344,13 +1387,13 @@ If you&#8217;re accessing Cloud Manager from a public IP address, then your web 
 <p>At the top of Cloud Manager, click <strong>Compliance</strong>.</p>
 </li>
 <li>
-<p>In the top right, click <strong>CIFS Scan Status</strong>.</p>
+<p>In the top right, click <strong>Scan Status</strong>.</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_cifs_credentials.gif" alt="A screenshot of the Compliance tab that shows the CIFS Scan Status button that&#8217;s available in the top right of the content pane."></span></p>
+<p><span class="image"><img src="./media/screenshot_cifs_credentials.gif" alt="A screenshot of the Compliance tab that shows the Scan Status button that&#8217;s available in the top right of the content pane."></span></p>
 </div>
 </li>
 <li>
-<p>For each Cloud Volumes ONTAP system, click <strong>Edit CIFS Credentials</strong> and enter the user name and password that Cloud Compliance needs to access CIFS volumes on the system.</p>
+<p>For each working environment, click <strong>Edit CIFS Credentials</strong> and enter the user name and password that Cloud Compliance needs to access CIFS volumes on the system.</p>
 <div class="paragraph">
 <p>The credentials can be read-only, but providing admin credentials ensures that Cloud Compliance can read any data that requires elevated permissions. The credentials are stored on the Cloud Compliance instance.</p>
 </div>
@@ -1364,165 +1407,16 @@ If you&#8217;re accessing Cloud Manager from a public IP address, then your web 
 </ol>
 </div>
 </li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="verifying-that-cloud-manager-can-access-cloud-compliance">Verifying that Cloud Manager can access Cloud Compliance</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Ensure connectivity between Cloud Manager and Cloud Compliance so you can view the compliance insights that Cloud Compliance found.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
 <li>
-<p>Make sure that the security group for Cloud Manager allows inbound and outbound traffic over port 80 to and from the Cloud Compliance instance.</p>
+<p>On the <strong>Scan Status</strong> page, click <strong>View Details</strong> to review the scan status for each CIFS and NFS volume and correct any errors.</p>
 <div class="paragraph">
-<p>This connection enables you to view information in the Compliance tab.</p>
+<p>For example, the following image shows three volumes that Cloud Compliance can&#8217;t scan due to network connectivity issues between the Cloud Compliance instance and the volumes.</p>
 </div>
-</li>
-<li>
-<p>If your AWS network doesn’t use a NAT or proxy for internet access, modify the security group for Cloud Manager to allow inbound traffic over TCP port 3128 from the Cloud Compliance instance.</p>
 <div class="paragraph">
-<p>This is required because the Cloud Compliance instance uses Cloud Manager as a proxy to access the internet.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This port is open by default on all new Cloud Manager instances, starting with version 3.7.5. It&#8217;s not open on Cloud Manager instances created prior to that version.
-</td>
-</tr>
-</table>
+<p><span class="image"><img src="./media/screenshot_compliance_volume_details.gif" alt="A screenshot of the View Details page in the scan status. This screenshot shows three volumes that aren&#8217;t being scanned because of network connectivity between Cloud Compliance and the volumes."></span></p>
 </div>
 </li>
 </ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="troubleshooting-errors">Troubleshooting errors</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If Cloud Manager fails to enable Cloud Compliance, the Compliance dashboard won&#8217;t display in the Compliance tab. The tab will look like it did before you tried to enable Cloud Compliance.</p>
-</div>
-<div class="paragraph">
-<p>If this happens, view deployment errors in the Timeline to investigate and correct the error. The following sections describe the most common errors.</p>
-</div>
-<div class="sect2">
-<h3 id="vcpu-quota-limit-in-azure">vCPU quota limit in Azure</h3>
-<div class="paragraph">
-<p>The timeline might display an error if the vCPU quota limit was reached in Azure.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Example error in the timeline</dt>
-<dd>
-<p>"The template deployment 'cloud-compliance-1576642249048-deployment' is not valid according to the validation procedure. The tracking id is 'f8c662ec-f556-423e-9e43-c4a6ea3c7424'. See inner errors for details. Code: InvalidTemplateDeployment Details: The operation couldn&#8217;t be completed as it results in exceeding quota limit of standardDSv3Family Cores. Maximum allowed: 10, Current in use: 0, Additional requested: 16. Read more about quota limits at https://aka.ms/AzurePerVMQuotaLimits. Submit a request for Quota increase using the link https://aka.ms/ProdportalCRP/?#create/Microsoft.Support/Parameters/%7B%22subId%22:%22bc48045a-c34b-4ad6-8367-6b1fc0d5e955%22,%22pesId%22:%2206bfd9d3-516b-d5c6-5802-169c800dec89%22,%22supportTopicId%22:%22e12e3d1d-7fa0-af33-c6d0-3c50df9658a3%22%7D."</p>
-</dd>
-<dt class="hdlist1">What caused the error</dt>
-<dd>
-<p>The vCPU quota limit was reached, so Azure wouldn&#8217;t allow creation of the Cloud Compliance instance.</p>
-</dd>
-<dt class="hdlist1">How to fix the error</dt>
-<dd>
-<p>Increase the vCPU quota limit in Azure.</p>
-<div class="paragraph">
-<p><a href="https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests" target="_blank" rel="noopener">Azure documentation: Increase limits by VM series</a></p>
-</div>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="vcpu-limit-in-aws">vCPU limit in AWS</h3>
-<div class="paragraph">
-<p>The timeline might display an error if the vCPU limit was reached in AWS.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Example error in the timeline</dt>
-<dd>
-<p>"You have requested more vCPU capacity than your current vCPU limit of 32 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit. (Service: AmazonEC2; Status Code: 400; Error Code: VcpuLimitExceeded; Request ID: 3d6a659f-289b-449e-82e9-e3f18e49d69a)"</p>
-</dd>
-<dt class="hdlist1">What caused the error</dt>
-<dd>
-<p>The vCPU limit was reached, so AWS wouldn&#8217;t allow creation of the Cloud Compliance instance.</p>
-</dd>
-<dt class="hdlist1">How to fix the error</dt>
-<dd>
-<p>Increase the vCPU limit in AWS.</p>
-<div class="paragraph">
-<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html" target="_blank" rel="noopener">AWS documentation: Amazon EC2 Service Limits</a></p>
-</div>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="timeout-error">Timeout error</h3>
-<div class="paragraph">
-<p>The timeline might display a timeout error if the right connections aren&#8217;t available.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Example error in the timeline</dt>
-<dd>
-<p>"Timed out"</p>
-</dd>
-<dt class="hdlist1">What caused the error</dt>
-<dd>
-<p>It&#8217;s either that Cloud Compliance and Cloud Manager can&#8217;t communicate with each other or that Cloud Compliance can&#8217;t access the internet.</p>
-</dd>
-<dt class="hdlist1">How to fix the error</dt>
-<dd>
-<p>Verify the following, while remembering that the Cloud Compliance instance gets deployed in the same subnet as Cloud Manager.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If Cloud Manager is installed on-prem, it deploys the Cloud Compliance instance in same VPC or VNet as the first Cloud Volumes ONTAP system in the request.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Ensure connectivity between Cloud Manager and Cloud Compliance.</p>
-<div class="paragraph">
-<p>The security group for Cloud Manager must allow inbound and outbound traffic over port 80 to and from the Cloud Compliance instance.</p>
-</div>
-</li>
-<li>
-<p>Ensure that Cloud Compliance can access the internet in one of the following ways:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Proxy</strong>: If you have defined a proxy through Cloud Manager settings, ensure that the Cloud Compliance instance can reach the proxy server.</p>
-</li>
-<li>
-<p><strong>Direct connection through Cloud Manager</strong>: If you don’t use a proxy, ensure that the security group for Cloud Manager allows inbound traffic over TCP port 3128 from the Cloud Compliance instance.</p>
-</li>
-<li>
-<p><strong>NAT</strong>: Ensure that the subnet for the Cloud Compliance instance is defined under a NAT Gateway.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</dd>
-</dl>
-</div>
 </div>
 </div>
 </div>

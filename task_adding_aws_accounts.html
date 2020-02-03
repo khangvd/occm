@@ -2,9 +2,9 @@
 
 <html lang="en">
   <head>
-  <title>Setting up and adding AWS accounts to Cloud Manager | NetApp Cloud Docs</title>
+  <title>Adding AWS credentials and subscriptions in Cloud Manager | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Setting up and adding AWS accounts to Cloud Manager | NetApp Cloud Docs" />
+  <meta property="og:title" content="Adding AWS credentials and subscriptions in Cloud Manager | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/task_adding_aws_accounts.html" />
 	<meta property="og:description" content="If you want to deploy Cloud Volumes ONTAP in different AWS accounts, then you need to provide the required permissions to those accounts and then add the det..." />
@@ -21,7 +21,7 @@
   <meta http-equiv="nss-product" content="OnCommand"/>
   
   <meta name="description" content="If you want to deploy Cloud Volumes ONTAP in different AWS accounts, then you need to provide the required permissions to those accounts and then add the det...">
-  <meta name="keywords" content=" permissions, aws, policy, iam, iam role, role, granting, policy, iam policy, iam user, access keys, arn, cloud provider accounts, aws, cloud provider profile, json, iam">
+  <meta name="keywords" content=" permissions, aws, policy, iam, iam role, role, granting, policy, iam policy, iam user, access keys, arn, cloud provider accounts, aws, cloud provider profile, json, iam, credentials, adding credentials, add credentials">
   
   
 
@@ -1006,11 +1006,11 @@
 
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Setting up and adding AWS accounts to Cloud Manager
+  <h1 class="n-doc__component-detail-heading">Adding AWS credentials and subscriptions in Cloud Manager
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_adding_aws_accounts.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Setting up and adding AWS accounts to Cloud Manager](https://docs.netapp.com/us-en/occm/task_adding_aws_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Adding AWS credentials and subscriptions in Cloud Manager](https://docs.netapp.com/us-en/occm/task_adding_aws_accounts.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -1018,7 +1018,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-03 15:52:26 +0000">09/03/2019</time>
+<time datetime="2020-02-03 13:30:11 +0000">02/03/2020</time>
 
 
 <span>Contributors
@@ -1038,7 +1038,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>If you want to deploy Cloud Volumes ONTAP in different AWS accounts, then you need to provide the required permissions and add the details to Cloud Manager. How you provide the permissions depends on whether you want to provide Cloud Manager with AWS keys or the ARN of a role in a trusted account.</p>
+<p>When you create a Cloud Volumes ONTAP system, you need to select the AWS credentials and subscription to use with that system. If you manage multiple AWS subscriptions, you can assign each one of them to different AWS credentials from the Credentials page.</p>
+</div>
+<div class="paragraph">
+<p>Before you add AWS credentials to Cloud Manager, you need to provide the required permissions to that account. The permissions enable Cloud Manager to deploy and manage Cloud Volumes ONTAP in that AWS account. How you provide the permissions depends on whether you want to provide Cloud Manager with AWS keys or the ARN of a role in a trusted account.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1047,7 +1050,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When you deploy Cloud Manager from Cloud Central, Cloud Manager automatically adds the AWS account in which you deployed Cloud Manager. An initial account is not added if you manually installed the Cloud Manager software on an existing system. <a href="concept_accounts_aws.html">Learn about AWS accounts and permissions</a>.
+When you deployed Cloud Manager from Cloud Central, Cloud Manager automatically added AWS credentials for the account in which you deployed Cloud Manager. This initial account is not added if you manually installed the Cloud Manager software on an existing system. <a href="concept_accounts_aws.html">Learn about AWS accounts and permissions</a>.
 </td>
 </tr>
 </table>
@@ -1102,7 +1105,7 @@ When you deploy Cloud Manager from Cloud Central, Cloud Manager automatically ad
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>The account now has the required permissions. <a href="#adding-aws-accounts-to-cloud-manager">You can now add it to Cloud Manager</a>.</p>
+<p>The account now has the required permissions. <a href="#adding-aws-credentials-to-cloud-manager">You can now add it to Cloud Manager</a>.</p>
 </div>
 </div>
 </div>
@@ -1166,42 +1169,76 @@ When you deploy Cloud Manager from Cloud Central, Cloud Manager automatically ad
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>The account now has the required permissions. <a href="#adding-aws-accounts-to-cloud-manager">You can now add it to Cloud Manager</a>.</p>
+<p>The account now has the required permissions. <a href="#adding-aws-credentials-to-cloud-manager">You can now add it to Cloud Manager</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="adding-aws-accounts-to-cloud-manager">Adding AWS accounts to Cloud Manager</h2>
+<h2 id="adding-aws-credentials-to-cloud-manager">Adding AWS credentials to Cloud Manager</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you provide an AWS account with the required permissions, you can add the account to Cloud Manager. This enables you to launch Cloud Volumes ONTAP systems in that account.</p>
+<p>After you provide an AWS account with the required permissions, you can add the credentials for that account to Cloud Manager. This enables you to launch Cloud Volumes ONTAP systems in that account.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>In the upper right of the Cloud Manager console, click the Settings icon, and select <strong>Cloud Provider &amp; Support Accounts</strong>.</p>
+<p>In the upper right of the Cloud Manager console, click the Settings icon, and select <strong>Credentials</strong>.</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_settings_icon.gif" alt="A screenshot that shows the Settings icon in the upper right of the Cloud Manager console."></span></p>
 </div>
 </li>
 <li>
-<p>Click <strong>Add New Account</strong> and select <strong>AWS</strong>.</p>
+<p>Click <strong>Add Credentials</strong> and select <strong>AWS</strong>.</p>
 </li>
 <li>
-<p>Choose whether you want to provide AWS keys or the ARN of a trusted IAM role.</p>
+<p>Provide AWS keys or the ARN of a trusted IAM role.</p>
 </li>
 <li>
-<p>Confirm that the policy requirements have been met and then click <strong>Create Account</strong>.</p>
+<p>Confirm that the policy requirements have been met and click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>Choose the pay-as-you-go subscription that you want to associate with the credentials.</p>
+<div class="paragraph">
+<p>To create a pay-as-you-go Cloud Volumes ONTAP system, AWS credentials must be associated with a subscription to Cloud Volumes ONTAP from the AWS Marketplace.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Go</strong>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>You can now switch to another account from the Details and Credentials page when creating a new working environment:</p>
+<p>You can now switch to a different set of credentials from the Details and Credentials page when creating a new working environment:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_accounts_switch_aws.gif" alt="A screenshot that shows selecting between cloud provider accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="assigning-an-aws-subscription-to-credentials">Assigning an AWS subscription to credentials</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you haven&#8217;t yet added an AWS subscription to a set of AWS credentials, you can do so any time from the Credentials page. To create a pay-as-you-go Cloud Volumes ONTAP system, AWS credentials must be associated with a subscription to Cloud Volumes ONTAP from the AWS Marketplace.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>In the upper right of the Cloud Manager console, click the Settings icon, and select <strong>Credentials</strong>.</p>
+</li>
+<li>
+<p>From the menu, click <strong>Add Subscription</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_aws_add_subscription.gif" alt="A screenshot of the Credentials page where you can add a subscription to AWS credentials from the menu."></span></p>
+</div>
+</li>
+<li>
+<p>Follow the prompts to add the subscription.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>

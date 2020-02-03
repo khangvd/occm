@@ -15,14 +15,14 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_accounts_aws.html</loc>
       
-      <lastmod>2019-09-03T15:52:26+00:00</lastmod>
+      <lastmod>2020-02-03T13:28:46+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_accounts_azure.html</loc>
       
-      <lastmod>2019-09-03T15:52:26+00:00</lastmod>
+      <lastmod>2020-02-03T13:28:46+00:00</lastmod>
       
     </url>
   
@@ -50,28 +50,28 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_cloud_compliance.html</loc>
       
-      <lastmod>2020-01-23T18:37:19+00:00</lastmod>
+      <lastmod>2020-01-28T17:18:13+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_data_tiering.html</loc>
       
-      <lastmod>2020-01-08T15:35:59+00:00</lastmod>
+      <lastmod>2020-02-03T13:32:45+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_evaluating.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_ha.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -92,21 +92,21 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_licensing.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_overview.html</loc>
       
-      <lastmod>2019-08-05T13:07:24+00:00</lastmod>
+      <lastmod>2019-08-05T13:08:05+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_performance.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -120,28 +120,28 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_storage.html</loc>
       
-      <lastmod>2019-12-16T15:47:27+00:00</lastmod>
+      <lastmod>2020-02-03T13:32:45+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_storage_management.html</loc>
       
-      <lastmod>2019-10-02T12:51:41+00:00</lastmod>
+      <lastmod>2020-02-03T13:32:45+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/concept_worm.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/faq_cloud_compliance.html</loc>
       
-      <lastmod>2020-01-23T18:37:19+00:00</lastmod>
+      <lastmod>2020-01-28T17:18:13+00:00</lastmod>
       
     </url>
   
@@ -169,7 +169,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_before.html</loc>
       
-      <lastmod>2019-09-03T17:11:05+00:00</lastmod>
+      <lastmod>2019-09-03T17:11:18+00:00</lastmod>
       
     </url>
   
@@ -211,28 +211,28 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_infrastructure_as_code.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_integration_faq.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_issues.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_legal_notices.html</loc>
       
-      <lastmod>2020-01-08T15:54:24+00:00</lastmod>
+      <lastmod>2020-02-03T13:30:44+00:00</lastmod>
       
     </url>
   
@@ -274,21 +274,21 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_new_occm.html</loc>
       
-      <lastmod>2020-01-08T20:36:26+00:00</lastmod>
+      <lastmod>2020-02-03T13:30:35+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_permissions.html</loc>
       
-      <lastmod>2020-01-08T15:36:27+00:00</lastmod>
+      <lastmod>2020-02-03T13:30:27+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_regions.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -309,42 +309,42 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/reference_user_roles.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm//search.html</loc>
       
-      <lastmod>2020-01-30T15:07:15+00:00</lastmod>
+      <lastmod>2020-02-03T13:57:21+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_adding_aws_accounts.html</loc>
       
-      <lastmod>2019-09-03T15:52:26+00:00</lastmod>
+      <lastmod>2020-02-03T13:30:11+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_adding_azure_accounts.html</loc>
       
-      <lastmod>2019-10-07T01:39:32+00:00</lastmod>
+      <lastmod>2020-02-03T13:30:11+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_adding_gcp_accounts.html</loc>
       
-      <lastmod>2020-01-08T15:35:10+00:00</lastmod>
+      <lastmod>2020-02-03T13:30:11+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_adding_nss_accounts.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2020-02-03T13:30:11+00:00</lastmod>
       
     </url>
   
@@ -365,7 +365,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_configuring_proxy.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -379,14 +379,14 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_connecting_to_otc.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_controlling_private_data.html</loc>
       
-      <lastmod>2019-12-16T13:26:41+00:00</lastmod>
+      <lastmod>2020-01-28T17:29:01+00:00</lastmod>
       
     </url>
   
@@ -400,21 +400,21 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_deploying_gcp.html</loc>
       
-      <lastmod>2020-01-08T15:36:50+00:00</lastmod>
+      <lastmod>2020-02-03T13:29:39+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_deploying_otc_aws.html</loc>
       
-      <lastmod>2020-01-08T15:36:50+00:00</lastmod>
+      <lastmod>2020-02-03T13:29:39+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_deploying_otc_azure.html</loc>
       
-      <lastmod>2020-01-08T15:36:50+00:00</lastmod>
+      <lastmod>2020-02-03T13:29:39+00:00</lastmod>
       
     </url>
   
@@ -435,7 +435,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_encrypting_volumes.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -449,7 +449,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_generating_compliance_reports.html</loc>
       
-      <lastmod>2019-12-05T17:07:32+00:00</lastmod>
+      <lastmod>2020-01-28T17:18:13+00:00</lastmod>
       
     </url>
   
@@ -470,7 +470,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_getting_started_compliance.html</loc>
       
-      <lastmod>2020-01-23T18:37:46+00:00</lastmod>
+      <lastmod>2020-02-03T13:37:33+00:00</lastmod>
       
     </url>
   
@@ -498,7 +498,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_installing_https_cert.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -526,7 +526,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_logging_in.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -540,7 +540,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_manage_cvs_aws.html</loc>
       
-      <lastmod>2019-09-03T17:11:05+00:00</lastmod>
+      <lastmod>2019-09-03T17:11:18+00:00</lastmod>
       
     </url>
   
@@ -554,14 +554,14 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_managing_compliance.html</loc>
       
-      <lastmod>2019-12-05T17:07:32+00:00</lastmod>
+      <lastmod>2020-01-28T17:18:13+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_managing_state.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -582,7 +582,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_monitoring_costs.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -603,7 +603,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_protecting_ransomware.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -617,21 +617,21 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_registering.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_removing.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_renewing_cert.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -673,21 +673,21 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_setting_up_kms.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_setting_up_ontap_cloud.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_setting_up_transit_gateway.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   
@@ -708,7 +708,7 @@
     <url>
       <loc>https://docs.netapp.com/ja-jp/occm/task_uninstalling.html</loc>
       
-      <lastmod>2019-07-17T16:50:58+00:00</lastmod>
+      <lastmod>2019-07-18T13:18:52+00:00</lastmod>
       
     </url>
   

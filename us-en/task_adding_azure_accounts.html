@@ -1018,7 +1018,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-07 01:39:32 +0000">10/07/2019</time>
+<time datetime="2020-02-03 13:30:11 +0000">02/03/2020</time>
 
 
 <span>Contributors
@@ -1038,7 +1038,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>If you want to deploy Cloud Volumes ONTAP in different Azure accounts, then you need to provide the required permissions to those accounts and then add details about the accounts to Cloud Manager.</p>
+<p>If you want to deploy Cloud Volumes ONTAP in different Azure accounts, then you need to provide the required permissions to those accounts and then add the account credentials to Cloud Manager.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1324,35 +1324,35 @@ When you add the account to Cloud Manager, Cloud Manager refers to the client se
 </div>
 </div>
 <div class="sect1">
-<h2 id="adding-azure-accounts-to-cloud-manager">Adding Azure accounts to Cloud Manager</h2>
+<h2 id="adding-azure-credentials-to-cloud-manager">Adding Azure credentials to Cloud Manager</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you provide an Azure account with the required permissions, you can add the account to Cloud Manager. This enables you to launch Cloud Volumes ONTAP systems in that account.</p>
+<p>After you provide an Azure account with the required permissions, you can add the credentials for that account to Cloud Manager. This enables you to launch Cloud Volumes ONTAP systems in that account.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>In the upper right of the Cloud Manager console, click the Settings icon, and select <strong>Cloud Provider &amp; Support Accounts</strong>.</p>
+<p>In the upper right of the Cloud Manager console, click the Settings icon, and select <strong>Credentials</strong>.</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_settings_icon.gif" alt="A screenshot that shows the Settings icon in the upper right of the Cloud Manager console."></span></p>
 </div>
 </li>
 <li>
-<p>Click <strong>Add New Account</strong> and select <strong>Microsoft Azure</strong>.</p>
+<p>Click <strong>Add Credentials</strong> and select <strong>Microsoft Azure</strong>.</p>
 </li>
 <li>
 <p>Enter information about the Azure Active Directory service principal that grants the required permissions:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Application ID: See <a href="#ids">Getting the application ID and directory ID</a>.</p>
+<p>Application (client) ID: See <a href="#ids">Getting the application ID and directory ID</a>.</p>
 </li>
 <li>
-<p>Tenant ID (or Directory ID): See <a href="#ids">Getting the application ID and directory ID</a>.</p>
+<p>Directory (tenant) ID: See <a href="#ids">Getting the application ID and directory ID</a>.</p>
 </li>
 <li>
-<p>Application Key (the client secret): See <a href="#creating-a-client-secret">Creating a client secret</a>.</p>
+<p>Client Secret: See <a href="#creating-a-client-secret">Creating a client secret</a>.</p>
 </li>
 </ul>
 </div>
@@ -1364,7 +1364,7 @@ When you add the account to Cloud Manager, Cloud Manager refers to the client se
 </div>
 <div class="paragraph">
 <div class="title">Result</div>
-<p>You can now switch to another account from the Details and Credentials page when creating a new working environment:</p>
+<p>You can now switch to different set of credentials from the Details and Credentials page when creating a new working environment:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_accounts_switch_azure.gif" alt="A screenshot that shows selecting between cloud provider accounts after clicking Switch Account in the Details &amp; Credentials page."></span></p>

@@ -1018,7 +1018,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-01-08 20:36:26 +0000">01/08/2020</time>
+<time datetime="2020-02-03 13:30:35 +0000">02/03/2020</time>
 
 
 <span>Contributors
@@ -1056,6 +1056,128 @@ Looking for a previous release?<br>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-manager-3-8-1-2-feb-2020">Cloud Manager 3.8.1 (2 Feb 2020)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#cloud-compliance-enhancements">Cloud Compliance enhancements</a></p>
+</li>
+<li>
+<p><a href="#enhancements-to-accounts-and-subscriptions">Enhancements to accounts and subscriptions</a></p>
+</li>
+<li>
+<p><a href="#timeline-enhancements">Timeline enhancements</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="cloud-compliance-enhancements">Cloud Compliance enhancements</h3>
+<div class="paragraph">
+<p>The following enhancements are now available for Cloud Compliance.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Support for Azure NetApp Files</strong></p>
+<div class="paragraph">
+<p>We&#8217;re pleased to announce that Cloud Compliance can now scan Azure NetApp Files to identify personal and sensitive data that resides on volumes.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_getting_started_compliance.html">Learn how to get started</a>.</p>
+</div>
+</li>
+<li>
+<p><strong>Scan status</strong></p>
+<div class="paragraph">
+<p>Cloud Compliance now shows you a scan status for each CIFS and NFS volume, including error messages that you can use to correct any issues.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_cloud_compliance_status.gif" alt="screenshot cloud compliance status"></span></p>
+</div>
+</li>
+<li>
+<p><strong>Filter dashboard by working environment</strong></p>
+<div class="paragraph">
+<p>You can now filter the contents of the Cloud Compliance dashboard to see compliance data for specific working environments.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_cloud_compliance_filter.gif" alt="screenshot cloud compliance filter"></span></p>
+</div>
+</li>
+<li>
+<p><strong>New personal data type</strong></p>
+<div class="paragraph">
+<p>Cloud Compliance can now identify a California Driver&#8217;s License when scanning data.</p>
+</div>
+</li>
+<li>
+<p><strong>Support for additional categories</strong></p>
+<div class="paragraph">
+<p>Three additional categories are supported: Application data, logs, and database and index files.</p>
+</div>
+<div class="paragraph">
+<p><a href="task_controlling_private_data.html#categories">Learn more about categories</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancements-to-accounts-and-subscriptions">Enhancements to accounts and subscriptions</h3>
+<div class="paragraph">
+<p>We&#8217;ve made it easier to select an AWS account or GCP project and an associated marketplace subscription for a pay-as-you-go Cloud Volumes ONTAP system. These enhancements help to ensure that you&#8217;re paying from the right account or project.</p>
+</div>
+<div class="paragraph">
+<p>For example, when you create a system in AWS, click <strong>Edit Credentials</strong> if you don&#8217;t want to use the default account and subscription:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_accounts_select_aws.gif" alt="A screenshot of the Details &amp; Credentials page in the working environment wizard that shows the Edit Credentials button."></span></p>
+</div>
+<div class="paragraph">
+<p>From there, you can choose the account credentials that you want to use and the associated AWS marketplace subscription. You can even add a marketplace subscription, if you need to.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_accounts_aws.gif" alt="A screenshot of the Edit Account and Add Subscription dialog box. This dialog box enables you to choose a subscription and associate the credentials with a subscription."></span></p>
+</div>
+<div class="paragraph">
+<p>And if you manage multiple AWS subscriptions, you can assign each one of them to different AWS credentials from the Credentials page in the settings:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_aws_add_subscription.gif" alt="A screenshot of the Credentials page where you can add a subscription to AWS credentials from the menu."></span></p>
+</div>
+<div class="paragraph">
+<p><a href="task_adding_aws_accounts.html">Learn how to manage AWS credentials in Cloud Manager</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="timeline-enhancements">Timeline enhancements</h3>
+<div class="paragraph">
+<p>The Timeline was enhanced to provide you with more information about the NetApp cloud services that you use.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Timeline now shows actions for all Cloud Manager systems within the same Cloud Central account</p>
+</li>
+<li>
+<p>You can now find information more easily by filtering, searching, and adding and removing columns</p>
+</li>
+<li>
+<p>You can now download the timeline data in CSV format</p>
+</li>
+<li>
+<p>In the future, the Timeline will show actions for each NetApp cloud service that you use (but you can filter the information down to a single service)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_timeline.gif" alt="A screenshot of the Timeline that appears in Cloud Manager. The Timeline shows details about the actions that have taken place in Cloud Manager."></span></p>
+</div>
 </div>
 </div>
 </div>

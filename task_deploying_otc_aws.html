@@ -1018,7 +1018,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-01-08 15:36:50 +0000">01/08/2020</time>
+<time datetime="2020-02-03 13:29:39 +0000">02/03/2020</time>
 
 
 <span>Contributors
@@ -1091,7 +1091,7 @@ If multiple IAM users work in the same AWS account, then each user needs to subs
 </div>
 </div>
 <div class="sect1">
-<h2 id="launching-a-single-cloud-volumes-ontap-system-in-aws">Launching a single Cloud Volumes ONTAP system in AWS</h2>
+<h2 id="launching-a-single-node-cloud-volumes-ontap-system-in-aws">Launching a single-node Cloud Volumes ONTAP system in AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you want to launch Cloud Volumes ONTAP in AWS, you need to create a new working environment in Cloud Manager.</p>
@@ -1124,7 +1124,7 @@ If multiple IAM users work in the same AWS account, then each user needs to subs
 <p><strong>Define Your Working Environment</strong>: Select <strong>Amazon Web Services</strong> and <strong>Cloud Volumes ONTAP</strong>.</p>
 </li>
 <li>
-<p><strong>Details and Credentials</strong>: Optionally change the AWS account and marketplace subscription, enter a working environment name, add tags if needed, and then enter a password.</p>
+<p><strong>Details and Credentials</strong>: Optionally change the AWS credentials and subscription, enter a working environment name, add tags if needed, and then enter a password.</p>
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
@@ -1141,12 +1141,14 @@ If multiple IAM users work in the same AWS account, then each user needs to subs
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different account if you <a href="task_adding_aws_accounts.html">added additional AWS accounts to Cloud Manager</a>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Marketplace Subscription</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select a different subscription if you want to change the AWS account from which you get charged. To add a new subscription, <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">go to the offering in the AWS Marketplace</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Credentials</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose the AWS credentials and marketplace subscription to use with this Cloud Volumes ONTAP system.<br>
+<br>
+To create a pay-as-you-go Cloud Volumes ONTAP system, you need to select AWS credentials that are associated with a subscription to Cloud Volumes ONTAP from the AWS Marketplace.<br>
+<br>
+Click <strong>Add Subscription</strong> to associate the selected credentials with a subscription.<br>
+<br>
+<a href="task_adding_aws_accounts.html">Learn how to add additional AWS credentials to Cloud Manager</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Working Environment Name</p></td>
@@ -1468,7 +1470,7 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 <p><strong>Define Your Working Environment</strong>: Select <strong>Amazon Web Services</strong> and <strong>Cloud Volumes ONTAP HA</strong>.</p>
 </li>
 <li>
-<p><strong>Details and Credentials</strong>: Optionally change the AWS account and marketplace subscription, enter a working environment name, add tags if needed, and then enter a password.</p>
+<p><strong>Details and Credentials</strong>: Optionally change the AWS credentials and subscription, enter a working environment name, add tags if needed, and then enter a password.</p>
 <div class="paragraph">
 <p>Some of the fields in this page are self-explanatory. The following table describes fields for which you might need guidance:</p>
 </div>
@@ -1485,12 +1487,14 @@ If you configure AWS Managed Microsoft AD as the AD server for Cloud Volumes ONT
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You can choose a different account if you <a href="task_adding_aws_accounts.html">added additional AWS accounts to Cloud Manager</a>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Marketplace Subscription</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select a different subscription if you want to change the AWS account from which you get charged. To add a new subscription, <a href="https://aws.amazon.com/marketplace/pp/B07QX2QLXX" target="_blank" rel="noopener">go to the offering in the AWS Marketplace</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Credentials</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose the AWS credentials and marketplace subscription to use with this Cloud Volumes ONTAP system.<br>
+<br>
+To create a pay-as-you-go Cloud Volumes ONTAP system, you need to select AWS credentials that are associated with a subscription to Cloud Volumes ONTAP from the AWS Marketplace.<br>
+<br>
+Click <strong>Add Subscription</strong> to associate the selected credentials with a subscription.<br>
+<br>
+<a href="task_adding_aws_accounts.html">Learn how to add additional AWS credentials to Cloud Manager</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Working Environment Name</p></td>
