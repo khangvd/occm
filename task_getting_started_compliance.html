@@ -1018,7 +1018,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-02-03 13:37:33 +0000">02/03/2020</time>
+<time datetime="2020-02-05 13:19:02 +0000">02/05/2020</time>
 
 
 <span>Contributors
@@ -1104,7 +1104,7 @@
 <dl>
 <dt class="hdlist1">Enable outbound internet access</dt>
 <dd>
-<p>Cloud Compliance requires outbound internet access. If your virtual network uses a proxy server for internet access, ensure that the Cloud Compliance instance has outbound internet access to contact the following endpoints:</p>
+<p>Cloud Compliance requires outbound internet access. If your virtual network uses a proxy server for internet access, ensure that the Cloud Compliance instance has outbound internet access to contact the following endpoints. Note that Cloud Manager deploys the Cloud Compliance instance in the same subnet as Cloud Manager.</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 43%;">
@@ -1166,10 +1166,6 @@ https://cognito-identity.us-east-1.amazonaws.com</p></td>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1">Set up discovery of Azure NetApp Files</dt>
-<dd>
-<p>Before you can scan volumes for Azure NetApp Files, <a href="task_manage_anf.html">Cloud Manager must be set up to discover the configuration</a>.</p>
-</dd>
 <dt class="hdlist1">Ensure that Cloud Manager can access Cloud Compliance</dt>
 <dd>
 <p>Ensure connectivity between Cloud Manager and the Cloud Compliance instance:</p>
@@ -1202,29 +1198,9 @@ This port is open by default on all new Cloud Manager instances, starting with v
 </ul>
 </div>
 </dd>
-<dt class="hdlist1">Ensure that Cloud Manager has the required permissions</dt>
+<dt class="hdlist1">Set up discovery of Azure NetApp Files</dt>
 <dd>
-<p>Ensure that Cloud Manager has permissions to deploy resources and create security groups for the Cloud Compliance instance. You can find the latest Cloud Manager permissions in <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">the policies provided by NetApp</a>.</p>
-</dd>
-<dt class="hdlist1">Check your vCPU limits</dt>
-<dd>
-<p>Ensure that your cloud provider&#8217;s vCPU limit allows for the deployment of an instance with 16 cores. You&#8217;ll need to verify the vCPU limit for the relevant instance family in the region where Cloud Manager is running.</p>
-<div class="paragraph">
-<p>In AWS, the instance family is <em>On-Demand Standard instances</em>. In Azure, the instance family is <em>Standard DSv3 Family</em>.</p>
-</div>
-<div class="paragraph">
-<p>For more details on vCPU limits, see the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html" target="_blank" rel="noopener">AWS documentation: Amazon EC2 Service Limits</a></p>
-</li>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quotas" target="_blank" rel="noopener">Azure documentation: Virtual machine vCPU quotas</a></p>
-</li>
-</ul>
-</div>
+<p>Before you can scan volumes for Azure NetApp Files, <a href="task_manage_anf.html">Cloud Manager must be set up to discover the configuration</a>.</p>
 </dd>
 <dt class="hdlist1">Ensure that you can keep Cloud Compliance running</dt>
 <dd>
