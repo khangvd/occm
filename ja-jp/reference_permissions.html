@@ -1034,7 +1034,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-02-17 00:44:53 +0000">02/17/2020</time>
+<time datetime="2020-02-24 16:33:38 +0000">02/24/2020</time>
 
 
 <span>Contributors
@@ -1198,8 +1198,13 @@
 "s3:GetLifecycleConfiguration",<br>
 "s3:PutLifecycleConfiguration",<br>
 "s3:PutBucketTagging",<br>
-"s3:ListBucketVersions",</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manages the S3 bucket that a Cloud Volumes ONTAP system uses as a capacity tier.</p></td>
+"s3:ListBucketVersions",<br>
+"s3:GetBucketPolicyStatus",<br>
+"s3:GetBucketPublicAccessBlock",<br>
+"s3:GetBucketAcl",<br>
+"s3:GetBucketPolicy",<br>
+"s3:PutBucketPublicAccessBlock"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manages the S3 bucket that a Cloud Volumes ONTAP system uses as a capacity tier for data tiering.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">"kms:List*",<br>
@@ -1232,7 +1237,12 @@
 "s3:ListBucket",<br>
 "s3:ListAllMyBuckets",<br>
 "s3:GetBucketTagging",<br>
-"s3:GetBucketLocation"</p></td>
+"s3:GetBucketLocation"<br>
+"s3:GetBucketPolicyStatus",<br>
+"s3:GetBucketPublicAccessBlock",<br>
+"s3:GetBucketAcl",<br>
+"s3:GetBucketPolicy",<br>
+"s3:PutBucketPublicAccessBlock"</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager uses these permissions when you enable the Backup to S3 service.</p></td>
 </tr>
 </tbody>
