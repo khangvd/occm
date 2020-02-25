@@ -2,13 +2,13 @@
 
 <html lang="en">
   <head>
-  <title>Roles | NetApp Cloud Docs</title>
+  <title>Getting started with Cloud Compliance for Amazon S3 | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Roles | NetApp Cloud Docs" />
+  <meta property="og:title" content="Getting started with Cloud Compliance for Amazon S3 | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/occm/reference_user_roles.html" />
-	<meta property="og:description" content="The Account Admin and Workspace Admin roles provide specific permissions to users." />
-  <meta property="og:image" content="https://docs.netapp.com/occm/images/logo-tophat-social.png" />
+	<meta property="og:url" content="https://docs.netapp.com/occm/en/task_scanning_s3.html" />
+	<meta property="og:description" content="Complete a few steps to get started with Cloud Compliance for Amazon S3." />
+  <meta property="og:image" content="https://docs.netapp.com/occm/en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -20,19 +20,17 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="The Account Admin and Workspace Admin roles provide specific permissions to users.">
-  <meta name="keywords" content=" user, users, roles, role, task, permission, permissions, tasks, admin, Account Admin, Workspace Admin">
+  <meta name="description" content="Complete a few steps to get started with Cloud Compliance for Amazon S3.">
+  <meta name="keywords" content=" cloud compliance, get started, enable cloud compliance, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance, amazon s3, aws s3">
   
-  
-  <meta name="translate" content="false"/>
   
 
   <!-- Icons -->
-  <link rel="icon" href="/occm/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/occm/en/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed -->
   
-  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/occm/en/feed.xml">
   
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -41,23 +39,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/occm/common/css/esb.min.css">
-  <link rel="stylesheet" href="/occm/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/occm/common/css/doc.css">
-  <link rel="stylesheet" href="/occm/common/css/doc-components.css">
+  <link rel="stylesheet" href="/occm/en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/occm/en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/occm/en/common/css/doc.css">
+  <link rel="stylesheet" href="/occm/en/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/occm/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/occm/en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/en/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/occm/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/occm/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/occm/en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/occm/en/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/occm/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/occm/en/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/occm/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/en/css/netapp.css' type='text/css'>
 
   
 
@@ -66,23 +64,23 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/occm/js/na-search.js'></script>
+    <script src='/occm/en/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/occm/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/occm/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/occm/en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/occm/en/js/na-pagenav.js'></script>
   
 
-  <link rel='stylesheet' href='/occm/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/occm/css/prism-netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/occm/en/css/prism-netapp.css' type='text/css'>
 
-  <script src='/occm/js/clouddocs.js'></script>
-  <script src='/occm/js/s_code_impl.js'></script>
-  <script src='/occm/js/jquery.navgoco.min.js'></script>
+  <script src='/occm/en/js/clouddocs.js'></script>
+  <script src='/occm/en/js/s_code_impl.js'></script>
+  <script src='/occm/en/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/occm/js/toc.js'></script>
-  <script src='/occm/js/customscripts.js'></script>
+  <script src='/occm/en/js/toc.js'></script>
+  <script src='/occm/en/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -169,7 +167,7 @@
       <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
       <ul class="n-off-canvas-menu__property-navigation-list">
         <li class="n-off-canvas-menu__property-navigation-list-item ">
-          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+          <a href="https://docs.netapp.com/en/" class="n-off-canvas-menu__property-navigation-link">
             Home
           </a>
           <div class="n-off-canvas-menu__child-menu">
@@ -210,19 +208,19 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/occm/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/occm/en/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
-        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/en/">
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/occm/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/occm/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/occm/en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -240,10 +238,10 @@
           <ul class="n-property-navigation-bar__utils-list">
             <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
               <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
-                <span class="ie-i18n-lang">English</span>
+                <span class="ie-i18n-lang"></span>
                 <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
                   <title>globe</title>
-                  <use xlink:href="/occm/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                  <use xlink:href="/occm/en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
                 </svg>
               </a>
             </li>
@@ -323,7 +321,7 @@
             </li>
           </ul>
           <div class="menu__footer">
-            <p>Current Language: English
+            <p>Current Language: 
             </p>
           </div>
         </div>
@@ -971,7 +969,7 @@
   
 
   
-    <li class="active"><a href="reference_user_roles.html">User roles</a></li>
+    <li><a href="reference_user_roles.html">User roles</a></li>
   
 
   
@@ -1008,11 +1006,11 @@
 
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Roles
+  <h1 class="n-doc__component-detail-heading">Getting started with Cloud Compliance for Amazon S3
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/reference_user_roles.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Roles](https://docs.netapp.com/us-en/occm/reference_user_roles.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/blob/master/task_scanning_s3.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/occm/issues/new?body=Page%3A%20[Getting started with Cloud Compliance for Amazon S3](https://docs.netapp.com/en/occm/task_scanning_s3.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -1020,7 +1018,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-06 17:09:37 +0000">09/06/2019</time>
+<time datetime="2020-02-25 15:44:12 +0000">02/25/2020</time>
 
 
 <span>Contributors
@@ -1037,105 +1035,219 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>The Account Admin and Workspace Admin roles provide specific permissions to users.</p>
+<p>Complete a few steps to get started with Cloud Compliance for Amazon S3.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reviewing-prerequisites">Reviewing prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Review the following prerequisites to make sure that you have a supported configuration before you enable Cloud Compliance.</p>
+</div>
+<div class="paragraph">
+<p>The first three prerequisites are specific to scanning S3 buckets.</p>
+</div>
+<div id="policy-requirements" class="dlist">
+<dl>
+<dt class="hdlist1">Ensure that Cloud Manager is in the same account as your S3 buckets</dt>
+<dd>
+<p>Cloud Manager must be running in the AWS account that has the S3 buckets that you want to scan. Cloud Manager automatically discovers the S3 buckets and displays them in an Amazon S3 working environment.</p>
+</dd>
+<dt class="hdlist1">Set up an IAM role for the Cloud Compliance instance</dt>
+<dd>
+<p>Cloud Compliance needs permissions to connect to the S3 buckets in your account and to scan them. Set up an IAM role that includes the permissions listed below. Cloud Manager prompts you to select an IAM role when you enable Cloud Compliance on the Amazon S3 working environment.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The AWS-managed policy <em>AmazonS3ReadOnlyAccess</em> includes these required permissions.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Provide connectivity from Cloud Compliance to Amazon S3</dt>
+<dd>
+<p>Cloud Compliance needs a connection to Amazon S3. The best way to provide that connection is through a VPC Endpoint to the S3 service. For instructions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint" target="_blank" rel="noopener">AWS Documentation: Creating a Gateway Endpoint</a>.</p>
+<div class="paragraph">
+<p>When you create the VPC Endpoint, be sure to select the region, VPC, and route table that corresponds to the Cloud Compliance instance. You must also modify the security group to add an outbound HTTPS rule that enables traffic to the S3 endpoint. Otherwise, Cloud Compliance can&#8217;t connect to the S3 service.</p>
+</div>
+<div class="paragraph">
+<p>If you experience any issues, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/" target="_blank" rel="noopener">AWS Support Knowledge Center: Why can’t I connect to an S3 bucket using a gateway VPC endpoint?</a></p>
+</div>
+<div class="paragraph">
+<p>An alternative is to provide the connection by using a NAT Gateway.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can&#8217;t use a proxy to get to S3 over the internet.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The remaining prerequisites apply to Cloud Compliance in general, whether you&#8217;re scanning Amazon S3, Cloud Volumes ONTAP, or Azure NetApp Files.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Enable outbound internet access</dt>
+<dd>
+<p>Cloud Compliance requires outbound internet access. If your virtual network uses a proxy server for internet access, ensure that the Cloud Compliance instance has outbound internet access to contact the following endpoints. Note that Cloud Manager deploys the Cloud Compliance instance in the same subnet as Cloud Manager.</p>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 34%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 43%;">
+<col style="width: 57%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Task</th>
-<th class="tableblock halign-left valign-top">Account Admin</th>
-<th class="tableblock halign-left valign-top">Workspace Admin</th>
+<th class="tableblock halign-left valign-top">Endpoints</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manage working environments</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for associated workspaces</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://cloudmanager.cloud.netapp.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with the Cloud Manager service, which includes Cloud Central accounts.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View data replication status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for associated workspaces</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication with NetApp Cloud Central for centralized user authentication.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View the timeline</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, for associated workspaces</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://cloud-compliance-support-netapp.s3.us-west-1.amazonaws.com<br>
+https://hub.docker.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides access to software images, manifests, and templates.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete working environments</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://kinesis.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables NetApp to stream data from audit records.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Connect Kubernetes clusters to Cloud Volumes ONTAP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Receive the Cloud Volumes ONTAP report</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Cloud Central accounts</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manage cloud provider accounts</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modify Cloud Manager settings</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View and manage the Support Dashboard</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Remove working environments from Cloud Manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update Cloud Manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Install an HTTPS certificate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set up Active Directory</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://cognito-idp.us-east-1.amazonaws.com<br>
+https://cognito-identity.us-east-1.amazonaws.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables Cloud Compliance to access and download manifests and templates, and to send logs and metrics.</p></td>
 </tr>
 </tbody>
 </table>
+</dd>
+<dt class="hdlist1">Ensure that Cloud Manager has the required permissions</dt>
+<dd>
+<p>Ensure that Cloud Manager has permissions to deploy resources and create security groups for the Cloud Compliance instance. You can find the latest Cloud Manager permissions in <a href="https://mysupport.netapp.com/info/web/ECMP11022837.html" target="_blank" rel="noopener">the policies provided by NetApp</a>.</p>
+</dd>
+<dt class="hdlist1">Check your vCPU limits</dt>
+<dd>
+<p>Ensure that your cloud provider&#8217;s vCPU limit allows for the deployment of an instance with 16 cores. You&#8217;ll need to verify the vCPU limit for the relevant instance family in the region where Cloud Manager is running.</p>
+<div class="paragraph">
+<p>In AWS, the instance family is <em>On-Demand Standard instances</em>. In Azure, the instance family is <em>Standard DSv3 Family</em>.</p>
+</div>
+<div class="paragraph">
+<p>For more details on vCPU limits, see the following:</p>
+</div>
 <div class="ulist">
-<div class="title">Related links</div>
 <ul>
 <li>
-<p><a href="task_setting_up_cloud_central_accounts.html">Setting up workspaces and users in the Cloud Central account</a></p>
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html" target="_blank" rel="noopener">AWS documentation: Amazon EC2 Service Limits</a></p>
 </li>
 <li>
-<p><a href="task_managing_cloud_central_accounts.html">Managing workspaces and users in the Cloud Central account</a></p>
+<p><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quotas" target="_blank" rel="noopener">Azure documentation: Virtual machine vCPU quotas</a></p>
 </li>
 </ul>
+</div>
+</dd>
+<dt class="hdlist1">Ensure that Cloud Manager can access Cloud Compliance</dt>
+<dd>
+<p>Ensure connectivity between Cloud Manager and the Cloud Compliance instance:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The security group for Cloud Manager must allow inbound and outbound traffic over port 80 to and from the Cloud Compliance instance.</p>
+<div class="paragraph">
+<p>This connection enables deployment of the Cloud Compliance instance and enables you to view information in the Compliance tab.</p>
+</div>
+</li>
+<li>
+<p>If your AWS network doesn’t use a NAT or proxy for internet access, modify the security group for Cloud Manager to allow inbound traffic over TCP port 3128 from the Cloud Compliance instance.</p>
+<div class="paragraph">
+<p>This is required because the Cloud Compliance instance uses Cloud Manager as a proxy to access the internet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This port is open by default on all new Cloud Manager instances, starting with version 3.7.5. It&#8217;s not open on Cloud Manager instances created prior to that.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Ensure that you can keep Cloud Compliance running</dt>
+<dd>
+<p>The Cloud Compliance instance needs to stay on to continuously scan your data.</p>
+</dd>
+<dt class="hdlist1">Ensure web browser connectivity to Cloud Compliance</dt>
+<dd>
+<p>After Cloud Compliance is enabled, ensure that users access the Cloud Manager interface from a host that has a connection to the Cloud Compliance instance.</p>
+<div class="paragraph">
+<p>The Cloud Compliance instance uses a private IP address to ensure that the indexed data isn&#8217;t accessible to the internet. As a result, the web browser that you use to access Cloud Manager must have a connection to that private IP address. That connection can come from a direct connection to AWS or Azure (for example, a VPN), or from a host that&#8217;s inside the same network as the Cloud Compliance instance.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you&#8217;re accessing Cloud Manager from a public IP address, then your web browser probably isn&#8217;t running on a host inside the network.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 
 
@@ -1179,7 +1291,7 @@
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -1188,7 +1300,7 @@
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -1198,7 +1310,7 @@
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -1207,7 +1319,7 @@
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/occm/en/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -1216,13 +1328,13 @@
             </div>
             <div class="n-footer__bottom-right">
               <div class="n-footer__copyright">
-                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+                <a href="https://docs.netapp.com/en/contribute/" class="n-footer__copyright-link">Contribute</a>
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
               </div>
               <div class="n-footer__copyright">
-                <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright-link">Announcements</a>
+                <a href="https://docs.netapp.com/en/announcements/" class="n-footer__copyright-link">Announcements</a>
               </div>
             </div>
           </div>
@@ -1231,15 +1343,15 @@
 
     </div>
 
-    <script src="/occm/common/js/components.js"></script>
-    <script src="/occm/common/js/doc-components.js"></script>
+    <script src="/occm/en/common/js/components.js"></script>
+    <script src="/occm/en/common/js/doc-components.js"></script>
 
     <!-- Elasticsearch JS -->
-    <script type="text/javascript" src='/occm/js/bundle.js'></script>
+    <script type="text/javascript" src='/occm/en/js/bundle.js'></script>
 
     <!-- Syntax Highlighting -->
-    <script type="text/javascript" src='/occm/js/prism.js'></script>
-    <script type="text/javascript" src='/occm/js/prism-curl.js'></script>
+    <script type="text/javascript" src='/occm/en/js/prism.js'></script>
+    <script type="text/javascript" src='/occm/en/js/prism-curl.js'></script>
 
   </body>
 
