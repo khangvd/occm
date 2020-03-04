@@ -7,7 +7,7 @@
   <meta property="og:title" content="Getting started with Cloud Compliance for Amazon S3 | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/occm/en/task_scanning_s3.html" />
-	<meta property="og:description" content="Complete a few steps to get started with Cloud Compliance for Amazon S3." />
+	<meta property="og:description" content="Cloud Compliance can scan your Amazon S3 buckets to identify the personal and sensitive data that resides in S3 object storage. Cloud Compliance can scan any..." />
   <meta property="og:image" content="https://docs.netapp.com/occm/en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
   
   <meta http-equiv="nss-product" content="OnCommand"/>
   
-  <meta name="description" content="Complete a few steps to get started with Cloud Compliance for Amazon S3.">
+  <meta name="description" content="Cloud Compliance can scan your Amazon S3 buckets to identify the personal and sensitive data that resides in S3 object storage. Cloud Compliance can scan any...">
   <meta name="keywords" content=" cloud compliance, amazon s3, s3 buckets, amazon s3 buckets, scan s3 buckets, scan amazon s3 buckets, enable compliance s3, enable compliance on s3, s3 working environment">
   
   
@@ -1046,7 +1046,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-02-28 19:21:55 +0000">02/28/2020</time>
+<time datetime="2020-03-04 16:36:36 +0000">03/04/2020</time>
 
 
 <span>Contributors
@@ -1071,25 +1071,42 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="pricing">Pricing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Compliance for Amazon S3 is offered for no cost at this time. We&#8217;ll notify you 30 days before the free trial is about to end. Pricing will be published at a later date.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="quick-start">Quick start</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Get started quickly by following these steps or scroll down to the remaining sections for full details.</p>
 </div>
 <div class="sect3">
-<h4 id="review-prerequisites"><span class="image"><img src="./media/number1.png" alt="Number 1"></span> Review prerequisites</h4>
+<h4 id="deploy-cloud-manager-in-aws"><span class="image"><img src="./media/number1.png" alt="Number 1"></span> Deploy Cloud Manager in AWS</h4>
 <div class="paragraph quick-margin-para">
-<p>Ensure that your cloud environment can meet the prerequisites, which includes deploying Cloud Manager in the same account as your S3 buckets, preparing an IAM role, setting up connectivity from Cloud Compliance to S3, and more. <a href="#reviewing-prerequisites">See the complete list</a>.</p>
+<p>If you haven&#8217;t already done so, log in to <a href="https://cloud.netapp.com">Cloud Central</a> and deploy Cloud Manager in AWS.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>Cloud Manager must be running in the AWS account that has the S3 buckets that you want to scan. Cloud Manager automatically discovers the S3 buckets and displays them in an Amazon S3 working environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-cloud-compliance"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Enable Cloud Compliance</h4>
+<h4 id="set-up-your-cloud-environment"><span class="image"><img src="./media/number2.png" alt="Number 2"></span> Set up your cloud environment</h4>
+<div class="paragraph quick-margin-para">
+<p>Ensure that your cloud environment can meet the requirements for Cloud Compliance, which includes preparing an IAM role, setting up connectivity from Cloud Compliance to S3, and more. <a href="#reviewing-prerequisites">See the complete list</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="enable-cloud-compliance"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Enable Cloud Compliance</h4>
 <div class="paragraph quick-margin-para">
 <p>Select the Amazon S3 working environment, click <strong>Enable Compliance</strong>, and select an IAM role that includes the required permissions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-buckets"><span class="image"><img src="./media/number3.png" alt="Number 3"></span> Configure buckets</h4>
+<h4 id="configure-buckets"><span class="image"><img src="./media/number4.png" alt="Number 4"></span> Configure buckets</h4>
 <div class="paragraph quick-margin-para">
 <p>Select the buckets that you&#8217;d like to scan and Cloud Compliance will start scanning them.</p>
 </div>
