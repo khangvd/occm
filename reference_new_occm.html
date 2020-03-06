@@ -1046,7 +1046,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-03-01 17:02:57 +0000">03/01/2020</time>
+<time datetime="2020-03-06 14:58:41 +0000">03/06/2020</time>
 
 
 <span>Contributors
@@ -1207,7 +1207,19 @@ Looking for a previous release?<br>
 <p>You can set the backup schedule to daily, weekly, or monthly.</p>
 </li>
 <li>
-<p>Cloud Manager no longer needs to set up interface VPC endpoints to the Backup to S3 service.</p>
+<p>Cloud Manager no longer needs to set up <em>private links</em> to the Backup to S3 service.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cloud Volumes ONTAP does need a connection to S3 through a VPC Endpoint to the Amazon S3 service. <a href="task_backup_to_s3.html#requirements">Learn more about the requirements</a>.
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ul>
 </div>
