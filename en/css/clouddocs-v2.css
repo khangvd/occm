@@ -459,3 +459,20 @@ time+span {
 h1.n-doc__component-detail-heading {
   margin-bottom: .1em;
 }
+
+.n-pdf-button {
+  border: #e3e3e3; 
+  align-items: center; 
+  border: 1px solid transparent; 
+  display: inline-flex; 
+  border-top: 1px solid #e3e3e3 !important; 
+  border-bottom: 1px solid #e3e3e3 !important; 
+  font-size: .875rem;
+  padding-left: .75em; 
+  padding-right: .75em; 
+  height: 2.25em; 
+  line-height: 1.5;
+  color: #454545; 
+  font-weight: bolder; 
+  width: 265px;
+}
